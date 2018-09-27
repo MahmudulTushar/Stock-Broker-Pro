@@ -1,0 +1,664 @@
+﻿using System;
+using System.Data;
+using BusinessAccessLayer.BO;
+using DataAccessLayer;
+using System.Collections.Generic;
+
+namespace BusinessAccessLayer.BAL
+{
+    public class TradeBAL
+    {
+        private DbConnection _dbConnection;
+
+        public TradeBAL()
+        {
+            _dbConnection = new DbConnection();
+        }
+
+        public void SaveProcessedTradeInfo(DataTable dataTable, string tableName)
+        {
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                _dbConnection.BulkCopy(dataTable, tableName);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+        }
+
+        public void SaveProcessedTradeTemp_ByInsertQuery(DataTable dataTable)
+        {
+            List<string> queryList = new List<string>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                if (Convert.ToString(dr["ClientCode"]) != "KSL122")
+                {
+                    string temp = @"INSERT INTO [SBP_Transaction_Temp]
+                           ([Action]
+                           ,[Status]
+                           ,[ISIN]
+                           ,[AssetClass]
+                           ,[OrderID]
+                           ,[RefOrderID]
+                           ,[Side]
+                           ,[BOID]
+                           ,[SecurityCode]
+                           ,[Board]
+                           ,[Date]
+                           ,[Time]
+                           ,[Quantity]
+                           ,[Price]
+                           ,[Value]
+                           ,[ExecID]
+                           ,[Session]
+                           ,[FillType]
+                           ,[Category]
+                           ,[CompulsarySpot]
+                           ,[ClientCode]
+                           ,[TraderDealerID]
+                           ,[OwnerDealerID]
+                           ,[TradeReportType]
+                          )
+                     VALUES
+                           ('" + Convert.ToString(dr["Action"]) + @"'
+                           ,'" + Convert.ToString(dr["Status"]) + @"'
+                           ,'" + Convert.ToString(dr["ISIN"]) + @"'
+                           ,'" + Convert.ToString(dr["AssetClass"]) + @"'
+                           ,'" + Convert.ToString(dr["OrderID"]) + @"'
+                           ,'" + Convert.ToString(dr["RefOrderID"]) + @"'
+                           ,'" + Convert.ToString(dr["Side"]) + @"'
+                           ,'" + Convert.ToString(dr["BOID"]) + @"'
+                           ,'" + Convert.ToString(dr["SecurityCode"]) + @"'
+                           ,'" + Convert.ToString(dr["Board"]) + @"'
+                           ,'" + Convert.ToString(dr["Date"]) + @"'
+                           ,'" + Convert.ToString(dr["Time"]) + @"'
+                           ," + Convert.ToString(dr["Quantity"]) + @"
+                           ," + Convert.ToString(dr["Price"]) + @"
+                           ," + Convert.ToString(dr["Value"]) + @"
+                           ,'" + Convert.ToString(dr["ExecID"]) + @"'
+                           ,'" + Convert.ToString(dr["Session"]) + @"'
+                           ,'" + Convert.ToString(dr["FillType"]) + @"'
+                           ,'" + Convert.ToString(dr["Category"]) + @"'
+                           ,'" + Convert.ToString(dr["CompulsorySpot"]) + @"'
+                           ,'" + Convert.ToString(dr["ClientCode"]) + @"'
+                           ,'" + Convert.ToString(dr["TraderDealerID"]) + @"'
+                           ,'" + Convert.ToString(dr["OwnerDealerID"]) + @"'
+                           ,'" + Convert.ToString(dr["TradeReportType"]) + @"'
+                          )";
+                    queryList.Add(temp);
+                }
+            }
+
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                _dbConnection.StartTransaction();
+                foreach (string temp in queryList)
+                    _dbConnection.ExecuteNonQuery(temp);
+                _dbConnection.Commit();
+
+            }
+            catch (Exception)
+            {
+                _dbConnection.Rollback();
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+        }
+       
+        public DataTable GetGridData()
+        {
+            DataTable dataTable;
+            string queryString = "SELECT ID,Customer as 'Customer Code',BOID,InstrumentCode as 'Company Short Name',ISIN,InstrumentCategory as 'Company Category',BuySellFlag as 'Buy/Sell',TradeQty as 'Trade Quantity',TradePrice as 'Trade Price',EventDate as 'Event Date' From SBP_Transaction_Temp";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+
+        }
+
+        public DataTable GetGridData_FlexTrade()
+        {
+            DataTable dataTable;
+            string queryString = @"SELECT ID,ClientCode,Status,BOID,SecurityCode,ISIN,Category,Side as [Buy/Sell],Quantity as [Trade Quantity], Price AS [Trade Price],Date
+                       From SBP_Transaction_Temp";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+
+        }
+
+        public DataTable ValidateBOID()
+        {
+            DataTable dataTable;
+            string queryString = "SELECT DISTINCT(BOID) From SBP_Transaction_Temp WHERE RIGHT(BOID,8) NOT IN (SELECT BO_ID From SBP_Customers)";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public DataTable ValidateBOID_FlexTrade()
+        {
+            DataTable dataTable;
+            string queryString = "SELECT DISTINCT(BOID) From SBP_Transaction_Temp WHERE RIGHT(BOID,8) NOT IN (SELECT BO_ID From SBP_Customers)";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public DataTable ValidateCustCode()
+        {
+            DataTable dataTable;
+            string queryString = "SELECT DISTINCT(ClientCode) AS 'Customer'  From SBP_Transaction_Temp WHERE ClientCode NOT IN (SELECT Cust_Code From SBP_Customers)";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public DataTable ValidateCustCode_FlexTrade()
+        {
+            DataTable dataTable;
+            string queryString = "SELECT DISTINCT(ClientCode) From SBP_Transaction_Temp WHERE ClientCode NOT IN (SELECT Cust_Code From SBP_Customers)";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public DataTable ValidateCompany()
+        {
+            DataTable dataTable;
+            string queryString = "SELECT DISTINCT(SecurityCode) AS 'InstrumentCode' From SBP_Transaction_Temp WHERE SecurityCode NOT IN (SELECT Comp_Short_Code From SBP_Company)";
+
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public DataTable ValidateCompany_FlexTrade()
+        {
+            DataTable dataTable;
+            string queryString = @"
+                                    SELECT DISTINCT(SecurityCode) 
+                                    From SBP_Transaction_Temp 
+                                    WHERE SecurityCode NOT IN (SELECT Comp_Short_Code From SBP_Company)";
+
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+
+        public DataTable ValidateCompanyCategory()
+        {
+            DataTable dataTable;
+            string queryString = "SELECT DISTINCT(SecurityCode) AS 'InstrumentCategory' From SBP_Transaction_Temp WHERE SecurityCode NOT IN (SELECT Comp_Category From SBP_Company,SBP_Comp_Category WHERE SBP_Comp_Category.Comp_Cat_ID=SBP_Company.Comp_Cat_ID )";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+
+        }
+
+        public DataTable ValidateCompanyCategory_FlexTrade()
+        {
+            DataTable dataTable;
+            string queryString = "SELECT DISTINCT(Category) From SBP_Transaction_Temp WHERE Category NOT IN (SELECT Comp_Category From SBP_Company,SBP_Comp_Category WHERE SBP_Comp_Category.Comp_Cat_ID=SBP_Company.Comp_Cat_ID )";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+
+        }
+
+        public DataTable ValidateISIN()
+        {
+            DataTable dataTable;
+            string queryString = "SELECT DISTINCT(ISIN) From SBP_Transaction_Temp WHERE ISIN NOT IN (SELECT ISIN_No From SBP_Company)";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public DataTable ValidateISIN_FlexTrade()
+        {
+            DataTable dataTable;
+            string queryString = "SELECT DISTINCT(ISIN) From SBP_Transaction_Temp WHERE ISIN NOT IN (SELECT ISIN_No From SBP_Company)";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public DataTable ValidateGroupMisMatch()
+        {
+            DataTable dataTable;
+            string queryString = "Select DISTINCT(SecurityCode) as 'Company',Comp_Category as 'Old Category',SecurityCode as 'New Category' FROM SBP_Company,SBP_Comp_Category,SBP_Transaction_Temp"
+             + " WHERE SBP_Company.Comp_Cat_ID=SBP_Comp_Category.Comp_Cat_ID AND SBP_Company.Comp_Short_Code=SecurityCode AND SBP_Comp_Category.Comp_Category !=SecurityCode";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+
+        }
+
+        public DataTable ValidateGroupMisMatch_FlexTrade()
+        {
+            DataTable dataTable;
+            string queryString = "Select DISTINCT(SecurityCode) as 'Company',Comp_Category as 'Old Category',SBP_Transaction_Temp.Category as 'New Category' FROM SBP_Company,SBP_Comp_Category,SBP_Transaction_Temp"
+             + " WHERE SBP_Company.Comp_Cat_ID=SBP_Comp_Category.Comp_Cat_ID AND SBP_Company.Comp_Short_Code=SecurityCode AND SBP_Comp_Category.Comp_Category !=SBP_Transaction_Temp.Category";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+
+        }
+        public DataTable ValidateCustCodeBOID()
+        {
+            DataTable dataTable;
+            string queryString = "SELECT ClientCode+' - '+RIGHT(BOID,8) AS Cust_Code_BO FROM SBP_Transaction_Temp,SBP_Customers WHERE ClientCode = Cust_Code AND RIGHT(BOID,8)!=BO_ID GROUP BY ClientCode,BOID UNION ALL SELECT ClientCode+' - '+RIGHT(BOID,8) FROM SBP_Transaction_Temp,SBP_Customers WHERE ClientCode != Cust_Code AND RIGHT(BOID,8)=BO_ID GROUP BY ClientCode,BOID"; 
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public DataTable ValidateCustCodeBOID_FlexTrade()
+        {
+            DataTable dataTable;
+            string queryString = @"SELECT ClientCode+' - '+RIGHT(BOID,8) AS Cust_Code_BO 
+            FROM SBP_Transaction_Temp,SBP_Customers 
+            WHERE ClientCode = Cust_Code AND RIGHT(BOID,8)!=BO_ID 
+            GROUP BY ClientCode,BOID 
+            UNION ALL 
+            SELECT ClientCode+' - '+RIGHT(BOID,8) 
+            FROM SBP_Transaction_Temp,SBP_Customers 
+            WHERE ClientCode != Cust_Code AND RIGHT(BOID,8)=BO_ID 
+            GROUP BY ClientCode,BOID";
+            try       
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+
+        public void TruncateTradeInfo()
+        {
+            string queryString = "";
+            queryString = "TRUNCATE TABLE SBP_Transaction_Temp";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                _dbConnection.StartTransaction();
+                _dbConnection.ExecuteNonQuery(queryString);
+                _dbConnection.Commit();
+            }
+            catch (Exception exception)
+            {
+                _dbConnection.Rollback();
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+        }
+
+        public void SaveIntoTransaction()
+        {
+            string queryStringInsert = "";
+            string queryStringUploadHistory = "";
+            queryStringInsert = "EXECUTE SP_ProcessTransactions;";
+            CommonBAL comBAL = new CommonBAL();
+            long slNo = comBAL.GenerateID("SBP_Upload_History", "Upload_ID");
+            queryStringUploadHistory = "INSERT INTO SBP_Upload_History(Upload_ID,File_Name,Upload_Date,Entry_By) SELECT TOP 1 " + slNo + ",'tradeFile',EventDate,'" + GlobalVariableBO._userName + "' FROM SBP_Transaction_Temp";
+            
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                _dbConnection.StartTransaction();
+                _dbConnection.ExecuteNonQuery(queryStringInsert);
+                _dbConnection.ExecuteNonQuery(queryStringUploadHistory);
+                _dbConnection.Commit();
+            }
+            catch (Exception exception)
+            {
+                _dbConnection.Rollback();
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+        }
+
+        public void SaveIntoTransaction_FlexTrade()
+        {
+            string queryStringInsert = "";
+            string queryStringUploadHistory = "";
+            queryStringInsert = "EXECUTE SP_ProcessTransactions_FlexTrade;";
+            CommonBAL comBAL = new CommonBAL();
+            long slNo = comBAL.GenerateID("SBP_Upload_History", "Upload_ID");
+            queryStringUploadHistory = "INSERT INTO SBP_Upload_History(Upload_ID,File_Name,Upload_Date,Entry_By) SELECT TOP 1 " + slNo + ",'tradeFile',Date,'" + GlobalVariableBO._userName + "' FROM SBP_Transaction_Temp";
+
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                _dbConnection.StartTransaction();
+                _dbConnection.ExecuteNonQuery(queryStringInsert);
+                _dbConnection.ExecuteNonQuery(queryStringUploadHistory);
+                _dbConnection.Commit();
+            }
+            catch (Exception exception)
+            {
+                _dbConnection.Rollback();
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+        }
+        
+        public void UpdateClientCode(string _newcustCode,string _oldCustCode,int _updateID)
+        {
+            string queryStringInsert = "";
+            CommonBAL commonBal=new CommonBAL();
+            long slNo=commonBal.GenerateID("SBP_Transaction_Change_History", "Sl_No");
+            string queryLog = "INSERT INTO SBP_Transaction_Change_History(Sl_No,BORN,InstrumentCode,ISIN,UserID,BuySellFlag,TradeQty,TradePrice,EventDate,EventTime,OldCustomer,NewCustomer,ModifiedBy,ModifiedDate) SELECT " + slNo + ",BORN,InstrumentCode,ISIN,UserID,BuySellFlag,TradeQty,TradePrice,EventDate,EventTime,'" + _oldCustCode + "','" + _newcustCode + "','" + GlobalVariableBO._userName + "',GETDATE() FROM SBP_Transaction_Temp WHERE ID='" + _updateID + "'";
+            queryStringInsert = "UPDATE SBP_Transaction_Temp SET Customer='" + _newcustCode + "',BOID=(SELECT '12023500'+dbo.GetBOFromCustCode('" + _newcustCode + "')) WHERE ID=" + _updateID + "";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                _dbConnection.StartTransaction();
+                _dbConnection.ExecuteNonQuery(queryStringInsert);
+                _dbConnection.ExecuteNonQuery(queryLog);
+                _dbConnection.Commit();
+            }
+            catch (Exception exception)
+            {
+                _dbConnection.Rollback();
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+           
+        }
+
+        public void UpdateClientCode_FlexTrade(string _newcustCode, string _oldCustCode, int _updateID)
+        {
+            string queryStringInsert = "";
+            CommonBAL commonBal = new CommonBAL();
+            long slNo = commonBal.GenerateID("SBP_Transaction_Change_History", "Sl_No");
+            string queryLog = @"INSERT INTO SBP_Transaction_Change_History
+                (Sl_No,BORN,InstrumentCode,ISIN,UserID,BuySellFlag,TradeQty,TradePrice,EventDate,EventTime,OldCustomer,NewCustomer,ModifiedBy,ModifiedDate) 
+                SELECT " + slNo + ",'',SecurityCode,ISIN,TraderDealerID,Side,Quantity,Price,Date,Time,'" + _oldCustCode + "','" + _newcustCode + "','" + GlobalVariableBO._userName + @"',GETDATE() 
+                FROM SBP_Transaction_Temp WHERE ID='" + _updateID + "'";
+            queryStringInsert = @"UPDATE SBP_Transaction_Temp SET ClientCode='" + _newcustCode + "',BOID=(SELECT '12023500'+dbo.GetBOFromCustCode('" + _newcustCode + @"')) 
+                WHERE ID=" + _updateID + "";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                _dbConnection.StartTransaction();
+                _dbConnection.ExecuteNonQuery(queryStringInsert);
+                _dbConnection.ExecuteNonQuery(queryLog);
+                _dbConnection.Commit();
+            }
+            catch (Exception exception)
+            {
+                _dbConnection.Rollback();
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+
+        }
+
+        public DataTable GetInstrumentGroupInfo()
+        {
+            DataTable dataTable;
+            string queryString = @"SELECT [Comp_Cat_ID]
+                                          ,[Comp_Category]
+                                   FROM SBP_Comp_Category";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public DataTable GetInstrumentCompanyInfo()
+        {
+            DataTable dataTable;
+            string queryString = @"SELECT [Comp_Short_Code]
+                                          ,[Comp_Cat_ID]
+                                   FROM SBP_Company";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public void ChangeCompanyGroup(string comp_Short_Code,int catId)
+        {
+            string queryString = "";
+            queryString = @"UPDATE SBP_Company
+                          SET [Comp_Cat_ID]=" + catId
+                          + " WHERE [Comp_Short_Code]='" + comp_Short_Code + "'";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                _dbConnection.ExecuteNonQuery(queryString);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+        }
+    }
+}

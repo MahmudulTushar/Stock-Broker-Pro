@@ -1,0 +1,13 @@
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\x86\Debug\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\x86\Debug\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\x86\Debug\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\x86\Debug\ElectronicCommunication.WaitWindow.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\x86\Debug\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\x86\Debug\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\x86\Debug\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\x86\Debug\ElectronicCommunication.frmSMSSendReceiveShow.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\x86\Debug\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\x86\Debug\ElectronicCommunication.WaitWindow.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\x86\Debug\ElectronicCommunication.csproj.GenerateResource.Cache

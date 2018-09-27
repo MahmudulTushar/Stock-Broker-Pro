@@ -1,0 +1,221 @@
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\XML Document\ReportsFormat.xml
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\Reports.dll.config
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\Reports.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\Reports.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\BusinessAccessLayer.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.Enterprise.Framework.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.ReportSource.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.Shared.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\DataAccessLayer.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\DseReports.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\MySql.Data.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.CrystalReports.Engine.xml
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\BusinessAccessLayer.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.Shared.xml
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\DataAccessLayer.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.ReportSource.xml
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\bin\x86\Debug\DseReports.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.BuySellNetAmntReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.BuySellReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientConfirmation.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientConfirmationClientCopyViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientConfirmationOfficeCopyViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientConfirmationViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientPayableRecounciliationStatement.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmAllParentChildInformation.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOCustomerSummaryBalanceLedger.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPODailyReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOFordardingResultAfterResult.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPONewPaymentReview.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmAdminAlternativeReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmClient_Today_Sale_Info.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmExpenseReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomizedForDSE_ReviewCustbalanceNew.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmCommonExpenditutreReportCall.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmImageListReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOApplicationForPublicIssue.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOCustomerShareLedger.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOSuccessfulUnsuccessful.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOSummaryOfTheApplications.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOTotalMoneyTransactionAfterResults.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPoTransferReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOUnblockAndTransferLetter.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmMonthCommonReportWind.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmPaymentOOCReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmPaymentReceiptSummary.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmPaymentReceiptSummaryViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\StockbrokerProNewArch.frmPaymentReviewReportCall.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmReportFormPeriod.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmShareEntryReview.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmToday_Transactions_Customer_List.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frm_BalanceByDateReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOCustomerMoneyLedger.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.FromIPOSingleApplicationReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.InstruwiseShareTradeList.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmInstruwiseShareTradeListViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOCustomerSummeryLedger.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TaxInput.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustInfoReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustMoneyBalanceViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustMoneyLedgerViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustNegetiveBalViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustNegSpecificViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustNegTodayBalViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomerMoneyLedger.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomerShareLedger.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomerSummeryLedger.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomerSummeryViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustPositiveBalViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustPosSpecificViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustShareBalanceViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustShareSummeryViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustWiseBuyShareListReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustWiseSellShareListReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmCommonDateReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmMonthlyExpense.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmPaymenrReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmPayrollSetting.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmReportDetaisInformation.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmReview.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmShareDWReviewReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.FrmShareList.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmViewCustomerInfo.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.InstruWiseBuyReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.InstruWiseSellReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.Last30DaysLedgerViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.MainReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.OfficeVoucherPrintingViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.Properties.Resources.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomizedForDSE_ReviewCustbalance.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ShareDetailsViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ShareListViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.SpecificShareLedgerViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.SpotTradeSummeryReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TaxCerfificateForm.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TodayCustBalanceViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TodaySummeryReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TradeSummeryReport.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TradeSummeryReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.VoucherPrinting.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientVoucherPrintingViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.csproj.GenerateResource.Cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\Reports\obj\x86\Debug\Reports.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\XML Document\ReportsFormat.xml
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\Reports.dll.config
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\Reports.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\Reports.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.Enterprise.Framework.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.ReportSource.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.Shared.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\DseReports.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\MySql.Data.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.CrystalReports.Engine.xml
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.Shared.xml
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\CrystalDecisions.ReportSource.xml
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\bin\x86\Debug\DseReports.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.BuySellNetAmntReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.BuySellReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientConfirmation.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientConfirmationClientCopyViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientConfirmationOfficeCopyViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientConfirmationViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientPayableRecounciliationStatement.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmAllParentChildInformation.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\StockbrokerProNewArch.frmcategoryWiseReportToissuer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOCustomerSummaryBalanceLedger.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPODailyReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOFordardingResultAfterResult.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPONewPaymentReview.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmAdminAlternativeReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmClient_Today_Sale_Info.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmExpenseReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomizedForDSE_ReviewCustbalanceNew.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmCommonExpenditutreReportCall.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmImageListReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOApplicationForPublicIssue.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOCustomerShareLedger.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPORequestToBlockIPOAmount.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOSubmissionOfIPOcollectionFile_Hardcopy_And_Softcopy.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOSuccessfulUnsuccessful.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOSummaryOfTheApplications.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\StockbrokerProNewArch.FrmIPOTotalApplicationList.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOTotalMoneyTransactionAfterResults.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPoTransferReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOUnblockAndTransferLetter.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmMonthCommonReportWind.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmPaymentOOCReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmPaymentReceiptSummary.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmPaymentReceiptSummaryViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\StockbrokerProNewArch.frmPaymentReviewReportCall.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmReportFormPeriod.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmShareEntryReview.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmToday_Transactions_Customer_List.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frm_BalanceByDateReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOCustomerMoneyLedger.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.FromIPOSingleApplicationReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.InstruwiseShareTradeList.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmInstruwiseShareTradeListViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmIPOCustomerSummeryLedger.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TaxInput.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustInfoReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustMoneyBalanceViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustMoneyLedgerViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustNegetiveBalViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustNegSpecificViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustNegTodayBalViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomerMoneyLedger.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomerShareLedger.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomerSummeryLedger.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomerSummeryViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustPositiveBalViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustPosSpecificViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustShareBalanceViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustShareSummeryViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustWiseBuyShareListReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustWiseSellShareListReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmCommonDateReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmMonthlyExpense.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmPaymenrReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmPayrollSetting.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmReportDetaisInformation.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmReview.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmShareDWReviewReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.FrmShareList.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.frmViewCustomerInfo.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.InstruWiseBuyReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.InstruWiseSellReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.Last30DaysLedgerViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.MainReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.OfficeVoucherPrintingViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.Properties.Resources.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.CustomizedForDSE_ReviewCustbalance.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ShareDetailsViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ShareListViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.SpecificShareLedgerViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.SpotTradeSummeryReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TaxCerfificateForm.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TodayCustBalanceViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TodaySummeryReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\StockbrokerProNewArch.TotalSubscriptionStatus.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TradeSummeryReport.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.TradeSummeryReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.VoucherPrinting.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.ClientVoucherPrintingViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.csproj.GenerateResource.Cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\Reports\obj\x86\Debug\Reports.pdb

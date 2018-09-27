@@ -1,0 +1,293 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BusinessAccessLayer.BAL;
+
+namespace StockbrokerProNewArch
+{
+    public partial class frmDeletePaymentOCC : Form
+    {
+        public frmDeletePaymentOCC()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void frmDeletePaymentOCC_Load(object sender, EventArgs e)
+        {
+            GetPurposeList();
+        }
+
+        private void ShowRejectedReason()
+        {
+            try
+            {
+                if(dgvPaymentOOcInfo.Rows.Count>0)
+                {
+                   if(dgvPaymentOOcInfo.SelectedRows[0].Cells["Rejected_Reason"].Value.ToString()!=String.Empty && dgvPaymentOOcInfo.SelectedRows[0].Cells["Status"].Value.ToString().Equals("Rejected"))
+                   {
+                       groupBox2.Text = "Rejected Reason || Voucher : " + dgvPaymentOOcInfo.SelectedRows[0].Cells["Voucher"].Value.ToString();
+                       txtRejectedReason.Text =
+                           dgvPaymentOOcInfo.SelectedRows[0].Cells["Rejected_Reason"].Value.ToString();
+                   }
+
+                   else if(dgvPaymentOOcInfo.SelectedRows[0].Cells["Status"].Value.ToString().Equals("Pending"))
+                   {
+                       groupBox2.Text = "Remarks || Voucheer : " + dgvPaymentOOcInfo.SelectedRows[0].Cells["Voucher"].Value.ToString();
+                       txtRejectedReason.Text =
+                          dgvPaymentOOcInfo.SelectedRows[0].Cells["Remarks"].Value.ToString();
+
+                   }
+
+                   else
+                   {
+                       groupBox2.Text = "Rejected Reason || Voucher : " + dgvPaymentOOcInfo.SelectedRows[0].Cells["Voucher"].Value.ToString();
+                       txtRejectedReason.Text ="No Rejected Reason .";
+                
+                   }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void GetPaymentOccInfo()
+        {
+            try
+            {
+                PaymentOOC ObjPaymentOOCBAL = new PaymentOOC();
+                DataTable data = new DataTable();
+
+                if(GetSearchString().Equals(""))
+                {
+                    MessageBox.Show("Search Information Required.","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }
+
+                else
+                {
+                    data = ObjPaymentOOCBAL.GetPaymentOCCInfo(GetSearchString());
+
+
+                    dgvPaymentOOcInfo.DataSource = data;
+                    dgvPaymentOOcInfo.Columns[0].Visible = false;
+                    dgvPaymentOOcInfo.Columns["Period"].DefaultCellStyle.Format = "yyyy";
+                    dgvPaymentOOcInfo.Columns["Period"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                    dgvPaymentOOcInfo.Columns["Date"].DefaultCellStyle.Format = "dd-MMM-yyyy";
+                    dgvPaymentOOcInfo.Columns["Date"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+
+                    dgvPaymentOOcInfo.Columns["Amount Tk."].DefaultCellStyle.Format = "N";
+                    dgvPaymentOOcInfo.Columns["Amount Tk."].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                    dgvPaymentOOcInfo.Columns["Rejected_Reason"].Visible = false;
+
+                    lblTotalRecord.Text = "Total Record : " + dgvPaymentOOcInfo.Rows.Count.ToString();
+
+                    ShowRejectedReason();
+
+
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private string GetSearchString()
+        {
+            try
+            {
+                string searchString = "";
+
+                if(chbClientCode.Checked)
+                {
+                    searchString = searchString + " AND Cust_Code='" + txtClientCode.Text + "'";
+                }
+
+                if(chbVoucherNo.Checked)
+                {
+                    searchString = searchString + " AND Voucher='" + txtVoucherNo.Text + "'";
+                }
+
+                if(chbPurpose.Checked)
+                {
+                    searchString = searchString + " AND OCC_ID=" + Int32.Parse(cboPurpose.SelectedValue.ToString()) + "";
+                }
+
+                if(ChbDate.Checked)
+                {
+                    searchString = searchString + " AND Payment_Date='" + dtpPaymentDate.Value.ToShortDateString() + "'";
+                }
+
+                return searchString;
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void GetPurposeList()
+        {
+            try
+            {
+                paymentOCCPaurpose objOccpurpose = new paymentOCCPaurpose();
+                DataTable data = new DataTable();
+
+                data = objOccpurpose.GetOCCPurposeList(string.Empty);
+                cboPurpose.DataSource = data;
+                cboPurpose.DisplayMember = "OCC_Purpose";
+                cboPurpose.ValueMember = "OCC_ID";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnGo_Click(object sender, EventArgs e)
+        {
+
+            if(chbClientCode.Checked==false && chbPurpose.Checked==false && chbVoucherNo.Checked==false && ChbDate.Checked==false)
+            {
+                MessageBox.Show("No Search Option is Seleted.\n Please Seleted a Search Option.", "Search Option",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            else
+            {
+                if (txtClientCode.Text.Trim() == String.Empty && txtClientCode.Enabled)
+                {
+                    MessageBox.Show("Client Code Required.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+
+                }
+
+                else if (txtVoucherNo.Text.Trim() == String.Empty && txtVoucherNo.Enabled)
+                {
+                    MessageBox.Show("Payment Occ Voucher No Required", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+
+                else
+                {
+
+                    GetPaymentOccInfo();
+                }
+            }
+
+          
+
+        }
+
+        private void chbClientCode_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chbClientCode.Checked)
+            {
+                txtClientCode.Enabled = true;
+            }
+
+            else
+            {
+                txtClientCode.Enabled = false;
+            }
+
+            if(chbPurpose.Checked)
+            {
+                cboPurpose.Enabled = true;
+            }
+
+            else
+            {
+                 cboPurpose.Enabled =false;
+            }
+
+
+            if(chbVoucherNo.Checked)
+            {
+                txtVoucherNo.Enabled = true;
+            }
+
+            else
+            {
+                txtVoucherNo.Enabled = false;
+            }
+
+            if(ChbDate.Checked)
+            {
+                dtpPaymentDate.Enabled = true;
+            }
+
+            else
+            {
+                dtpPaymentDate.Enabled = false;
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+                if(dgvPaymentOOcInfo.Rows.Count>0)
+                {
+                    if(MessageBox.Show("Do you want to Delete this Information ?","",MessageBoxButtons.YesNo,MessageBoxIcon.Information)==DialogResult.Yes)
+                    {
+                        PaymentOOC objOOC=new PaymentOOC();
+                        int PaymentOCCID = Int32.Parse(dgvPaymentOOcInfo.SelectedRows[0].Cells[0].Value.ToString());
+
+                        if(objOOC.IsTRPaymentOOC(PaymentOCCID)==true)
+                        {
+                            objOOC.DeletePaymentOCCTRInformation(PaymentOCCID);
+                        }
+                        else
+                        {
+                            objOOC.DeletePaymentOCCInfo(PaymentOCCID);
+                        }
+                        
+                        MessageBox.Show("Secessfully Delete this information.", "", MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+                        GetPaymentOccInfo();
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("No Information is Exists.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvPaymentOOcInfo_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ShowRejectedReason();
+            
+        }
+    }
+}

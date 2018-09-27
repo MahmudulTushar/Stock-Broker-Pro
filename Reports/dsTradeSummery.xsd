@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsTradeSummery" targetNamespace="http://tempuri.org/dsTradeSummery.xsd" xmlns:mstns="http://tempuri.org/dsTradeSummery.xsd" xmlns="http://tempuri.org/dsTradeSummery.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsTradeSummery" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsTradeSummery" msprop:Generator_DataSetName="dsTradeSummery" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ShareType" msprop:Generator_UserColumnName="ShareType" msprop:Generator_ColumnPropNameInRow="ShareType" msprop:Generator_ColumnVarNameInTable="columnShareType" msprop:Generator_ColumnPropNameInTable="ShareTypeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="BuySellFlag" msprop:Generator_UserColumnName="BuySellFlag" msprop:Generator_ColumnPropNameInRow="BuySellFlag" msprop:Generator_ColumnVarNameInTable="columnBuySellFlag" msprop:Generator_ColumnPropNameInTable="BuySellFlagColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="InstrumentCategory" msprop:Generator_UserColumnName="InstrumentCategory" msprop:Generator_ColumnPropNameInRow="InstrumentCategory" msprop:Generator_ColumnVarNameInTable="columnInstrumentCategory" msprop:Generator_ColumnPropNameInTable="InstrumentCategoryColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="BAmount" msprop:Generator_UserColumnName="BAmount" msprop:Generator_ColumnPropNameInRow="BAmount" msprop:Generator_ColumnVarNameInTable="columnBAmount" msprop:Generator_ColumnPropNameInTable="BAmountColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="SAmount" msprop:Generator_UserColumnName="SAmount" msprop:Generator_ColumnPropNameInRow="SAmount" msprop:Generator_ColumnVarNameInTable="columnSAmount" msprop:Generator_ColumnPropNameInTable="SAmountColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="BHowla" msprop:Generator_UserColumnName="BHowla" msprop:Generator_ColumnPropNameInRow="BHowla" msprop:Generator_ColumnVarNameInTable="columnBHowla" msprop:Generator_ColumnPropNameInTable="BHowlaColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="SHowla" msprop:Generator_UserColumnName="SHowla" msprop:Generator_ColumnPropNameInRow="SHowla" msprop:Generator_ColumnVarNameInTable="columnSHowla" msprop:Generator_ColumnPropNameInTable="SHowlaColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalLaga" msprop:Generator_UserColumnName="TotalLaga" msprop:Generator_ColumnPropNameInRow="TotalLaga" msprop:Generator_ColumnVarNameInTable="columnTotalLaga" msprop:Generator_ColumnPropNameInTable="TotalLagaColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalHowla" msprop:Generator_UserColumnName="TotalHowla" msprop:Generator_ColumnPropNameInRow="TotalHowla" msprop:Generator_ColumnVarNameInTable="columnTotalHowla" msprop:Generator_ColumnPropNameInTable="TotalHowlaColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalCommission" msprop:Generator_UserColumnName="TotalCommission" msprop:Generator_ColumnVarNameInTable="columnTotalCommission" msprop:Generator_ColumnPropNameInRow="TotalCommission" msprop:Generator_ColumnPropNameInTable="TotalCommissionColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalTax" msprop:Generator_UserColumnName="TotalTax" msprop:Generator_ColumnVarNameInTable="columnTotalTax" msprop:Generator_ColumnPropNameInRow="TotalTax" msprop:Generator_ColumnPropNameInTable="TotalTaxColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

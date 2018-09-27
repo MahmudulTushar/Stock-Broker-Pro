@@ -1,0 +1,624 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BusinessAccessLayer.BAL;
+using BusinessAccessLayer.BO;
+using BusinessAccessLayer.Constants;
+using Reports;
+using CrystalDecisions.CrystalReports.Engine;
+using System.Threading;
+
+namespace StockbrokerProNewArch
+{
+    public partial class frm_IPO_Single_ApplicationProcess : Form
+    {
+
+        private DataTable dt_EligableCustomer;
+        private DataTable dt_AppliedCustomer;
+
+        private int _dGEligibleCustomer_RowIndex;
+        private int _dGAppliedCustomer_RowIndex;
+
+        public frm_IPO_Single_ApplicationProcess()
+        {
+            InitializeComponent();
+            
+        }
+     
+
+        #region Global Variable
+        
+        int RowCount;
+        int Cust_code;
+        DataTable dt_EligibleClient;
+        DataTable dt_AppliedClient;
+        
+        #endregion
+
+        #region Load Combo Box
+        private void LoadCombo()
+            {
+                IPOProcessBAL ipoBal = new IPOProcessBAL();
+                
+                DataTable dt_Company = ipoBal.GetIPOSessionALL();
+                cmb_CompanyName.DataSource = dt_Company;
+                cmb_CompanyName.DisplayMember = "Company_Name";
+                cmb_CompanyName.ValueMember = "ID";
+
+                cmb_CompanyName.SelectedIndex =- 1;
+
+                DataTable dt_RefundType = ipoBal.GetRefundMethod();
+                cmb_RefundType.DataSource = dt_RefundType;
+                cmb_RefundType.DisplayMember = "Desc";
+                cmb_RefundType.ValueMember = "ID";
+
+                cmb_RefundType.SelectedValue=Indication_IPORefundType.Refund_TRIPO_ID;
+            }
+        private void LoadSchemaForDataTable()
+        {
+
+            IPOProcessBAL ipoBal=new IPOProcessBAL();
+            DataTable dt = ipoBal.GetEligibleCustomer(-1);
+            dt_EligableCustomer = dt.Clone();
+            dt_AppliedCustomer = dt.Clone();
+            
+        }
+        #endregion
+
+       
+
+        #region From Load
+
+            private void IpoApplicationProcess_Load(object sender, EventArgs e)
+            {
+                LoadCombo();
+                LoadSchemaForDataTable();
+            }
+          
+        #endregion
+
+        #region        
+       
+        private void SetDataTableToDataGridView()
+        {
+            dgv_FinalCheck.DataSource = dt_AppliedCustomer;
+        }
+
+       
+
+       
+        private void Check_Validation()
+        {
+            if (Convert.ToInt32(cmb_CompanyName.SelectedValue) < 0 || cmb_CompanyName.SelectedValue==null)
+            {
+                throw new Exception("Please Selecte A Company!!");
+            }
+            if (Convert.ToInt32(cmb_RefundType.SelectedValue) < 0 || cmb_RefundType.SelectedValue== null)
+            {
+                throw new Exception("Please Selecte A RefundValue!!");
+            }
+            if (cmb_RefundType.SelectedText==Indication_IPORefundType.Refund_TRPR_Desc)
+            {
+                throw new Exception("Trasfer Parent Not Allowed");
+            }
+        }
+
+        #endregion
+
+        private void cmb_CompanyName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_CompanyName.ValueMember !=string.Empty)
+            {
+                IPOProcessBAL ipoBal=new IPOProcessBAL();
+                
+                int id = Convert.ToInt32(cmb_CompanyName.SelectedValue);
+                DataTable dt = ipoBal.GetIPOSessionInfo_BySessionId(id);               
+
+            }
+        }
+        private void CheckBankInformation_AddToGrid(DataRow dr)
+        {
+            //string rountingID = "";
+            if (cmb_RefundType.Text == Indication_IPORefundType.Refund_EFT_Desc || cmb_RefundType.Text == Indication_IPORefundType.Refund_MMT_Desc)
+            {
+                if (Convert.ToString(dr["Routing_No"]).Trim() == string.Empty || Convert.ToString(dr["Bank_Name"]).Trim() == string.Empty || Convert.ToString(dr["Bank id"]).Trim() == string.Empty || Convert.ToString(dr["Branch_Name"]).Trim() == string.Empty || Convert.ToString(dr["Branch Id"]).Trim() == string.Empty)
+                //int BankNameCount = dt_AppliedCustomer.Rows.Cast<DataRow>().Where(t => Convert.ToString(t["BankName"]).Trim() == string.Empty).Count();
+                //int BankIdCount = dt_AppliedCustomer.Rows.Cast<DataRow>().Where(t => Convert.ToString(t["BankID"]).Trim() == string.Empty).Count();
+                //int BranchNameCount = dt_AppliedCustomer.Rows.Cast<DataRow>().Where(t => Convert.ToString(t["BranchName"]).Trim() == string.Empty).Count();
+                //int BranchIdcount = dt_AppliedCustomer.Rows.Cast<DataRow>().Where(t => Convert.ToString(t["BranchID"]).Trim() == string.Empty).Count();
+
+                //if (BalnkRoutingCount != 0 || BankNameCount != 0 || BankIdCount != 0 || BranchNameCount != 0 || BranchIdcount != 0)
+                {
+                    MessageBox.Show("Unable to Applied Due to bank Information is not Valid");
+                }
+            }
+
+        }
+
+        private void CheckBankInformation_BeforeSave()
+        {
+            //string rountingID = "";
+            if (cmb_RefundType.Text == Indication_IPORefundType.Refund_EFT_Desc || cmb_RefundType.Text == Indication_IPORefundType.Refund_MMT_Desc)
+            {
+                int BalnkRoutingCount = dt_AppliedCustomer.Rows.Cast<DataRow>().Where(t => Convert.ToString(t["RoutingNo"]).Trim() == string.Empty).Count();
+                int BankNameCount = dt_AppliedCustomer.Rows.Cast<DataRow>().Where(t => Convert.ToString(t["BankName"]).Trim() == string.Empty).Count();
+                int BankIdCount = dt_AppliedCustomer.Rows.Cast<DataRow>().Where(t => Convert.ToString(t["BankID"]).Trim() == string.Empty).Count();
+                int BranchNameCount = dt_AppliedCustomer.Rows.Cast<DataRow>().Where(t => Convert.ToString(t["BranchName"]).Trim() == string.Empty).Count();
+                int BranchIdcount = dt_AppliedCustomer.Rows.Cast<DataRow>().Where(t => Convert.ToString(t["BranchID"]).Trim() == string.Empty).Count();
+
+                if (BalnkRoutingCount != 0 || BankNameCount != 0 || BankIdCount != 0 || BranchNameCount != 0 || BranchIdcount != 0)
+                {
+                    throw new Exception("Unable to Applied Due to bank Information is not Valid");
+                }
+            }
+
+        }        
+
+        private void ClearDetais()
+        {
+            txtCustCode.Text=string.Empty;
+            if (!chkVoucher.Checked)
+                txtsingleSerailno.Text = string.Empty;
+            if (!chkremarks.Checked)
+                txtsingelApplicationRemarks.Text = string.Empty;
+        }
+
+        private void ClearByIPOSession()
+        {
+            if (dt_AppliedCustomer != null)
+                dt_AppliedCustomer.Clear();
+            SetDataTableToDataGridView();
+            chkVoucher.Checked = false;
+            chkremarks.Checked = false;
+            ChkAffectedAccount.Checked = false;
+            txtsingelApplicationRemarks.Text = "";
+            txtsingleSerailno.Text = "";
+            txtCustCode.Text = "";          
+            cmb_RefundType.Text = "";
+            txt_Cust_Code_ForReturnTransferParent.Text = "";
+        }
+
+        private void ClearALL()
+        {
+
+            if (dt_AppliedCustomer != null)
+                dt_AppliedCustomer.Clear();
+            SetDataTableToDataGridView();
+            chkVoucher.Checked = false;
+            chkremarks.Checked = false;
+            ChkAffectedAccount.Checked = false;
+            txtsingelApplicationRemarks.Text = "";
+            txtsingleSerailno.Text = "";
+            txtCustCode.Text = "";
+            cmb_CompanyName.Text = "";
+            cmb_RefundType.Text = "";
+            txt_Cust_Code_ForReturnTransferParent.Text = "";
+
+        }
+
+        private void NextIndex(string controlName)
+        {
+            if (txtCustCode.Name == controlName)
+                txtsingleSerailno.Focus();
+
+            if (txtsingleSerailno.Name == controlName)
+                btnSaveDetails.Focus();
+            if (cmb_CompanyName.Name == controlName)
+                cmb_RefundType.Focus();
+            if (cmb_RefundType.Name == controlName)
+                txtCustCode.Focus();
+            if (btnSaveDetails.Name == controlName)
+                txtCustCode.Focus();
+        }
+
+
+
+        private void btnEligibleClient_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string serial = txtsingleSerailno.Text;
+                string remarks = txtsingelApplicationRemarks.Text;
+                if (cmb_CompanyName.ValueMember != string.Empty)
+                {
+                    DataTable dt = new DataTable();
+                    IPOProcessBAL ipoBal = new IPOProcessBAL();
+                    
+                    //ClearByEligibleCustomer();
+                    int id = Convert.ToInt32(cmb_CompanyName.SelectedValue);                     
+                    dt = ipoBal.GetEligibleCustomer(id, txtCustCode.Text);
+                    //if (dt.Rows[0]["Serial_No"] == "")
+                    //{
+                    //    dt.Rows[0]["Serial_No"] = serial;
+                    //}
+                    foreach(DataRow dr in dt.Rows)
+                    {
+                        if (dt_AppliedCustomer.Rows.Cast<DataRow>().Where(T => Convert.ToString(T["Cust_Code"]) == txtCustCode.Text).Count() == 0)
+                        {
+                            //if (string.IsNullOrEmpty(dr["Serial_No"]))
+                            //{
+                                //dr["Serial_No"] = serial;
+                                //dr["Remarks"] = remarks;
+                            //}
+                            dr["Serial_No"] = txtsingleSerailno.Text;
+                            dr["Remarks"] = txtsingelApplicationRemarks.Text;
+                            //dr.SetField("Serial_No", serial.ToString());
+                            CheckBankInformation_AddToGrid(dr);
+                            //if (dr.Equals(txtCustCode.Text))
+                            //{
+                            //dr["Serial_No"] = serial;
+                            //dr["Remarks"] = remarks;
+                                dt_AppliedCustomer.Rows.Add(dr.ItemArray);
+                            //dt_AppliedCustomer.Rows.Add(dr);
+                            //}
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Already in grid");
+                        }
+                    }
+                    SetDataTableToDataGridView();
+                    NextIndex(btnSaveDetails.Name);
+                    ClearDetais();
+                    dgv_FinalCheck.FirstDisplayedScrollingRowIndex = dgv_FinalCheck.Rows.Cast<DataGridViewRow>().ToList().Last().Index;
+                    //btnDoubleForward_Click(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                NextIndex(btnSaveDetails.Name);
+            }
+        }
+        
+        private void dgvEligibleCustomer_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _dGEligibleCustomer_RowIndex = e.RowIndex;
+        }
+
+        private void dgvFinalCheck_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _dGAppliedCustomer_RowIndex = e.RowIndex;
+           
+        }
+
+        private void btnSingleForward_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow dr = dt_EligableCustomer.Rows[_dGEligibleCustomer_RowIndex];
+                dt_AppliedCustomer.Rows.Add(dr.ItemArray);
+                dt_EligableCustomer.Rows.RemoveAt(_dGEligibleCustomer_RowIndex);
+                SetDataTableToDataGridView();
+                btnVerify.Visible = true;
+                btnVerify.Enabled = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        
+        private void btnsingleBackword_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow dr = dt_AppliedCustomer.Rows[_dGAppliedCustomer_RowIndex];
+                dt_EligableCustomer.Rows.Add(dr.ItemArray);
+                dt_AppliedCustomer.Rows.RemoveAt(_dGAppliedCustomer_RowIndex);
+                SetDataTableToDataGridView();
+                btnVerify.Visible = false;
+                btnVerify.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDoubleForward_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                for (int i = 0; i <dt_EligableCustomer.Rows.Count; i++)
+                {
+                    dt_AppliedCustomer.Rows.Add(dt_EligableCustomer.Rows[i].ItemArray);
+                }
+                dt_EligableCustomer.Clear();
+                SetDataTableToDataGridView();
+                btnVerify.Visible = true;
+                btnVerify.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDoubleBackWard_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i < dt_AppliedCustomer.Rows.Count; i++)
+                {
+                    dt_EligableCustomer.Rows.Add(dt_AppliedCustomer.Rows[i].ItemArray);
+                }
+                dt_AppliedCustomer.Clear();
+                SetDataTableToDataGridView();
+                btnVerify.Visible = false;
+                btnVerify.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_Process_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Check_Validation();
+                CheckBankInformation_BeforeSave();
+                IPOProcessBAL ipoBal = new IPOProcessBAL();
+
+                string[] Cust_Codes = dt_AppliedCustomer.Rows.Cast<DataRow>().Select(t => Convert.ToString(t["Cust_Code"])).ToArray();
+                int[] SessionID = (new int[] {Convert.ToInt32(cmb_CompanyName.SelectedValue)});
+                int RefundID=Convert.ToInt32(cmb_RefundType.SelectedValue);
+                string[] SerailNo = dt_AppliedCustomer.Rows.Cast<DataRow>().Select(t => Convert.ToString(t["Serial_No"])).ToArray();
+                string[] Remarks = dt_AppliedCustomer.Rows.Cast<DataRow>().Select(t => Convert.ToString(t["Remarks"])).ToArray();
+                 
+                DataTable MoneyRefDt = new DataTable();
+
+                if (Cust_Codes.Length ==0)
+                    throw new Exception("No Customer Found");
+                //if (SessionID < 0)
+                //    throw new Exception("No Company Name Selected");
+                if (RefundID < 0)
+                    throw new Exception("No Refund Type Selected");
+
+                string Refund_Reference=string.Empty;
+
+                if (cmb_RefundType.Text == Indication_IPORefundType.Refund_TRPR)
+                {
+                   Refund_Reference= txt_Cust_Code_ForReturnTransferParent.Text;
+                }
+                //ipoBal.Insert_ApplyApplication_MoneyTransaction(new int[] { SessionID }, Cust_Codes, RefundID, Refund_Reference,0);
+
+                try
+                {
+                    ipoBal.ConnectDatabase();
+                    ipoBal.Insert_ApplyApplication_MoneyTransaction_UITransApplied(SessionID, Cust_Codes, RefundID, Refund_Reference, MoneyRefDt, Convert.ToInt32(txtlotNo.Text), SerailNo,Remarks);
+                    ipoBal.Updated_IPO_Affected_Account_UITransApplied(Cust_Codes, ChkAffectedAccount.Checked);
+                    ipoBal.Commit();
+                    MessageBox.Show("Application Process Successfully Done");
+                    LoadGridDataAfterSave(Cust_Codes, SessionID.FirstOrDefault(), RefundID);
+                }
+                catch(Exception ex)
+                {
+                    ipoBal.RollBack();
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();    
+                }
+            }               
+            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void cmb_RefundType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_RefundType.Text == Indication_IPORefundType.Refund_TRPR_Desc)
+            {
+                txt_Cust_Code_ForReturnTransferParent.Enabled = true;
+                txt_Cust_Code_ForReturnTransferParent.Text = string.Empty;
+            }
+            else
+            {
+                txt_Cust_Code_ForReturnTransferParent.Enabled = false;
+                txt_Cust_Code_ForReturnTransferParent.Text = string.Empty;
+            }
+        }
+
+        private string[] ref_cust_code;
+        private int ref_cust_code_index = 0;
+
+        #region Signature Info
+        private void btnVerify_Click(object sender, EventArgs e)
+        {
+            DataTable dtcode = new DataTable();
+            //dtcode = dgv_FinalCheck;
+
+            string[] orderId = dt_AppliedCustomer.Rows.Cast<DataRow>().Select(t => Convert.ToString(t["Cust_Code"])).ToArray();
+            //ref_cust_code = orderId;
+            //if (ref_cust_code.Length - 1 > ref_cust_code_index)
+            //{
+            //    ref_cust_code_index++;
+            //}
+            //else
+            //{
+            //    ref_cust_code_index = 0;
+            //}
+            //string ref_cust_code_list = ref_cust_code[ref_cust_code_index];
+
+            //string id = (string)dgv_FinalCheck.SelectedCells[0].Value; 
+            string[] sessionId = new string[] {Convert.ToString(cmb_CompanyName.SelectedValue) };
+            IPOProcessBAL objBAL = new IPOProcessBAL();
+            DataTable dt = new DataTable();
+            crIpoApplicationForPublicIssueSignature objrpt = new crIpoApplicationForPublicIssueSignature();
+            frmIPOReportViewer viewer = new frmIPOReportViewer();
+
+            dt = objBAL.GetPublicIssueFromBeforeApplication(orderId, sessionId);
+            
+
+            objrpt.SetDataSource(dt);
+            GetCommonInfo();
+            ((TextObject)objrpt.ReportDefinition.Sections[2].ReportObjects["txtreportName"]).Text =
+                               "IPO Application for public issue";
+            ((TextObject)objrpt.ReportDefinition.Sections[2].ReportObjects["txtCompanyName"]).Text =
+                _CommpanyName;
+            ///// Load Branch Name
+            ((TextObject)objrpt.ReportDefinition.Sections[2].ReportObjects["txtBranchName"]).Text =
+                "Branch Name:" + _branchName + "," + _branchAddress + ". Phone:" + _branchContactNumber;
+            viewer.crystalReportViewer1.ReportSource = objrpt;
+            viewer.StartPosition = FormStartPosition.CenterScreen;
+            viewer.ShowDialog(this);
+        
+
+        }
+        private string _CommpanyName;
+        private string _branchName;
+        private string _branchAddress;
+        private string _branchContactNumber;
+        private void GetCommonInfo()
+        {
+
+            try
+            {
+                CommonInfoBal objCommonInfoBal = new CommonInfoBal();
+                DataRow drCommonInfo = null;
+
+                drCommonInfo = objCommonInfoBal.GetCommpanyInfo();
+
+                if (drCommonInfo != null)
+                {
+                    _CommpanyName = drCommonInfo.Table.Rows[0][0].ToString();
+                    _branchName = drCommonInfo.Table.Rows[0][1].ToString();
+                    _branchAddress = drCommonInfo.Table.Rows[0][2].ToString();
+                    _branchContactNumber = drCommonInfo.Table.Rows[0][3].ToString();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        #endregion
+
+        private void btnImageVerify_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string SelectedCode=Convert.ToString(dt_AppliedCustomer.Rows[dgv_FinalCheck.CurrentRow.Index]["Cust_Code"]);
+                string[] orderId_Except = dt_AppliedCustomer.Rows.Cast<DataRow>().Where(t=> t["Cust_Code"]!=SelectedCode)
+                    .Select(t => Convert.ToString(t["Cust_Code"])).ToArray();
+                List<string> orderIdList = new List<string>();
+                orderIdList.Add(SelectedCode);
+                orderIdList.AddRange(orderId_Except);
+                ref_cust_code = orderIdList.ToArray();
+                if (ref_cust_code.Length - 1 > ref_cust_code_index)
+                {
+                    ref_cust_code_index++;
+                }
+
+                else
+                {
+                    ref_cust_code_index = 0;
+                }
+                string ref_cust_code_list = ref_cust_code[ref_cust_code_index];
+
+                frmCustomerVerificationInfo info = new frmCustomerVerificationInfo(orderIdList.ToArray());
+                info.StartPosition = FormStartPosition.CenterScreen;
+                info.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRow dr = dt_AppliedCustomer.Rows[_dGAppliedCustomer_RowIndex];
+                dt_EligableCustomer.Rows.Add(dr.ItemArray);
+                dt_AppliedCustomer.Rows.RemoveAt(_dGAppliedCustomer_RowIndex);
+                SetDataTableToDataGridView();                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtCustCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                NextIndex(txtCustCode.Name);
+            }
+        }
+
+        private void LoadGridDataAfterSave(string[] code, int id,int refund)
+        {
+            IPOProcessBAL bal = new IPOProcessBAL();
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = bal.GetSingleApplicationDataAfterSave(code, id, refund);
+                dgv_FinalCheck.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ClearALL();
+        }
+
+        private void cmb_CompanyName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                NextIndex(cmb_CompanyName.Name);
+            }
+        }
+
+        private void cmb_RefundType_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                NextIndex(cmb_RefundType.Name);
+            }
+        }
+
+        private void txtsingleSerailno_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                NextIndex(txtsingleSerailno.Name);
+            }
+
+        }
+
+        private void cmb_CompanyName_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            ClearByIPOSession();
+        }
+    }
+}

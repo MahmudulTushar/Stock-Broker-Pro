@@ -1,0 +1,1285 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="39A789FA-66B4-41E4-A9CD-D6073A6A7194/f:TradeSummeryReport.cs" caret="4080" fromTop="12" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:InformationEntry.cs" caret="933" fromTop="8" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:SettingsModule.cs" caret="7344" fromTop="14" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:ParentForm.cs" caret="3725" fromTop="16" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:AccountInformation.cs" caret="18127" fromTop="14" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:CusInfoEntry.cs" caret="13595" fromTop="15" />
+      <File id="E891C85D-2E55-4724-8FAD-C6F8E45714B4/f:DbConnection.cs" caret="3166" fromTop="18" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:CustomerInfoBAL.cs" caret="13991" fromTop="10" />
+      <File id="2A7C2AB5-EFF4-4077-A72E-B731AA4C9DA1/f:Flextrade-BOS-Positions.xsd" caret="562" fromTop="11" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:MdiDSE.cs" caret="12311" fromTop="19" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:ClientCashLimit.cs" caret="4429" fromTop="37" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:Constants/f:Indication_Forms_Title.cs" caret="1907" fromTop="27" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:frm_IPOPaymentForm.cs" caret="55896" fromTop="21" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:IPOApprovalBAL.cs" caret="483" fromTop="19" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:frm_IPOApproval.cs" caret="8696" fromTop="28" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:FrmIPOTotalApplicationList.cs" caret="1700" fromTop="23" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:IPOProcessBAL.cs" caret="28177" fromTop="19" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:TotalSubscriptionStatus.cs" caret="1772" fromTop="42" />
+      <File id="39A789FA-66B4-41E4-A9CD-D6073A6A7194/f:frmIPOApplicationForPublicIssue.cs" caret="1057" fromTop="19" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:frmcategoryWiseReportToissuer.cs" caret="1068" fromTop="19" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:IPOCustomerSummeryLedgerBAL.cs" caret="4800" fromTop="19" />
+      <File id="39A789FA-66B4-41E4-A9CD-D6073A6A7194/f:frmIPOCustomerSummeryLedger.cs" caret="1003" fromTop="0" />
+      <File id="39A789FA-66B4-41E4-A9CD-D6073A6A7194/f:frmIPOSuccessfulUnsuccessful.cs" caret="438" fromTop="15" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:PaymentForm.cs" caret="134704" fromTop="23" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="80643" fromTop="8" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:App.config" caret="1362" fromTop="22" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:AssetInformationBAL.cs" caret="163" fromTop="5" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:DashboardBAL.cs" caret="2331" fromTop="0" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:IPODashBoardBAL.cs" caret="169" fromTop="6" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:AccDashboard.cs" caret="19430" fromTop="7" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:FrmIPOTotalApplicationList.cs" caret="1542" fromTop="19" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:frmcategoryWiseReportToissuer.cs" caret="857" fromTop="12" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:frmcategoryWiseReportToissuer.cs" caret="871" fromTop="13" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:frmcategoryWiseReportToissuer.cs" caret="621" fromTop="9" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="39761" fromTop="4" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="40686" fromTop="23" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="41930" fromTop="18" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="42875" fromTop="37" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="72274" fromTop="25" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="74100" fromTop="24" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="76428" fromTop="23" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="78273" fromTop="38" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="81884" fromTop="34" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="83784" fromTop="28" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="86337" fromTop="14" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="88260" fromTop="23" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="95682" fromTop="30" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:PaymentInfoBAL.cs" caret="96512" fromTop="23" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:App.config" caret="297" fromTop="5" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:App.config" caret="526" fromTop="10" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:IPODashBoardBAL.cs" caret="2307" fromTop="17" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:IPODashBoardBAL.cs" caret="3757" fromTop="28" />
+      <File id="A2071E23-5F9E-4F47-888D-25311566AD2B/d:BAL/f:IPODashBoardBAL.cs" caret="4455" fromTop="16" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:AccDashboard.cs" caret="7523" fromTop="23" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:AccDashboard.cs" caret="19874" fromTop="23" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:AccDashboard.cs" caret="8023" fromTop="30" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:AccDashboard.cs" caret="20218" fromTop="31" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:AccDashboard.cs" caret="20307" fromTop="33" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:AccDashboard.cs" caret="20662" fromTop="35" />
+      <File id="82C596AC-69BD-4513-B111-D2E783D0FED1/f:AccDashboard.cs" caret="31848" fromTop="7" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="else" priority="105" />
+      <Item value="null" priority="8" />
+      <Item value="if" priority="176" />
+      <Item value="ImageBytes" priority="1" />
+      <Item value="Length" priority="0" />
+      <Item value="picVouchar" priority="0" />
+      <Item value="dtgOPEXInfo" priority="3" />
+      <Item value="dtSearchDate" priority="0" />
+      <Item value="queryString" priority="28" />
+      <Item value="_dbConnection" priority="105" />
+      <Item value="VarChar" priority="2" />
+      <Item value="object" priority="0" />
+      <Item value="opexDailyBo" priority="1" />
+      <Item value="float" priority="20" />
+      <Item value="txtAmount" priority="1" />
+      <Item value="txtLogoPath" priority="0" />
+      <Item value="private" priority="76" />
+      <Item value="string" priority="128" />
+      <Item value="public" priority="51" />
+      <Item value="String`0" priority="16" />
+      <Item value="return" priority="41" />
+      <Item value="_expensePurpose" priority="2" />
+      <Item value="value" priority="6" />
+      <Item value="objaddpurpose" priority="2" />
+      <Item value="objOpexpurposeBO" priority="1" />
+      <Item value="_expenseType" priority="3" />
+      <Item value="objOpexPurpose" priority="0" />
+      <Item value="ddlPurpose" priority="6" />
+      <Item value="GlobalVariableBO`0" priority="20" />
+      <Item value="StockbrokerProNewArch" priority="0" />
+      <Item value="new" priority="117" />
+      <Item value="frmNoDepreciation" priority="0" />
+      <Item value="objNoDepri" priority="0" />
+      <Item value="frmDeleteCapexInformation" priority="0" />
+      <Item value="objDelete" priority="1" />
+      <Item value="batch" priority="0" />
+      <Item value="pgbUpload" priority="17" />
+      <Item value="imgCount" priority="8" />
+      <Item value="lblUploadProgress" priority="17" />
+      <Item value="this" priority="25" />
+      <Item value="DataGridViewAutoSizeColumnMode`0" priority="0" />
+      <Item value="lblErrorImg" priority="3" />
+      <Item value="try" priority="84" />
+      <Item value="MessageBox`0" priority="109" />
+      <Item value="ex" priority="48" />
+      <Item value="btnStartUpload" priority="10" />
+      <Item value="false" priority="134" />
+      <Item value="_nImageSaveNumber" priority="8" />
+      <Item value="_nDuplicatedID" priority="8" />
+      <Item value="true" priority="50" />
+      <Item value="dtEmployeeList" priority="0" />
+      <Item value="objfrmReportViewer" priority="1" />
+      <Item value="void" priority="48" />
+      <Item value="rbtnDaily" priority="1" />
+      <Item value="dtpFrom" priority="3" />
+      <Item value="dtpTo" priority="3" />
+      <Item value="rbtMonthly" priority="0" />
+      <Item value="rbtYearly" priority="0" />
+      <Item value="frmCommonDateReport`0" priority="0" />
+      <Item value="frmCommonDateReport" priority="0" />
+      <Item value="objCommonDate" priority="1" />
+      <Item value="DataTable`0" priority="46" />
+      <Item value="DateTime`0" priority="11" />
+      <Item value="fromDate" priority="3" />
+      <Item value="Todate" priority="1" />
+      <Item value="dataTable" priority="5" />
+      <Item value="DataTable" priority="35" />
+      <Item value="finally" priority="25" />
+      <Item value="cr_DailyOpex`0" priority="0" />
+      <Item value="cr_DailyOpex" priority="0" />
+      <Item value="frmReportViewer`0" priority="0" />
+      <Item value="frmReportViewer" priority="0" />
+      <Item value="using" priority="25" />
+      <Item value="BusinessAccessLayer" priority="8" />
+      <Item value="BAL" priority="5" />
+      <Item value="OpexBAL`0" priority="0" />
+      <Item value="OpexBAL" priority="0" />
+      <Item value="objOpexBal" priority="1" />
+      <Item value="toDate" priority="1" />
+      <Item value="objcrDailyOpex" priority="2" />
+      <Item value="objReportviewer" priority="2" />
+      <Item value="GetDailyDaywiseOpexReport`0" priority="0" />
+      <Item value="CatagoryName" priority="0" />
+      <Item value="AssetInformationBAL`0" priority="1" />
+      <Item value="AssetInformationBAL" priority="1" />
+      <Item value="txtCategoryName" priority="2" />
+      <Item value="OK" priority="46" />
+      <Item value="Warning" priority="2" />
+      <Item value="objAssetInformationBal" priority="0" />
+      <Item value="Close`0" priority="6" />
+      <Item value="SaveCategory`0" priority="0" />
+      <Item value="frmAddCapexCatagory`0" priority="0" />
+      <Item value="frmAddCapexCatagory" priority="0" />
+      <Item value="objCatagory" priority="0" />
+      <Item value="dtList" priority="5" />
+      <Item value="objAssetInfoBal" priority="0" />
+      <Item value="ddlCatagory" priority="5" />
+      <Item value="int" priority="66" />
+      <Item value="_catagoryId" priority="1" />
+      <Item value="objAssetBO" priority="1" />
+      <Item value="Int32`0" priority="18" />
+      <Item value="objAssetEntryBO" priority="1" />
+      <Item value="CatagoryId" priority="1" />
+      <Item value="dtAssetList" priority="0" />
+      <Item value="ddlAssetList" priority="0" />
+      <Item value="dgvAssetInfo" priority="0" />
+      <Item value="BringToFront`0" priority="0" />
+      <Item value="btnRemove" priority="1" />
+      <Item value="Reports" priority="0" />
+      <Item value="cr_CityBankReconceliation`0" priority="0" />
+      <Item value="cr_CityBankReconceliation" priority="0" />
+      <Item value="ReportBAL`0" priority="0" />
+      <Item value="ReportBAL" priority="0" />
+      <Item value="BankReconcilation`0" priority="0" />
+      <Item value="BankReconcileBAL`0" priority="0" />
+      <Item value="BankReconcileBAL" priority="0" />
+      <Item value="objBankReconceliationBAL" priority="0" />
+      <Item value="Cursors`0" priority="3" />
+      <Item value="GenerateBalanceMissmatchReport`0" priority="1" />
+      <Item value="GenerateChequrematchReport`0" priority="0" />
+      <Item value="data" priority="65" />
+      <Item value="lblBranchName" priority="0" />
+      <Item value="date" priority="4" />
+      <Item value="frmPaymentOOC`0" priority="1" />
+      <Item value="frmPaymentOOC" priority="1" />
+      <Item value="ObjPaymentOOCBAL" priority="6" />
+      <Item value="dgvPaymentOOcInfo" priority="27" />
+      <Item value="DataGridViewContentAlignment`0" priority="6" />
+      <Item value="dateTimePicker1" priority="0" />
+      <Item value="dtpSearchDate" priority="0" />
+      <Item value="amount" priority="1" />
+      <Item value="stringQuery" priority="0" />
+      <Item value="lblTotalRecord" priority="0" />
+      <Item value="lblTotalAmount" priority="0" />
+      <Item value="cboPurpose" priority="4" />
+      <Item value="chbPurpose" priority="5" />
+      <Item value="GetPurposeList`0" priority="1" />
+      <Item value="ClientCode" priority="2" />
+      <Item value="VoucherNo" priority="0" />
+      <Item value="PurposeOCCId" priority="0" />
+      <Item value="chbClientCode" priority="3" />
+      <Item value="txtClientCode" priority="11" />
+      <Item value="chbVoucherNo" priority="3" />
+      <Item value="txtVoucherNo" priority="6" />
+      <Item value="ChbDate" priority="3" />
+      <Item value="dtpPaymentDate" priority="7" />
+      <Item value="MessageBoxButtons`0" priority="8" />
+      <Item value="Information" priority="45" />
+      <Item value="GetPaymentOccInfo`0" priority="1" />
+      <Item value="OccId" priority="1" />
+      <Item value="Yes" priority="13" />
+      <Item value="paymentOCCPaurpose`0" priority="0" />
+      <Item value="PaymentOOC`0" priority="2" />
+      <Item value="PaymentOOC" priority="3" />
+      <Item value="objOOC" priority="2" />
+      <Item value="frmDeletePaymentOCC`0" priority="0" />
+      <Item value="frmDeletePaymentOCC" priority="0" />
+      <Item value="txtRejectedReason" priority="3" />
+      <Item value="groupBox2" priority="1" />
+      <Item value="branchId" priority="4" />
+      <Item value="rbtPaymentDate" priority="0" />
+      <Item value="objPaymentOCCBAL" priority="1" />
+      <Item value="rbtBranch" priority="0" />
+      <Item value="ddlBranchList" priority="4" />
+      <Item value="PaymentOCCId" priority="6" />
+      <Item value="objPaymentOccBAL" priority="3" />
+      <Item value="PaymentOccId" priority="3" />
+      <Item value="YesNo" priority="5" />
+      <Item value="ApprovedPaymentOcc`0" priority="0" />
+      <Item value="for" priority="5" />
+      <Item value="i" priority="7" />
+      <Item value="RejectedReason" priority="1" />
+      <Item value="DialogResult`0" priority="3" />
+      <Item value="groupBox1" priority="0" />
+      <Item value="_voucherNo" priority="0" />
+      <Item value="_rejectedReault" priority="1" />
+      <Item value="No" priority="0" />
+      <Item value="MessageBoxIcon`0" priority="1" />
+      <Item value="_rejectedReason" priority="0" />
+      <Item value="Reason" priority="1" />
+      <Item value="frmRejectedReasonPaymentOCC`0" priority="0" />
+      <Item value="frmRejectedReasonPaymentOCC" priority="0" />
+      <Item value="objReajed" priority="5" />
+      <Item value="RejectedReasonOCC`0" priority="0" />
+      <Item value="paymentOOCId" priority="0" />
+      <Item value="ShowDatagridViewInfo`0" priority="0" />
+      <Item value="frmApprovedPaymentOCC`0" priority="0" />
+      <Item value="frmApprovedPaymentOCC" priority="0" />
+      <Item value="objApproved" priority="0" />
+      <Item value="out" priority="3" />
+      <Item value="ValidationId" priority="3" />
+      <Item value="GetValidationID`0" priority="0" />
+      <Item value="index" priority="2" />
+      <Item value="objPaymentOCCBal" priority="0" />
+      <Item value="OCCID" priority="0" />
+      <Item value="searchString" priority="2" />
+      <Item value="searchCode" priority="0" />
+      <Item value="GetSearchString`0" priority="2" />
+      <Item value="GetCommonInfo`0" priority="0" />
+      <Item value="picPhoto" priority="1" />
+      <Item value="Image`0" priority="3" />
+      <Item value="txtImgLocation" priority="3" />
+      <Item value="IsExistSignature" priority="5" />
+      <Item value="CheckExistingSignasture`0" priority="7" />
+      <Item value="singleImageBal" priority="2" />
+      <Item value="singleImageBo" priority="1" />
+      <Item value="Question" priority="5" />
+      <Item value="pictureBox1" priority="0" />
+      <Item value="picImage" priority="0" />
+      <Item value="dtgImUploadDirInfo" priority="2" />
+      <Item value="oflErrImgPath" priority="4" />
+      <Item value="Cursor" priority="0" />
+      <Item value="ErrImgPath" priority="5" />
+      <Item value="fbdImageUpload" priority="3" />
+      <Item value="File`0" priority="0" />
+      <Item value="Path`0" priority="2" />
+      <Item value="lblImageDirctoryTitle" priority="0" />
+      <Item value="CompanyBAL`0" priority="2" />
+      <Item value="CompanyBAL" priority="2" />
+      <Item value="objCompanyBAL" priority="2" />
+      <Item value="ddlOldCompanyShortCode" priority="6" />
+      <Item value="CompanyShortCode" priority="2" />
+      <Item value="CompanyShortName" priority="1" />
+      <Item value="ConsoleModifiers`0" priority="0" />
+      <Item value="CompanyName" priority="2" />
+      <Item value="txtOldCompanyName" priority="0" />
+      <Item value="CompannyName" priority="0" />
+      <Item value="txtNewCompanyShortName" priority="1" />
+      <Item value="txtNewCompanyName" priority="1" />
+      <Item value="None" priority="2" />
+      <Item value="GetOldCompanyShortCodeList`0" priority="0" />
+      <Item value="frmUpdateCompanyShortName" priority="0" />
+      <Item value="objCompanyShortName" priority="0" />
+      <Item value="bool" priority="11" />
+      <Item value="_isLoad" priority="1" />
+      <Item value="dtgDepositListInfo" priority="3" />
+      <Item value="HideCustomer" priority="0" />
+      <Item value="objHideCustomer" priority="1" />
+      <Item value="ProcessCashback" priority="0" />
+      <Item value="objProcessCashBack" priority="1" />
+      <Item value="mainMenubar" priority="0" />
+      <Item value="objPaymentOcc" priority="1" />
+      <Item value="ddlPaymentMedia" priority="1" />
+      <Item value="case" priority="7" />
+      <Item value="loggedinUsersToolStripMenuItem1" priority="0" />
+      <Item value="break" priority="7" />
+      <Item value="commonChargesToolStripMenuItem" priority="0" />
+      <Item value="iPOChargesEntryToolStripMenuItem" priority="0" />
+      <Item value="grouToolStripMenuItem" priority="0" />
+      <Item value="accountCloseChargeToolStripMenuItem" priority="0" />
+      <Item value="gAMarginToolStripMenuItem" priority="2" />
+      <Item value="vMAVIPMarginToolStripMenuItem" priority="2" />
+      <Item value="cashbackRegistrationToolStripMenuItem1" priority="2" />
+      <Item value="cashbackPlanToolStripMenuItem1" priority="1" />
+      <Item value="chlPrevillize" priority="6" />
+      <Item value="deleteToolStripMenuItem" priority="1" />
+      <Item value="menuStrip1" priority="1" />
+      <Item value="lblRecord" priority="7" />
+      <Item value="dtgWorkStation" priority="0" />
+      <Item value="DataAccessLayer" priority="2" />
+      <Item value="BO" priority="3" />
+      <Item value="DbConnection`0" priority="2" />
+      <Item value="CustomerBO_DP29BAL`0" priority="3" />
+      <Item value="DbConnection" priority="2" />
+      <Item value="CustomerBO_DP29`0" priority="2" />
+      <Item value="objCustomer_DP29BO" priority="22" />
+      <Item value="txtFileLocation" priority="2" />
+      <Item value="ofdFileOpen" priority="1" />
+      <Item value="CustomerBO_DP29Collection`0" priority="1" />
+      <Item value="const" priority="0" />
+      <Item value="char" priority="0" />
+      <Item value="CustomerBO_DP29Collection" priority="1" />
+      <Item value="System" priority="7" />
+      <Item value="IO" priority="1" />
+      <Item value="StreamReader`0" priority="0" />
+      <Item value="streamReader" priority="3" />
+      <Item value="StreamReader" priority="0" />
+      <Item value="filepath" priority="0" />
+      <Item value="while" priority="0" />
+      <Item value="existingChar" priority="0" />
+      <Item value="CustomerBO_DP29" priority="0" />
+      <Item value="CustomerBO_DP29BAL" priority="2" />
+      <Item value="objCustomerBO" priority="3" />
+      <Item value="Info" priority="2" />
+      <Item value="objCustomerBAL" priority="1" />
+      <Item value="objCustomerBO_DP29Collection" priority="3" />
+      <Item value="GetCustomerCollection`0" priority="0" />
+      <Item value="foreach" priority="4" />
+      <Item value="objCustomerDP29BAL" priority="0" />
+      <Item value="objCustomerBO_DP29" priority="2" />
+      <Item value="AddErrorInGrid`0" priority="1" />
+      <Item value="BOID" priority="0" />
+      <Item value="Cust_Name" priority="0" />
+      <Item value="frm_DP29`0" priority="0" />
+      <Item value="frm_DP29" priority="0" />
+      <Item value="objDP29" priority="2" />
+      <Item value="MdiParent" priority="0" />
+      <Item value="progress" priority="6" />
+      <Item value="lbProText" priority="1" />
+      <Item value="UserManagementBAL`0" priority="0" />
+      <Item value="NativeWindow`0" priority="1" />
+      <Item value="UserManagementBAL" priority="0" />
+      <Item value="objUserManagementBAL" priority="0" />
+      <Item value="ddlUserName" priority="10" />
+      <Item value="CustomerBAL`0" priority="0" />
+      <Item value="CustomerBAL" priority="0" />
+      <Item value="txtName" priority="2" />
+      <Item value="txtFinalCustCode" priority="4" />
+      <Item value="txtClientStatus" priority="4" />
+      <Item value="txtBOID" priority="1" />
+      <Item value="Keys`0" priority="0" />
+      <Item value="e" priority="6" />
+      <Item value="GetCustmerInfo`0" priority="0" />
+      <Item value="Color`0" priority="3" />
+      <Item value="Data" priority="3" />
+      <Item value="LimitedDashboardBAL`0" priority="4" />
+      <Item value="userName" priority="3" />
+      <Item value="LimitedDashboardBAL" priority="2" />
+      <Item value="objLimitedClientDashboardBAL" priority="1" />
+      <Item value="frmSpecialClientDashboard`0" priority="0" />
+      <Item value="frmSpecialClientDashboard" priority="0" />
+      <Item value="objSpecial" priority="1" />
+      <Item value="isExist" priority="2" />
+      <Item value="objLimitedDashboardBAL" priority="1" />
+      <Item value="dataGridView1" priority="2" />
+      <Item value="lblUserName" priority="0" />
+      <Item value="dgvLimitedClient" priority="2" />
+      <Item value="LimitedID" priority="2" />
+      <Item value="qaueryString" priority="0" />
+      <Item value="GetLimitedClientList`0" priority="0" />
+      <Item value="DeleteClient`0" priority="0" />
+      <Item value="FinNetting`0" priority="0" />
+      <Item value="FinNetting" priority="0" />
+      <Item value="objFinNetting" priority="1" />
+      <Item value="txtImmaturedFund" priority="1" />
+      <Item value="txtTotalBuy" priority="1" />
+      <Item value="objApplly" priority="0" />
+      <Item value="dtHolidayList" priority="1" />
+      <Item value="_totalHoliday" priority="3" />
+      <Item value="_takenHoliday" priority="3" />
+      <Item value="_restHoliday" priority="3" />
+      <Item value="exception" priority="0" />
+      <Item value="objBO29BAL" priority="0" />
+      <Item value="dgvClientInfo" priority="0" />
+      <Item value="dtgCheckReceiver" priority="0" />
+      <Item value="lblRequision" priority="0" />
+      <Item value="dtgCheckRequisitionInfo" priority="1" />
+      <Item value="lblRecived" priority="0" />
+      <Item value="dtgReceivedCheck" priority="0" />
+      <Item value="dgvExtension" priority="0" />
+      <Item value="dtgHiddenCustomer" priority="0" />
+      <Item value="dtgShareDWSearchData" priority="0" />
+      <Item value="dtgPaymentSearchData" priority="0" />
+      <Item value="dgvInfo" priority="8" />
+      <Item value="label5" priority="0" />
+      <Item value="dtgHoliday" priority="0" />
+      <Item value="Graphs`0" priority="1" />
+      <Item value="Graphs" priority="0" />
+      <Item value="objgraph" priority="1" />
+      <Item value="PropertySort`0" priority="0" />
+      <Item value="_companyShortCode" priority="3" />
+      <Item value="dgvShareSummery" priority="2" />
+      <Item value="lblCompany" priority="0" />
+      <Item value="ddlCompanyName" priority="0" />
+      <Item value="txtDeprciation" priority="11" />
+      <Item value="DialogResult" priority="1" />
+      <Item value="deprciationRate" priority="1" />
+      <Item value="txtPurchasePrice" priority="4" />
+      <Item value="txtSalvageValue" priority="5" />
+      <Item value="lblDays" priority="1" />
+      <Item value="Days" priority="0" />
+      <Item value="NetExpenseCost" priority="0" />
+      <Item value="_deprceiationRate" priority="1" />
+      <Item value="test" priority="0" />
+      <Item value="OpexPurposeBAL`0" priority="4" />
+      <Item value="CategoryId" priority="0" />
+      <Item value="PurposeName" priority="1" />
+      <Item value="categoryID" priority="0" />
+      <Item value="txtPurpose" priority="4" />
+      <Item value="OpexPurposeBAL" priority="3" />
+      <Item value="objPurpose" priority="6" />
+      <Item value="_categoryId" priority="4" />
+      <Item value="_categoryName" priority="3" />
+      <Item value="dgvPurposeInfo" priority="4" />
+      <Item value="ShowDeleatablepurpose`0" priority="2" />
+      <Item value="frmOpexCategoryPurpose`0" priority="0" />
+      <Item value="frmOpexCategoryPurpose" priority="0" />
+      <Item value="ddExpur" priority="2" />
+      <Item value="txtCategory" priority="1" />
+      <Item value="PurposeID" priority="0" />
+      <Item value="objPurpiose" priority="0" />
+      <Item value="purposeId" priority="0" />
+      <Item value="decimal" priority="0" />
+      <Item value="DeleteOpexPurpose`0" priority="0" />
+      <Item value="_result" priority="0" />
+      <Item value="lbComapnyName" priority="0" />
+      <Item value="btnUpload" priority="0" />
+      <Item value="depositWithdrawToolStripMenuItem" priority="0" />
+      <Item value="shareTransactionToolStripMenuItem" priority="3" />
+      <Item value="paymentReceiptToolStripMenuItem" priority="0" />
+      <Item value="depositPostingToolStripMenuItem" priority="0" />
+      <Item value="chequeRequistionToolStripMenuItem" priority="0" />
+      <Item value="moneyTransactionToolStripMenuItem" priority="2" />
+      <Item value="depositToolStripMenuItem" priority="0" />
+      <Item value="ApprovalchequeRequisitionToolStripMenuItem" priority="0" />
+      <Item value="ApprovalotherChargeCreditToolStripMenuItem" priority="0" />
+      <Item value="approvalToolStripMenuItem" priority="2" />
+      <Item value="deleteShareDepositWithdrawToolStripMenuItem" priority="0" />
+      <Item value="moneyPaymentReceiptToolStripMenuItem" priority="0" />
+      <Item value="deleteTransactionToolStripMenuItem" priority="2" />
+      <Item value="chequePrintToolStripMenuItem1" priority="0" />
+      <Item value="reprintPermissionToolStripMenuItem1" priority="0" />
+      <Item value="chequeConfigurationExcelToolStripMenuItem" priority="0" />
+      <Item value="chequeManagementToolStripMenuItem" priority="0" />
+      <Item value="addUpdateBranchToolStripMenuItem1" priority="0" />
+      <Item value="closeBranchToolStripMenuItem1" priority="0" />
+      <Item value="branchInformationToolStripMenuItem" priority="1" />
+      <Item value="addUpdateToolStripMenuItem" priority="0" />
+      <Item value="grantPrivilegeRoleToolStripMenuItem" priority="0" />
+      <Item value="roleToolStripMenuItem" priority="0" />
+      <Item value="addUpdateUserToolStripMenuItem1" priority="2" />
+      <Item value="deleteUserToolStripMenuItem" priority="0" />
+      <Item value="limitedDashboardToolStripMenuItem" priority="0" />
+      <Item value="userOperationsToolStripMenuItem" priority="0" />
+      <Item value="marginToolStripMenuItem" priority="0" />
+      <Item value="toolStripMenuItem1" priority="0" />
+      <Item value="AccountInformation`0" priority="1" />
+      <Item value="_IsShareTrans" priority="1" />
+      <Item value="SharedepositWithdrawToolStripMenuItem" priority="0" />
+      <Item value="DBNull`0" priority="0" />
+      <Item value="ddlCompSector" priority="1" />
+      <Item value="companyBo" priority="3" />
+      <Item value="txtCompanyShortNumber" priority="0" />
+      <Item value="IslimitedDashboard" priority="2" />
+      <Item value="previllizeManagementBal" priority="2" />
+      <Item value="dashboardBal" priority="1" />
+      <Item value="GetCustomerDetails`0" priority="0" />
+      <Item value="Minimized" priority="0" />
+      <Item value="ddlBankName" priority="1" />
+      <Item value="queryStringPaymentOCC" priority="0" />
+      <Item value="paymentOOCID" priority="0" />
+      <Item value="isTR" priority="2" />
+      <Item value="querystringPayment" priority="0" />
+      <Item value="moneyBalenceTemp" priority="0" />
+      <Item value="objpaymentOcc" priority="0" />
+      <Item value="PaymentOCCID" priority="2" />
+      <Item value="quueryStringPayment" priority="0" />
+      <Item value="Drawing" priority="2" />
+      <Item value="Printing" priority="0" />
+      <Item value="PrintDocument`0" priority="0" />
+      <Item value="printCheck" priority="7" />
+      <Item value="Margin" priority="1" />
+      <Item value="Margins`0" priority="0" />
+      <Item value="margins" priority="2" />
+      <Item value="Margins" priority="4" />
+      <Item value="Convert`0" priority="9" />
+      <Item value="double" priority="8" />
+      <Item value="txtCompanyShortCode" priority="1" />
+      <Item value="BigInt" priority="1" />
+      <Item value="companyDataTable" priority="0" />
+      <Item value="qty" priority="0" />
+      <Item value="statu" priority="1" />
+      <Item value="PerfDataType`0" priority="0" />
+      <Item value="txtgainLoss" priority="1" />
+      <Item value="txtMarketValue" priority="0" />
+      <Item value="txtCurrentBalance" priority="1" />
+      <Item value="txtCurMonBal" priority="0" />
+      <Item value="txtMaturedBalance" priority="0" />
+      <Item value="MarginPlanBAL`0" priority="0" />
+      <Item value="MarginPlanBAL" priority="0" />
+      <Item value="objmarginplanBAL" priority="0" />
+      <Item value="CustomerPersonalInfoBO`0" priority="0" />
+      <Item value="dataGridFilterExtender1" priority="0" />
+      <Item value="CashBackReg`0" priority="0" />
+      <Item value="CashBackReg" priority="0" />
+      <Item value="objCashBackRegi" priority="0" />
+      <Item value="CashBackRegBAL`0" priority="0" />
+      <Item value="CashBackRegBAL" priority="0" />
+      <Item value="tsmDataProcess" priority="0" />
+      <Item value="newTradeFileImport" priority="1" />
+      <Item value="previousTradeFileImport" priority="1" />
+      <Item value="cashLimitToolStripMenuItem" priority="1" />
+      <Item value="shareLimitToolStripMenuItem" priority="1" />
+      <Item value="previousLimitToolStripMenuItem" priority="1" />
+      <Item value="manualTradepriceImportToolStripMenuItem" priority="1" />
+      <Item value="autoUploadInternetToolStripMenuItem" priority="1" />
+      <Item value="limitedDashboardToolStripMenuItem1" priority="1" />
+      <Item value="hideAccountsFromDashboardToolStripMenuItem" priority="0" />
+      <Item value="customerInformationToolStripMenuItem" priority="1" />
+      <Item value="additionalInformationToolStripMenuItem" priority="1" />
+      <Item value="dtpDateFrom" priority="1" />
+      <Item value="printChequeToolStripMenuItem" priority="1" />
+      <Item value="reprintPermissionToolStripMenuItem" priority="1" />
+      <Item value="cityBankToolStripMenuItem" priority="1" />
+      <Item value="finicalNettingToolStripMenuItem" priority="1" />
+      <Item value="dtFromDate" priority="2" />
+      <Item value="dtToDate" priority="0" />
+      <Item value="PaperSize" priority="4" />
+      <Item value="objPeriod" priority="0" />
+      <Item value="PaperSize`0" priority="2" />
+      <Item value="paperSize" priority="3" />
+      <Item value="SizeF" priority="1" />
+      <Item value="ChequePrintSetup`0" priority="0" />
+      <Item value="g" priority="6" />
+      <Item value="graphics" priority="2" />
+      <Item value="img" priority="0" />
+      <Item value="previewDialog" priority="1" />
+      <Item value="Padding" priority="0" />
+      <Item value="PaperSourceCollection" priority="0" />
+      <Item value="PaperSource" priority="0" />
+      <Item value="PrinterSettings`0" priority="0" />
+      <Item value="printerSettings" priority="1" />
+      <Item value="PrinterSettings" priority="0" />
+      <Item value="PaperKind`0" priority="0" />
+      <Item value="todayCustBalanceViewer" priority="0" />
+      <Item value="_FromDate" priority="0" />
+      <Item value="_toDate" priority="0" />
+      <Item value="crSpotTradeSumm" priority="0" />
+      <Item value="chbOrder" priority="4" />
+      <Item value="isSorted" priority="10" />
+      <Item value="Int" priority="4" />
+      <Item value="crCustBalance" priority="8" />
+      <Item value="crCustMoneyLedger`0" priority="0" />
+      <Item value="_fromDate" priority="0" />
+      <Item value="custRptViewer" priority="2" />
+      <Item value="chbOder" priority="0" />
+      <Item value="issorted" priority="2" />
+      <Item value="VoucherPrinting`0" priority="0" />
+      <Item value="VoucherPrinting" priority="0" />
+      <Item value="obj" priority="2" />
+      <Item value="taxStatementToolStripMenuItem1" priority="1" />
+      <Item value="Classes" priority="0" />
+      <Item value="NumberToEnglish`0" priority="0" />
+      <Item value="NumberToEnglish" priority="0" />
+      <Item value="MomeyAmount" priority="0" />
+      <Item value="amountWords" priority="0" />
+      <Item value="actualName" priority="3" />
+      <Item value="CustName" priority="1" />
+      <Item value="fname" priority="0" />
+      <Item value="lName" priority="0" />
+      <Item value="custName" priority="3" />
+      <Item value="LCustName" priority="1" />
+      <Item value="LCfont" priority="0" />
+      <Item value="rdoNegetiveSpecificer" priority="0" />
+      <Item value="rdoPositiveSpecific" priority="0" />
+      <Item value="dtpDate" priority="4" />
+      <Item value="rdoNegetive" priority="0" />
+      <Item value="rdoPossitiveBal" priority="0" />
+      <Item value="frm_BalanceByDateReport`0" priority="0" />
+      <Item value="frmBalanceByDateReport" priority="1" />
+      <Item value="frm_BalanceByDateReport" priority="0" />
+      <Item value="ddlResourceName" priority="6" />
+      <Item value="resourceId" priority="3" />
+      <Item value="List" priority="0" />
+      <Item value="List&lt;string&gt;" priority="0" />
+      <Item value="in" priority="4" />
+      <Item value="rootDataSource" priority="0" />
+      <Item value="filterName" priority="0" />
+      <Item value="item" priority="3" />
+      <Item value="DataRow`0" priority="1" />
+      <Item value="row" priority="1" />
+      <Item value="dr" priority="0" />
+      <Item value="RecordLevelFilteringBAL`0" priority="0" />
+      <Item value="RecordLevelFilteringBAL" priority="1" />
+      <Item value="static" priority="1" />
+      <Item value="ResourceName`0" priority="0" />
+      <Item value="limitedCustCode" priority="2" />
+      <Item value="hiddenCustCode" priority="1" />
+      <Item value="litem" priority="0" />
+      <Item value="commonCustCode" priority="0" />
+      <Item value="CustCode" priority="1" />
+      <Item value="custcoue" priority="0" />
+      <Item value="criteriaID" priority="6" />
+      <Item value="ddlCriteriaID" priority="1" />
+      <Item value="criteraId" priority="0" />
+      <Item value="sender" priority="0" />
+      <Item value="result" priority="1" />
+      <Item value="criteriaId" priority="1" />
+      <Item value="TempBranchId" priority="1" />
+      <Item value="txtStatus" priority="3" />
+      <Item value="Exclamation" priority="0" />
+      <Item value="txtAccountStatus" priority="0" />
+      <Item value="txtBOStatus" priority="3" />
+      <Item value="Error" priority="0" />
+      <Item value="Positions`0" priority="1" />
+      <Item value="SBPXMLSchema" priority="0" />
+      <Item value="Positions" priority="0" />
+      <Item value="ps" priority="0" />
+      <Item value="BatchInsert" priority="0" />
+      <Item value="ProcessingMode`0" priority="0" />
+      <Item value="InsertOnePosition`0" priority="3" />
+      <Item value="p" priority="0" />
+      <Item value="folderpath" priority="0" />
+      <Item value="cmbsessionIdByName" priority="0" />
+      <Item value="cmsessionIdByName" priority="0" />
+      <Item value="cmbStatusName" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.PictureBox">
+      <Item value="Image" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Data.SqlDbType">
+      <Item value="VarChar" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DataAccessLayer.DbConnection">
+      <Item value="ActiveStoredProcedure`0" priority="1" />
+      <Item value="AddParameter`0" priority="9" />
+      <Item value="ConnectDatabase`0" priority="25" />
+      <Item value="ExecuteQuery`0" priority="16" />
+      <Item value="CloseDatabase`0" priority="25" />
+      <Item value="ExecuteNonQuery`0" priority="12" />
+      <Item value="TimeoutPeriod" priority="0" />
+      <Item value="ConnectionString" priority="1" />
+      <Item value="ExecuteProQuery`0" priority="0" />
+      <Item value="StartTransaction`0" priority="1" />
+      <Item value="Commit`0" priority="1" />
+      <Item value="Rollback`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BO.OpexDailyBO">
+      <Item value="VoucherNo" priority="0" />
+      <Item value="Amount" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Single">
+      <Item value="Parse`0" priority="9" />
+      <Item value="TryParse`0" priority="2" />
+      <Item value="PositiveInfinity" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.TextBox">
+      <Item value="Text" priority="78" />
+      <Item value="Focus`0" priority="6" />
+      <Item value="Enabled" priority="5" />
+      <Item value="BackColor" priority="3" />
+      <Item value="ForeColor" priority="0" />
+      <Item value="ResetFont`0" priority="0" />
+      <Item value="Visible" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmAddopexPurpose">
+      <Item value="ExpensePurpose" priority="0" />
+      <Item value="ExpenseType" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.OPexPurposeBO">
+      <Item value="ExpenseType" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Empty" priority="31" />
+      <Item value="Format`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ComboBox">
+      <Item value="Text" priority="20" />
+      <Item value="DataSource" priority="3" />
+      <Item value="DisplayMember" priority="4" />
+      <Item value="ValueMember" priority="3" />
+      <Item value="SelectedValue" priority="17" />
+      <Item value="Enabled" priority="2" />
+      <Item value="Items" priority="9" />
+      <Item value="SelectedIndex" priority="5" />
+      <Item value="Focus`0" priority="1" />
+      <Item value="Visible" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Trim`0" priority="26" />
+      <Item value="ToLower`0" priority="9" />
+      <Item value="ToUpper`0" priority="1" />
+      <Item value="Equals`0" priority="11" />
+      <Item value="Length" priority="2" />
+      <Item value="Split`0" priority="1" />
+      <Item value="ToString`0" priority="2" />
+      <Item value="Substring`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmNoDepreciation">
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmDeleteCapexInformation">
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Image_Upload.frmPhotoBatch">
+      <Item value="Text" priority="0" />
+      <Item value="Cursor" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ProgressBar">
+      <Item value="Value" priority="21" />
+      <Item value="Maximum" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Label">
+      <Item value="Text" priority="37" />
+      <Item value="Font" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NewArch.frmBatchSignatureUpload">
+      <Item value="dtgImUploadDirInfo" priority="0" />
+      <Item value="Text" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridView">
+      <Item value="AutoSizeColumnsMode" priority="1" />
+      <Item value="Rows" priority="34" />
+      <Item value="DataSource" priority="5" />
+      <Item value="Columns" priority="14" />
+      <Item value="SelectedRows" priority="16" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.DataGridViewAutoSizeColumnMode">
+      <Item value="Fill" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.DataGridViewContentAlignment">
+      <Item value="MiddleRight" priority="10" />
+      <Item value="TopRight" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBox">
+      <Item value="Show`0" priority="106" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="Message" priority="49" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Button">
+      <Item value="Enabled" priority="13" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataTable">
+      <Item value="Rows" priority="29" />
+      <Item value="Columns" priority="0" />
+      <Item value="DefaultView" priority="0" />
+      <Item value="NewRow`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataRowCollection">
+      <Item value="Count" priority="12" />
+      <Item value="Add`0" priority="0" />
+      <Item value="Clear`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Reports.frmReportViewer">
+      <Item value="crvReportViewer" priority="2" />
+      <Item value="Text" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:CrystalDecisions.Windows.Forms.CrystalReportViewer">
+      <Item value="DisplayGroupTree" priority="2" />
+      <Item value="RecreatingHandle" priority="0" />
+      <Item value="ReportSource" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Reports.frmCommonDateReport">
+      <Item value="Close`0" priority="0" />
+      <Item value="Text" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.RadioButton">
+      <Item value="Checked" priority="9" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DateTimePicker">
+      <Item value="Format" priority="0" />
+      <Item value="CustomFormat" priority="5" />
+      <Item value="Value" priority="11" />
+      <Item value="Enabled" priority="5" />
+      <Item value="Text" priority="0" />
+      <Item value="Focused" priority="0" />
+      <Item value="Focus`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.OpexBAL">
+      <Item value="GetDailyDailyOpexReport`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Reports.cr_DailyOpex">
+      <Item value="SetDataSource`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="ToString`0" priority="20" />
+      <Item value="ToShortDateString`0" priority="10" />
+      <Item value="Month" priority="1" />
+      <Item value="AddMonths`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmAddCapexCatagory">
+      <Item value="Close`0" priority="0" />
+      <Item value="ShowDialog`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.AssetInformationBAL">
+      <Item value="InsertCapexCatagory`0" priority="0" />
+      <Item value="GetCapexCategoryList`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BO.AssetEntryBO">
+      <Item value="CatagoryId" priority="1" />
+      <Item value="DeprceiationRate" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="Parse`0" priority="17" />
+      <Item value="TryParse`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString`0" priority="51" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewRowCollection">
+      <Item value="Count" priority="28" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.BankReconcileBAL">
+      <Item value="BalanceMissmatchList`0" priority="0" />
+      <Item value="GetChequeMissmatch`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmChequeConfirmationByEmail">
+      <Item value="Cursor" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.Cursors">
+      <Item value="WaitCursor" priority="1" />
+      <Item value="Arrow" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@BusinessAccessLayer.BO.GlobalVariableBO">
+      <Item value="_branchName" priority="1" />
+      <Item value="_branchId" priority="5" />
+      <Item value="_userName" priority="7" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmPaymentOOC">
+      <Item value="GetPaymentOccInfo`0" priority="0" />
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewColumn">
+      <Item value="Visible" priority="3" />
+      <Item value="DefaultCellStyle" priority="11" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewCellStyle">
+      <Item value="Format" priority="8" />
+      <Item value="Alignment" priority="6" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="7" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.PaymentOOC">
+      <Item value="GetAmount`0" priority="0" />
+      <Item value="GetDeletedPaymentOccInfoByClientCode`0" priority="0" />
+      <Item value="GetDeletedPaymentOccInfoByVoucher`0" priority="0" />
+      <Item value="GetDeletedPaymentOccInfoByPurposeId`0" priority="0" />
+      <Item value="GetDeletedPaymentOccInfoByDate`0" priority="0" />
+      <Item value="DeletePaymentOCCInfo`0" priority="1" />
+      <Item value="GetApprovablePaymentOCCInfoBYDate`0" priority="0" />
+      <Item value="GetApprovedableInfoBybranch`0" priority="0" />
+      <Item value="ApprovedPaymentOCCByID`0" priority="0" />
+      <Item value="RejectedPaymentOccByID`0" priority="0" />
+      <Item value="GetPaymentOCCInfo`0" priority="0" />
+      <Item value="IsTRPaymentOOC`0" priority="2" />
+      <Item value="ApprovedPaymentOCCTRInformationByID`0" priority="1" />
+      <Item value="InsertToDatabse`0" priority="0" />
+      <Item value="DeletePaymentOCCTRInformation`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.CheckBox">
+      <Item value="Checked" priority="19" />
+      <Item value="Text" priority="2" />
+      <Item value="Enabled" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBoxButtons">
+      <Item value="OK" priority="8" />
+      <Item value="YesNo" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewRow">
+      <Item value="Cells" priority="17" />
+      <Item value="Index" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewCell">
+      <Item value="Value" priority="17" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmDeletePaymentOCC">
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.GroupBox">
+      <Item value="Text" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmApprovedPaymentOCC">
+      <Item value="Close`0" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBoxIcon">
+      <Item value="Information" priority="2" />
+      <Item value="Question" priority="0" />
+      <Item value="Error" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.DialogResult">
+      <Item value="Yes" priority="0" />
+      <Item value="Cancel" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmRejectedReasonPaymentOCC">
+      <Item value="ShowDialog`0" priority="1" />
+      <Item value="RejectedReault" priority="1" />
+      <Item value="RejectedReason" priority="0" />
+      <Item value="VoucherNo" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ComboBox+ObjectCollection">
+      <Item value="Count" priority="9" />
+      <Item value="Clear`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.CommonInfoBal">
+      <Item value="GetCommpanyDefaultInfo`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.Image">
+      <Item value="FromFile`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.SingleImageBAL">
+      <Item value="IsExistSignature`0" priority="0" />
+      <Item value="SaveSignatureToDatabase`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.Color">
+      <Item value="Gray" priority="0" />
+      <Item value="LightGray" priority="0" />
+      <Item value="SteelBlue" priority="0" />
+      <Item value="LightSteelBlue" priority="0" />
+      <Item value="Black" priority="1" />
+      <Item value="DarkGreen" priority="0" />
+      <Item value="White" priority="0" />
+      <Item value="DarkSalmon" priority="0" />
+      <Item value="Red" priority="1" />
+      <Item value="Blue" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.FontStyle">
+      <Item value="Regular" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.OpenFileDialog">
+      <Item value="FileName" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.FolderBrowserDialog">
+      <Item value="SelectedPath" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.Path">
+      <Item value="GetFullPath`0" priority="0" />
+      <Item value="GetFileName`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.CompanyBAL">
+      <Item value="GetCompanyShortCodeList`0" priority="0" />
+      <Item value="GetCompanyName`0" priority="0" />
+      <Item value="ChangeCompanyShortCode`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmUpdateCompanyShortName">
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.HideCustomer">
+      <Item value="MdiParent" priority="0" />
+      <Item value="Scale`0" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.ProcessCashback">
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.MenuStrip">
+      <Item value="Visible" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ToolStripMenuItem">
+      <Item value="Visible" priority="69" />
+      <Item value="Available" priority="23" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.CheckedListBox">
+      <Item value="Items" priority="2" />
+      <Item value="SetItemChecked`0" priority="4" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.CheckedListBox+ObjectCollection">
+      <Item value="Add`0" priority="1" />
+      <Item value="Count" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frm_DP29">
+      <Item value="Close`0" priority="0" />
+      <Item value="Show`0" priority="0" />
+      <Item value="MdiParent" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BO.CustomerBO_DP29">
+      <Item value="BoId" priority="2" />
+      <Item value="BoType" priority="1" />
+      <Item value="BoCategory" priority="1" />
+      <Item value="CustomerFullName" priority="2" />
+      <Item value="CustomerShortName" priority="1" />
+      <Item value="Address" priority="1" />
+      <Item value="City" priority="1" />
+      <Item value="Satate" priority="1" />
+      <Item value="Country" priority="1" />
+      <Item value="PurposeCode" priority="1" />
+      <Item value="Residency" priority="1" />
+      <Item value="Phone" priority="1" />
+      <Item value="Fax" priority="1" />
+      <Item value="Email" priority="1" />
+      <Item value="InternalReferenceNo" priority="1" />
+      <Item value="SetupDate" priority="1" />
+      <Item value="BoStatus" priority="2" />
+      <Item value="ClosureDate" priority="1" />
+      <Item value="FatherName" priority="1" />
+      <Item value="MotherName" priority="1" />
+      <Item value="BankName" priority="2" />
+      <Item value="BranchName" priority="1" />
+      <Item value="AccountNo" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.StreamReader">
+      <Item value="Peek`0" priority="0" />
+      <Item value="ReadLine`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BO.CustomerBO_DP29Collection">
+      <Item value="Add`0" priority="0" />
+      <Item value="Count" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.CustomerBO_DP29BAL">
+      <Item value="InsertCustomerBO_DP29`0" priority="0" />
+      <Item value="GetClientBOInfo`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmSpecialClientDashboard">
+      <Item value="Close`0" priority="0" />
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.UserManagementBAL">
+      <Item value="GetUserList`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.CustomerBAL">
+      <Item value="GetCustomerInfo`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.KeyEventArgs">
+      <Item value="KeyCode" priority="2" />
+      <Item value="KeyValue" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.Keys">
+      <Item value="Enter" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Keys">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.LimitedDashboardBAL">
+      <Item value="InsertLimitedClientIntoDashboard`0" priority="0" />
+      <Item value="IsExists`0" priority="0" />
+      <Item value="GetLimitedClientList`0" priority="0" />
+      <Item value="DeleteClientFromLimitedDashBoard`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.FinNetting">
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.ReportBAL">
+      <Item value="GetNettingSumery`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmEmployeeHolidayAllow">
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.Graphs">
+      <Item value="Show`0" priority="0" />
+      <Item value="CompanyShortCode" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DialogResult">
+      <Item value="Yes" priority="1" />
+      <Item value="None" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.OpexPurposeBAL">
+      <Item value="InsertOpexPurpose`0" priority="0" />
+      <Item value="GetDeletablePurposeList`0" priority="0" />
+      <Item value="GetPurposeList`0" priority="0" />
+      <Item value="DeletePurposeInformation`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.frmOpexCategoryPurpose">
+      <Item value="ShowDialog`0" priority="0" />
+      <Item value="CategoryName" priority="0" />
+      <Item value="_CategoryId" priority="0" />
+      <Item value="Result" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ListBox">
+      <Item value="Items" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.ListBox+ObjectCollection">
+      <Item value="Clear`0" priority="0" />
+      <Item value="Count" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.InternetUploadTradePrice">
+      <Item value="Height" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DBNull">
+      <Item value="Value" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BO.CompanyBO">
+      <Item value="CompanyShortNumber" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.DashboardBAL">
+      <Item value="IsLimitedDashboardPrivliage`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.ParentForm">
+      <Item value="WindowState" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Printing.PrintDocument">
+      <Item value="DefaultPageSettings" priority="6" />
+      <Item value="Print`0" priority="0" />
+      <Item value="OriginAtMargins" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Printing.PageSettings">
+      <Item value="Landscape" priority="3" />
+      <Item value="Margins" priority="5" />
+      <Item value="PaperSize" priority="7" />
+      <Item value="PrintableArea" priority="2" />
+      <Item value="PrinterSettings" priority="7" />
+      <Item value="HardMarginX" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Convert">
+      <Item value="ToDouble`0" priority="0" />
+      <Item value="ToInt32`0" priority="8" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Double">
+      <Item value="Parse`0" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Double">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.MarginPlanBAL">
+      <Item value="GetmarginPlanData`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.CashBackReg">
+      <Item value="GetCashbackRegi`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.MdiDSE">
+      <Item value="MdiParent" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Reports.MainReport">
+      <Item value="MdiParent" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.RectangleF">
+      <Item value="Size" priority="4" />
+      <Item value="Left" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Printing.PrintPageEventArgs">
+      <Item value="PageSettings" priority="12" />
+      <Item value="MarginBounds" priority="1" />
+      <Item value="PageBounds" priority="0" />
+      <Item value="Graphics" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Rectangle">
+      <Item value="Size" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Printing.PrinterSettings">
+      <Item value="PaperSizes" priority="1" />
+      <Item value="DefaultPageSettings" priority="5" />
+      <Item value="PaperSources" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Graphics">
+      <Item value="DrawImage`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.PrintPreviewDialog">
+      <Item value="Margin" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Padding">
+      <Item value="All" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Printing.PrinterSettings+PaperSourceCollection">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Drawing.Printing.PaperSize">
+      <Item value="Kind" priority="0" />
+      <Item value="PaperName" priority="0" />
+      <Item value="RawKind" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.Printing.PaperKind">
+      <Item value="Custom" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Reports.TodayCustBalanceViewer">
+      <Item value="crvTodayCustBalanceReportViewer" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.CustomerInfoBAL">
+      <Item value="GetCurrentBalane`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="Now" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Reports.CustPositiveBalViewer">
+      <Item value="crvCustPositiveBalReportViewer" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Reports.VoucherPrinting">
+      <Item value="MdiParent" priority="0" />
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Single">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StockbrokerProNewArch.Classes.NumberToEnglish">
+      <Item value="changeCurrencyToWords`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Reports.frm_BalanceByDateReport">
+      <Item value="Show`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataColumn">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Add`0" priority="1" />
+      <Item value="Count" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.RecordLevelFilteringBAL">
+      <Item value="GetRecordLevelFilteredData`0" priority="0" />
+      <Item value="FilterCustCode`0" priority="1" />
+      <Item value="GetResourceID`0" priority="0" />
+      <Item value="GetCriteriaID`0" priority="0" />
+      <Item value="FilterBranchID`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@BusinessAccessLayer.Constants.ResourceName">
+      <Item value="Account_Review_Balance_CustPossitiveBalance" priority="0" />
+      <Item value="Daily_Expenditure_Customized_Opex" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:BusinessAccessLayer.BAL.CriteriaListBAL">
+      <Item value="CriteriaID`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SBPXMLSchema.Positions">
+      <Item value="ProcessingMode" priority="0" />
+      <Item value="Items" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@SBPXMLSchema.ProcessingMode">
+      <Item value="BatchInsertOrUpdate" priority="0" />
+      <Item value="BatchInsert" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

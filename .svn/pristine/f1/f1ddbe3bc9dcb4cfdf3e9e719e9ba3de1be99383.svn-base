@@ -1,0 +1,10 @@
+<Modules>
+  <Module PersistentId="d:Miscellaneous Files" ModuleId="System.Windows.Forms" />
+  <Module PersistentId="82C596AC-69BD-4513-B111-D2E783D0FED1" ModuleId="StockbrokerProNewArchForm" />
+  <Module PersistentId="39A789FA-66B4-41E4-A9CD-D6073A6A7194" ModuleId="Reports" />
+  <Module PersistentId="A2071E23-5F9E-4F47-888D-25311566AD2B" ModuleId="BusinessAccessLayer" />
+  <Module PersistentId="E891C85D-2E55-4724-8FAD-C6F8E45714B4" ModuleId="DataAccessLayer" />
+  <Module PersistentId="E5247765-0134-4714-A110-64D571FBF636" ModuleId="GridViewExtensions" />
+  <Module PersistentId="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.Windows.Forms_1" />
+  <Module PersistentId="2A7C2AB5-EFF4-4077-A72E-B731AA4C9DA1" ModuleId="SBPXMLSchema" />
+</Modules>

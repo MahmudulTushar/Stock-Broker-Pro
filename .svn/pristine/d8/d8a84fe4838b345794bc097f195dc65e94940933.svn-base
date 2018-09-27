@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_MonthlyOPex" targetNamespace="http://tempuri.org/ds_MonthlyOPex.xsd" xmlns:mstns="http://tempuri.org/ds_MonthlyOPex.xsd" xmlns="http://tempuri.org/ds_MonthlyOPex.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_MonthlyOPex" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ds_MonthlyOPex" msprop:Generator_DataSetName="ds_MonthlyOPex" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SBP_OPEX" msprop:Generator_UserTableName="SBP_OPEX" msprop:Generator_RowDeletedName="SBP_OPEXRowDeleted" msprop:Generator_RowChangedName="SBP_OPEXRowChanged" msprop:Generator_RowClassName="SBP_OPEXRow" msprop:Generator_RowChangingName="SBP_OPEXRowChanging" msprop:Generator_RowEvArgName="SBP_OPEXRowChangeEvent" msprop:Generator_RowEvHandlerName="SBP_OPEXRowChangeEventHandler" msprop:Generator_TableClassName="SBP_OPEXDataTable" msprop:Generator_TableVarName="tableSBP_OPEX" msprop:Generator_RowDeletingName="SBP_OPEXRowDeleting" msprop:Generator_TablePropName="SBP_OPEX">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Expense_Date" msprop:Generator_UserColumnName="Expense_Date" msprop:Generator_ColumnVarNameInTable="columnExpense_Date" msprop:Generator_ColumnPropNameInRow="Expense_Date" msprop:Generator_ColumnPropNameInTable="Expense_DateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Expense_Month" msprop:Generator_UserColumnName="Expense_Month" msprop:Generator_ColumnVarNameInTable="columnExpense_Month" msprop:Generator_ColumnPropNameInRow="Expense_Month" msprop:Generator_ColumnPropNameInTable="Expense_MonthColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Purpose_Name" msprop:Generator_UserColumnName="Purpose_Name" msprop:Generator_ColumnVarNameInTable="columnPurpose_Name" msprop:Generator_ColumnPropNameInRow="Purpose_Name" msprop:Generator_ColumnPropNameInTable="Purpose_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Purpose" msprop:Generator_UserColumnName="Purpose" msprop:Generator_ColumnVarNameInTable="columnPurpose" msprop:Generator_ColumnPropNameInRow="Purpose" msprop:Generator_ColumnPropNameInTable="PurposeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Voucher_No" msprop:Generator_UserColumnName="Voucher_No" msprop:Generator_ColumnVarNameInTable="columnVoucher_No" msprop:Generator_ColumnPropNameInRow="Voucher_No" msprop:Generator_ColumnPropNameInTable="Voucher_NoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Branch_Name" msprop:Generator_UserColumnName="Branch_Name" msprop:Generator_ColumnVarNameInTable="columnBranch_Name" msprop:Generator_ColumnPropNameInRow="Branch_Name" msprop:Generator_ColumnPropNameInTable="Branch_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Payment_x0020_Date" msprop:Generator_UserColumnName="Payment Date" msprop:Generator_ColumnPropNameInRow="Payment_Date" msprop:Generator_ColumnVarNameInTable="columnPayment_Date" msprop:Generator_ColumnPropNameInTable="Payment_DateColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

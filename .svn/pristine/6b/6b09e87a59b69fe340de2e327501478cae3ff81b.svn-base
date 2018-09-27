@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsTotalApplicationLIst" targetNamespace="http://tempuri.org/dsTotalApplicationLIst.xsd" xmlns:mstns="http://tempuri.org/dsTotalApplicationLIst.xsd" xmlns="http://tempuri.org/dsTotalApplicationLIst.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsTotalApplicationLIst" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsTotalApplicationLIst" msprop:Generator_UserDSName="dsTotalApplicationLIst" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TablePropName="DataTable1" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name_x0020_of_x0020_the_x0020_Stock_x0020_broker" msprop:Generator_UserColumnName="Name of the Stock broker" msprop:Generator_ColumnPropNameInRow="Name_of_the_Stock_broker" msprop:Generator_ColumnVarNameInTable="columnName_of_the_Stock_broker" msprop:Generator_ColumnPropNameInTable="Name_of_the_Stock_brokerColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Company_x0020_Name" msprop:Generator_UserColumnName="Company Name" msprop:Generator_ColumnPropNameInRow="Company_Name" msprop:Generator_ColumnVarNameInTable="columnCompany_Name" msprop:Generator_ColumnPropNameInTable="Company_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Date_x0020_of_x0020_Application" msprop:Generator_UserColumnName="Date of Application" msprop:Generator_ColumnPropNameInRow="Date_of_Application" msprop:Generator_ColumnVarNameInTable="columnDate_of_Application" msprop:Generator_ColumnPropNameInTable="Date_of_ApplicationColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Name_x0020_Of_x0020_applicant" msprop:Generator_UserColumnName="Name Of applicant" msprop:Generator_ColumnPropNameInRow="Name_Of_applicant" msprop:Generator_ColumnVarNameInTable="columnName_Of_applicant" msprop:Generator_ColumnPropNameInTable="Name_Of_applicantColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Client_x0020_Code" msprop:Generator_UserColumnName="Client Code" msprop:Generator_ColumnPropNameInRow="Client_Code" msprop:Generator_ColumnVarNameInTable="columnClient_Code" msprop:Generator_ColumnPropNameInTable="Client_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="BO_x0020_Id_x0020_no" msprop:Generator_UserColumnName="BO Id no" msprop:Generator_ColumnPropNameInRow="BO_Id_no" msprop:Generator_ColumnVarNameInTable="columnBO_Id_no" msprop:Generator_ColumnPropNameInTable="BO_Id_noColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Category_x0020_Of_x0020_Applicant" msprop:Generator_UserColumnName="Category Of Applicant" msprop:Generator_ColumnPropNameInRow="Category_Of_Applicant" msprop:Generator_ColumnVarNameInTable="columnCategory_Of_Applicant" msprop:Generator_ColumnPropNameInTable="Category_Of_ApplicantColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Number_x0020_of_x0020_share" msprop:Generator_UserColumnName="Number of share" msprop:Generator_ColumnPropNameInRow="Number_of_share" msprop:Generator_ColumnVarNameInTable="columnNumber_of_share" msprop:Generator_ColumnPropNameInTable="Number_of_shareColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Value_x0020_Per_x0020_Share" msprop:Generator_UserColumnName="Value Per Share" msprop:Generator_ColumnPropNameInRow="Value_Per_Share" msprop:Generator_ColumnVarNameInTable="columnValue_Per_Share" msprop:Generator_ColumnPropNameInTable="Value_Per_ShareColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Total_x0020_Amount_x0020_in_x0020_Tk" msprop:Generator_UserColumnName="Total Amount in Tk" msprop:Generator_ColumnPropNameInRow="Total_Amount_in_Tk" msprop:Generator_ColumnVarNameInTable="columnTotal_Amount_in_Tk" msprop:Generator_ColumnPropNameInTable="Total_Amount_in_TkColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

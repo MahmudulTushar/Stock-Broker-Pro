@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <connectionStrings>
+    <clear />
+    <add name="sqlcon" providerName="System.Data.SqlClient" connectionString="Data Source=150.1.122.2;Initial Catalog=SBP_Database;User ID=ksclmst;Password=kscl@d122;Connection Timeout=900;" />
+    <add name="sqlconImageExt" providerName="System.Data.SqlClient" connectionString="Data Source=150.1.122.2;Initial Catalog=SBP_Database_ImageExt;User ID=ksclmst;Password=kscl@d122;Connection Timeout=900;" />
+    <add name="sqlconSMSSender" providerName="System.Data.SqlClient" connectionString="Data Source=150.1.122.2;Initial Catalog=dbksclCallCenter;User ID=ksclmst;Password=kscl@d122;Connection Timeout=900;" />
+  </connectionStrings>
+</configuration>
+<!--<connectionStrings>
+  <clear />
+  <add name="sqlcon"
+     providerName="System.Data.SqlClient"
+     connectionString= "Data Source=150.1.122.2;Initial Catalog=SBP_Database;User ID=ksclmst;Password=kscl@d122;Connection Timeout=900;"
+       />
+  <add name="sqlconImageExt"
+    providerName="System.Data.SqlClient"
+    connectionString="Data Source=150.1.122.2;Initial Catalog=SBP_Database_ImageExt;User ID=ksclmst;Password=kscl@d122;Connection Timeout=900;"
+    />
+  <add name="sqlconSMSSender"
+    providerName="System.Data.SqlClient"
+    connectionString= "Data Source=150.1.122.2;Initial Catalog=dbksclCallCenter;User ID=ksclmst;Password=kscl@d122;Connection Timeout=900;"
+    />
+</connectionStrings>-->
+<!--<connectionStrings>
+  <clear />
+  <add name="sqlcon"
+     providerName="System.Data.SqlClient"
+      connectionString= "Data Source=(local);Initial Catalog=SBP_Database;User ID=sa;Password=122;Connection Timeout=900;"
+       />
+  <add name="sqlconImageExt"
+    providerName="System.Data.SqlClient"
+    connectionString="Data Source=150.1.122.2;Initial Catalog=SBP_Database_ImageExt;User ID=ksclmst;Password=kscl@d122;Connection Timeout=900;"
+    />
+  <add name="sqlconSMSSender"
+    providerName="System.Data.SqlClient"
+    connectionString= "Data Source=(local);Initial Catalog=dbksclCallCenter;User ID=sa;Password=122;Connection Timeout=900;"
+    />
+</connectionStrings>-->

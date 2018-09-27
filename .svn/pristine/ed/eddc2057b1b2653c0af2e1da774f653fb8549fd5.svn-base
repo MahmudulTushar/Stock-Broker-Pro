@@ -1,0 +1,687 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BusinessAccessLayer.BAL;
+using BusinessAccessLayer.Constants;
+using System.Data.SqlClient;
+
+namespace StockbrokerProNewArch
+{
+    public partial class frm_IPOInitializing : Form
+    {
+        private DataTable dt_Bank_Branch_RoutingNo;
+
+        private enum FormMode { NewMode, UpdatedMode };
+        private enum FormName { IPOCompany, IPOSession };
+
+        private FormName currentFormName;
+        private FormMode currentFormMode;
+
+        public frm_IPOInitializing(string P_FormName)
+        {
+            InitializeComponent();
+
+            if (P_FormName == Indication_Forms_Title.IPOSessionInitialization)
+            {
+                tabControl1.SelectedIndex = 1;
+                currentFormName = FormName.IPOSession;
+            }
+            if (P_FormName == Indication_Forms_Title.IPOCompanyInitialization)
+            {
+                tabControl1.SelectedIndex = 0;
+                currentFormName = FormName.IPOCompany;
+            }
+        }
+
+        private void LoadCombo()
+        {
+            DataTable dt_Bank = new DataTable();
+            DataTable dt_Branch = new DataTable();
+            DataTable dt_IPOCompany = new DataTable();
+            DataTable dt_AppType = new DataTable();
+            DataTable dt_Session = new DataTable();
+            DataTable dt_CurrencyName = new DataTable();
+            Bank_Branch_RoutingBAL bnkBal = new Bank_Branch_RoutingBAL();
+
+            IPOProcessBAL ipoBAL = new IPOProcessBAL();
+
+            dt_Bank = bnkBal.GetBankName();
+            dt_AppType = ipoBAL.GetApplicationType();
+            dt_IPOCompany = ipoBAL.GetCompanyList();
+            dt_Session = ipoBAL.GetSessionList();
+            dt_CurrencyName = ipoBAL.GetCurrencyName();
+
+            dt_Branch = bnkBal.GetBranchName();
+
+            cmb_BankName.DisplayMember = "Bank_Name";
+            cmb_BankName.ValueMember = "ID";
+            cmb_BankName.DataSource = dt_Bank;
+            cmb_BankName.SelectedIndex = -1;
+
+            cmb_BranchName.DisplayMember = "Branch_Name";
+            cmb_BranchName.ValueMember = "ID";
+            cmb_BranchName.DataSource = dt_Branch;
+            cmb_BranchName.SelectedIndex = -1;
+
+            cmb_RoutingNo.DisplayMember = "Routing_No";
+            cmb_RoutingNo.ValueMember = "Routing_No";
+            cmb_RoutingNo.DataSource = dt_Bank_Branch_RoutingNo.AsEnumerable().Select(t => new { Routing_No = t["Routing_No"] }).ToList();
+            cmb_RoutingNo.SelectedIndex = -1;
+
+
+            cmb_IPO_Company.DisplayMember = "Company_Name";
+            cmb_IPO_Company.ValueMember = "ID";
+            cmb_IPO_Company.DataSource = dt_IPOCompany;
+
+            cmb_ApplicaitonType.DisplayMember = "ApplicationType_Name";
+            cmb_ApplicaitonType.ValueMember = "ID";
+            cmb_ApplicaitonType.DataSource = dt_AppType;
+
+            cmbSessionName.DataSource = dt_Session;
+            cmbSessionName.DisplayMember = "Session_Status";
+            cmbSessionName.ValueMember = "ID";
+
+
+            CmbCurrencyName.DataSource = dt_CurrencyName;
+            CmbCurrencyName.DisplayMember = "Currency_Name";
+            CmbCurrencyName.ValueMember = "ID";
+        }
+
+        private void LoadCacheDatatable()
+        {
+            Bank_Branch_RoutingBAL bnkBal = new Bank_Branch_RoutingBAL();
+            dt_Bank_Branch_RoutingNo = bnkBal.GetGridData();
+        }
+
+        private void LoadGridData_IPOCompany()
+        {
+            IPOProcessBAL bal = new IPOProcessBAL();
+            DataTable dt = bal.GetIPOCompanyALL();
+            dgv_CommonGrid.DataSource = dt;
+            dgv_CommonGrid.Columns["ID"].Visible = false;
+            dgv_CommonGrid.Columns["Bank_ID"].Visible = false;
+            dgv_CommonGrid.Columns["Branch_ID"].Visible = false;
+            dgv_CommonGrid.Columns["Company_Logo"].Visible = false;
+        }
+
+        private void LoadGridData_IPOSession()
+        {
+            IPOProcessBAL bal = new IPOProcessBAL();
+            DataTable dt = bal.GetIPOSessionALL();
+            dgv_CommonGrid.DataSource = dt;
+            dgv_CommonGrid.Columns["ID"].Visible = true;
+            dgv_CommonGrid.Columns["IPO_Company_ID"].Visible = false;
+            dgv_CommonGrid.Columns["Application_Type_ID"].Visible = false;
+            //dgv_CommonGrid.Columns["status"].Visible = false;
+            dgv_CommonGrid.Columns["Premium"].Visible = false;
+            dgv_CommonGrid.Columns["Status Id"].Visible = false;
+
+        }
+
+
+        public void IPO_Details_Set_dbcallcenter()
+        {
+            SMSSyncBAL syncBal = new SMSSyncBAL();
+            SqlDataReader dt_GotExported_IpoCompSessInfo;            
+            dt_GotExported_IpoCompSessInfo = syncBal.GetIPO_SessionforCompanyInfo_UITransApplied();
+            syncBal.TruncateTable_SMSSyncExport_IPO_SessionforCompanyInfo_UITransApplied();
+            syncBal.InsertTable_SMSSyncExport_IPO_SessionforCompanyInfo_UITransApplied(dt_GotExported_IpoCompSessInfo);            
+        }
+        private void LoadGrid()
+        {
+            if (currentFormName == FormName.IPOCompany)
+            {
+                LoadGridData_IPOCompany();
+            }
+            else if (currentFormName == FormName.IPOSession)
+            {
+                LoadGridData_IPOSession();
+            }
+        }
+
+        private void FormModeExecution(FormMode fm)
+        {
+            switch (fm)
+            {
+                case FormMode.NewMode:
+                    btnNew.Enabled = false;
+                    btnUpdate.Enabled = true;
+                    btnCancel.Enabled = true;
+                    btnSaveBranch.Enabled = true;
+                    currentFormMode = fm;
+                    break;
+                case FormMode.UpdatedMode:
+                    btnNew.Enabled = true;
+                    btnUpdate.Enabled = false;
+                    btnCancel.Enabled = true;
+                    btnSaveBranch.Enabled = true;
+                    currentFormMode = fm;
+                    break;
+                default:
+                    FormModeExecution(FormMode.NewMode);
+                    break;
+            }
+
+        }
+        private bool Validation()
+        {
+            bool result = true;
+            if (currentFormName == FormName.IPOCompany)
+            {
+                if (string.IsNullOrEmpty(txt_Company_Name.Text))
+                {
+                   
+                    result = false;
+                    txt_Company_Name.Focus();
+
+                }
+                if (String.IsNullOrEmpty(txt_Company_Address.Text))
+                {
+                  
+                    result = false;
+                    txt_Company_Address.Focus();
+
+                }
+                if (String.IsNullOrEmpty(txt_ShortCode.Text))
+                {
+                   
+                    result = false;
+                    txt_ShortCode.Focus();
+
+                }
+
+            }
+            else if (currentFormName == FormName.IPOSession)
+            {
+                if (String.IsNullOrEmpty(txt_Session_Name.Text))
+                {
+                    ;
+                    result = false;
+                    txt_Session_Name.Focus();
+                }
+                if (String.IsNullOrEmpty(txt_Session_Description.Text))
+                {
+                    
+                    result = false;
+                    txt_Session_Description.Focus();
+                }
+                if (String.IsNullOrEmpty(txt_ShareAmount.Text))
+                {
+                    
+                    result = false;
+                    txt_ShareAmount.Focus();
+                }
+                if (String.IsNullOrEmpty(txt_NoOfShare.Text))
+                {
+                    result = false;
+                    txt_NoOfShare.Focus();
+                }
+
+            }
+            return result;
+        }
+
+        private void CalculateAmount()
+        {
+            int qty = 0;
+            int intTryParse;
+            double noOfShare = 0.00;
+            double amount = 0.00;
+            double premium = 0.00;
+            double totalAmount = 0.00;
+            double doubleTryParse = 0.00;
+
+            if (double.TryParse(txt_ShareAmount.Text, out doubleTryParse))
+                amount = doubleTryParse;
+            if (double.TryParse(txt_Premium.Text, out doubleTryParse))
+                premium = doubleTryParse;
+            if (int.TryParse(txt_NoOfShare.Text, out intTryParse))
+                qty = intTryParse;
+
+            txt_ShareTotalAmount.Text = Convert.ToString(amount * qty);
+            txt_TotalAmount.Text = Convert.ToString(amount * qty + premium);
+        }
+
+        private void Clear_IPOCompany()
+        {
+            txt_Company_Name.Text = string.Empty;
+            txt_Company_Address.Text = string.Empty;
+            txt_Bank_Acc_No.Text = string.Empty;
+            txt_ShortCode.Text = string.Empty;
+            txtDesignationName.Text="";
+            txtCompanyChairmentName.Text = "";
+
+            if (cmb_BankName.Items.Count > 0)
+                cmb_BankName.SelectedIndex = 0;
+            if (cmb_BranchName.Items.Count > 0)
+                cmb_BranchName.SelectedIndex = 0;
+            if (cmb_RoutingNo.Items.Count > 0)
+                cmb_RoutingNo.SelectedIndex = 0;
+        }
+
+        private void Clear_IPOSession()
+        {
+            CommonBAL objBal = new CommonBAL();
+            txt_Session_Name.Text = string.Empty;
+            txt_Session_Description.Text = string.Empty;
+            dtp_Session_Date.Value = objBal.GetCurrentServerDate();
+           
+            if (cmb_ApplicaitonType.Items.Count > 0)
+                cmb_ApplicaitonType.SelectedIndex = 0;
+            if (cmb_IPO_Company.Items.Count > 0)
+                cmb_IPO_Company.SelectedIndex = 0;
+            txt_NoOfShare.Text = string.Empty;
+            txt_ShareAmount.Text = string.Empty;
+            txt_ShareTotalAmount.Text = string.Empty;
+            if (Dg_Currency.Rows.Count > 0)
+                Dg_Currency.Rows.Clear();
+        }
+
+        private void frmIPOInitializing_Load(object sender, EventArgs e)
+        {
+            LoadCacheDatatable();
+            LoadCombo();
+            LoadGrid();
+            FormModeExecution(FormMode.NewMode);            
+            Dg_Currency.Columns[0].Visible = false;
+        }
+
+        private void cmb_RoutingNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_RoutingNo.DisplayMember != string.Empty)
+            {
+                string selectedRoutingNo = Convert.ToString(cmb_RoutingNo.SelectedValue);
+
+                var bankId = dt_Bank_Branch_RoutingNo.AsEnumerable().Where(t => Convert.ToString(t["Routing_No"]) == selectedRoutingNo).Select(t => t["Bank_ID"]).SingleOrDefault();
+
+                if (bankId != null)
+                {
+                    cmb_BankName.SelectedValue = bankId;
+                }
+                else
+                    cmb_BankName.SelectedIndex = -1;
+
+
+                var branchID = dt_Bank_Branch_RoutingNo.AsEnumerable().Where(t => Convert.ToString(t["Routing_No"]) == selectedRoutingNo).Select(t => t["Branch_ID"]).SingleOrDefault();
+
+                if (branchID != null)
+                {
+                    cmb_BranchName.SelectedValue = branchID;
+                }
+                else
+                    cmb_BranchName.SelectedIndex = -1;
+
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            FormModeExecution(FormMode.UpdatedMode);
+
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            FormModeExecution(FormMode.NewMode);
+            Clear_IPOSession();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (currentFormName == FormName.IPOCompany)
+            {
+                Clear_IPOCompany();
+            }
+            else if (currentFormName == FormName.IPOSession)
+            {
+                Clear_IPOSession();
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadGrid();
+
+            FormModeExecution(FormMode.NewMode);
+        }
+
+        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (currentFormName == FormName.IPOCompany)
+            {
+                if (e.TabPage.Name == "IPOSession")
+                {
+                    e.Cancel = true;
+                }
+
+            }
+            else if (currentFormName == FormName.IPOSession)
+            {
+                if (e.TabPage.Name == "IPOCompany")
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void btnSaveBranch_Click(object sender, EventArgs e)
+        {
+
+            if (currentFormName == FormName.IPOCompany)
+            {
+                if (currentFormMode == FormMode.NewMode)
+                {
+                    if (Validation())
+                    {
+                        IPOProcessBAL bal = new IPOProcessBAL();
+                        bal.SBPModuleName = this.Text;
+                        int bankId = Convert.ToInt32(cmb_BankName.SelectedValue);
+                        int branchId = Convert.ToInt32(cmb_BranchName.SelectedValue);
+                        string bankName = Convert.ToString(cmb_BankName.Text);
+                        string branchName = Convert.ToString(cmb_BranchName.Text);
+                        string routingNo = Convert.ToString(cmb_RoutingNo.SelectedValue);
+                        //string Comp_Short_Code = txt_ShortCode.Text;
+                        bal.InsertIPOCompany(txtCompanyChairmentName.Text,txtDesignationName.Text,txt_ShortCode.Text, txt_Company_Name.Text, txt_Company_Address.Text, bankId, bankName, branchId, branchName, txt_Bank_Acc_No.Text, routingNo);
+                        //bal.InsertIPOCompany(txt_ShortCode.Text, txt_Company_Name.Text, txt_Company_Address.Text, bankId, bankName, branchId, branchName, txt_Bank_Acc_No.Text, routingNo);
+                        bal.IPO_Company_Session_for_Dealer();
+                        Clear_IPOCompany();
+                        LoadGrid();
+                    }
+                }
+                else if (currentFormMode == FormMode.UpdatedMode)
+                {
+                    IPOProcessBAL bal = new IPOProcessBAL();
+                    int bankId = Convert.ToInt32(cmb_BankName.SelectedValue);
+                    int branchId = Convert.ToInt32(cmb_BranchName.SelectedValue);
+                    string bankName = Convert.ToString(cmb_BankName.Text);
+                    string branchName = Convert.ToString(cmb_BranchName.Text);
+                    string routingNo = Convert.ToString(cmb_RoutingNo.SelectedValue);
+                    int IPOCompanyID = Convert.ToInt32(txt_Company_ID.Text);
+                    var SelectRows = dgv_CommonGrid.SelectedRows;
+                    string CompanyId = SelectRows[0].Cells["ID"].Value.ToString();
+                    try
+                    {
+                        bal.ConnectDatabase();
+                        bal.InsertIPO_Company_ModificationInfo_UITransApplied(Convert.ToInt32(CompanyId));
+                        bal.UpdateIPOCompany_UITransApplied(txtCompanyChairmentName.Text,txtDesignationName.Text,txt_ShortCode.Text, txt_Company_Name.Text, txt_Company_Address.Text, bankId, bankName, branchId, branchName, txt_Bank_Acc_No.Text, routingNo, IPOCompanyID);
+                        bal.Update_IPO_New_ShortCode_UITransApplied(IPOCompanyID, txt_ShortCode.Text, txt_Company_Name.Text, txt_Company_Address.Text);
+                        bal.IPO_Company_Session_for_Dealer();
+                        bal.Commit();
+                        Clear_IPOCompany();                       
+                        LoadGrid();
+                    }
+                    catch (Exception ex)
+                    {
+                        bal.RollBack();
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        bal.CloseDatabase();
+                    }
+                }
+            }
+            else if (currentFormName == FormName.IPOSession)
+            {
+                if (currentFormMode == FormMode.NewMode)
+                {
+                    if (Validation())
+                    {
+                        IPOProcessBAL bal = new IPOProcessBAL();
+                        double doubleTryParse;
+                        int intTryParse;
+                        int appTypeID = Convert.ToInt32(cmb_ApplicaitonType.SelectedValue);
+                        int companyID = Convert.ToInt32(cmb_IPO_Company.SelectedValue);
+                        int noOfShare = 0;
+                        if (int.TryParse(txt_NoOfShare.Text, out intTryParse))
+                            noOfShare = intTryParse;
+
+                        double amount = 0;
+                        if (double.TryParse(txt_ShareAmount.Text, out doubleTryParse))
+                            amount = doubleTryParse;
+
+                        double premium = 0;
+                        if (double.TryParse(txt_Premium.Text, out doubleTryParse))
+                            premium = doubleTryParse;
+
+                        double totalAmount = 0;
+                        if (double.TryParse(txt_TotalAmount.Text, out doubleTryParse))
+                            totalAmount = doubleTryParse;
+
+                        double totalShareValue = 0;
+                        if (double.TryParse(txt_ShareTotalAmount.Text, out doubleTryParse))
+                            totalShareValue = doubleTryParse;
+
+
+                        int[] Currency_ID = null;
+                        string[] Currency_Name = null;
+                        double[] Currency_Amount = null;
+
+                        Currency_ID = Dg_Currency.Rows.Cast<DataGridViewRow>().Select(c => Convert.ToInt32(c.Cells["ID"].Value)).ToArray();
+                        Currency_Name = Dg_Currency.Rows.Cast<DataGridViewRow>().Select(c => Convert.ToString(c.Cells["Cur_Name"].Value)).ToArray();
+                        Currency_Amount = Dg_Currency.Rows.Cast<DataGridViewRow>().Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).ToArray();
+
+                        if (Currency_ID.Count() < 1 || Currency_Name.Count() < 1)
+                        {
+                            MessageBox.Show("Please Add Currency");
+                            return;
+                        }
+
+
+
+
+                        try
+                        {
+                            bal.ConnectDatabase();
+                            bal.InsertIPOSession_UITransApplied(txt_Session_Name.Text, txt_Session_Description.Text, companyID, appTypeID, dtp_Session_Date.Value, noOfShare, amount, totalShareValue, totalAmount, Convert.ToInt32(cmbSessionName.SelectedValue), premium,dtp_Session_End_Date.Value);
+                            bal.InsertIPOSession_NRB(Currency_ID, Currency_Name, Currency_Amount, txt_Session_Name.Text);
+                            bal.IPO_Company_Session_for_Dealer();
+                            bal.Commit();
+                            Clear_IPOSession();
+                            IPO_Details_Set_dbcallcenter();
+                            LoadGrid();
+                        }
+                        catch (Exception ex)
+                        {
+                            bal.RollBack();
+                            MessageBox.Show(ex.Message);
+                        }
+                        finally
+                        {
+                            bal.CloseDatabase();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Fill all Necessary field");
+                    }
+
+                }
+                else if (currentFormMode == FormMode.UpdatedMode)
+                {
+                    IPOProcessBAL bal = new IPOProcessBAL();
+                    double doubleTryParse;
+                    int intTryParse;
+                    int appTypeID = Convert.ToInt32(cmb_ApplicaitonType.SelectedValue);
+                    int companyID = Convert.ToInt32(cmb_IPO_Company.SelectedValue);
+                    int noOfShare = 0;
+                    if (int.TryParse(txt_NoOfShare.Text, out intTryParse))
+                        noOfShare = intTryParse;
+
+                    double amount = 0;
+                    if (double.TryParse(txt_ShareAmount.Text, out doubleTryParse))
+                        amount = doubleTryParse;
+
+                    double premium = 0;
+                    if (double.TryParse(txt_Premium.Text, out doubleTryParse))
+                        premium = doubleTryParse;
+
+                    double totalAmount = 0;
+                    if (double.TryParse(txt_TotalAmount.Text, out doubleTryParse))
+                        totalAmount = doubleTryParse;
+
+                    double totalShareValue = 0;
+                    if (double.TryParse(txt_ShareTotalAmount.Text, out doubleTryParse))
+                        totalShareValue = doubleTryParse;
+                    int sessionID = Convert.ToInt32(txt_Session_ID.Text);
+                    int session_Status_value = (int)cmbSessionName.SelectedValue;
+                    int[] Currency_ID = null;
+                    string[] Currency_Name = null;
+                    double[] Currency_Amount = null;
+                    Currency_ID = Dg_Currency.Rows.Cast<DataGridViewRow>()
+                         .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).ToArray();
+
+
+                    Currency_Name = Dg_Currency.Rows.Cast<DataGridViewRow>()
+                    .Select(c => Convert.ToString(c.Cells["Cur_Name"].Value)).ToArray();
+
+                    Currency_Amount = Dg_Currency.Rows.Cast<DataGridViewRow>()
+                        .Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).ToArray();
+                    try
+                    {
+                        bal.ConnectDatabase();
+                        bal.UpdateIPOSession_UITransApplied(txt_Session_Name.Text, txt_Session_Description.Text, companyID, appTypeID, dtp_Session_Date.Value, noOfShare, amount, totalShareValue, totalAmount, session_Status_value, sessionID, premium);
+                        bal.InsertIPOSession_NRB(Currency_ID, Currency_Name, Currency_Amount, txt_Session_Name.Text);
+                        bal.IPO_Company_Session_for_Dealer();
+                        bal.Commit();
+                        Clear_IPOSession();
+                        IPO_Details_Set_dbcallcenter();
+                        LoadGrid();
+                    }
+                    catch (Exception ex)
+                    {
+                        bal.RollBack();
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        bal.CloseDatabase();
+                    }
+                }
+            }
+        }
+
+        private void dgv_CommonGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (currentFormName == FormName.IPOCompany)
+            {
+
+                FormModeExecution(FormMode.UpdatedMode);
+                DataGridViewRow dr = dgv_CommonGrid.CurrentRow;
+                txt_Company_ID.Text = dr.Cells["ID"].Value.ToString();
+                txtCompanyChairmentName.Text = dr.Cells["Company_Chairman_name"].Value.ToString();
+                txtDesignationName.Text = dr.Cells["Designation"].Value.ToString();
+                txt_Company_Name.Text = dr.Cells["Company_Name"].Value.ToString();
+                txt_ShortCode.Text = dr.Cells["Company_Short_Code"].Value.ToString();
+                txt_Company_Address.Text = dr.Cells["Company_Address"].Value.ToString();
+                cmb_BankName.Text = dr.Cells["Bank_Name"].Value.ToString();
+                cmb_BranchName.Text = dr.Cells["Branch_Name"].Value.ToString();
+                cmb_RoutingNo.Text = dr.Cells["RoutingNo"].Value.ToString();
+                txt_Bank_Acc_No.Text = dr.Cells["BankAcc_No"].Value.ToString();
+
+
+            }
+            else if (currentFormName == FormName.IPOSession)
+            {
+
+                FormModeExecution(FormMode.UpdatedMode);
+                //DataTable dtSession = new DataTable();
+                // IPOProcessBAL bal = new IPOProcessBAL();
+                // dtSession = bal.GetIPOSessionALL();
+                DataGridViewRow dr = dgv_CommonGrid.CurrentRow;
+                txt_Session_ID.Text = dr.Cells["ID"].Value.ToString();
+                txt_Session_Name.Text = dr.Cells["IPOSession_Name"].Value.ToString();
+                txt_Session_Description.Text = dr.Cells["IPOSession_Desc"].Value.ToString();
+                cmb_IPO_Company.Text = (dr.Cells["Company_Name"].Value).ToString();
+                dtp_Session_Date.Value = Convert.ToDateTime(dr.Cells["Session_Date"].Value);
+
+                cmb_ApplicaitonType.Text = dr.Cells["Application_Type"].Value.ToString();
+                txt_NoOfShare.Text = dr.Cells["No_Of_Share"].Value.ToString();
+                txt_ShareAmount.Text = dr.Cells["Amount"].Value.ToString();
+                txt_TotalAmount.Text = dr.Cells["TotalAmount"].Value.ToString();
+                txt_Premium.Text = dr.Cells["Premium"].Value.ToString();
+                cmbSessionName.Text = dr.Cells["Status Name"].Value.ToString();
+
+
+            }
+        }
+
+        private void txt_NoOfShare_TextChanged(object sender, EventArgs e)
+        {
+            CalculateAmount();
+        }
+
+        private void txt_ShareAmount_TextChanged(object sender, EventArgs e)
+        {
+            CalculateAmount();
+        }
+
+        private void txt_Premium_TextChanged(object sender, EventArgs e)
+        {
+            CalculateAmount();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                IPOProcessBAL bal = new IPOProcessBAL();
+                if (currentFormName == FormName.IPOSession)
+                {
+                    string id = dgv_CommonGrid.CurrentRow.Cells["ID"].Value.ToString();
+                    if (DialogResult.Yes == MessageBox.Show("Are You sure to delete this Data", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                    {
+                        bal.DeleteIposessionInfo(id);
+                        MessageBox.Show("Deleted Successfully");
+                        LoadGrid();
+                        Clear_IPOSession();
+                    }
+                }
+                else if (currentFormName == FormName.IPOCompany)
+                {
+                    string id = dgv_CommonGrid.CurrentRow.Cells["ID"].Value.ToString();
+                    if (DialogResult.Yes == MessageBox.Show("Are you sure to delete this data", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                    {
+                        bal.DeleteCompanyInfo(id);
+                        MessageBox.Show("Deleted Successfully");
+                        LoadGrid();
+                        Clear_IPOCompany();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnCurrencyAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Currency_ID=CmbCurrencyName.SelectedValue.ToString();
+                string Currency_Name=CmbCurrencyName.Text;
+                string Amount = txtCurrencyAmount.Text;
+                Dg_Currency.Rows.Add(new object[] { Currency_ID, Currency_Name, Amount });
+                Dg_Currency.FirstDisplayedScrollingRowIndex = Dg_Currency.Rows.IndexOf(Dg_Currency.Rows.Cast<DataGridViewRow>().Last());
+                Dg_Currency.Rows.OfType<DataGridViewRow>().Last().Selected = true;
+                Dg_Currency.Columns[0].Visible = false;
+                //Dg_Currency.AutoResizeColumns();
+                //Dg_Currency.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                //Dg_Currency.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+    }
+}

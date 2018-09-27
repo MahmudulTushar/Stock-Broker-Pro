@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace BusinessAccessLayer.BO
+{
+    public class CheckPrintLogBO
+    {
+        private long _slNo;
+        private string _custCode;
+        private string _bankname;
+        private string _paymentMediaNo;
+        private string _voucherSlNo;
+        private int _isPrinted;
+        private DateTime _recievedDate;
+        public CheckPrintLogBO()
+        {
+            _custCode = "";
+            _bankname = "";
+            _paymentMediaNo = "";
+            _voucherSlNo = "";
+            _isPrinted = 0;
+        }
+
+        public long SlNo
+        {
+            get { return _slNo; }
+            set { _slNo = value; }
+        }
+
+        public string CustCode
+        {
+            get { return _custCode; }
+            set { _custCode = value; }
+        }
+
+        public string Bankname
+        {
+            get { return _bankname; }
+            set { _bankname = value; }
+        }
+
+        public string PaymentMediaNo
+        {
+            get { return _paymentMediaNo; }
+            set { _paymentMediaNo = value; }
+        }
+
+        public string VoucherSlNo
+        {
+            get { return _voucherSlNo; }
+            set { _voucherSlNo = value; }
+        }
+
+        public int IsPrinted
+        {
+            get { return _isPrinted; }
+            set { _isPrinted = value; }
+        }
+
+        public DateTime RecievedDate
+        {
+            get { return _recievedDate; }
+            set { _recievedDate = value; }
+        }
+    }
+}

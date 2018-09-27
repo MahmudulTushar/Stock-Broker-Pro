@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Ds_CashDivided" targetNamespace="http://tempuri.org/Ds_CashDivided.xsd" xmlns:mstns="http://tempuri.org/Ds_CashDivided.xsd" xmlns="http://tempuri.org/Ds_CashDivided.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Ds_CashDivided" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="Ds_CashDivided" msprop:Generator_DataSetName="Ds_CashDivided" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SL_x0020_No." msprop:Generator_UserColumnName="SL No." msprop:Generator_ColumnVarNameInTable="_columnSL_No_" msprop:Generator_ColumnPropNameInRow="_SL_No_" msprop:Generator_ColumnPropNameInTable="_SL_No_Column" type="xs:string" minOccurs="0" />
+              <xs:element name="Client_x0020_ID" msprop:Generator_UserColumnName="Client ID" msprop:Generator_ColumnVarNameInTable="columnClient_ID" msprop:Generator_ColumnPropNameInRow="Client_ID" msprop:Generator_ColumnPropNameInTable="Client_IDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="BO_x0020_ID" msprop:Generator_UserColumnName="BO ID" msprop:Generator_ColumnVarNameInTable="columnBO_ID" msprop:Generator_ColumnPropNameInRow="BO_ID" msprop:Generator_ColumnPropNameInTable="BO_IDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Shareholder_x2019_s_x0020_Name" msprop:Generator_UserColumnName="Shareholder’s Name" msprop:Generator_ColumnVarNameInTable="_columnShareholder_s_Name" msprop:Generator_ColumnPropNameInRow="_Shareholder_s_Name" msprop:Generator_ColumnPropNameInTable="_Shareholder_s_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Shareholding_x0020_Position_x002F_Qty." msprop:Generator_UserColumnName="Shareholding Position/Qty." msprop:Generator_ColumnVarNameInTable="_columnShareholding_Position_Qty_" msprop:Generator_ColumnPropNameInRow="_Shareholding_Position_Qty_" msprop:Generator_ColumnPropNameInTable="_Shareholding_Position_Qty_Column" type="xs:string" minOccurs="0" />
+              <xs:element name="Cash_x0020_Dividend_x0020__x0028_Amount_x0029_" msprop:Generator_UserColumnName="Cash Dividend (Amount)" msprop:Generator_ColumnVarNameInTable="_columnCash_Dividend__Amount_" msprop:Generator_ColumnPropNameInRow="_Cash_Dividend__Amount_" msprop:Generator_ColumnPropNameInTable="_Cash_Dividend__Amount_Column" type="xs:string" minOccurs="0" />
+              <xs:element name="Company_x0020_Name" msprop:Generator_UserColumnName="Company Name" msprop:Generator_ColumnPropNameInRow="Company_Name" msprop:Generator_ColumnVarNameInTable="columnCompany_Name" msprop:Generator_ColumnPropNameInTable="Company_NameColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

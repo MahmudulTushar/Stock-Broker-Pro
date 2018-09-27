@@ -1,0 +1,374 @@
+﻿using System;
+
+namespace BusinessAccessLayer.BO
+{
+    public class AdditionalInformationBO
+    {
+        ///First Row String
+        private string _BOCatagory;
+
+        private string _CustomerGroup;
+        private string _CustGroupDescription;
+
+        ///Second Row String
+
+        private string _StatementCycle;
+
+        private string _CompanyCategory;
+        private string _OrderChannel;
+
+        ///Third Row String
+
+        private string _ReferenceType;
+        private string _PaymentMedia;
+
+        ///First Row Integer
+        private int _BOCatagoryID;
+
+        private int _CustomerGroupID;
+
+        ///Second Row Integer
+
+        private int _StatementCycleID;
+
+        private int _CompanyCategoryID;
+        private int _CompanyCategoryMinDate;
+        private int _OrderChannelID;
+        private int _OrderChannelStatus;
+
+
+        ///Third Row Integer
+
+        private int _ReferenceTypeID;
+        private int _PaymentMediaID;
+
+
+        public AdditionalInformationBO()
+        {
+
+            _BOCatagory = "";
+            
+            _CustomerGroup = "";
+            _CustGroupDescription = "";
+
+
+
+            _StatementCycle = "";
+            _CompanyCategory = "";
+
+            _OrderChannel = "";
+
+
+            _ReferenceType = "";
+            _PaymentMedia = "";
+            
+
+
+            _BOCatagoryID = 0;
+            
+            _CustomerGroupID = 0;
+
+
+            _CompanyCategoryID = 0;
+            _CompanyCategoryMinDate = 0;
+
+            _OrderChannelID = 0;
+            _OrderChannelStatus = 0;
+            _StatementCycleID = 0;
+
+
+            _ReferenceTypeID = 0;
+            _PaymentMediaID = 0;
+           
+
+
+
+        }
+
+        public string BOCatagory
+        {
+            get
+            {
+                return _BOCatagory;
+            }
+            set
+            {
+
+                if (String.IsNullOrEmpty(value))
+                    throw new Exception("Any BO category is required.");
+
+                _BOCatagory = value;
+
+            }
+
+
+        }
+
+        public int BOCatagoryID
+        {
+            get
+            {
+                return _BOCatagoryID;
+            }
+            set
+            {
+                _BOCatagoryID = value;
+            }
+        }
+
+              
+        public string CustomerGroup
+        {
+            get
+            {
+                return _CustomerGroup;
+            }
+            set
+            {
+
+                if (String.IsNullOrEmpty(value))
+                    throw new Exception("Any customer group is required.");
+
+                _CustomerGroup = value;
+
+            }
+
+
+        }
+
+        public int CustomerGroupID
+        {
+            get
+            {
+                return _CustomerGroupID;
+            }
+            set
+            {
+                _CustomerGroupID = value;
+            }
+        }
+
+        public string CustomerGroupDescription
+        {
+            get
+            {
+                return _CustGroupDescription;
+            }
+            set
+            {
+                _CustGroupDescription = value;
+            }
+        }
+
+        
+        public string StatementCycle
+        {
+            get
+            {
+                return _StatementCycle;
+            }
+            set
+            {
+
+                if (String.IsNullOrEmpty(value))
+                    throw new Exception("Any statement cycle is required.");
+
+                _StatementCycle = value;
+
+            }
+
+
+        }
+
+        public int StatementCycleID
+        {
+            get
+            {
+                return _StatementCycleID;
+            }
+            set
+            {
+                _StatementCycleID = value;
+            }
+
+
+        }
+
+                
+        public string CompanyCategory
+        {
+            get
+            {
+                return _CompanyCategory;
+            }
+            set
+            {
+
+                if (String.IsNullOrEmpty(value))
+                    throw new Exception("Any company category is required.");
+
+                _CompanyCategory = value;
+
+            }
+
+
+        }
+
+        public int CompanyCategoryMinDate
+        {
+            get
+            {
+                return _CompanyCategoryMinDate;
+            }
+            set
+            {
+
+                _CompanyCategoryMinDate = value;
+            }
+
+
+        }
+
+
+        public int CompanyCategoryID
+        {
+            get
+            {
+                return _CompanyCategoryID;
+            }
+            set
+            {
+                _CompanyCategoryID = value;
+            }
+
+
+        }
+
+
+
+        public string OrderChannel
+        {
+            get
+            {
+                return _OrderChannel;
+            }
+            set
+            {
+
+                if (String.IsNullOrEmpty(value))
+                    throw new Exception("Any order channel is required.");
+
+                _OrderChannel = value;
+
+            }
+
+
+        }
+
+        public int OrderChannelID
+        {
+            get
+            {
+                return _OrderChannelID;
+            }
+            set
+            {
+                _OrderChannelID = value;
+            }
+
+
+        }
+
+
+        public int OrderChannelStatus
+        {
+            get
+            {
+                return _OrderChannelStatus;
+            }
+            set
+            {
+
+
+                _OrderChannelStatus = value;
+            }
+
+
+        }
+
+
+                
+        public string ReferenceType
+        {
+            get
+            {
+                return _ReferenceType;
+            }
+            set
+            {
+
+                if (String.IsNullOrEmpty(value))
+                    throw new Exception("Any reference type is required.");
+
+                _ReferenceType = value;
+
+            }
+
+
+        }
+
+        public int ReferenceTypeID
+        {
+            get
+            {
+                return _ReferenceTypeID;
+            }
+            set
+            {
+
+
+                _ReferenceTypeID = value;
+            }
+
+
+        }
+
+        public string PaymentMedia
+        {
+            get
+            {
+                return _PaymentMedia;
+            }
+            set
+            {
+
+                if (String.IsNullOrEmpty(value))
+                    throw new Exception("Any payment media is required.");
+
+                _PaymentMedia = value;
+
+            }
+
+        }
+
+        public int PaymentMediaID
+        {
+            get
+            {
+                return _PaymentMediaID;
+            }
+            set
+            {
+
+
+                _PaymentMediaID = value;
+            }
+
+
+        }
+
+    
+    }
+}
+//}
+

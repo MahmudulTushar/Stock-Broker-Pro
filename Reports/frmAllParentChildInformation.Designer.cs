@@ -1,0 +1,98 @@
+﻿namespace Reports
+{
+    partial class frmAllParentChildInformation
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TxtCustCode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(46, 64);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Group Informatin";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Grouping Code";
+            // 
+            // TxtCustCode
+            // 
+            this.TxtCustCode.Location = new System.Drawing.Point(105, 36);
+            this.TxtCustCode.Name = "TxtCustCode";
+            this.TxtCustCode.Size = new System.Drawing.Size(100, 20);
+            this.TxtCustCode.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Fuchsia;
+            this.label2.Location = new System.Drawing.Point(22, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(189, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Parent Child Group Report";
+            // 
+            // frmAllParentChildInformation
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(241, 97);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.TxtCustCode);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
+            this.Name = "frmAllParentChildInformation";
+            this.Text = "frmAllParentChildInformation";
+            this.Load += new System.EventHandler(this.frmAllParentChildInformation_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxtCustCode;
+        private System.Windows.Forms.Label label2;
+    }
+}

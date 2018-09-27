@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_DSE_22_1" targetNamespace="http://tempuri.org/ds_DSE_22_1.xsd" xmlns:mstns="http://tempuri.org/ds_DSE_22_1.xsd" xmlns="http://tempuri.org/ds_DSE_22_1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_DSE_22_1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ds_DSE_22_1" msprop:Generator_DataSetName="ds_DSE_22_1" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DSE_22_1" msprop:Generator_UserTableName="DSE_22_1" msprop:Generator_RowDeletedName="DSE_22_1RowDeleted" msprop:Generator_RowChangedName="DSE_22_1RowChanged" msprop:Generator_RowClassName="DSE_22_1Row" msprop:Generator_RowChangingName="DSE_22_1RowChanging" msprop:Generator_RowEvArgName="DSE_22_1RowChangeEvent" msprop:Generator_RowEvHandlerName="DSE_22_1RowChangeEventHandler" msprop:Generator_TableClassName="DSE_22_1DataTable" msprop:Generator_TableVarName="tableDSE_22_1" msprop:Generator_RowDeletingName="DSE_22_1RowDeleting" msprop:Generator_TablePropName="DSE_22_1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Instrument_x0020_Name" msprop:Generator_UserColumnName="Instrument Name" msprop:Generator_ColumnPropNameInRow="Instrument_Name" msprop:Generator_ColumnVarNameInTable="columnInstrument_Name" msprop:Generator_ColumnPropNameInTable="Instrument_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Total_x0020_Quantity" msprop:Generator_UserColumnName="Total Quantity" msprop:Generator_ColumnPropNameInRow="Total_Quantity" msprop:Generator_ColumnVarNameInTable="columnTotal_Quantity" msprop:Generator_ColumnPropNameInTable="Total_QuantityColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Salable_x0020_Qty" msprop:Generator_UserColumnName="Salable Qty" msprop:Generator_ColumnPropNameInRow="Salable_Qty" msprop:Generator_ColumnVarNameInTable="columnSalable_Qty" msprop:Generator_ColumnPropNameInTable="Salable_QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Buy_x0020_Rate" msprop:Generator_UserColumnName="Buy Rate" msprop:Generator_ColumnPropNameInRow="Buy_Rate" msprop:Generator_ColumnVarNameInTable="columnBuy_Rate" msprop:Generator_ColumnPropNameInTable="Buy_RateColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Actual_x0020_Cost" msprop:Generator_UserColumnName="Actual Cost" msprop:Generator_ColumnPropNameInRow="Actual_Cost" msprop:Generator_ColumnVarNameInTable="columnActual_Cost" msprop:Generator_ColumnPropNameInTable="Actual_CostColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Market_x0020_Price" msprop:Generator_UserColumnName="Market Price" msprop:Generator_ColumnPropNameInRow="Market_Price" msprop:Generator_ColumnVarNameInTable="columnMarket_Price" msprop:Generator_ColumnPropNameInTable="Market_PriceColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Market_x0020_Value" msprop:Generator_UserColumnName="Market Value" msprop:Generator_ColumnPropNameInRow="Market_Value" msprop:Generator_ColumnVarNameInTable="columnMarket_Value" msprop:Generator_ColumnPropNameInTable="Market_ValueColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Unrealized_x0020_Gain_x002F__x0028_Loss_x0029_" msprop:Generator_UserColumnName="Unrealized Gain/(Loss)" msprop:Generator_ColumnPropNameInRow="_Unrealized_Gain__Loss_" msprop:Generator_ColumnVarNameInTable="_columnUnrealized_Gain__Loss_" msprop:Generator_ColumnPropNameInTable="_Unrealized_Gain__Loss_Column" type="xs:double" minOccurs="0" />
+              <xs:element name="_x0025__x0028_Gain_x0020_Loss_x0029_" msprop:Generator_UserColumnName="%(Gain Loss)" msprop:Generator_ColumnVarNameInTable="_column__Gain_Loss_" msprop:Generator_ColumnPropNameInRow="___Gain_Loss_" msprop:Generator_ColumnPropNameInTable="___Gain_Loss_Column" type="xs:double" minOccurs="0" />
+              <xs:element name="Logo_Image" msprop:Generator_UserColumnName="Logo_Image" msprop:Generator_ColumnPropNameInRow="Logo_Image" msprop:Generator_ColumnVarNameInTable="columnLogo_Image" msprop:Generator_ColumnPropNameInTable="Logo_ImageColumn" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

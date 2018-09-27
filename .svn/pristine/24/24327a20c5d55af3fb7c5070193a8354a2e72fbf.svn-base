@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsInstruWiseShareTradeList" targetNamespace="http://tempuri.org/dsInstruWiseShareTradeList.xsd" xmlns:mstns="http://tempuri.org/dsInstruWiseShareTradeList.xsd" xmlns="http://tempuri.org/dsInstruWiseShareTradeList.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" PropertyReference="ApplicationSettings.Reports.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsInstruWiseShareTradeList" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsInstruWiseShareTradeList" msprop:Generator_DataSetName="dsInstruWiseShareTradeList" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cust_Code" msprop:Generator_UserColumnName="Cust_Code" msprop:Generator_ColumnVarNameInTable="columnCust_Code" msprop:Generator_ColumnPropNameInRow="Cust_Code" msprop:Generator_ColumnPropNameInTable="Cust_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Instrument_Code" msprop:Generator_UserColumnName="Instrument_Code" msprop:Generator_ColumnVarNameInTable="columnInstrument_Code" msprop:Generator_ColumnPropNameInRow="Instrument_Code" msprop:Generator_ColumnPropNameInTable="Instrument_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="InstrumentName" msprop:Generator_UserColumnName="InstrumentName" msprop:Generator_ColumnVarNameInTable="columnInstrumentName" msprop:Generator_ColumnPropNameInRow="InstrumentName" msprop:Generator_ColumnPropNameInTable="InstrumentNameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Instrument_Catg" msprop:Generator_UserColumnName="Instrument_Catg" msprop:Generator_ColumnVarNameInTable="columnInstrument_Catg" msprop:Generator_ColumnPropNameInRow="Instrument_Catg" msprop:Generator_ColumnPropNameInTable="Instrument_CatgColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Buy_Qty" msprop:Generator_UserColumnName="Buy_Qty" msprop:Generator_ColumnVarNameInTable="columnBuy_Qty" msprop:Generator_ColumnPropNameInRow="Buy_Qty" msprop:Generator_ColumnPropNameInTable="Buy_QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Sell_Qty" msprop:Generator_UserColumnName="Sell_Qty" msprop:Generator_ColumnVarNameInTable="columnSell_Qty" msprop:Generator_ColumnPropNameInRow="Sell_Qty" msprop:Generator_ColumnPropNameInTable="Sell_QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Curr_Bal" msprop:Generator_UserColumnName="Curr_Bal" msprop:Generator_ColumnVarNameInTable="columnCurr_Bal" msprop:Generator_ColumnPropNameInRow="Curr_Bal" msprop:Generator_ColumnPropNameInTable="Curr_BalColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Pre_Bal" msprop:Generator_UserColumnName="Pre_Bal" msprop:Generator_ColumnVarNameInTable="columnPre_Bal" msprop:Generator_ColumnPropNameInRow="Pre_Bal" msprop:Generator_ColumnPropNameInTable="Pre_BalColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Total_Bal" msprop:Generator_UserColumnName="Total_Bal" msprop:Generator_ColumnVarNameInTable="columnTotal_Bal" msprop:Generator_ColumnPropNameInRow="Total_Bal" msprop:Generator_ColumnPropNameInTable="Total_BalColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Avg_Buy" msprop:Generator_UserColumnName="Avg_Buy" msprop:Generator_ColumnVarNameInTable="columnAvg_Buy" msprop:Generator_ColumnPropNameInRow="Avg_Buy" msprop:Generator_ColumnPropNameInTable="Avg_BuyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Avg_Sell" msprop:Generator_UserColumnName="Avg_Sell" msprop:Generator_ColumnVarNameInTable="columnAvg_Sell" msprop:Generator_ColumnPropNameInRow="Avg_Sell" msprop:Generator_ColumnPropNameInTable="Avg_SellColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Buy_Ammount" msprop:Generator_UserColumnName="Buy_Ammount" msprop:Generator_ColumnPropNameInRow="Buy_Ammount" msprop:Generator_ColumnVarNameInTable="columnBuy_Ammount" msprop:Generator_ColumnPropNameInTable="Buy_AmmountColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Sell_Ammount" msprop:Generator_UserColumnName="Sell_Ammount" msprop:Generator_ColumnPropNameInRow="Sell_Ammount" msprop:Generator_ColumnVarNameInTable="columnSell_Ammount" msprop:Generator_ColumnPropNameInTable="Sell_AmmountColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

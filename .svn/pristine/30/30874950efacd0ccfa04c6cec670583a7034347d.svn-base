@@ -1,0 +1,168 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Drawing;
+
+namespace BusinessAccessLayer.BO
+{
+    public class EFT_FileContentsBO
+    {
+        // Fields...
+        private DateTime _receivedDate;
+        private string _senderAccNo;
+
+        public string SenderAccNo
+        {
+             get { return _senderAccNo; }
+             set { _senderAccNo = value; }
+        }
+        private int _eftIssue_ID;
+        
+        public int EftIssue_ID
+        {
+            get { return _eftIssue_ID; }
+            set { _eftIssue_ID = value; }
+        }
+        private double _amount;
+        private string _eFT_Reason;
+
+        public string EFT_Reason
+        {
+            get { return _eFT_Reason; }
+            set { _eFT_Reason = value; }
+        }
+
+        private string _custCode;
+        private string _reqID;
+        private string _fileNoID;
+        private int _iD;
+        private string _bankName;
+        private string _branchName;
+        private string _routingNo;
+        private string _bank_Account_No;
+        private string _account_Type;
+        private int _bank_ID;
+
+        public int Bank_ID
+        {
+            get { return _bank_ID; }
+            set { _bank_ID = value; }
+        }
+        private int _branch_ID;
+
+        public int Branch_ID
+        {
+            get { return _branch_ID; }
+            set { _branch_ID = value; }
+        }
+        public string Bank_Account_No
+        {
+            get { return _bank_Account_No; }
+            set { _bank_Account_No = value; }
+        }
+      
+
+        public string Account_Type
+        {
+            get { return _account_Type; }
+            set { _account_Type = value; }
+        }
+        public EFT_FileContentsBO()
+        {
+            _receivedDate = DateTime.Today;
+            _amount = 0;
+            _custCode = string.Empty;
+            _reqID="0";
+            _fileNoID=string.Empty;
+            _iD=0;
+            _bankName = string.Empty;
+            _branchName = string.Empty;
+            _routingNo = string.Empty;
+            _bank_Account_No = string.Empty;
+            _account_Type = string.Empty;
+            _eFT_Reason = string.Empty;
+            _senderAccNo = string.Empty;
+            _bank_ID = 0;
+            _branch_ID = 0;
+        }
+        public DateTime Received_Date
+        {
+            get { return _receivedDate; }
+            set
+            {
+                _receivedDate = value;
+            }
+        }
+
+        public double Amount
+        {
+            get { return _amount; }
+            set
+            {
+                _amount = value;
+            }
+        }
+
+        public string Cust_Code
+        {
+            get { return _custCode; }
+            set
+            {
+                _custCode = value;
+            }
+        }
+
+        public string Req_ID
+        {
+            get { return _reqID; }
+            set
+            {
+                _reqID = value;
+            }
+        }
+
+        public string File_No_ID
+        {
+            get { return _fileNoID; }
+            set
+            {
+                _fileNoID = value;
+            }
+        }
+        
+        public int ID
+        {
+            get { return _iD; }
+            set
+            {
+                _iD = value;
+            }
+        }
+        public string BankName
+        {
+            get { return _bankName; }
+            set
+            {
+                _bankName = value;
+            }
+        }
+        public string BranchName
+        {
+            get { return _branchName; }
+            set
+            {
+                _branchName = value;
+            }
+        }
+        public string RoutingNo
+        {
+            get { return _routingNo; }
+            set
+            {
+                _routingNo = value;
+            }
+        }
+        
+    }
+}

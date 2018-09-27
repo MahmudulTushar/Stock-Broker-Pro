@@ -1,0 +1,890 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BusinessAccessLayer.Constants;
+using Reports;
+using System.Threading;
+using BusinessAccessLayer.BAL;
+using BusinessAccessLayer.BO;
+using ElectronicCommunication;
+
+namespace StockbrokerProNewArch
+{
+	public partial class MDIIPOProcess: Form
+	{
+
+        private WaitWindow waitWindow;
+        public static bool isProgressed;
+		public MDIIPOProcess()
+		{
+			InitializeComponent();
+		}
+
+        private void moneyDepositToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOPaymentForm frm = new frm_IPOPaymentForm();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void moneyWithdrawToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOPaymentForm frm = new frm_IPOPaymentForm(Indication_Forms_Title.IPOPaymentWithdraw);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void moneyDepositToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frm_IPOPaymentForm frm = new frm_IPOPaymentForm(Indication_Forms_Title.IPOPaymentDeposit);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }      
+
+        private void depositApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPODepositApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void withdrawApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOWithdrawApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void singleTransferApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOSingleTransferApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void multiTransferApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOMultiTransferApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOApplicationApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOAppApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void resultDataImportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOResultImport frm = new frm_IPOResultImport();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void resultDataExportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOAppExport frm = new frm_IPOAppExport();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void transferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOMoneyRefundProcess frm = new frm_IPOMoneyRefundProcess(Indication_Forms_Title.IPOMoneyRefund_ByTrasfer);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void companyInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOInitializing frm = new frm_IPOInitializing(Indication_Forms_Title.IPOCompanyInitialization);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOSessionInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOInitializing frm = new frm_IPOInitializing(Indication_Forms_Title.IPOSessionInitialization);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void applicationProcessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApplicationProcess frm = new frm_IPOApplicationProcess();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void bankTransactionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOMoneyRefundProcess frm = new frm_IPOMoneyRefundProcess(Indication_Forms_Title.IPOMoneyRefund_ByBankTransaction);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOSingleTransferBackApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOMultiTransferBackApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+        
+
+        private void eftIssueToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frm_IPO_EFT_Issue frm = new frm_IPO_EFT_Issue();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOApplicationApprovalToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOAppApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void resultDataImportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frm_IPOResultImport frm = new frm_IPOResultImport();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void applicationDataExportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOAppExport frm = new frm_IPOAppExport();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void parentAndChildInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //FrmParentAndChildInfo info = new FrmParentAndChildInfo();
+            //info.Show();
+        }
+
+        private void parentAndChildInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmParentAndChildInfo info = new FrmParentAndChildInfo();
+            info.StartPosition = FormStartPosition.CenterScreen;
+            info.Show();
+        }
+
+        private void totalApplicationListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIPOTotalApplicationList list = new FrmIPOTotalApplicationList();
+            list.StartPosition = FormStartPosition.CenterScreen;
+            list.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            frmcategoryWiseReportToissuer issuer = new frmcategoryWiseReportToissuer();
+            issuer.StartPosition = FormStartPosition.CenterScreen;
+            issuer.Show();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            TotalSubscriptionStatus status = new TotalSubscriptionStatus();
+            status.StartPosition = FormStartPosition.CenterScreen;
+            status.Show();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            frm_IPO_Single_ApplicationProcess process = new frm_IPO_Single_ApplicationProcess();
+            process.Show();
+        }
+
+        private void refundToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOSingleTransferBackApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void refundMultiTransferApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOMultiTransferBackApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem1_Click_1(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOWithdrawApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem2_Click_1(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOWithdrawalSingleApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOWithdrawalMultiApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOMoneyDepositApplyTogtherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOMoneyDeposit_ApplyTogther);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
+        }
+
+        private void ipoChequeApprovalDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOCheck_Clearence);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void singleDepositApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.Ipo_single_Deposit_approval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
+        }
+
+        private void iPOCheckClearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.Ipo_Cheque_Clear_UnClear);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
+        }
+
+        private void ipoCustomerMoneyLedgerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPOCustomerMoneyLedger frm = new frmIPOCustomerMoneyLedger();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOCustomerSummaryLedgerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPOCustomerSummeryLedger frm = new frmIPOCustomerSummeryLedger();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOPaymentReveiwToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPONewPaymentReview frm = new frmIPONewPaymentReview();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPOSuccessfulUnsuccessful frm = new frmIPOSuccessfulUnsuccessful();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOPublicFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPOApplicationForPublicIssue frm = new frmIPOApplicationForPublicIssue();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOApplicationPortfolioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPOCustomerShareLedger frm = new frmIPOCustomerShareLedger();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPODailyReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPODailyReport frm = new frmIPODailyReport();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOTransferReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPoTransferReport rpt = new frmIPoTransferReport();
+            rpt.StartPosition = FormStartPosition.CenterScreen;
+            rpt.Show();
+        }
+
+        private void applyTogetherSingleTransferApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPODepositSingleTransfer_ApplyTogther);
+            frm.Show();
+        }
+
+        private void applyTogetherMultiTransferApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPODepositMultiTransfer_ApplyTogther);
+            frm.Show();
+        }
+
+        private void iPOSummaryOfTheApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPOSummaryOfTheApplications frm = new frmIPOSummaryOfTheApplications();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPODashBoardProcessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //if (MessageBox.Show("Confirmation Message", "Sure you want to process", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                //{
+                Thread thrd = new Thread(WaitWindow_Thread);
+                isProgressed = true;
+                thrd.Start();
+                DashboardBAL bal = new DashboardBAL();
+
+                bal.IPODashBoardProcess();
+                isProgressed = false;
+
+                MessageBox.Show("DashBoard Process Successfully");
+                //}
+            }
+            catch (Exception ex)
+            {
+                isProgressed = false;
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void WaitWindow_Thread()
+        {
+            WaitWindow waitWindow = new WaitWindow();
+            waitWindow.Show();
+            while (isProgressed)
+            {
+                waitWindow.Refresh();
+            }
+            waitWindow.Close();
+        }
+
+        private void iPOTotalTransactionListAfterResultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPOTotalMoneyTransactionAfterResults frm = new frmIPOTotalMoneyTransactionAfterResults();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+       
+        private void iPOSingleApplicationPaymentReviewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FromIPOSingleApplicationReport rpt = new FromIPOSingleApplicationReport();
+            rpt.StartPosition = FormStartPosition.CenterScreen;
+            rpt.Show();
+        }
+
+        private void iPOGroupintCodeInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAllParentChildInformation parentReport = new frmAllParentChildInformation();
+            parentReport.StartPosition = FormStartPosition.CenterScreen;
+            parentReport.Show();
+        }
+
+        private void MDIIPOProcess_Load(object sender, EventArgs e)
+        {
+            //MainMenuStrip.Visible = false;
+            ResetPrevillize();
+            LoadPrevilize();
+        }
+
+        private void iPOCustomerBalanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPOCustomerSummaryBalanceLedger frm = new frmIPOCustomerSummaryBalanceLedger();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+       
+        private void SetPrevillize(string Previllize)
+        {
+            switch (Previllize)
+            {
+                case "IPO Company Information":
+                    companyInformationToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Session Information":
+                    iPOSessionInformationToolStripMenuItem.Visible = true;
+                    break;
+
+                case "Parent And Child Information":
+                    parentAndChildInformationToolStripMenuItem.Visible = true;
+                    break;
+
+
+
+                case "IPO Money Deposite Application":
+                    moneyDepositToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Money Withdraw":
+                    moneyWithdrawToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO EFT Issue":
+                    eftIssueToolStripMenuItem.Visible = true;
+                    break;
+
+
+
+                case "Withdraw Approval":
+                    toolStripMenuItem1.Visible = true;
+                    break;
+
+                case "Withdraw Single Transfer":
+                    toolStripMenuItem2.Visible = true;
+                    break;
+
+                case "Withdraw Multi Transfer":
+                    toolStripMenuItem7.Visible = true;
+                    break;
+
+                case "Refund - Single Transfer Approval":
+                    singleTransferApprovalToolStripMenuItem1.Visible = true;
+                    break;
+
+                case "Refund - Multi Transfer Approval":
+                    multiTransferApprovalRefundToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Deposit Approval":
+                    depositApprovalToolStripMenuItem.Visible = true;
+                    break;
+
+                case "Single Transfer Approval":
+                    singleTransferApprovalToolStripMenuItem.Visible = true;
+                    break;
+
+                case "Multi Transfer Approval":
+                    multiTransferApprovalToolStripMenuItem.Visible = true;
+                    break;
+
+                case "Apply Together - Money Deposit Approval":
+                    moneyDepositApprovalApplyTogetherToolStripMenuItem.Visible = true;
+                    break;
+
+                case "Cheque Clear/Unclear Approval":
+                    ipoChequeApprovalDataToolStripMenuItem.Visible = true;
+                    break;
+
+                case "Apply Together - Single Transfer Approval":
+                    singleTransferApprovalApplyTogetherToolStripMenuItem.Visible = true;
+                    break;
+
+                case "Apply Together - Multi Transfer Approval":
+                    multiTransferApprovalApplyTogetherToolStripMenuItem.Visible = true;
+                    break;
+
+
+                case "Application Process":
+                    applicationProcessToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Single Application Process":
+                    toolStripMenuItem5.Visible = true;
+                    break;
+
+                case "IPO Application Approval":
+                    iPOApplicationApprovalToolStripMenuItem1.Visible = true;
+                    break;
+
+
+
+                case "Result Data Import":
+                    resultDataImportToolStripMenuItem1.Visible = true;
+                    break;
+
+                case "Application Data Export":
+                    applicationDataExportToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Transfer":
+                    transferToolStripMenuItem.Visible = true;
+                    break;
+
+                case "Bank Transaction":
+                    bankTransactionToolStripMenuItem.Visible = true;
+                    break;
+
+                case "Total Application List":
+                    totalApplicationListToolStripMenuItem.Visible = true;
+                    break;
+
+                case "Category Wise Report to Issuer":
+                    toolStripMenuItem3.Visible = true;
+                    break;
+
+                case "Total Subsription Status":
+                    toolStripMenuItem4.Visible = true;
+                    break;
+
+                case "IPO Customer Money Ledger":
+                    ipoCustomerMoneyLedgerToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Customer Summary Ledger":
+                    iPOCustomerSummaryLedgerToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Payment Reveiw":
+                    iPOPaymentReveiwToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Application":
+                    iPOApplicationToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Public Form":
+                    iPOPublicFormToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Application Portfolio":
+                    iPOApplicationPortfolioToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Daily Report":
+                    iPODailyReportToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Transfer Report":
+                    iPOTransferReportToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Summary Of The Application":
+                    iPOSummaryOfTheApplicationToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Total Transaction List after Result":
+                    iPOTotalTransactionListAfterResultToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Single Application Payment Review":
+                    iPOSingleApplicationPaymentReviewToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Customer Balance Ledger":
+                    iPOCustomerBalanceToolStripMenuItem.Visible = true;
+                    break;
+                case "IPO DashBoard Process":
+                    iPODashBoardProcessToolStripMenuItem.Visible = true;
+                    break;
+                
+                //Rashed Bhi Developed
+                case "IPO NRB Draft And Application":
+                    nRBToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO NRB Draft And Application Approval":
+                    nRBDraftAndAppApprovalApplyTogetherToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Parent Account Transfer Back Approval":
+                    parentIpoAccApprovalToolStripMenuItem.Visible = true;
+                    break;
+                case "IPO Unblocked And Transfer Letter":
+                    iPOUnblockedAndTransferLetterToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO Forwarding Letter After Result":
+                    iPOForwardingLetterAfterResultToolStripMenuItem.Visible = true;
+                    break;
+                case "IPO Approval Data Delete":
+                    iPOApprovalDataDeleteToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO NRB Draft Deposit And Application":
+                    draftDepositAndApplicationToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO NRB Draft Withdraw And Payto Issuer":
+                    draftWithdrawToolStripMenuItem.Visible = true;
+                    break;
+
+                case "IPO NRB Draft Refund":
+                    nRBDraftApprovalRefundToolStripMenuItem.Visible = true;
+                    break;
+
+
+                default:
+                    break;
+            }
+        }
+
+
+        private void LoadPrevilize()
+        {
+            bool result = false;
+            DataTable RoleWiseUserPrevillizeDatatable = new DataTable();
+            DataTable RoleWisePrevillizeDataTable = new DataTable();
+            PrevillizeManagementBAL previllizeManagementBal = new PrevillizeManagementBAL();
+
+            RoleWisePrevillizeDataTable = previllizeManagementBal.GetRoleWisePrevillize();
+
+
+            RoleWiseUserPrevillizeDatatable = previllizeManagementBal.GetAssignedPrevillize();
+            if (RoleWiseUserPrevillizeDatatable.Rows.Count > 0)
+            {
+                for (int i = 0; i < RoleWiseUserPrevillizeDatatable.Rows.Count; i++)
+                {
+                    if (RoleWiseUserPrevillizeDatatable.Rows[i][0].ToString().ToLower() == GlobalVariableBO._userName.ToLower())
+                    {
+                        result = true;
+                        break;
+                    }
+                }
+                if (result)
+                {
+                    for (int j = 0; j < RoleWiseUserPrevillizeDatatable.Rows.Count; j++)
+                    {
+                        if (RoleWiseUserPrevillizeDatatable.Rows[j][0].ToString().ToLower() == GlobalVariableBO._userName.ToLower())
+                        {
+                            SetPrevillize(RoleWiseUserPrevillizeDatatable.Rows[j]["Previllize"].ToString());
+                        }
+                    }
+                }
+                DeactiveMenu();
+            }
+            else if (RoleWiseUserPrevillizeDatatable.Rows.Count == 0)
+            {
+                RoleWisePrevillizeDataTable = previllizeManagementBal.GetRoleWisePrevillize();
+
+                for (int k = 0; k < RoleWisePrevillizeDataTable.Rows.Count; k++)
+                {
+                    SetPrevillize(RoleWisePrevillizeDataTable.Rows[k]["Previllize"].ToString());
+                }
+                DeactiveMenu();
+            }
+        }
+
+
+
+        private void DeactiveMenu()
+        {
+        }
+
+
+        public void ResetPrevillize()
+        {
+            companyInformationToolStripMenuItem.Visible = false;
+            iPOSessionInformationToolStripMenuItem.Visible = false;
+            parentAndChildInformationToolStripMenuItem.Visible = false;
+
+            moneyDepositToolStripMenuItem.Visible = false;
+            moneyWithdrawToolStripMenuItem.Visible = false;
+            eftIssueToolStripMenuItem.Visible = false;
+
+            toolStripMenuItem1.Visible = false;
+            toolStripMenuItem2.Visible = false;
+            toolStripMenuItem7.Visible = false;
+            singleTransferApprovalToolStripMenuItem1.Visible = false;
+            multiTransferApprovalRefundToolStripMenuItem.Visible = false;
+
+
+            depositApprovalToolStripMenuItem.Visible = false;
+            singleTransferApprovalToolStripMenuItem.Visible = false;
+            multiTransferApprovalToolStripMenuItem.Visible = false;
+            moneyDepositApprovalApplyTogetherToolStripMenuItem.Visible = false;
+            ipoChequeApprovalDataToolStripMenuItem.Visible = false;
+            singleTransferApprovalApplyTogetherToolStripMenuItem.Visible = false;
+            multiTransferApprovalApplyTogetherToolStripMenuItem.Visible = false;
+
+            applicationProcessToolStripMenuItem.Visible = false;
+            toolStripMenuItem5.Visible = false;
+            iPOApplicationApprovalToolStripMenuItem1.Visible = false;
+
+            resultDataImportToolStripMenuItem1.Visible = false;
+            applicationDataExportToolStripMenuItem.Visible = false;
+
+            transferToolStripMenuItem.Visible = false;
+            bankTransactionToolStripMenuItem.Visible = false;
+
+            totalApplicationListToolStripMenuItem.Visible = false;
+            toolStripMenuItem3.Visible = false;
+            toolStripMenuItem4.Visible = false;
+            ipoCustomerMoneyLedgerToolStripMenuItem.Visible = false;
+            iPOCustomerSummaryLedgerToolStripMenuItem.Visible = false;
+            iPOPaymentReveiwToolStripMenuItem.Visible = false;
+            iPOApplicationToolStripMenuItem.Visible = false;
+            iPOPublicFormToolStripMenuItem.Visible = false;
+            iPOApplicationPortfolioToolStripMenuItem.Visible = false;
+            iPODailyReportToolStripMenuItem.Visible = false;
+            iPOTransferReportToolStripMenuItem.Visible = false;
+            iPOSummaryOfTheApplicationToolStripMenuItem.Visible = false;
+            iPOTotalTransactionListAfterResultToolStripMenuItem.Visible = false;
+            iPOSingleApplicationPaymentReviewToolStripMenuItem.Visible = false;
+            iPOCustomerBalanceToolStripMenuItem.Visible = false;
+            iPODashBoardProcessToolStripMenuItem.Visible = false;
+
+            //Rashed Vi Updated
+            nRBToolStripMenuItem.Visible = false;
+            nRBDraftAndAppApprovalApplyTogetherToolStripMenuItem.Visible = false;
+            parentIpoAccApprovalToolStripMenuItem.Visible = false;
+            iPOUnblockedAndTransferLetterToolStripMenuItem.Visible = false;
+            iPOForwardingLetterAfterResultToolStripMenuItem.Visible = false;
+            iPOApprovalDataDeleteToolStripMenuItem.Visible = false;
+            draftWithdrawToolStripMenuItem.Visible = false;
+            draftDepositAndApplicationToolStripMenuItem.Visible = false;
+            nRBDraftApprovalRefundToolStripMenuItem.Visible = false;
+        }
+
+        private void refunParentAccountTransferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOParentAccountTransferBackApproval);
+            frm.Show();
+        }
+
+        private void iPOApprovalDataDeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApprovalDelete del = new frm_IPOApprovalDelete();
+            del.StartPosition = FormStartPosition.CenterScreen;
+            del.Show();
+        }
+
+        private void iPOForwardingLetterAfterResultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPOFordardingResultAfterResult frm = new frmIPOFordardingResultAfterResult();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOUnblockedAndTransferLetterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPOUnblockAndTransferLetter frm = new frmIPOUnblockAndTransferLetter();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void nRBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void nRBDraftAndApplicationApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPONRBMoneyDepositAndApplication);
+            frm.Show();
+        }
+
+        private void sMSLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSMSSendReceiveShow frm = new frmSMSSendReceiveShow();
+            frm.Show();
+        }
+
+        private void singleTransferApprovalToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOSingleTransferBackApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void multiTransferApprovalRefundToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOMultiTransferBackApproval);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void parentIpoAccApprovalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOParentAccountTransferBackApproval);
+            frm.Show();
+        }
+
+        private void multiTransferApprovalApplyTogetherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPODepositMultiTransfer_ApplyTogther);
+            frm.Show();
+        }
+
+        private void moneyDepositApprovalApplyTogetherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOMoneyDeposit_ApplyTogther);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog(this);
+        }
+
+        private void singleTransferApprovalApplyTogetherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPODepositSingleTransfer_ApplyTogther);
+            frm.Show();
+        }
+
+        private void nRBDraftAndAppApprovalApplyTogetherToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPONRBMoneyDepositAndApplication);
+            frm.Show();
+        }
+
+        private void withdrawApToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOWithdrawApproval_Refund);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void iPOBlockLetterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPORequestToBlockIPOAmount frm = new frmIPORequestToBlockIPOAmount();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void ipoSubmissionReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIPOSubmissionOfIPOcollectionFile_Hardcopy_And_Softcopy frm = new frmIPOSubmissionOfIPOcollectionFile_Hardcopy_And_Softcopy();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void draftWithdrawToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPONRB_Application frm = new frm_IPONRB_Application(Indication_Forms_Title.IPONRBMoneyWithDrawAndApplication);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void draftDepositAndApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_IPONRB_Application frm = new frm_IPONRB_Application(Indication_Forms_Title.IPONRBMoneyDepositAndApplication);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void nRBDraftApprovalRefundToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Indication_Forms_Title.IPOMoneyRefund_ForNrb
+            frm_IPOApproval frm = new frm_IPOApproval(Indication_Forms_Title.IPOMoneyRefund_ForNrb);
+            frm.Show();
+        }
+    
+    }
+    
+}

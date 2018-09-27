@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A2071E23-5F9E-4F47-888D-25311566AD2B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessAccessLayer</RootNamespace>
+    <AssemblyName>BusinessAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.2.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BAL\AccTransactionBAL.cs" />
+    <Compile Include="BAL\AdditionalInfoBAL.cs" />
+    <Compile Include="BAL\AdditionalInformationBAL.cs" />
+    <Compile Include="BAL\Admin_Alternative_Report_Bal.cs">
+    </Compile>
+    <Compile Include="BAL\All_ReportBAL.cs" />
+    <Compile Include="BAL\AssetInformationBAL.cs" />
+    <Compile Include="BAL\AssetSettlementBAL.cs" />
+    <Compile Include="BAL\BankReconcileBAL.cs" />
+    <Compile Include="BAL\Bank_Branch_ComboBAL.cs" />
+    <Compile Include="BAL\Bank_Branch_RoutingBAL.cs" />
+    <Compile Include="BAL\Bank_NameBAL.cs" />
+    <Compile Include="BAL\BOCloseBAL.cs" />
+    <Compile Include="BAL\BOClosing_ProcedureBAL.cs" />
+    <Compile Include="BAL\BonusBAL.cs" />
+    <Compile Include="BAL\Bonus_Instrument_Confirmation_Reports_DSE_21_2BAL.cs" />
+    <Compile Include="BAL\Bonus_Instrument_Receive_Report_DSE_21_3BAL.cs" />
+    <Compile Include="BAL\BO_Closing_Report_DSE_21_6BAL.cs" />
+    <Compile Include="BAL\BO_Modification_Report_DSE_21_5BAL.cs" />
+    <Compile Include="BAL\BO_Opening_InformationBAL.cs" />
+    <Compile Include="BAL\BranchManagementBAL.cs" />
+    <Compile Include="BAL\Branch_NameBAL.cs" />
+    <Compile Include="BAL\BrokerInfoBAL.cs" />
+    <Compile Include="BAL\Broker_Comission_Report_DSE_24_1BAL.cs" />
+    <Compile Include="BAL\BuyShareListReviewBAL.cs" />
+    <Compile Include="BAL\CashBackPlanBAL.cs" />
+    <Compile Include="BAL\CashBackRegBAL.cs" />
+    <Compile Include="BAL\CashBackSessionBAL.cs" />
+    <Compile Include="BAL\CashBack_ProcessBAL.cs" />
+    <Compile Include="BAL\CashDividedMarginLoanBAL.cs" />
+    <Compile Include="BAL\CashLimitBAL.cs" />
+    <Compile Include="BAL\CategoryEntryBAL.cs" />
+    <Compile Include="BAL\CDBLReconcileBAL.cs" />
+    <Compile Include="BAL\ChargeDefBAL.cs" />
+    <Compile Include="BAL\ChargeInfoBAL.cs" />
+    <Compile Include="BAL\CheckPrintBAL.cs" />
+    <Compile Include="BAL\CheckPrintNewBAL.cs" />
+    <Compile Include="BAL\CheckRequisitionBAL.cs" />
+    <Compile Include="BAL\ClientConfirmationBAL.cs" />
+    <Compile Include="BAL\ClientPayableRecounciliationStatementBAL.cs" />
+    <Compile Include="BAL\Client_Account_Status_Report_DSE_24_12BAL.cs" />
+    <Compile Include="BAL\Client_Ledger_Detail_Report_DSE_24_10BAL.cs" />
+    <Compile Include="BAL\Client_Today_Sale_InfoBAL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BAL\ClosingChargeDefBAL.cs" />
+    <Compile Include="BAL\CCSBAL.cs" />
+    <Compile Include="BAL\CommonInfoBal.cs" />
+    <Compile Include="BAL\CustomerVerificationInfoBal.cs" />
+    <Compile Include="BAL\DP29File_DataMatchBAL.cs" />
+    <Compile Include="BAL\EmailSyncBAL.cs" />
+    <Compile Include="BAL\EmployeeAdditionalInfoBAL.cs" />
+    <Compile Include="BAL\EmployeeBasicAndAdditionalInfoBAL.cs" />
+    <Compile Include="BAL\EmployeeBasicInfoBAL.cs" />
+    <Compile Include="BAL\EmployeeBranchMapBAL.cs" />
+    <Compile Include="BAL\EmployeeDocumentBAL.cs" />
+    <Compile Include="BAL\EmployeeEmergencyBAL.cs" />
+    <Compile Include="BAL\EmployeePayrollBAL.cs" />
+    <Compile Include="BAL\EmployeeReferenceBAL.cs" />
+    <Compile Include="BAL\FlexTpSyncBal.cs" />
+    <Compile Include="BAL\ImageResizeBAL.cs" />
+    <Compile Include="BAL\IncomeEntryBAL.cs" />
+    <Compile Include="BAL\IPOApplicationForPublicIssueBAL.cs" />
+    <Compile Include="BAL\IPOApplicationSuccessfulUnSuccessful.cs" />
+    <Compile Include="BAL\IPOApprovalBAL.cs" />
+    <Compile Include="BAL\IPOCustomerMoneyLedgerBAL.cs" />
+    <Compile Include="BAL\IPOCustomerSummeryLedgerBAL.cs" />
+    <Compile Include="BAL\IPODashBoardBAL.cs" />
+    <Compile Include="BAL\IPOPaymentReviewBAL.cs" />
+    <Compile Include="BAL\IPOProcessBAL.cs" />
+    <Compile Include="BAL\IPOReportBAL.cs" />
+    <Compile Include="BAL\IPOShareLedgerPortfolioBAL.cs" />
+    <Compile Include="BAL\IPOSMSMoneyTransactionForwardBAL.cs" />
+    <Compile Include="BAL\IPO_Instrument_Receive_Report_DSE_21_21_2BAL.cs" />
+    <Compile Include="BAL\List_Of_Landing_Clients_DSE_21_28_1BAL.cs" />
+    <Compile Include="BAL\List_Of_Pledge_Clients_DSE_21_26_1BAL.cs" />
+    <Compile Include="BAL\ParentAndChildBAL.cs" />
+    <Compile Include="BAL\Pay_Out_Confirmation_Report_DSE_21_11BAL.cs" />
+    <Compile Include="BAL\Portfolio_Statement_Instrumnet_Wise_DSE_22_3BAL.cs" />
+    <Compile Include="BAL\Portfolio_Statement_Investor_Wise_DSE_22_1BAL.cs" />
+    <Compile Include="BAL\Registration_Confirmation_Reports_DSE_21_4BAL.cs" />
+    <Compile Include="BAL\Rights_Instrumens_Confirmation_Report_Dse_21_14_BAL.cs" />
+    <Compile Include="BAL\Right_Instrument_Received_Report_DSE_21_15_BAL.cs" />
+    <Compile Include="BAL\SMSSyncBAL.cs" />
+    <Compile Include="BAL\Today_Transactions_Customer_ListBAL.cs" />
+    <Compile Include="BAL\ValidateExelField.cs" />
+    <Compile Include="BAL\Web2014DataForwardBAL.cs" />
+    <Compile Include="BAL\ExpenseApprovalBAL.cs" />
+    <Compile Include="BAL\ExpenseEntryBAL.cs" />
+    <Compile Include="BAL\CriteriaListBAL.cs" />
+    <Compile Include="BAL\CustomerBO_DP29BAL.cs" />
+    <Compile Include="BAL\CustomerInsideBAL.cs" />
+    <Compile Include="BAL\CustomerSummeryBAL.cs" />
+    <Compile Include="BAL\CustReviewBalanceBAL.cs" />
+    <Compile Include="BAL\DashboardBAL.cs" />
+    <Compile Include="BAL\DatabaseConnectionCheck.cs" />
+    <Compile Include="BAL\DataLoaderBAL.cs" />
+    <Compile Include="BAL\DESReportBal.cs" />
+    <Compile Include="BAL\District_NameBAL.cs" />
+    <Compile Include="BAL\EFT_IssueBAL.cs" />
+    <Compile Include="BAL\DW_Return_InfoBAL.cs" />
+    <Compile Include="BAL\EmailConfirmationBAL.cs" />
+    <Compile Include="BAL\EmployeeHolidayBal.cs" />
+    <Compile Include="BAL\EmployeeInformationBAL.cs" />
+    <Compile Include="BAL\EmployeeSalaryInfoBal.cs" />
+    <Compile Include="BAL\ExpenseTransactionBAL.cs" />
+    <Compile Include="BAL\ExpenseVoucherImageBAL.cs" />
+    <Compile Include="BAL\Expense_CategoryEntryBAL.cs" />
+    <Compile Include="BAL\Expense_Frequency_EntryBAL.cs" />
+    <Compile Include="BAL\HideCustomerBAL.cs" />
+    <Compile Include="BAL\HoliDayBAL.cs" />
+    <Compile Include="BAL\InitialDataProcessingBAL.cs" />
+    <Compile Include="BAL\CommonBAL.cs" />
+    <Compile Include="BAL\CompanyBAL.cs" />
+    <Compile Include="BAL\CompanyCategoryChangeBAL.cs" />
+    <Compile Include="BAL\CustomerBAL.cs" />
+    <Compile Include="BAL\CustomerCommisionInfoBAL.cs" />
+    <Compile Include="BAL\CustomerInfoBAL.cs" />
+    <Compile Include="BAL\DematBAL.cs" />
+    <Compile Include="BAL\InstrumentWiseShareBAL.cs" />
+    <Compile Include="BAL\InterestWithdrawBAL.cs" />
+    <Compile Include="BAL\IPOChargeBAL.cs" />
+    <Compile Include="BAL\IPOShareBAL.cs" />
+    <Compile Include="BAL\LatestTradePriceBAL.cs" />
+    <Compile Include="BAL\LimitedDashboardBAL.cs" />
+    <Compile Include="BAL\LoadCommonInfo.cs" />
+    <Compile Include="BAL\LoadDDLBAL.cs" />
+    <Compile Include="BAL\LoadRPTCustomerInfo.cs" />
+    <Compile Include="BAL\LockInShareBAL.cs" />
+    <Compile Include="BAL\LoginManagementBAL.cs" />
+    <Compile Include="BAL\ManagementViewBAL.cs" />
+    <Compile Include="BAL\MarginChargeDefBAL.cs" />
+    <Compile Include="BAL\MarginPlanBAL.cs" />
+    <Compile Include="BAL\MoneyLadgerReportBAL.cs" />
+    <Compile Include="BAL\NomineePOABAL.cs" />
+    <Compile Include="BAL\OpexBAL.cs" />
+    <Compile Include="BAL\OpexPurposeBAL.cs" />
+    <Compile Include="BAL\OPexPurposeBO.cs" />
+    <Compile Include="BAL\PayinBAL.cs" />
+    <Compile Include="BAL\PayInTradeBAL.cs" />
+    <Compile Include="BAL\PaymentInfoBAL.cs" />
+    <Compile Include="BAL\PaymentMaturityBAL.cs" />
+    <Compile Include="BAL\paymentOCCPaurpose.cs" />
+    <Compile Include="BAL\PaymentOOC.cs" />
+    <Compile Include="BAL\PaymentReviewBAL.cs" />
+    <Compile Include="BAL\PdfReportBAL.cs" />
+    <Compile Include="BAL\PrevillizeManagementBAL.cs" />
+    <Compile Include="BAL\Process_ListBAL.cs" />
+    <Compile Include="BAL\ReportBAL.cs" />
+    <Compile Include="BAL\RightBAL.cs" />
+    <Compile Include="BAL\RoleManagementBAL.cs" />
+    <Compile Include="BAL\RoleWithUserPrevillizeBAL.cs" />
+    <Compile Include="BAL\SaveImgBAL.cs" />
+    <Compile Include="BAL\SearchCustBAL.cs" />
+    <Compile Include="BAL\SearchForm.cs" />
+    <Compile Include="BAL\SearchInfo.cs" />
+    <Compile Include="BAL\SecerityInfoBAL.cs" />
+    <Compile Include="BAL\RecordLevelFilteringBAL.cs" />
+    <Compile Include="BAL\SellShareListReviewBAL.cs" />
+    <Compile Include="BAL\ServiceProcessBAL.cs" />
+    <Compile Include="BAL\ServiceRegistrationBAL.cs" />
+    <Compile Include="BAL\ShareBalanceBAL.cs" />
+    <Compile Include="BAL\ShareDWBAL.cs" />
+    <Compile Include="BAL\ShareDWReviewBAL.cs" />
+    <Compile Include="BAL\ShareLedgerBAL.cs" />
+    <Compile Include="BAL\ShareLimitBAL.cs" />
+    <Compile Include="BAL\ShareListBAL.cs" />
+    <Compile Include="BAL\SingleImageBAL.cs" />
+    <Compile Include="BAL\SMSDataEditBAL.cs" />
+    <Compile Include="BAL\SpotMarketShareBuySellBAL.cs" />
+    <Compile Include="BAL\StockSplitBAL.cs" />
+    <Compile Include="BAL\SummeryReportBAL.cs" />
+    <Compile Include="BAL\TaxBAL.cs" />
+    <Compile Include="BAL\TaxStatementBAL.cs" />
+    <Compile Include="BAL\Thana_NameBAL.cs" />
+    <Compile Include="BAL\TradeBAL.cs" />
+    <Compile Include="BAL\TradeOldBAL.cs" />
+    <Compile Include="BAL\TradePriceBAL.cs" />
+    <Compile Include="BAL\TradeSummeryBAL.cs" />
+    <Compile Include="BAL\UserManagementBAL.cs" />
+    <Compile Include="BAL\ViewPrivillizeBAL.cs" />
+    <Compile Include="BAL\VoucherPrintingBAL.cs" />
+    <Compile Include="BAL\Web2014DataImportBAL.cs" />
+    <Compile Include="BAL\WebDataExportBAL.cs" />
+    <Compile Include="BAL\WebDataExportBALOld.cs" />
+    <Compile Include="BAL\Web_Data_ReconcilationBAL.cs" />
+    <Compile Include="BAL\WorkStationBAL.cs" />
+    <Compile Include="BAL\xmlSchemaBAL.cs" />
+    <Compile Include="BAL\ZgroupBuySellReportBAL.cs" />
+    <Compile Include="BO\AdditionalInfoBO.cs" />
+    <Compile Include="BO\AdditionalInformationBO.cs" />
+    <Compile Include="BO\AssetEntryBO.cs" />
+    <Compile Include="BO\AuthorInroducerBO.cs" />
+    <Compile Include="BO\Bank_Branch_RoutingBO.cs" />
+    <Compile Include="BO\Bank_NameBO.cs" />
+    <Compile Include="BO\BOClosing_ProcedureBO.cs" />
+    <Compile Include="BO\BOInfoBO.cs" />
+    <Compile Include="BO\BO_Opening_InformationBO.cs" />
+    <Compile Include="BO\BranchManagementBO.cs" />
+    <Compile Include="BO\Branch_NameBO.cs" />
+    <Compile Include="BO\BrokerInfoBO.cs" />
+    <Compile Include="BO\CashbackCriteriaBO.cs" />
+    <Compile Include="BO\CashbackPlanBO.cs" />
+    <Compile Include="BO\CashBackRegBO.cs" />
+    <Compile Include="BO\CashBackSessionBO.cs" />
+    <Compile Include="BO\CashDividedMarginLoanBO.cs" />
+    <Compile Include="BO\ChargeDefBO.cs" />
+    <Compile Include="BO\ChargeInfoBO.cs" />
+    <Compile Include="BO\CheckPrintLogBO.cs" />
+    <Compile Include="BO\CheckRequisitionBO.cs" />
+    <Compile Include="BO\Cheque_ReturnBO.cs" />
+    <Compile Include="BO\CityBankBO.cs" />
+    <Compile Include="BO\ClosingChargeBO.cs" />
+    <Compile Include="BO\CommonMethodBO.cs" />
+    <Compile Include="BO\CompanyBO.cs" />
+    <Compile Include="BO\CompanyCategoryChangeBO.cs" />
+    <Compile Include="BO\DefineLiabilitiesBO.cs" />
+    <Compile Include="BO\District_NameBO.cs" />
+    <Compile Include="BO\EFT_FileContentsBO.cs" />
+    <Compile Include="BO\Deposit_Withdraw_ReturnBO.cs" />
+    <Compile Include="BO\EmailMonetyTrans_NotificationBO.cs" />
+    <Compile Include="BO\EmailTradeConfirmation_NotificationBO.cs" />
+    <Compile Include="BO\EmployeeAdditionalInfoBO.cs" />
+    <Compile Include="BO\EmployeeBasicInfoBO.cs" />
+    <Compile Include="BO\EmployeeBranchMapBO.cs" />
+    <Compile Include="BO\EmployeeDocumentBo.cs" />
+    <Compile Include="BO\EmployeeEmergencyBO.cs" />
+    <Compile Include="BO\EmployeePayrollBo.cs" />
+    <Compile Include="BO\EmployeeReferenceInfoBO.cs" />
+    <Compile Include="BO\ExpenseEntryBO.cs" />
+    <Compile Include="BO\ExpenseTransBO.cs" />
+    <Compile Include="BO\ExpenseVoucherImageBO.cs" />
+    <Compile Include="BO\Expense_CategoryEntryBO.cs" />
+    <Compile Include="BO\Export_ExcelDocBo.cs" />
+    <Compile Include="BO\CustomerAdditionalInfoBO.cs" />
+    <Compile Include="BO\CustomerBankDetailsBO.cs" />
+    <Compile Include="BO\CustomerBasicInfoBO.cs" />
+    <Compile Include="BO\CustomerBO.cs" />
+    <Compile Include="BO\CustomerBO_DP29.cs" />
+    <Compile Include="BO\CustomerCloseInfoBO.cs" />
+    <Compile Include="BO\CustomerCommisionBO.cs" />
+    <Compile Include="BO\CustomerContactDetailsBO.cs" />
+    <Compile Include="BO\CustomerModificationLogBO.cs" />
+    <Compile Include="BO\CustomerPassportInfoBO.cs" />
+    <Compile Include="BO\CustomerPersonalInfoBO.cs" />
+    <Compile Include="BO\DeleteEmployeeRemorksBO.cs" />
+    <Compile Include="BO\EFT_File_InfoBO.cs" />
+    <Compile Include="BO\EFT_IssueBO.cs" />
+    <Compile Include="BO\EmailConfirmationBO.cs" />
+    <Compile Include="BO\EmployeeDoucmentBO.cs" />
+    <Compile Include="BO\EmployeePaymentBO.cs" />
+    <Compile Include="BO\EmployeePersonalInfoBO.cs" />
+    <Compile Include="BO\EmployeeSalaryInfoBO.cs" />
+    <Compile Include="BO\Employee_EmergencyBO.cs" />
+    <Compile Include="BO\Employee_HolidayBO.cs" />
+    <Compile Include="BO\FormControlResizeBO.cs" />
+    <Compile Include="BO\frmAddUser_DgvUserListBO.cs" />
+    <Compile Include="BO\GlobalVariableBO.cs" />
+    <Compile Include="BO\Guardian1InfoBO.cs" />
+    <Compile Include="BO\Guardian2InfoBO.cs" />
+    <Compile Include="BO\HeadWiseWithdrawalBO.cs" />
+    <Compile Include="BO\HolidayBO.cs" />
+    <Compile Include="BO\IncomeEntryBO.cs" />
+    <Compile Include="BO\IPOChargeDefBO.cs" />
+    <Compile Include="BO\IPO_Deposit_Withdraw_Return_BO.cs" />
+    <Compile Include="BO\JointAccountHolderInfoBO.cs" />
+    <Compile Include="BO\MarginChargeDefBO.cs" />
+    <Compile Include="BO\MarginPlanBO.cs" />
+    <Compile Include="BO\Nominee1InfoBO.cs" />
+    <Compile Include="BO\Nominee2InfoBO.cs" />
+    <Compile Include="BO\OpexDailyBO.cs" />
+    <Compile Include="BO\OTCMarketBo.cs" />
+    <Compile Include="BO\ParentAndChildBO.cs" />
+    <Compile Include="BO\ParentChildRegistrationBO.cs" />
+    <Compile Include="BO\PayinBO.cs" />
+    <Compile Include="BO\PaymentInfoBO.cs" />
+    <Compile Include="BO\PaymentMaturityBO.cs" />
+    <Compile Include="BO\PaymentOOCBO.cs" />
+    <Compile Include="BO\Payment_PostingBO.cs" />
+    <Compile Include="BO\PdfReportBO.cs" />
+    <Compile Include="BO\PopUpBO.cs" />
+    <Compile Include="BO\PowerOfAttorneyInfoBO.cs" />
+    <Compile Include="BO\Process_ListBO.cs" />
+    <Compile Include="BO\ReportReviewBO.cs" />
+    <Compile Include="BO\RoleManagementBO.cs" />
+    <Compile Include="BO\SalaryPurposeBO.cs" />
+    <Compile Include="BO\SaveImgBO.cs" />
+    <Compile Include="BO\ServiceRegistrationBO.cs" />
+    <Compile Include="BO\ShareDWBO.cs" />
+    <Compile Include="BO\ShareDWBO_Conversion.cs" />
+    <Compile Include="BO\ShareListBO.cs" />
+    <Compile Include="BO\SingleImageBO.cs" />
+    <Compile Include="BO\SMSConfEdit.cs" />
+    <Compile Include="BO\Taken_HolidayBO.cs" />
+    <Compile Include="BO\Thana_NameBO.cs" />
+    <Compile Include="BO\UserManagementBO.cs" />
+    <Compile Include="BO\WorkStationBO.cs" />
+    <Compile Include="Constants\Indication_AccBOStatus.cs" />
+    <Compile Include="Constants\Indication_AccountType.cs" />
+    <Compile Include="Constants\Indication_BrokerBranch.cs" />
+    <Compile Include="Constants\Indication_CompanyBankInformation.cs" />
+    <Compile Include="Constants\Indication_CompanyCode.cs" />
+    <Compile Include="Constants\Indication_Cust_Status.cs" />
+    <Compile Include="Constants\Indication_EmailNotification.cs" />
+    <Compile Include="Constants\Indication_Fixed_DatabaseName.cs" />
+    <Compile Include="Constants\Indication_Fixed_VoucherNo_TransReason.cs" />
+    <Compile Include="Constants\Indication_FormControlResize.cs" />
+    <Compile Include="Constants\Indication_Forms_Title.cs" />
+    <Compile Include="Constants\Indication_IPOPaymentTransaction.cs" />
+    <Compile Include="Constants\Indication_IPORefundType.cs" />
+    <Compile Include="Constants\Indication_ModifyAccountHolder_FieldDescription.cs" />
+    <Compile Include="Constants\Indication_PaymentForm_Previllize.cs" />
+    <Compile Include="Constants\Indication_PaymentMode.cs" />
+    <Compile Include="Constants\Indication_PaymentOccPurpose.cs" />
+    <Compile Include="Constants\Indication_PaymentTransaction.cs" />
+    <Compile Include="Constants\Indication_Reports\Indication_ExpenseReports.cs" />
+    <Compile Include="Constants\Indication_ShareDepositType.cs" />
+    <Compile Include="Constants\Indication_ShareTransactionMode.cs" />
+    <Compile Include="Constants\Indication_ShareType.cs" />
+    <Compile Include="Constants\Indication_TransactioBasedCharge.cs" />
+    <Compile Include="Constants\Indication_TransWithFixedAmount.cs" />
+    <Compile Include="Constants\MenuNameList.cs" />
+    <Compile Include="Constants\ResourceName.cs" />
+    <Compile Include="Constants\Validation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{E891C85D-2E55-4724-8FAD-C6F8E45714B4}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BAL\ParentAndChildBAL.cs.bak" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

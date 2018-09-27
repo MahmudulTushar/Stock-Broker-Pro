@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCategoryWiseReportToIssuer" targetNamespace="http://tempuri.org/dsCategoryWiseReportToIssuer.xsd" xmlns:mstns="http://tempuri.org/dsCategoryWiseReportToIssuer.xsd" xmlns="http://tempuri.org/dsCategoryWiseReportToIssuer.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCategoryWiseReportToIssuer" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsCategoryWiseReportToIssuer" msprop:Generator_UserDSName="dsCategoryWiseReportToIssuer" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TablePropName="DataTable1" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name_x0020_of_x0020_the_x0020_Stock_x0020_broker" msprop:Generator_UserColumnName="Name of the Stock broker" msprop:Generator_ColumnPropNameInRow="Name_of_the_Stock_broker" msprop:Generator_ColumnVarNameInTable="columnName_of_the_Stock_broker" msprop:Generator_ColumnPropNameInTable="Name_of_the_Stock_brokerColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Company_x0020_Name" msprop:Generator_UserColumnName="Company Name" msprop:Generator_ColumnPropNameInRow="Company_Name" msprop:Generator_ColumnVarNameInTable="columnCompany_Name" msprop:Generator_ColumnPropNameInTable="Company_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Trec_x0020_Code" msprop:Generator_UserColumnName="Trec Code" msprop:Generator_ColumnPropNameInRow="Trec_Code" msprop:Generator_ColumnVarNameInTable="columnTrec_Code" msprop:Generator_ColumnPropNameInTable="Trec_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DPID" msprop:Generator_UserColumnName="DPID" msprop:Generator_ColumnPropNameInRow="DPID" msprop:Generator_ColumnVarNameInTable="columnDPID" msprop:Generator_ColumnPropNameInTable="DPIDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Customer_x0020_ID" msprop:Generator_UserColumnName="Customer ID" msprop:Generator_ColumnPropNameInRow="Customer_ID" msprop:Generator_ColumnVarNameInTable="columnCustomer_ID" msprop:Generator_ColumnPropNameInTable="Customer_IDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Name_x0020_Of_x0020_the_x0020_applicant" msprop:Generator_UserColumnName="Name Of the applicant" msprop:Generator_ColumnPropNameInRow="Name_Of_the_applicant" msprop:Generator_ColumnVarNameInTable="columnName_Of_the_applicant" msprop:Generator_ColumnPropNameInTable="Name_Of_the_applicantColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="BO_x0020_Id_x0020_no" msprop:Generator_UserColumnName="BO Id no" msprop:Generator_ColumnPropNameInRow="BO_Id_no" msprop:Generator_ColumnVarNameInTable="columnBO_Id_no" msprop:Generator_ColumnPropNameInTable="BO_Id_noColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Applicant_x0020_Category" msprop:Generator_UserColumnName="Applicant Category" msprop:Generator_ColumnPropNameInRow="Applicant_Category" msprop:Generator_ColumnVarNameInTable="columnApplicant_Category" msprop:Generator_ColumnPropNameInTable="Applicant_CategoryColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Number_x0020_of_x0020_share" msprop:Generator_UserColumnName="Number of share" msprop:Generator_ColumnPropNameInRow="Number_of_share" msprop:Generator_ColumnVarNameInTable="columnNumber_of_share" msprop:Generator_ColumnPropNameInTable="Number_of_shareColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

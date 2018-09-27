@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace StockbrokerProNewArch
+{
+    public partial class FrmRegistratinImageViewer : Form
+    {
+        private Image _image;
+        private float _Xstart;
+        private float _Ystart;
+        private float _Xend;
+        private float _yend;
+        private float _Zoomfactor;
+        public FrmRegistratinImageViewer(Image Image)
+        {
+            InitializeComponent();
+            _image = Image;
+            _Xstart = 0;
+            _Ystart = 0;
+            _Xend = 0;
+            _yend = 0;
+            _Zoomfactor = 1;
+        }
+
+        private void FrmRegistratinImageViewer_Load(object sender, EventArgs e)
+        {
+            this.DoubleBuffered = true;
+        }
+        private void processZooming(Image image)
+        {
+            float panelWidght = ImgPnl.Width;
+            float panelHeight = ImgPnl.Height;
+            float imagewidth = image.Width;
+            float imageHeight = image.Height;
+            _Xend = imagewidth * _Zoomfactor;
+            _yend = imageHeight * _Zoomfactor;
+            if (panelWidght > _Xend)
+            {
+                _Xstart = (panelWidght - (imageHeight * _Zoomfactor)) / 2;
+            }
+            else
+            {
+                _Xstart=0;
+            }
+            AutoScrollMinSize = new Size((int)_Xend, (int)_yend);
+        }
+
+        private void ImgPnl_Paint(object sender, PaintEventArgs e)
+        {
+            processZooming(_image);
+            Graphics graphics = e.Graphics;
+            graphics.TranslateTransform(ImgPnl.AutoScrollPosition.X, ImgPnl.AutoScrollPosition.Y);
+            graphics.DrawImage(_image, _Xstart, _Ystart, _Xend, _yend);
+            base.OnPaint(e);
+        }
+
+        private void btnZoomIn_Click(object sender, EventArgs e)
+        {
+            if (_Zoomfactor <= 0)
+                return;
+            _Zoomfactor = (float)(_Zoomfactor - 0.2);
+            ImgPnl.Invalidate();
+        }
+
+        private void btnZoomout_Click(object sender, EventArgs e)
+        {
+            _Zoomfactor = (float)(_Zoomfactor + 0.2);
+            ImgPnl.Invalidate();
+        }
+    }
+}

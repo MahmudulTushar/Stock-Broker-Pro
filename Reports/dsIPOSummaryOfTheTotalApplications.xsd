@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsIPOSummaryOfTheTotalApplications" targetNamespace="http://tempuri.org/dsIPOSummaryOfTheTotalApplications.xsd" xmlns:mstns="http://tempuri.org/dsIPOSummaryOfTheTotalApplications.xsd" xmlns="http://tempuri.org/dsIPOSummaryOfTheTotalApplications.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsIPOSummaryOfTheTotalApplications" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsIPOSummaryOfTheTotalApplications" msprop:Generator_DataSetName="dsIPOSummaryOfTheTotalApplications" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Number_x0020_Of_x0020_Applicant" msprop:Generator_UserColumnName="Number Of Applicant" msprop:Generator_ColumnVarNameInTable="columnNumber_Of_Applicant" msprop:Generator_ColumnPropNameInRow="Number_Of_Applicant" msprop:Generator_ColumnPropNameInTable="Number_Of_ApplicantColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Number_x0020_Of_x0020_Shares_x002F_Units_x0020_applied" msprop:Generator_UserColumnName="Number Of Shares/Units applied" msprop:Generator_ColumnVarNameInTable="_columnNumber_Of_Shares_Units_applied" msprop:Generator_ColumnPropNameInRow="_Number_Of_Shares_Units_applied" msprop:Generator_ColumnPropNameInTable="_Number_Of_Shares_Units_appliedColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BDT" msprop:Generator_UserColumnName="BDT" msprop:Generator_ColumnVarNameInTable="columnBDT" msprop:Generator_ColumnPropNameInRow="BDT" msprop:Generator_ColumnPropNameInTable="BDTColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Category" msprop:Generator_UserColumnName="Category" msprop:Generator_ColumnVarNameInTable="columnCategory" msprop:Generator_ColumnPropNameInRow="Category" msprop:Generator_ColumnPropNameInTable="CategoryColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Company_Name" msprop:Generator_UserColumnName="Company_Name" msprop:Generator_ColumnVarNameInTable="columnCompany_Name" msprop:Generator_ColumnPropNameInRow="Company_Name" msprop:Generator_ColumnPropNameInTable="Company_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Name_x0020_of_x0020_the_x0020_Stock_x0020_broker" msprop:Generator_UserColumnName="Name of the Stock broker" msprop:Generator_ColumnVarNameInTable="columnName_of_the_Stock_broker" msprop:Generator_ColumnPropNameInRow="Name_of_the_Stock_broker" msprop:Generator_ColumnPropNameInTable="Name_of_the_Stock_brokerColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="USD" msprop:Generator_UserColumnName="USD" msprop:Generator_ColumnPropNameInRow="USD" msprop:Generator_ColumnVarNameInTable="columnUSD" msprop:Generator_ColumnPropNameInTable="USDColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GBP" msprop:Generator_UserColumnName="GBP" msprop:Generator_ColumnPropNameInRow="GBP" msprop:Generator_ColumnVarNameInTable="columnGBP" msprop:Generator_ColumnPropNameInTable="GBPColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EUR" msprop:Generator_UserColumnName="EUR" msprop:Generator_ColumnPropNameInRow="EUR" msprop:Generator_ColumnVarNameInTable="columnEUR" msprop:Generator_ColumnPropNameInTable="EURColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,1487 @@
+﻿using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace DataAccessLayer
+{
+    public class DbConnection
+    {
+        private SqlConnection _sqlConnection;
+        private SqlCommand _sqlCommand;
+        private SqlTransaction _sqlTransaction;
+
+        private SqlConnection _sqlConnection_ImagExt;
+        private SqlCommand _sqlCommand_ImagExt;
+        private SqlTransaction _sqlTransaction_ImagExt;
+
+        private SqlConnection _SqlConnection_SMSSender;
+        private SqlCommand _SqlCommand_SMSSender;
+        private SqlTransaction _sqlTransaction_SMSSender;
+
+        private SqlConnection _sqlConnection_BankBook;
+        private SqlCommand _sqlCommand_BankBook;
+        private SqlTransaction _sqlTransaction_BankBook;
+
+        private SqlConnection _sqlConnection_DEALER;
+        private SqlCommand _sqlCommand_DEALER;
+        private SqlTransaction _sqlTransaction_DEALER;
+
+        //private SqlConnection _sqlConnection_Web2014;
+        //private SqlCommand _sqlCommand_Web2014;
+        //private SqlTransaction _sqlTransaction_Web2014;
+
+        //public const string ConnectionString = @"server=Admin;database=SBP_Database;uid=babu;pwd=babu";
+        //public const string ConnectionString = @"server=GBPL-D511319292;database=SBP_Database;Integrated Security=True";
+
+        public string ConnectionString;
+        public string ConnectionStringImageExt;
+        public string ConnectionStringSMSSender;
+        public string ConnectionStringForBankBook;
+        public string ConnectionStringDEALER;
+        //public string ConnectionStringWeb2014;
+
+        public int TimeoutPeriod = 0;
+
+        public string LogInName;
+        public string EmployeCode;
+        public int EntryBranchID;
+        public string BranchName;
+        public string SBPModuleName;
+
+        public DbConnection()
+        {
+            _sqlConnection = null;
+            _sqlCommand = null;
+            _sqlTransaction = null;
+
+            _sqlConnection_ImagExt = null;
+            _sqlCommand_ImagExt = null;
+            _sqlTransaction_ImagExt = null;
+
+            _SqlConnection_SMSSender = null;
+            _SqlCommand_SMSSender = null;
+            _sqlTransaction_SMSSender = null;
+
+
+            _sqlConnection_BankBook = null;
+            _sqlCommand_BankBook = null;
+            _sqlTransaction_BankBook = null;
+
+            _sqlConnection_DEALER = null;
+            _sqlCommand_DEALER = null;
+            _sqlTransaction_DEALER = null;
+
+            ConnectionString = DbConnectionBasic.ConnectionString;
+            ConnectionStringImageExt = DbConnectionBasic.ConnectionStringImageExt;
+            ConnectionStringSMSSender = DbConnectionBasic.ConnectionStringSMSSender;
+            ConnectionStringForBankBook = DbConnectionBasic.connectionStringBankBook;
+           
+            //ConnectionStringForDEALER=DbConnectionBasic.conn
+
+            //ConnectionStringWeb2014 = DbConnectionBasic.ConnectionStringWeb2014;
+
+
+            LogInName = string.Empty;
+            EmployeCode = string.Empty;
+            EntryBranchID = 0;
+            BranchName = string.Empty;
+            SBPModuleName = string.Empty;
+        }
+        public void Connect_ImageDB()
+        {
+
+            _sqlConnection = new SqlConnection(ConnectionStringImageExt);
+
+            try
+            {
+                _sqlConnection.Open();
+                _sqlCommand = _sqlConnection.CreateCommand();
+                // InsertAction_Details();
+            }
+            catch (Exception)
+            {
+                if (_sqlConnection.State == ConnectionState.Open)
+                    _sqlConnection.Close();
+                throw;
+            }
+
+        }
+
+        #region Defualt Connection
+
+        public void InsertAction_Details()
+        {
+            try
+            {
+                string query = @"
+
+                            INSERT INTO SBP_ActionDetails
+                            (
+	                            Db_LoginName,
+	                            Db_LoginTime,
+	                            Db_HostName,
+	                            Db_IPAddress,
+	                            Db_HostProcessID,
+	                            Db_SessionID,
+	                            Db_ConnectionID,
+	                            SBP_ModuleName,
+	                            SBP_LoginName,
+	                            SBP_BranchID,
+	                            SBP_BranchName,
+	                            SBP_EmployeeCode,	
+	                            ActionTime
+                            )
+
+                            select 
+                                sess.login_name
+                                ,sess.login_time
+                                ,sess.[host_name]
+                                ,con.client_net_address
+                                ,sess.host_process_id
+                                ,sess.session_id
+                                ,con.connection_id
+                                ,'" + SBPModuleName + @"'
+                                ,'" + LogInName + @"'
+                                ," + EntryBranchID + @"
+                                ,'" + BranchName + @"'
+                                ,'" + EmployeCode + @"'
+                                ,GETDATE()
+                            from 
+                            sys.dm_exec_sessions  as sess
+                            join
+                            sys.dm_exec_connections as con
+                            On sess.session_id=con.session_id
+                            AND sess.host_name=HOST_NAME()
+                            and sess.login_name=SUSER_NAME()
+                            and sess.status='running'";
+                ExecuteNonQuery(query);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        public void ConnectDatabase()
+        {
+
+            _sqlConnection = new SqlConnection(ConnectionString);
+
+            try
+            {
+                _sqlConnection.Open();
+                _sqlCommand = _sqlConnection.CreateCommand();
+                //InsertAction_Details();
+            }
+            catch (Exception)
+            {
+                if (_sqlConnection.State == ConnectionState.Open)
+                    _sqlConnection.Close();
+                throw;
+            }
+
+        }
+
+        public void ActiveStoredProcedure()
+        {
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            _sqlCommand.Parameters.Clear();
+        }
+
+        /// <summary>
+        /// Added By Sharior Vai
+        /// </summary>
+        public void ActiveCommandText()
+        {
+            _sqlCommand.CommandType = CommandType.Text;
+            _sqlCommand.Parameters.Clear();
+        }
+
+
+        public void ClearParameters()
+        {
+            _sqlCommand.Parameters.Clear();
+        }
+
+        public void AddParameter(string parameterName, SqlDbType parameterType, object parameterValue)
+        {
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter.ParameterName = parameterName;
+            sqlParameter.SqlDbType = parameterType;
+            sqlParameter.Value = parameterValue;
+            //sqlParameter.Direction = ParameterDirection.InputOutput;
+            _sqlCommand.Parameters.Add(sqlParameter);
+        }
+
+        public void StartTransaction()
+        {
+            _sqlTransaction = _sqlConnection.BeginTransaction();
+            _sqlCommand.Transaction = _sqlTransaction;
+        }
+
+
+        public void Rollback()
+        {
+            try
+            {
+                if (_sqlTransaction != null)
+                {
+                    _sqlTransaction.Rollback();
+                }
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+
+        public void Commit()
+        {
+            try
+            {
+                if (_sqlTransaction != null)
+                    _sqlTransaction.Commit();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public SqlConnection GetConnection()
+        {
+            return _sqlConnection;
+        }
+
+        public void SetConnection(SqlConnection con)
+        {
+            _sqlConnection = con;
+            _sqlCommand = _sqlConnection.CreateCommand();
+        }
+
+        public SqlConnection GetConnection_SMSSender()
+        {
+            return _SqlConnection_SMSSender;
+        }
+
+        public void SetConnection_SMSSender(SqlConnection con)
+        {
+            _SqlConnection_SMSSender = con;
+            _SqlCommand_SMSSender = _SqlConnection_SMSSender.CreateCommand();
+        }
+
+        public SqlTransaction GetTransaction()
+        {
+            return _sqlCommand.Transaction;
+
+        }
+
+        public void SetTransaction(SqlTransaction trns)
+        {
+            _sqlCommand.Transaction = trns;
+
+        }
+
+        public SqlTransaction GetTransaction_ImagExt()
+        {
+            return _sqlCommand_ImagExt.Transaction;
+
+        }
+
+        public void SetTransaction_ImagExt(SqlTransaction trns)
+        {
+            _sqlCommand_ImagExt.Transaction = trns;
+
+        }
+
+        public void ExecuteNonQuery(string queryString)
+        {
+            _sqlCommand.CommandText = queryString;
+            _sqlCommand.CommandType = CommandType.Text;
+            if (_sqlCommand.Parameters.Count != 0 && (!queryString.Contains("@")))
+            {
+                _sqlCommand.CommandType = CommandType.StoredProcedure;
+            }
+            else
+            {
+                _sqlCommand.CommandType = CommandType.Text;
+            }
+
+            try
+            {
+                _sqlCommand.CommandTimeout = TimeoutPeriod;
+                _sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+        public void ExecuteNonQuery_EmergencyImplementation(string queryString)
+        {
+            _sqlCommand.CommandText = queryString;
+            _sqlCommand.CommandType = CommandType.Text;
+            try
+            {
+                _sqlCommand.CommandTimeout = TimeoutPeriod;
+                _sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int ExecuteScalar(string queryString)
+        {
+            int recentIdentity = -1;
+
+            if (!queryString.EndsWith(";"))
+                queryString = queryString + ";";
+
+            _sqlCommand.CommandText = queryString + "SELECT CAST(scope_identity() AS int)";
+
+            try
+            {
+                _sqlCommand.CommandTimeout = TimeoutPeriod;
+                recentIdentity = Convert.ToInt32(_sqlCommand.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return recentIdentity;
+        }
+
+        //public DataTable ExecuteQuery(string queryString)
+        //{
+        //    DataSet dataSet = new DataSet();
+
+        //    try
+        //    {
+        //        SqlDataAdapter myAdapter = new SqlDataAdapter(queryString, _sqlConnection);
+        //        myAdapter.Fill(dataSet);
+        //        return dataSet.Tables[0];
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
+
+
+        public DataTable ExecuteQuery(string queryString)
+        {
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                _sqlCommand.CommandText = queryString;
+                _sqlCommand.CommandType = CommandType.Text;
+                _sqlCommand.CommandTimeout = 180;
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_sqlCommand);
+                myAdapter.Fill(dataSet);
+                return dataSet.Tables[0];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataTable ExecuteQuery(string queryString, SqlTransaction trn)
+        {
+            DataSet dataSet = new DataSet();
+
+
+            try
+            {
+
+                SqlDataAdapter myAdapter = new SqlDataAdapter(queryString, _sqlConnection);
+                myAdapter.SelectCommand.Transaction = trn;
+                myAdapter.Fill(dataSet);
+                return dataSet.Tables[0];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public SqlDataReader ExecuteReader(string queryString)
+        {
+            _sqlCommand.CommandText = queryString;
+            _sqlCommand.CommandType = CommandType.Text;
+            return _sqlCommand.ExecuteReader();
+        }
+
+        public DataTable ExecuteProByText(string queryString)
+        {
+            DataTable resultTable = new DataTable();
+            _sqlCommand.CommandTimeout = TimeoutPeriod;
+            DataSet dataSet = new DataSet();
+
+            //Updated By Shahrior On May 31 2012
+            _sqlCommand.CommandType = CommandType.Text;
+            _sqlCommand.CommandText = queryString;
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_sqlCommand);
+                myAdapter.Fill(dataSet);
+
+                if (dataSet.Tables.Count > 0)
+                    resultTable = dataSet.Tables[0];
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return resultTable;
+        }
+
+
+        public DataTable ExecuteProQuery(string queryString)
+        {
+            DataTable resultTable = new DataTable();
+            _sqlCommand.CommandTimeout = TimeoutPeriod;
+            DataSet dataSet = new DataSet();
+
+            //Updated By Shahrior On May 31 2012
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _sqlCommand.CommandText = queryString;
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_sqlCommand);
+                myAdapter.Fill(dataSet);
+
+                if (dataSet.Tables.Count > 0)
+                    resultTable = dataSet.Tables[0];
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return resultTable;
+        }
+
+
+        public SqlDataReader ExecuteProQueryDataReader(string queryString)
+        {
+            //DataSet resultTable = new DataSet();
+            _sqlCommand.CommandTimeout = TimeoutPeriod;
+
+            //Updated By Shahrior On May 31 2012
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _sqlCommand.CommandText = queryString;
+
+            SqlDataReader dr = _sqlCommand.ExecuteReader();
+
+            return dr;
+        }
+
+
+        public DataSet ExecuteProQueryDataset(string queryString)
+        {
+            //DataSet resultTable = new DataSet();
+            _sqlCommand.CommandTimeout = TimeoutPeriod;
+            DataSet dataSet = new DataSet();
+
+            //Updated By Shahrior On May 31 2012
+            _sqlCommand.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _sqlCommand.CommandText = queryString;
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_sqlCommand);
+                myAdapter.Fill(dataSet);
+
+                //if (dataSet.Tables.Count > 0)
+                //    resultTable = dataSet.Tables[0];
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return dataSet;
+        }
+
+
+
+
+        public void BulkCopy(DataTable dataTable, string tableName)
+        {
+            SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(ConnectionString, SqlBulkCopyOptions.TableLock);
+            sqlBulkCopy.DestinationTableName = tableName;
+            sqlBulkCopy.BatchSize = dataTable.Rows.Count;
+            sqlBulkCopy.WriteToServer(dataTable);
+            sqlBulkCopy.Close();
+        }
+
+
+        public void CloseDatabase()
+        {
+            if (_sqlConnection != null)
+            {
+                if (_sqlConnection.State == ConnectionState.Open)
+                    _sqlConnection.Close();
+
+                _sqlConnection = null;
+                _sqlCommand = null;
+                _sqlTransaction = null;
+            }
+        }
+        #endregion
+
+        #region ImageExt
+
+        public void ConnectDatabase_ImageExt()
+        {
+            _sqlConnection_ImagExt = new SqlConnection(ConnectionStringImageExt);
+
+            try
+            {
+                _sqlConnection_ImagExt.Open();
+                _sqlCommand_ImagExt = _sqlConnection_ImagExt.CreateCommand();
+            }
+            catch (Exception)
+            {
+                if (_sqlConnection_ImagExt.State == ConnectionState.Open)
+                    _sqlConnection_ImagExt.Close();
+                throw;
+            }
+        }
+        public void ActiveStoredProcedure_ImageExt()
+        {
+            _sqlCommand_ImagExt.CommandType = CommandType.StoredProcedure;
+            _sqlCommand_ImagExt.Parameters.Clear();
+        }
+
+        public void ClearParameters_ImageExt()
+        {
+            _sqlCommand_ImagExt.Parameters.Clear();
+        }
+        public void AddParameter_ImageExt(string parameterName, SqlDbType parameterType, object parameterValue)
+        {
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter.ParameterName = parameterName;
+            sqlParameter.SqlDbType = parameterType;
+            sqlParameter.Value = parameterValue;
+            //sqlParameter.Direction = ParameterDirection.InputOutput;
+            _sqlCommand_ImagExt.Parameters.Add(sqlParameter);
+        }
+
+        public void StartTransaction_ImageExt()
+        {
+            _sqlTransaction_ImagExt = _sqlConnection_ImagExt.BeginTransaction();
+            _sqlCommand_ImagExt.Transaction = _sqlTransaction_ImagExt;
+        }
+        public void Rollback_ImageExt()
+        {
+            try
+            {
+                if (_sqlTransaction_ImagExt != null)
+                    _sqlTransaction_ImagExt.Rollback();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public void Commit_ImageExt()
+        {
+            try
+            {
+                if (_sqlTransaction_ImagExt != null)
+                    _sqlTransaction_ImagExt.Commit();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public void ExecuteNonQuery_ImageExt(string queryString)
+        {
+            _sqlCommand_ImagExt.CommandText = queryString;
+
+            try
+            {
+                _sqlCommand_ImagExt.CommandTimeout = TimeoutPeriod;
+                _sqlCommand_ImagExt.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public DataTable ExecuteQuery_ImageExt(string queryString)
+        {
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(queryString, _sqlConnection_ImagExt);
+                myAdapter.Fill(dataSet);
+                return dataSet.Tables[0];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public SqlDataReader ExecuteReader_ImageExt(string queryString)
+        {
+            _sqlCommand_ImagExt.CommandText = queryString;
+            _sqlCommand_ImagExt.CommandType = CommandType.Text;
+            return _sqlCommand_ImagExt.ExecuteReader();
+        }
+
+        public DataTable ExecuteProQuery_ImageExt(string queryString)
+        {
+            DataTable resultTable = new DataTable();
+            _sqlCommand_ImagExt.CommandTimeout = TimeoutPeriod;
+            DataSet dataSet = new DataSet();
+
+            //Updated By Shahrior On May 31 2012
+            _sqlCommand_ImagExt.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _sqlCommand_ImagExt.CommandText = queryString;
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_sqlCommand_ImagExt);
+                myAdapter.Fill(dataSet);
+
+                if (dataSet.Tables.Count > 0)
+                    resultTable = dataSet.Tables[0];
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return resultTable;
+        }
+
+        public SqlDataReader ExecuteProQueryDataReader_ImageExt(string queryString)
+        {
+            //DataSet resultTable = new DataSet();
+            _sqlCommand_ImagExt.CommandTimeout = TimeoutPeriod;
+
+            //Updated By Shahrior On May 31 2012
+            _sqlCommand_ImagExt.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _sqlCommand_ImagExt.CommandText = queryString;
+
+            SqlDataReader dr = _sqlCommand_ImagExt.ExecuteReader();
+
+            return dr;
+        }
+        public DataSet ExecuteProQueryDataset_ImageExt(string queryString)
+        {
+            //DataSet resultTable = new DataSet();
+            _sqlCommand_ImagExt.CommandTimeout = TimeoutPeriod;
+            DataSet dataSet = new DataSet();
+
+            //Updated By Shahrior On May 31 2012
+            _sqlCommand_ImagExt.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _sqlCommand_ImagExt.CommandText = queryString;
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_sqlCommand_ImagExt);
+                myAdapter.Fill(dataSet);
+
+                //if (dataSet.Tables.Count > 0)
+                //    resultTable = dataSet.Tables[0];
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return dataSet;
+        }
+        public void BulkCopy_ImageExt(DataTable dataTable, string tableName)
+        {
+            SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(ConnectionStringImageExt, SqlBulkCopyOptions.TableLock);
+            sqlBulkCopy.DestinationTableName = tableName;
+            sqlBulkCopy.BatchSize = dataTable.Rows.Count;
+            sqlBulkCopy.WriteToServer(dataTable);
+            sqlBulkCopy.Close();
+        }
+
+        public void CloseDatabase_ImageExt()
+        {
+            if (_sqlConnection_ImagExt != null)
+            {
+                if (_sqlConnection_ImagExt.State == ConnectionState.Open)
+                    _sqlConnection_ImagExt.Close();
+
+                _sqlConnection_ImagExt = null;
+                _sqlCommand_ImagExt = null;
+                _sqlTransaction_ImagExt = null;
+            }
+        }
+
+
+        public bool IsTableExist(string tableName)
+        {
+            _sqlConnection = new SqlConnection(ConnectionString);
+
+            try
+            {
+                _sqlConnection.Open();
+                DataTable datatable = _sqlConnection.GetSchema("TABLES",
+                           new string[] { null, null, tableName });
+
+                return datatable.Rows.Count > 0;
+
+            }
+            catch (Exception)
+            {
+                if (_sqlConnection.State == ConnectionState.Open)
+                    _sqlConnection.Close();
+                throw;
+            }
+
+        }
+
+
+
+        #endregion
+
+        #region SMSSender
+
+        public void ConnectDatabase_SMSSender()
+        {
+
+            _SqlConnection_SMSSender = new SqlConnection(ConnectionStringSMSSender);
+
+            try
+            {
+                _SqlConnection_SMSSender.Open();
+                _SqlCommand_SMSSender = _SqlConnection_SMSSender.CreateCommand();
+                //_sqlCommand = _SqlConnection_SMSSender.CreateCommand();
+            }
+            catch (Exception)
+            {
+                if (_SqlConnection_SMSSender.State == ConnectionState.Open)
+                    _SqlConnection_SMSSender.Close();
+                throw;
+            }
+
+        }
+
+        public void ActiveStoredProcedure_SMSSender()
+        {
+            _SqlCommand_SMSSender.CommandType = CommandType.StoredProcedure;
+            _SqlCommand_SMSSender.Parameters.Clear();
+        }
+
+        public void ClearParameters_SMSSender()
+        {
+            _sqlCommand.Parameters.Clear();
+        }
+
+        public void AddParameter_SMSSender(string parameterName, SqlDbType parameterType, object parameterValue)
+        {
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter.ParameterName = parameterName;
+            sqlParameter.SqlDbType = parameterType;
+            sqlParameter.Value = parameterValue;
+            //sqlParameter.Direction = ParameterDirection.InputOutput;
+            _SqlCommand_SMSSender.Parameters.Add(sqlParameter);
+        }
+
+        public void StartTransaction_SMSSender()
+        {
+            _sqlTransaction_SMSSender = _SqlConnection_SMSSender.BeginTransaction();
+            _SqlCommand_SMSSender.Transaction = _sqlTransaction_SMSSender;
+        }
+
+
+        public void Rollback_SMSSender()
+        {
+            try
+            {
+                if (_sqlTransaction_SMSSender != null)
+                    _sqlTransaction_SMSSender.Rollback();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+
+        public void Commit_SMSSender()
+        {
+            try
+            {
+                if (_sqlTransaction_SMSSender != null)
+                    _sqlTransaction_SMSSender.Commit();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public SqlTransaction GetTransaction_SMSSender()
+        {
+            return _SqlCommand_SMSSender.Transaction;
+
+        }
+
+        public void SetTransaction_SMSSender(SqlTransaction trns)
+        {
+            _SqlCommand_SMSSender.Transaction = trns;
+
+        }
+
+        public void ExecuteNonQuery_SMSSender(string queryString)
+        {
+            _SqlCommand_SMSSender.CommandText = queryString;
+            _SqlCommand_SMSSender.CommandType = CommandType.Text;
+            if (_SqlCommand_SMSSender.Parameters.Count != 0 && (!queryString.Contains("@")))
+            {
+                _SqlCommand_SMSSender.CommandType = CommandType.StoredProcedure;
+            }
+            else
+            {
+                _SqlCommand_SMSSender.CommandType = CommandType.Text;
+            }
+
+            try
+            {
+                _SqlCommand_SMSSender.CommandTimeout = 900; //TimeoutPeriod;
+                _SqlCommand_SMSSender.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public void ExecuteNonQuery_EmergencyImplementation_SMSSender(string queryString)
+        {
+            _SqlCommand_SMSSender.CommandText = queryString;
+            _SqlCommand_SMSSender.CommandType = CommandType.Text;
+            try
+            {
+                _SqlCommand_SMSSender.CommandTimeout = TimeoutPeriod;
+                _SqlCommand_SMSSender.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int ExecuteScalar_SMSSender(string queryString)
+        {
+            int recentIdentity = -1;
+
+            if (!queryString.EndsWith(";"))
+                queryString = queryString + ";";
+
+            _SqlCommand_SMSSender.CommandText = queryString + "SELECT CAST(scope_identity() AS int)";
+
+            try
+            {
+                _SqlCommand_SMSSender.CommandTimeout = TimeoutPeriod;
+                recentIdentity = Convert.ToInt32(_SqlCommand_SMSSender.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return recentIdentity;
+        }
+
+        //public DataTable ExecuteQuery(string queryString)
+        //{
+        //    DataSet dataSet = new DataSet();
+
+        //    try
+        //    {
+        //        SqlDataAdapter myAdapter = new SqlDataAdapter(queryString, _sqlConnection);
+        //        myAdapter.Fill(dataSet);
+        //        return dataSet.Tables[0];
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
+
+        public DataTable ExecuteQuery_SMSSender(string queryString)
+        {
+            DataSet dataSetSMS = new DataSet();
+
+            try
+            {
+                _SqlCommand_SMSSender.CommandText = queryString;
+                _SqlCommand_SMSSender.CommandType = CommandType.Text;
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_SqlCommand_SMSSender);
+                myAdapter.Fill(dataSetSMS);
+                return dataSetSMS.Tables[0];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public DataTable ExecuteQuery_SMSSender(string queryString, SqlTransaction trn)
+        {
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+
+                SqlDataAdapter myAdapter = new SqlDataAdapter(queryString, _SqlConnection_SMSSender);
+                myAdapter.SelectCommand.Transaction = trn;
+                myAdapter.Fill(dataSet);
+                return dataSet.Tables[0];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+
+
+        public SqlDataReader ExecuteReader_SMSSender(string queryString)
+        {
+            _SqlCommand_SMSSender.CommandText = queryString;
+            _SqlCommand_SMSSender.CommandType = CommandType.Text;
+            return _SqlCommand_SMSSender.ExecuteReader();
+        }
+
+        public DataTable ExecuteProByText_SMSSender(string queryString)
+        {
+            DataTable resultTable = new DataTable();
+            _SqlCommand_SMSSender.CommandTimeout = TimeoutPeriod;
+            DataSet dataSet = new DataSet();
+
+            //Updated By Shahrior On May 31 2012
+            _SqlCommand_SMSSender.CommandType = CommandType.Text;
+            _SqlCommand_SMSSender.CommandText = queryString;
+
+
+
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_SqlCommand_SMSSender);
+                myAdapter.Fill(dataSet);
+
+                if (dataSet.Tables.Count > 0)
+                    resultTable = dataSet.Tables[0];
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return resultTable;
+        }
+
+
+        public DataTable ExecuteProQuery_SMSSender(string queryString)
+        {
+            DataTable resultTable = new DataTable();
+            _SqlCommand_SMSSender.CommandTimeout = TimeoutPeriod;
+            DataSet dataSet = new DataSet();
+
+            //Updated By Shahrior On May 31 2012
+            _SqlCommand_SMSSender.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _SqlCommand_SMSSender.CommandText = queryString;
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_SqlCommand_SMSSender);
+                myAdapter.Fill(dataSet);
+
+                if (dataSet.Tables.Count > 0)
+                    resultTable = dataSet.Tables[0];
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return resultTable;
+        }
+
+
+        public SqlDataReader ExecuteProQueryDataReader_SMSSender(string queryString)
+        {
+            //DataSet resultTable = new DataSet();
+            _SqlCommand_SMSSender.CommandTimeout = TimeoutPeriod;
+
+            //Updated By Shahrior On May 31 2012
+            _SqlCommand_SMSSender.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _SqlCommand_SMSSender.CommandText = queryString;
+
+            SqlDataReader dr = _SqlCommand_SMSSender.ExecuteReader();
+
+            return dr;
+        }
+
+
+        public DataSet ExecuteProQueryDataset_SMSSender(string queryString)
+        {
+            //DataSet resultTable = new DataSet();
+            _SqlCommand_SMSSender.CommandTimeout = TimeoutPeriod;
+            DataSet dataSet = new DataSet();
+
+            //Updated By Shahrior On May 31 2012
+            _SqlCommand_SMSSender.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _SqlCommand_SMSSender.CommandText = queryString;
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_SqlCommand_SMSSender);
+                myAdapter.Fill(dataSet);
+
+                //if (dataSet.Tables.Count > 0)
+                //    resultTable = dataSet.Tables[0];
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return dataSet;
+        }
+
+
+
+
+        public void BulkCopy_SMSSender(DataTable dataTable, string tableName)
+        {
+            SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(ConnectionStringSMSSender, SqlBulkCopyOptions.TableLock);
+            sqlBulkCopy.DestinationTableName = tableName;
+            sqlBulkCopy.BatchSize = dataTable.Rows.Count;
+            sqlBulkCopy.WriteToServer(dataTable);
+            sqlBulkCopy.Close();
+        }
+
+
+        public void CloseDatabase_SMSSender()
+        {
+            if (_SqlConnection_SMSSender != null)
+            {
+                if (_SqlConnection_SMSSender.State == ConnectionState.Open)
+                    _SqlConnection_SMSSender.Close();
+
+                _SqlConnection_SMSSender = null;
+                _SqlCommand_SMSSender = null;
+                _sqlTransaction_SMSSender = null;
+            }
+        }
+        #endregion
+
+        #region Web2014
+
+        //public void ConnectDatabase_Web2014()
+        //{
+        //    _sqlConnection_Web2014 = new SqlConnection(ConnectionStringWeb2014);
+
+        //    try
+        //    {
+        //        _sqlConnection_Web2014.Open();
+        //        _sqlCommand_Web2014 = _sqlConnection_Web2014.CreateCommand();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        if (_sqlConnection_Web2014.State == ConnectionState.Open)
+        //            _sqlConnection_Web2014.Close();
+        //        throw;
+        //    }
+        //}
+
+        //public void ActiveStoredProcedure_Web2014()
+        //{
+        //    _sqlCommand_Web2014.CommandType = CommandType.StoredProcedure;
+        //    _sqlCommand_Web2014.Parameters.Clear();
+        //}
+
+        //public void ClearParameters_Web2014()
+        //{
+        //    _sqlCommand_Web2014.Parameters.Clear();
+        //}
+
+        //public void AddParameter_Web2014(string parameterName, SqlDbType parameterType, object parameterValue)
+        //{
+        //    SqlParameter sqlParameter = new SqlParameter();
+        //    sqlParameter.ParameterName = parameterName;
+        //    sqlParameter.SqlDbType = parameterType;
+        //    sqlParameter.Value = parameterValue;
+        //    //sqlParameter.Direction = ParameterDirection.InputOutput;
+        //    _sqlCommand_Web2014.Parameters.Add(sqlParameter);
+        //}
+
+        //public void StartTransaction_Web2014()
+        //{
+        //    _sqlTransaction_Web2014 = _sqlConnection_Web2014.BeginTransaction();
+        //    _sqlCommand_Web2014.Transaction = _sqlTransaction_Web2014;
+        //}
+
+        //public void Rollback_Web2014()
+        //{
+        //    try
+        //    {
+        //        _sqlTransaction_Web2014.Rollback();
+        //    }
+        //    catch (Exception ex) { throw ex; }
+        //}
+
+        //public void Commit_Web2014()
+        //{
+        //    try
+        //    {
+        //        _sqlTransaction_Web2014.Commit();
+        //    }
+        //    catch (Exception ex) { throw ex; }
+        //}
+
+        //public void ExecuteNonQuery_Web2014(string queryString)
+        //{
+        //    _sqlCommand_Web2014.CommandText = queryString;
+
+        //    try
+        //    {
+        //        _sqlCommand_Web2014.CommandTimeout = TimeoutPeriod;
+        //        _sqlCommand_Web2014.ExecuteNonQuery();
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
+
+        //public DataTable ExecuteQuery_Web2014(string queryString)
+        //{
+        //    DataSet dataSet = new DataSet();
+
+        //    try
+        //    {
+        //        SqlDataAdapter myAdapter = new SqlDataAdapter(queryString, _sqlConnection_Web2014);
+        //        myAdapter.Fill(dataSet);
+        //        return dataSet.Tables[0];
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
+
+        //public SqlDataReader ExecuteReader_Web2014(string queryString)
+        //{
+        //    _sqlCommand_Web2014.CommandText = queryString;
+        //    _sqlCommand_Web2014.CommandType = CommandType.Text;
+        //    return _sqlCommand_Web2014.ExecuteReader();
+        //}
+
+        //public DataTable ExecuteProQuery_Web2014(string queryString)
+        //{
+        //    DataTable resultTable = new DataTable();
+        //    _sqlCommand_Web2014.CommandTimeout = TimeoutPeriod;
+        //    DataSet dataSet = new DataSet();
+
+        //    //Updated By Shahrior On May 31 2012
+        //    _sqlCommand_Web2014.CommandType = CommandType.StoredProcedure;
+        //    //End Updated
+
+        //    _sqlCommand_Web2014.CommandText = queryString;
+
+        //    try
+        //    {
+        //        SqlDataAdapter myAdapter = new SqlDataAdapter(_sqlCommand_Web2014);
+        //        myAdapter.Fill(dataSet);
+
+        //        if (dataSet.Tables.Count > 0)
+        //            resultTable = dataSet.Tables[0];
+
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //    return resultTable;
+        //}
+
+        //public SqlDataReader ExecuteProQueryDataReader_Web2014(string queryString)
+        //{
+        //    //DataSet resultTable = new DataSet();
+        //    _sqlCommand_Web2014.CommandTimeout = TimeoutPeriod;
+
+        //    //Updated By Shahrior On May 31 2012
+        //    _sqlCommand_Web2014.CommandType = CommandType.StoredProcedure;
+        //    //End Updated
+
+        //    _sqlCommand_Web2014.CommandText = queryString;
+
+        //    SqlDataReader dr = _sqlCommand_Web2014.ExecuteReader();
+
+        //    return dr;
+        //}
+
+        //public DataSet ExecuteProQueryDataset_Web2014(string queryString)
+        //{
+        //    //DataSet resultTable = new DataSet();
+        //    _sqlCommand_Web2014.CommandTimeout = TimeoutPeriod;
+        //    DataSet dataSet = new DataSet();
+
+        //    //Updated By Shahrior On May 31 2012
+        //    _sqlCommand_Web2014.CommandType = CommandType.StoredProcedure;
+        //    //End Updated
+
+        //    _sqlCommand_Web2014.CommandText = queryString;
+
+        //    try
+        //    {
+        //        SqlDataAdapter myAdapter = new SqlDataAdapter(_sqlCommand_Web2014);
+        //        myAdapter.Fill(dataSet);
+
+        //        //if (dataSet.Tables.Count > 0)
+        //        //    resultTable = dataSet.Tables[0];
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //    return dataSet;
+        //}
+
+        //public void BulkCopy_Web2014(DataTable dataTable, string tableName)
+        //{
+        //    SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(ConnectionStringWeb2014, SqlBulkCopyOptions.TableLock);
+        //    sqlBulkCopy.DestinationTableName = tableName;
+        //    sqlBulkCopy.BatchSize = dataTable.Rows.Count;
+        //    sqlBulkCopy.WriteToServer(dataTable);
+        //    sqlBulkCopy.Close();
+        //}
+
+        //public void CloseDatabase_Web2014()
+        //{
+        //    if (_sqlConnection_Web2014 != null)
+        //    {
+        //        if (_sqlConnection_Web2014.State == ConnectionState.Open)
+        //            _sqlConnection_Web2014.Close();
+
+        //        _sqlConnection_Web2014 = null;
+        //        _sqlCommand_Web2014 = null;
+        //        _sqlTransaction_Web2014 = null;
+        //    }
+        //}
+
+
+        #endregion
+
+        #region ForBankBook
+
+        public void ConnectDatabase_BankBook()
+        {
+            _sqlConnection_BankBook = new SqlConnection(ConnectionStringForBankBook);
+
+            try
+            {
+                _sqlConnection_BankBook.Open();
+                _sqlCommand_ImagExt = _sqlConnection_BankBook.CreateCommand();
+            }
+            catch (Exception)
+            {
+                if (_sqlConnection_BankBook.State == ConnectionState.Open)
+                    _sqlConnection_BankBook.Close();
+                throw;
+            }
+        }
+        public void ActiveStoredProcedure_BankBook()
+        {
+            _sqlCommand_BankBook.CommandType = CommandType.StoredProcedure;
+            _sqlCommand_BankBook.Parameters.Clear();
+        }
+
+        public void ClearParameters_BankBook()
+        {
+            _sqlCommand_BankBook.Parameters.Clear();
+        }
+        public void AddParameter_BankBook(string parameterName, SqlDbType parameterType, object parameterValue)
+        {
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter.ParameterName = parameterName;
+            sqlParameter.SqlDbType = parameterType;
+            sqlParameter.Value = parameterValue;
+            //sqlParameter.Direction = ParameterDirection.InputOutput;
+            _sqlCommand_BankBook.Parameters.Add(sqlParameter);
+        }
+
+        public void StartTransaction_BankBook()
+        {
+            _sqlTransaction_BankBook = _sqlConnection_BankBook.BeginTransaction();
+            _sqlCommand_BankBook.Transaction = _sqlTransaction_BankBook;
+        }
+        public void Rollback_BankBook()
+        {
+            try
+            {
+                if (_sqlTransaction_BankBook != null)
+                    _sqlTransaction_BankBook.Rollback();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public void Commit_BankBook()
+        {
+            try
+            {
+                if (_sqlTransaction_BankBook != null)
+                    _sqlTransaction_BankBook.Commit();
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        public void ExecuteNonQuery_BankBook(string queryString)
+        {
+            _sqlCommand_BankBook.CommandText = queryString;
+
+            try
+            {
+                _sqlCommand_BankBook.CommandTimeout = TimeoutPeriod;
+                _sqlCommand_BankBook.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public DataTable ExecuteQuery_BankBook(string queryString)
+        {
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(queryString, _sqlConnection_BankBook);
+                myAdapter.Fill(dataSet);
+                return dataSet.Tables[0];
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public SqlDataReader ExecuteReader_BankBook(string queryString)
+        {
+            _sqlCommand_BankBook.CommandText = queryString;
+            _sqlCommand_BankBook.CommandType = CommandType.Text;
+            return _sqlCommand_BankBook.ExecuteReader();
+        }
+
+        public DataTable ExecuteProQuery_BankBook(string queryString)
+        {
+            DataTable resultTable = new DataTable();
+            _sqlCommand_BankBook.CommandTimeout = TimeoutPeriod;
+            DataSet dataSet = new DataSet();
+
+            //Updated By Shahrior On May 31 2012
+            _sqlCommand_BankBook.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _sqlCommand_BankBook.CommandText = queryString;
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_sqlCommand_BankBook);
+                myAdapter.Fill(dataSet);
+
+                if (dataSet.Tables.Count > 0)
+                    resultTable = dataSet.Tables[0];
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return resultTable;
+        }
+
+        public SqlDataReader ExecuteProQueryDataReader_BankBook(string queryString)
+        {
+            //DataSet resultTable = new DataSet();
+            _sqlCommand_BankBook.CommandTimeout = TimeoutPeriod;
+
+            //Updated By Shahrior On May 31 2012
+            _sqlCommand_BankBook.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _sqlCommand_BankBook.CommandText = queryString;
+
+            SqlDataReader dr = _sqlCommand_BankBook.ExecuteReader();
+
+            return dr;
+        }
+        public DataSet ExecuteProQueryDataset_BankBook(string queryString)
+        {
+            //DataSet resultTable = new DataSet();
+            _sqlCommand_BankBook.CommandTimeout = TimeoutPeriod;
+            DataSet dataSet = new DataSet();
+
+            //Updated By Shahrior On May 31 2012
+            _sqlCommand_BankBook.CommandType = CommandType.StoredProcedure;
+            //End Updated
+
+            _sqlCommand_BankBook.CommandText = queryString;
+
+            try
+            {
+                SqlDataAdapter myAdapter = new SqlDataAdapter(_sqlCommand_BankBook);
+                myAdapter.Fill(dataSet);
+
+                //if (dataSet.Tables.Count > 0)
+                //    resultTable = dataSet.Tables[0];
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return dataSet;
+        }
+        public void BulkCopy_BankBook(DataTable dataTable, string tableName)
+        {
+            SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(ConnectionStringForBankBook, SqlBulkCopyOptions.TableLock);
+            sqlBulkCopy.DestinationTableName = tableName;
+            sqlBulkCopy.BatchSize = dataTable.Rows.Count;
+            sqlBulkCopy.WriteToServer(dataTable);
+            sqlBulkCopy.Close();
+        }
+
+        public void CloseDatabase_BankBook()
+        {
+            if (_sqlConnection_BankBook != null)
+            {
+                if (_sqlConnection_BankBook.State == ConnectionState.Open)
+                    _sqlConnection_BankBook.Close();
+
+                _sqlConnection_BankBook = null;
+                _sqlCommand_BankBook = null;
+                _sqlTransaction_BankBook = null;
+            }
+        }
+
+        #endregion
+
+    }
+}

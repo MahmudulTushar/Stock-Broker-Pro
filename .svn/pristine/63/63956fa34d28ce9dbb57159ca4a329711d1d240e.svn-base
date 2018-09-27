@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPortfolio_Statement_Investor_Wise_DSE_22_1" targetNamespace="http://tempuri.org/dsPortfolio_Statement_Investor_Wise_DSE_22_1.xsd" xmlns:mstns="http://tempuri.org/dsPortfolio_Statement_Investor_Wise_DSE_22_1.xsd" xmlns="http://tempuri.org/dsPortfolio_Statement_Investor_Wise_DSE_22_1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPortfolio_Statement_Investor_Wise_DSE_22_1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsPortfolio_Statement_Investor_Wise_DSE_22_1" msprop:Generator_DataSetName="dsPortfolio_Statement_Investor_Wise_DSE_22_1" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Investor_Code" msprop:Generator_UserColumnName="Investor_Code" msprop:Generator_ColumnVarNameInTable="columnInvestor_Code" msprop:Generator_ColumnPropNameInRow="Investor_Code" msprop:Generator_ColumnPropNameInTable="Investor_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="BO_ID" msprop:Generator_UserColumnName="BO_ID" msprop:Generator_ColumnVarNameInTable="columnBO_ID" msprop:Generator_ColumnPropNameInRow="BO_ID" msprop:Generator_ColumnPropNameInTable="BO_IDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Investor_Name" msprop:Generator_UserColumnName="Investor_Name" msprop:Generator_ColumnVarNameInTable="columnInvestor_Name" msprop:Generator_ColumnPropNameInRow="Investor_Name" msprop:Generator_ColumnPropNameInTable="Investor_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Reporting_Date" msprop:Generator_UserColumnName="Reporting_Date" msprop:Generator_ColumnVarNameInTable="columnReporting_Date" msprop:Generator_ColumnPropNameInRow="Reporting_Date" msprop:Generator_ColumnPropNameInTable="Reporting_DateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Exchange_Name" msprop:Generator_UserColumnName="Exchange_Name" msprop:Generator_ColumnVarNameInTable="columnExchange_Name" msprop:Generator_ColumnPropNameInRow="Exchange_Name" msprop:Generator_ColumnPropNameInTable="Exchange_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Instrument_ID" msprop:Generator_UserColumnName="Instrument_ID" msprop:Generator_ColumnVarNameInTable="columnInstrument_ID" msprop:Generator_ColumnPropNameInRow="Instrument_ID" msprop:Generator_ColumnPropNameInTable="Instrument_IDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Total_Share" msprop:Generator_UserColumnName="Total_Share" msprop:Generator_ColumnVarNameInTable="columnTotal_Share" msprop:Generator_ColumnPropNameInRow="Total_Share" msprop:Generator_ColumnPropNameInTable="Total_ShareColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Salable_Share" msprop:Generator_UserColumnName="Salable_Share" msprop:Generator_ColumnVarNameInTable="columnSalable_Share" msprop:Generator_ColumnPropNameInRow="Salable_Share" msprop:Generator_ColumnPropNameInTable="Salable_ShareColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Buy_Rate" msprop:Generator_UserColumnName="Buy_Rate" msprop:Generator_ColumnVarNameInTable="columnBuy_Rate" msprop:Generator_ColumnPropNameInRow="Buy_Rate" msprop:Generator_ColumnPropNameInTable="Buy_RateColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Actual_Cost" msprop:Generator_UserColumnName="Actual_Cost" msprop:Generator_ColumnVarNameInTable="columnActual_Cost" msprop:Generator_ColumnPropNameInRow="Actual_Cost" msprop:Generator_ColumnPropNameInTable="Actual_CostColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Close_Price" msprop:Generator_UserColumnName="Close_Price" msprop:Generator_ColumnVarNameInTable="columnClose_Price" msprop:Generator_ColumnPropNameInRow="Close_Price" msprop:Generator_ColumnPropNameInTable="Close_PriceColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Market_Value" msprop:Generator_UserColumnName="Market_Value" msprop:Generator_ColumnVarNameInTable="columnMarket_Value" msprop:Generator_ColumnPropNameInRow="Market_Value" msprop:Generator_ColumnPropNameInTable="Market_ValueColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Unrealized_Gain__x0028_Loss_x0029_" msprop:Generator_UserColumnName="Unrealized_Gain_(Loss)" msprop:Generator_ColumnPropNameInRow="_Unrealized_Gain__Loss_" msprop:Generator_ColumnVarNameInTable="_columnUnrealized_Gain__Loss_" msprop:Generator_ColumnPropNameInTable="_Unrealized_Gain__Loss_Column" type="xs:string" minOccurs="0" />
+              <xs:element name="_x0025__x0028_Gain_Loss_x0029_" msprop:Generator_UserColumnName="%(Gain_Loss)" msprop:Generator_ColumnPropNameInRow="___Gain_Loss_" msprop:Generator_ColumnVarNameInTable="_column__Gain_Loss_" msprop:Generator_ColumnPropNameInTable="___Gain_Loss_Column" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Equity" msprop:Generator_UserColumnName="Equity" msprop:Generator_ColumnPropNameInRow="Equity" msprop:Generator_ColumnVarNameInTable="columnEquity" msprop:Generator_ColumnPropNameInTable="EquityColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Unrealized_Gain_Loss" msprop:Generator_UserColumnName="Unrealized_Gain_Loss" msprop:Generator_ColumnPropNameInRow="Unrealized_Gain_Loss" msprop:Generator_ColumnVarNameInTable="columnUnrealized_Gain_Loss" msprop:Generator_ColumnPropNameInTable="Unrealized_Gain_LossColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total_Fund" msprop:Generator_UserColumnName="Total_Fund" msprop:Generator_ColumnPropNameInRow="Total_Fund" msprop:Generator_ColumnVarNameInTable="columnTotal_Fund" msprop:Generator_ColumnPropNameInTable="Total_FundColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Loan_Amount" msprop:Generator_UserColumnName="Loan_Amount" msprop:Generator_ColumnPropNameInRow="Loan_Amount" msprop:Generator_ColumnVarNameInTable="columnLoan_Amount" msprop:Generator_ColumnPropNameInTable="Loan_AmountColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

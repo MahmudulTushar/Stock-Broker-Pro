@@ -1,0 +1,13 @@
+﻿Installing assembly 'G:\SBP_Windows_Service\StockBrokerProWs\StockBrokerProWs\bin\Debug\StockBrokerProWs.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = G:\SBP_Windows_Service\StockBrokerProWs\StockBrokerProWs\bin\Debug\StockBrokerProWs.exe
+   logfile = G:\SBP_Windows_Service\StockBrokerProWs\StockBrokerProWs\bin\Debug\StockBrokerProWs.InstallLog
+Installing service StockBrokerProWs...
+Service StockBrokerProWs has been successfully installed.
+Creating EventLog source StockBrokerProWs in log Application...
+Committing assembly 'G:\SBP_Windows_Service\StockBrokerProWs\StockBrokerProWs\bin\Debug\StockBrokerProWs.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = G:\SBP_Windows_Service\StockBrokerProWs\StockBrokerProWs\bin\Debug\StockBrokerProWs.exe
+   logfile = G:\SBP_Windows_Service\StockBrokerProWs\StockBrokerProWs\bin\Debug\StockBrokerProWs.InstallLog

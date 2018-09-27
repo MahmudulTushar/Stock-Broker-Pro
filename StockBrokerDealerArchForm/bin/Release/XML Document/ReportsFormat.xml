@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<crClientPayableReconciliationStatement.rpt>
+  <!-- 1> PayableClients-->
+  <CheckValue>
+    <FirstAmount>1</FirstAmount>
+    <SecondAmount>1</SecondAmount>
+    <Remarks>1</Remarks>
+  </CheckValue>
+
+  <!-- 2> BankBalance-->
+  <CheckValue>
+    <FirstAmount>2</FirstAmount>
+    <SecondAmount>2</SecondAmount>
+    <Remarks>2</Remarks>
+  </CheckValue>
+
+  <!-- 3> CashInHand-->
+  <CheckValue>
+    <FirstAmount>3</FirstAmount>
+    <SecondAmount>3</SecondAmount>
+    <Remarks>3</Remarks>
+  </CheckValue>
+
+  <!-- 4> Netreceivable-->
+  <CheckValue>
+    <FirstAmount>4</FirstAmount>
+    <SecondAmount>4</SecondAmount>
+    <Remarks>4</Remarks>
+  </CheckValue>
+
+  <!-- 5> txtChequeDepositedAmount1-->
+  <CheckValue>
+    <FirstAmount>5</FirstAmount>
+    <SecondAmount>5</SecondAmount>
+    <Remarks>5</Remarks>
+  </CheckValue>
+
+  <!-- 6> LoanFacility-->
+  <CheckValue>
+    <FirstAmount>6</FirstAmount>
+    <SecondAmount>6</SecondAmount>
+    <Remarks>6</Remarks>
+  </CheckValue>
+
+  <!-- 7> Others-->
+  <CheckValue>
+    <FirstAmount>7</FirstAmount>
+    <SecondAmount>7</SecondAmount>
+    <Remarks>7</Remarks>
+  </CheckValue>
+
+  <!-- 8> ChequePaidToClients-->
+  <CheckValue>
+    <FirstAmount>8</FirstAmount>
+    <SecondAmount>8</SecondAmount>
+    <Remarks>8</Remarks>
+  </CheckValue>
+
+  <!-- 9> NetPayable-->
+  <CheckValue>
+    <FirstAmount>9</FirstAmount>
+    <SecondAmount>9</SecondAmount>
+    <Remarks>9</Remarks>
+  </CheckValue>
+
+  <!-- 10> NetClientpayableavailable-->
+  <CheckValue>
+    <FirstAmount>10</FirstAmount>
+    <SecondAmount>10</SecondAmount>
+    <Remarks>10</Remarks>
+  </CheckValue>
+
+  <!-- 11> Surplus-->
+  <CheckValue>
+    <FirstAmount>11</FirstAmount>
+    <SecondAmount>11</SecondAmount>
+    <Remarks>11</Remarks>
+  </CheckValue>
+  
+  
+</crClientPayableReconciliationStatement.rpt>
+
+
+
+
+

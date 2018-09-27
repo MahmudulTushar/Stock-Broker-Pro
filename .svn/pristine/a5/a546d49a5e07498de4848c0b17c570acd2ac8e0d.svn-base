@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dspdfReport" targetNamespace="http://tempuri.org/dspdfReport.xsd" xmlns:mstns="http://tempuri.org/dspdfReport.xsd" xmlns="http://tempuri.org/dspdfReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dspdfReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dspdfReport" msprop:Generator_DataSetName="dspdfReport" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="FormImage" msprop:Generator_UserTableName="FormImage" msprop:Generator_RowDeletedName="FormImageRowDeleted" msprop:Generator_RowChangedName="FormImageRowChanged" msprop:Generator_RowClassName="FormImageRow" msprop:Generator_RowChangingName="FormImageRowChanging" msprop:Generator_RowEvArgName="FormImageRowChangeEvent" msprop:Generator_RowEvHandlerName="FormImageRowChangeEventHandler" msprop:Generator_TableClassName="FormImageDataTable" msprop:Generator_TableVarName="tableFormImage" msprop:Generator_RowDeletingName="FormImageRowDeleting" msprop:Generator_TablePropName="FormImage">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cust_Photo" msprop:Generator_UserColumnName="Cust_Photo" msprop:Generator_ColumnVarNameInTable="columnCust_Photo" msprop:Generator_ColumnPropNameInRow="Cust_Photo" msprop:Generator_ColumnPropNameInTable="Cust_PhotoColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Cust_Signature" msprop:Generator_UserColumnName="Cust_Signature" msprop:Generator_ColumnVarNameInTable="columnCust_Signature" msprop:Generator_ColumnPropNameInRow="Cust_Signature" msprop:Generator_ColumnPropNameInTable="Cust_SignatureColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Nominee1_Photo" msprop:Generator_UserColumnName="Nominee1_Photo" msprop:Generator_ColumnVarNameInTable="columnNominee1_Photo" msprop:Generator_ColumnPropNameInRow="Nominee1_Photo" msprop:Generator_ColumnPropNameInTable="Nominee1_PhotoColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Nominee1_Signature" msprop:Generator_UserColumnName="Nominee1_Signature" msprop:Generator_ColumnVarNameInTable="columnNominee1_Signature" msprop:Generator_ColumnPropNameInRow="Nominee1_Signature" msprop:Generator_ColumnPropNameInTable="Nominee1_SignatureColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Joint_Acc_Holdr_Photo" msprop:Generator_UserColumnName="Joint_Acc_Holdr_Photo" msprop:Generator_ColumnVarNameInTable="columnJoint_Acc_Holdr_Photo" msprop:Generator_ColumnPropNameInRow="Joint_Acc_Holdr_Photo" msprop:Generator_ColumnPropNameInTable="Joint_Acc_Holdr_PhotoColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Joint_Acc_Holdr_Signature" msprop:Generator_UserColumnName="Joint_Acc_Holdr_Signature" msprop:Generator_ColumnVarNameInTable="columnJoint_Acc_Holdr_Signature" msprop:Generator_ColumnPropNameInRow="Joint_Acc_Holdr_Signature" msprop:Generator_ColumnPropNameInTable="Joint_Acc_Holdr_SignatureColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Authorized_Person_Photo" msprop:Generator_UserColumnName="Authorized_Person_Photo" msprop:Generator_ColumnPropNameInRow="Authorized_Person_Photo" msprop:Generator_ColumnVarNameInTable="columnAuthorized_Person_Photo" msprop:Generator_ColumnPropNameInTable="Authorized_Person_PhotoColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Authorized_Person_Signature" msprop:Generator_UserColumnName="Authorized_Person_Signature" msprop:Generator_ColumnPropNameInRow="Authorized_Person_Signature" msprop:Generator_ColumnVarNameInTable="columnAuthorized_Person_Signature" msprop:Generator_ColumnPropNameInTable="Authorized_Person_SignatureColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Nominee2_Photo" msprop:Generator_UserColumnName="Nominee2_Photo" msprop:Generator_ColumnVarNameInTable="columnNominee2_Photo" msprop:Generator_ColumnPropNameInRow="Nominee2_Photo" msprop:Generator_ColumnPropNameInTable="Nominee2_PhotoColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Nominee2_Signature" msprop:Generator_UserColumnName="Nominee2_Signature" msprop:Generator_ColumnVarNameInTable="columnNominee2_Signature" msprop:Generator_ColumnPropNameInRow="Nominee2_Signature" msprop:Generator_ColumnPropNameInTable="Nominee2_SignatureColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Gurdian1_Photo" msprop:Generator_UserColumnName="Gurdian1_Photo" msprop:Generator_ColumnVarNameInTable="columnGurdian1_Photo" msprop:Generator_ColumnPropNameInRow="Gurdian1_Photo" msprop:Generator_ColumnPropNameInTable="Gurdian1_PhotoColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Gurdian1_Signature" msprop:Generator_UserColumnName="Gurdian1_Signature" msprop:Generator_ColumnVarNameInTable="columnGurdian1_Signature" msprop:Generator_ColumnPropNameInRow="Gurdian1_Signature" msprop:Generator_ColumnPropNameInTable="Gurdian1_SignatureColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Gurdian2_Photo" msprop:Generator_UserColumnName="Gurdian2_Photo" msprop:Generator_ColumnVarNameInTable="columnGurdian2_Photo" msprop:Generator_ColumnPropNameInRow="Gurdian2_Photo" msprop:Generator_ColumnPropNameInTable="Gurdian2_PhotoColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Gurdian2_Signature" msprop:Generator_UserColumnName="Gurdian2_Signature" msprop:Generator_ColumnVarNameInTable="columnGurdian2_Signature" msprop:Generator_ColumnPropNameInRow="Gurdian2_Signature" msprop:Generator_ColumnPropNameInTable="Gurdian2_SignatureColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="POA_Photo" msprop:Generator_UserColumnName="POA_Photo" msprop:Generator_ColumnVarNameInTable="columnPOA_Photo" msprop:Generator_ColumnPropNameInRow="POA_Photo" msprop:Generator_ColumnPropNameInTable="POA_PhotoColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="POA_Signature" msprop:Generator_UserColumnName="POA_Signature" msprop:Generator_ColumnVarNameInTable="columnPOA_Signature" msprop:Generator_ColumnPropNameInRow="POA_Signature" msprop:Generator_ColumnPropNameInTable="POA_SignatureColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Default_Signature" msprop:Generator_UserColumnName="Default_Signature" msprop:Generator_ColumnPropNameInRow="Default_Signature" msprop:Generator_ColumnVarNameInTable="columnDefault_Signature" msprop:Generator_ColumnPropNameInTable="Default_SignatureColumn" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Director_Signature" msprop:Generator_UserColumnName="Director_Signature" msprop:Generator_ColumnPropNameInRow="Director_Signature" msprop:Generator_ColumnVarNameInTable="columnDirector_Signature" msprop:Generator_ColumnPropNameInTable="Director_SignatureColumn" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

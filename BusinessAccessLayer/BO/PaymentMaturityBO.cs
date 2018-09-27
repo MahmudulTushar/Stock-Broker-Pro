@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace BusinessAccessLayer.BO
+{
+    public class PaymentMaturityBO
+    {
+        private long _id;
+        private string _paymentMedia;
+        private int _maturityDays;
+        private DateTime _effectiveDate;
+        public PaymentMaturityBO()
+        {
+            _paymentMedia = "";
+            _maturityDays = 0;
+            _effectiveDate = DateTime.Now;
+        }
+
+        public string PaymentMedia
+        {
+            get { return _paymentMedia; }
+            set { _paymentMedia = value; }
+        }
+
+        public int MaturityDays
+        {
+            get { return _maturityDays; }
+            set { _maturityDays = value; }
+        }
+
+        public DateTime EffectiveDate
+        {
+            get { return _effectiveDate; }
+            set { _effectiveDate = value; }
+        }
+
+        public long Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+    }
+}

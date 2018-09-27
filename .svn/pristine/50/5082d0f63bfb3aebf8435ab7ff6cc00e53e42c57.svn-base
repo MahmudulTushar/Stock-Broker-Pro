@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace BusinessAccessLayer.Constants
+{
+    public static class Indication_IPOPaymentTransaction
+    {
+        public  static string Return_Indicator = "Return";
+        public  static string Cash = "Cash";
+        public  static string Cheque = "Cheque";
+        public  static string Cheque_Return = Cheque + Return_Indicator;
+        public  static string EFT = "EFT";
+        public  static string MMT = "MMT";
+        public  static string TRTA = "TRTA";
+        public  static string TRIPOApp = "TRIPOApp";
+        public static string TRIPO = "TRIPO";
+        public  static string EFT_Return = EFT + Return_Indicator;
+        public static string  ReqType_EftIssue_IPOAccount = "IPO";
+        public static string ChannelType_SMS = "SMS";
+        public static string ChannelType_Email = "Email";
+        public static string ChannelType_Web = "Web";
+        public static string ChannelType_SBP = "SBP";
+        public static string SmsRequestType_Single_Application = "SingleApplication";
+        public static string SmsRequestType_Apply_Together = "ApplyTogether ";        
+        public static string WebRequestType_Free_Transaction = "FreeTransaction";
+
+        public static string IPOForwardingData_MenuList_Deposit = "Deposit Forwarding Apply Together";
+        public static string IPOForwardingData_MenuList_Withdraw = "Withdraw Forwarding Apply Together";
+        public static string IPOForwardingData_MenuList_SingleApplication = "Single Application Forwarding";
+
+        public static string ApplicationSMSNotification_SMSType = "IPO_Application_Notification_SMS";
+        public static string ApplicationSMSNotification_EmailType = "IPO_Application_Notification_Email";
+        public static string IPOApplicationStatus_Successfull = "Successfull";
+        public static string IPOApplicationStatus_UnSuccessfull = "Unsuccessfull";
+        public static string IPOApplicationStatus_Approved = "Approved";
+        public static string IPOApplicationStatus_Rejected = "Rejected";
+        public static string IPOApp_Charge = "IPO App";
+        public static string IPORefund_Charge = "IPO App Refund";
+
+        public static int Cash_ID = 1;
+        public static int Cheque_ID = 2;
+        public static int Cheque_Return_ID = 5;
+        public static int EFT_ID = 3;
+        public static int MMT_ID = 4 ;
+        public static int TRTA_ID = 6;
+        public static int TRIPOApp_ID = 7;
+        public static int TRIPO_ID = 8;
+
+    }
+}

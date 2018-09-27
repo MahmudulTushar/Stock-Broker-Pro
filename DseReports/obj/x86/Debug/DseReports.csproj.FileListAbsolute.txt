@@ -1,0 +1,60 @@
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\bin\x86\Debug\DseReports.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\bin\x86\Debug\DseReports.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\bin\x86\Debug\BusinessAccessLayer.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\bin\x86\Debug\MySql.Data.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\bin\x86\Debug\DataAccessLayer.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\bin\x86\Debug\BusinessAccessLayer.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\bin\x86\Debug\DataAccessLayer.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.MdiDseReports.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmBOClosing_Report_DSE_21_6.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmBonus_Instrument_Receive_Report_DSE_21_3.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmBonus_Instrument_Confirmation_ReportDSE_21_2.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmRegistration_Confirmation_Report_DSE_21_4.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmBO_Modification_Report_DSE_21_5.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmBroker_Comission_Report_DSE_24_1.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmClient_Account_Status_Report_DSE_24_12.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmClient_Ledger_Detail_Report_DSE_24_10.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmIPO_Instrument_Receive_Report_DSE_21_21_2.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmList_Of_Landing_Clients_DSE_21_28_1.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmList_Of_Pledge_Clients_DSE_21_26_1.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmPay_Out_Confirmation_Report_DSE_21_11.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmPortfolio_Statement_Instrumnet_Wise_DSE_22_3.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmPortfolio_Statement_Investor_Wise_DSE_22_1.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmReportViewer.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmRights_Instrumens_Confirmations_Reports_Dse_21_14.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmRights_Instruments_Received_Reports_DSE_21_15.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.Properties.Resources.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.csproj.GenerateResource.Cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\bin\x86\Debug\DseReports.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\bin\x86\Debug\DseReports.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\bin\x86\Debug\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\bin\x86\Debug\MySql.Data.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\bin\x86\Debug\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\bin\x86\Debug\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\bin\x86\Debug\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.MdiDseReports.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmBOClosing_Report_DSE_21_6.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmBonus_Instrument_Receive_Report_DSE_21_3.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmBonus_Instrument_Confirmation_ReportDSE_21_2.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmRegistration_Confirmation_Report_DSE_21_4.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmBO_Modification_Report_DSE_21_5.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmBroker_Comission_Report_DSE_24_1.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmClient_Account_Status_Report_DSE_24_12.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmClient_Ledger_Detail_Report_DSE_24_10.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmIPO_Instrument_Receive_Report_DSE_21_21_2.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmList_Of_Landing_Clients_DSE_21_28_1.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmList_Of_Pledge_Clients_DSE_21_26_1.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmPay_Out_Confirmation_Report_DSE_21_11.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmPortfolio_Statement_Instrumnet_Wise_DSE_22_3.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmPortfolio_Statement_Investor_Wise_DSE_22_1.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmReportViewer.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmRights_Instrumens_Confirmations_Reports_Dse_21_14.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.frmRights_Instruments_Received_Reports_DSE_21_15.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.Properties.Resources.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.csproj.GenerateResource.Cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\DseReports\obj\x86\Debug\DseReports.pdb

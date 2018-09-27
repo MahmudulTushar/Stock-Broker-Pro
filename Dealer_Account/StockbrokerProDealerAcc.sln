@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessAccessLayer", "..\BusinessAccessLayer\BusinessAccessLayer.csproj", "{A2071E23-5F9E-4F47-888D-25311566AD2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "..\DataAccessLayer\DataAccessLayer.csproj", "{E891C85D-2E55-4724-8FAD-C6F8E45714B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridViewExtensions", "..\GridExtensions\GridViewExtensions.csproj", "{E5247765-0134-4714-A110-64D571FBF636}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reports", "..\Reports\Reports.csproj", "{39A789FA-66B4-41E4-A9CD-D6073A6A7194}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockBrokerDealerArchForm", "..\StockBrokerDealerArchForm\StockBrokerDealerArchForm.csproj", "{B5C0F041-8E4F-4724-8586-E530281F50AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockbrokerProNewArchForm", "..\StockbrokerProNewArch\StockbrokerProNewArchForm.csproj", "{82C596AC-69BD-4513-B111-D2E783D0FED1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DealerAccountSetup", "DealerAccountSetup.vdproj", "{99FC9C22-84E1-4A09-8C33-64419C13610C}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 8
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\BusinessAccessLayer\\BusinessAccessLayer.csproj
+		SccProjectName1 = \u0022$/BusinessAccessLayer\u0022,\u0020SICAAAAA
+		SccLocalPath1 = ..\\BusinessAccessLayer
+		SccProjectUniqueName2 = ..\\DataAccessLayer\\DataAccessLayer.csproj
+		SccProjectName2 = \u0022$/DataAccessLayer\u0022,\u0020UICAAAAA
+		SccLocalPath2 = ..\\DataAccessLayer
+		SccProjectUniqueName3 = ..\\GridExtensions\\GridViewExtensions.csproj
+		SccProjectName3 = \u0022$/GridViewExtensions\u0022,\u0020VICAAAAA
+		SccLocalPath3 = ..\\GridExtensions
+		SccProjectUniqueName4 = ..\\Reports\\Reports.csproj
+		SccProjectName4 = \u0022$/Reports\u0022,\u0020WICAAAAA
+		SccLocalPath4 = ..\\Reports
+		SccProjectUniqueName5 = ..\\StockbrokerProNewArch\\StockbrokerProNewArchForm.csproj
+		SccProjectName5 = \u0022$/StockbrokerProNewArch\u0022,\u0020YICAAAAA
+		SccLocalPath5 = ..\\StockbrokerProNewArch
+		SccProjectUniqueName6 = ..\\StockBrokerDealerArchForm\\StockBrokerDealerArchForm.csproj
+		SccProjectName6 = \u0022$/StockBrokerDealerArchForm\u0022,\u0020TTEAAAAA
+		SccLocalPath6 = ..\\StockBrokerDealerArchForm
+		SccProjectUniqueName7 = DealerAccountSetup.vdproj
+		SccLocalPath7 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2071E23-5F9E-4F47-888D-25311566AD2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2071E23-5F9E-4F47-888D-25311566AD2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2071E23-5F9E-4F47-888D-25311566AD2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2071E23-5F9E-4F47-888D-25311566AD2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E891C85D-2E55-4724-8FAD-C6F8E45714B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E891C85D-2E55-4724-8FAD-C6F8E45714B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E891C85D-2E55-4724-8FAD-C6F8E45714B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E891C85D-2E55-4724-8FAD-C6F8E45714B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5247765-0134-4714-A110-64D571FBF636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5247765-0134-4714-A110-64D571FBF636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5247765-0134-4714-A110-64D571FBF636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5247765-0134-4714-A110-64D571FBF636}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39A789FA-66B4-41E4-A9CD-D6073A6A7194}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A789FA-66B4-41E4-A9CD-D6073A6A7194}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39A789FA-66B4-41E4-A9CD-D6073A6A7194}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39A789FA-66B4-41E4-A9CD-D6073A6A7194}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5C0F041-8E4F-4724-8586-E530281F50AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C0F041-8E4F-4724-8586-E530281F50AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5C0F041-8E4F-4724-8586-E530281F50AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C0F041-8E4F-4724-8586-E530281F50AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82C596AC-69BD-4513-B111-D2E783D0FED1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82C596AC-69BD-4513-B111-D2E783D0FED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82C596AC-69BD-4513-B111-D2E783D0FED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82C596AC-69BD-4513-B111-D2E783D0FED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99FC9C22-84E1-4A09-8C33-64419C13610C}.Debug|Any CPU.ActiveCfg = Debug
+		{99FC9C22-84E1-4A09-8C33-64419C13610C}.Debug|Any CPU.Build.0 = Debug
+		{99FC9C22-84E1-4A09-8C33-64419C13610C}.Release|Any CPU.ActiveCfg = Release
+		{99FC9C22-84E1-4A09-8C33-64419C13610C}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1027 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using DataAccessLayer;
+using System.Data;
+using BusinessAccessLayer.BO;
+using System.Data.SqlClient;
+using BusinessAccessLayer.Constants;
+namespace BusinessAccessLayer.BAL
+{
+    public class EFT_IssueBAL
+    {
+          private string Reason = "Fund Transfer";
+        
+          DbConnection _dbConnection;
+
+          public EFT_IssueBAL()
+          {
+            _dbConnection = new DbConnection();
+          }
+
+          private void AccType_BusinessRule(ref string AccType)
+          {
+              if (AccType != Indication_AccountType.SavingsAccount && AccType != Indication_AccountType.CurrentAccount)
+                  AccType = Indication_AccountType.SavingsAccount;
+          }
+
+          private void ReceiverName_BusinessRule(ref string  CustName)
+          {
+              int MaximumLength = 22;
+              int Length = 0;
+              
+              if (CustName.Length > MaximumLength)
+                  Length = MaximumLength;
+              else
+                  Length = CustName.Length;
+
+              string temp = CustName.Substring(0, Length);
+              CustName = temp;
+          }
+
+          public void BankAccountNo_BusinessRule_FormattingCharacters( ref string AccNo)
+          {
+              int Length = 0;
+              char[] chars = AccNo.ToCharArray();
+              string resultString=string.Empty;
+              foreach (char ch in chars)
+              {
+                if(char.IsDigit(ch))
+                    resultString=resultString+ch;
+              }
+              AccNo = resultString;
+          }
+
+          public void BankAccountNo_BusinessRule_MakingUp17Digit(ref string AccNo)
+          {
+              int MaximumLength = 17;
+              int Length = 0;
+              if (AccNo.Length > MaximumLength)
+                  Length = MaximumLength;
+              else
+                  Length = AccNo.Length;
+              string resultString = string.Empty;
+              resultString = AccNo.Substring(0, Length);///////////////////////
+              AccNo = resultString;
+          }
+
+          private void ReceiverID_BusinessRule(ref string CustCode)
+          {
+              int MaximumLength = 15;
+              int Length = 0;
+              
+              if (CustCode.Length > MaximumLength)
+                  Length = MaximumLength;
+              else
+                  Length = CustCode.Length;
+
+              string temp = CustCode.Substring(0, Length);
+              CustCode = temp;
+          
+          }
+
+          private void Reason_BusinessRule(ref string Reason)
+          {
+              int MaximumLength = 80;
+              int Length = 0;
+
+              if (Reason.Length > MaximumLength)
+                  Length = MaximumLength;
+              else
+                  Length = Reason.Length;
+
+              string temp = Reason.Substring(0, Length);
+              Reason = temp;
+          }
+  
+          public DataTable GetAllApprovedRequest()
+          {
+              DataTable dtApprovedRequest = null;
+              string quryString = @"Get_All_Approved_Posting";
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  _dbConnection.ActiveStoredProcedure();
+                  dtApprovedRequest = _dbConnection.ExecuteProQuery(quryString);
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return dtApprovedRequest;
+          }
+
+          public string GetMaxFileNo_ByDate(DateTime date, int count)
+          {
+              StringBuilder sb = new StringBuilder();
+              string fileNo = string.Empty;
+              fileNo = date.Date.ToString("ddMMyyyy");
+              fileNo = fileNo + count.ToString("00000");
+              DataTable dt = null;
+              int result = 0;
+              string quryString = " Select "
+                                + " ISNULL(Max(T.[FileNo]),0) "
+                                + " From "
+                                + "( "
+                                + "	select "
+                                + "	Convert(DateTime, substring(File_No,5,4) + substring(File_No,3,2) +substring(File_No,1,2) ) AS [Date] "
+                                + "	,Convert(bigint,substring(File_No,14,2)) AS [FileNo] "
+                                + "	from dbo.SBP_EFT_File_Info "
+                                + " ) AS T "
+                                + "Where T.[Date]='" + date.ToString("yyyy-MMM-dd") + "'";
+
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  dt = _dbConnection.ExecuteQuery(quryString);
+                  if (dt != null)
+                  {
+                      if (dt.Rows.Count > 0)
+                          result = Convert.ToInt32(dt.Rows[0][0]);
+                      fileNo = fileNo + (result + 1).ToString("00");
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return fileNo;
+          }
+
+          public string GetLastFilePasswordByLoginName(string logInName)
+          {
+              string result = string.Empty;
+              DataTable dt = new DataTable();
+              string quryString = " Select ISNULL(File_Password,'') "
+                                    + " From dbo.SBP_EFT_File_Info "
+                                    + " Where Issue_By='" +logInName + "' "
+                                    + " and File_No=(Select Max(Convert(decimal(28,8),t.File_No)) From dbo.SBP_EFT_File_Info as t Where t.Issue_By='" + logInName + "' and t.File_Issue_Date=( Select Max(k.File_Issue_Date) From dbo.SBP_EFT_File_Info as k Where k.Issue_By='" + logInName + "') ) ";
+
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  dt = _dbConnection.ExecuteQuery(quryString);
+                  if (dt != null)
+                  {
+                      if (dt.Rows.Count > 0)
+                          result = Convert.ToString(dt.Rows[0][0]);
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return result;
+          }
+
+          public string GetRoutingByCustCode(string custCode)
+          {
+              string result = string.Empty;
+              DataTable dt = new DataTable();
+              string quryString = " SELECT "
+                                    +"ISNULL(bankRouting.RoutingNo,'')"
+                                    +" FROM "
+                                    +"dbo.SBP_Cust_Bank_Info as custBank LEFT OUTER JOIN "
+                                    +"dbo.SBP_Bank_Branch_Routing as bankRouting ON "
+                                    +"custBank.Bank_Name=bankRouting.Bank_Name"
+                                    +" AND "
+                                    +"custBank.Branch_Name=bankRouting.Branch_Name"
+                                    +" WHERE "
+                                    + "custBank.Cust_Code='" + custCode + "'";
+
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  dt = _dbConnection.ExecuteQuery(quryString);
+                  if (dt != null)
+                  {
+                      if (dt.Rows.Count > 0)
+                          result = Convert.ToString(dt.Rows[0][0]);
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return result;
+          }
+
+          /*public string GetRoutingByBankBranchCode(string BankCode,string BranchCode)
+          {
+              string result = string.Empty;
+              DataTable dt = new DataTable();
+              string quryString = " SELECT "
+                                    + "ISNULL(bankRouting.RoutingNo,'')"
+                                    + " FROM "
+                                    + "dbo.SBP_Cust_Bank_Info as custBank LEFT OUTER JOIN "
+                                    + "dbo.SBP_Bank_Branch_Routing as bankRouting ON "
+                                    + "custBank.Bank_Name=bankRouting.Bank_Name"
+                                    + " AND "
+                                    + "custBank.Branch_Name=bankRouting.Branch_Name"
+                                    + " WHERE "
+                                    + "custBank.Cust_Code='" + custCode + "'";
+
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  dt = _dbConnection.ExecuteQuery(quryString);
+                  if (dt != null)
+                  {
+                      if (dt.Rows.Count > 0)
+                          result = Convert.ToString(dt.Rows[0][0]);
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return result;
+          } */  
+
+          public string GetAccountTypeByCustCode(string custCode)
+          {
+              string result = string.Empty;
+              DataTable dt = new DataTable();
+              string quryString =  " SELECT Account_Type "
+                                   +" FROM dbo.SBP_Cust_Bank_Info "
+                                   +" WHERE Cust_Code='"+custCode + "'";
+
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  dt = _dbConnection.ExecuteQuery(quryString);
+                  if (dt != null)
+                  {
+                      if (dt.Rows.Count > 0)
+                          result = Convert.ToString(dt.Rows[0][0]);
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return result;
+          }
+
+          public string GetCustomerName(string custCode)
+          {
+              string result = string.Empty;
+              DataTable dt = new DataTable();
+              string quryString = "Select substring(t.Cust_Name,1,22) From dbo.SBP_Cust_Personal_Info as t Where t.Cust_Code='" + custCode + "' ";
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  dt = _dbConnection.ExecuteQuery(quryString);
+                  if (dt != null)
+                  {
+                      if (dt.Rows.Count > 0)
+                          result = Convert.ToString(dt.Rows[0][0]);
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return result;
+          }
+
+          public string GetCustomerAccountNo(string custCode)
+          {
+              string result = string.Empty;
+              DataTable dt = new DataTable();
+              string quryString = "Select TOP 1 ISNULL(t.Account_No,'') From dbo.SBP_Cust_Bank_Info as t Where t.Cust_Code='" + custCode + "'";
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  dt = _dbConnection.ExecuteQuery(quryString);
+                  if (dt != null)
+                  {
+                      if (dt.Rows.Count > 0)
+                          result = Convert.ToString(dt.Rows[0][0]);
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return result;
+          }
+
+          public DateTime GetServerDate()
+          {
+              DateTime result=new DateTime();
+              DataTable dt = new DataTable();
+              string quryString = "Select GETDATE()";
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  dt = _dbConnection.ExecuteQuery(quryString);
+                  if (dt != null)
+                  {
+                      if (dt.Rows.Count > 0)
+                          result = Convert.ToDateTime(dt.Rows[0][0]);
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return result;
+          }
+  
+          public List<Payment_PostingBO> GetAllApprovedRequest_BOList()
+          {
+              string quryString = @"SELECT p.*
+                                -- p.Cust_Code as 'Cust_Code'
+                                --,p.Payment_ID as 'Payment_ID'
+                                --,p.Amount as 'Amount'
+                                --,p.Payment_Media as 'Payment_Media'
+                                --,p.Vouchar_SN as 'Vouchar_SN'
+                                --,p.Received_Date as 'Received_Date'
+
+                                --,e.Req_ID as 'Req_ID'
+                                --,e.Cust_Code as 'Cust_Code'
+
+                                FROM dbo.SBP_Payment_Posting_Request as p
+                                LEFT OUTER JOIN 
+                                dbo.SBP_EFT_Issue as e
+                                ON p.Payment_ID = e.Req_ID AND ISNULL(e.Req_Type,'')='" + Indication_PaymentTransaction.ReqType_EftIssue_TradeAccount + @"'
+                                WHERE 
+                                --p.Payment_Media='EFT' AND 
+                                e.Req_ID IS NULL AND p.Approval_Status =1 AND p.Payment_Media='EFT' 
+                                AND p.Payment_ID NOT IN (
+			                                Select CONVERT(INT,REPLACE(Trans_Reason,Payment_Media+'_',''))
+			                                From SBP_Payment_Posting_Request
+			                                Where Payment_Media='EFTReturn' 
+                                )";//"SELECT * FROM [SBP_Database].[dbo].[SBP_Payment_Posting_Request]";
+              List<Payment_PostingBO> ResultPaymentPosting = new List<Payment_PostingBO>();
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  //_dbConnection.ActiveStoredProcedure();
+                  
+                  using(SqlDataReader dr= _dbConnection.ExecuteReader(quryString)) 
+                  {
+
+                      while (dr.Read())
+                      {
+                          Payment_PostingBO obj = new Payment_PostingBO();
+                                
+                          obj.Payment_ID = Convert.ToInt32(dr["Payment_ID"]);
+                          obj.Cust_Code = Convert.ToString(dr["Cust_Code"]);
+                          obj.Amount = Convert.ToDouble(dr["Amount"]);
+                          obj.Approval_Status = Convert.ToInt32(dr["Approval_Status"]);
+                          obj.Bank_ID = Convert.ToInt32(dr["Bank_ID"]);
+                          obj.Bank_Name = Convert.ToString(dr["Bank_Name"]);
+                          obj.Branch_ID = Convert.ToInt32(dr["Branch_ID"]);
+                          obj.Bank_Branch = Convert.ToString(dr["Bank_Branch"]);
+                          obj.Received_By = Convert.ToString(dr["Received_By"]);
+                          obj.Received_Date = Convert.ToDateTime(dr["Received_Date"]);
+                          obj.Payment_Media = Convert.ToString(dr["Payment_Media"]);
+                          obj.Payment_Media_No = Convert.ToString(dr["Payment_Media_No"]);
+                          obj.Payment_Media_Date = Convert.ToDateTime(dr["Payment_Media_Date"]);
+                          obj.Deposit_Withdraw = Convert.ToString(dr["Deposit_Withdraw"]);
+                          obj.Payment_Approved_By = Convert.ToString(dr["Payment_Approved_By"]);
+                          obj.Payment_Approved_Date = Convert.ToDateTime(dr["Payment_Approved_Date"]);
+                          obj.Rejection_Reason = Convert.ToString(dr["Rejection_Reason"]);
+                          obj.Remarks = Convert.ToString(dr["Remarks"]);
+                          obj.Vouchar_SN = Convert.ToString(dr["Vouchar_SN"]);
+                          obj.Entry_By = Convert.ToString(dr["Entry_By"]);
+                          obj.Entry_Date = Convert.ToDateTime(dr["Entry_Date"]);
+                          obj.Maturity_Days = Convert.ToInt32(dr["Maturity_Days"]);
+                          obj.Deposit_Bank_Name = Convert.ToString(dr["Deposit_Bank_Name"]);
+                          obj.Deposit_Branch_Name = Convert.ToString(dr["Deposit_Branch_Name"]);
+                          obj.Entry_Branch_ID = Convert.ToInt32(dr["Entry_Branch_ID"]);
+                          obj.BankAccNo = Convert.ToString(dr["BankAccNo"]);
+                          obj.RoutingNo = Convert.ToString(dr["RoutingNo"]);
+                          ResultPaymentPosting.Add(obj);
+                      }
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return ResultPaymentPosting;
+          }
+
+          public void InsertEFT_FileInfo(EFT_File_InfoBO objMaster)
+          {
+              DataTable dtApprovedRequest = null;
+              List<string> queryList = new List<string>();
+              string queryMaster = "INSERT INTO [SBP_Database].[dbo].[SBP_EFT_File_Info]"
+                                   + "([File_No]"
+                                   + ",[File_Password]"
+                                   + ",[File_Path]"
+                                   + ",[File_Issue_Date]"
+                                   + ",[Issue_By])"
+                                   + "VALUES"
+                                   + "('" + objMaster.File_No + "'"
+                                   + ",'" + objMaster.File_Password + "'"
+                                   + ",'" + objMaster.File_Path + "'"
+                                   + ",'" + objMaster.File_Issue_Date + "'"
+                                   + ",'" + objMaster.Issue_By + "')";
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  _dbConnection.StartTransaction();
+                  //_dbConnection.ActiveStoredProcedure();
+                  _dbConnection.ExecuteNonQuery(queryMaster);
+                  //foreach (var str in queryList)
+                  //{
+                  //    _dbConnection.ExecuteNonQuery(str);
+                  //}
+                  _dbConnection.Commit();
+              }
+              catch (Exception exception)
+              {
+                  _dbConnection.Rollback();
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }          
+
+          }
+
+          public void InsertEFT_Issue(List<EFT_IssueBO> objDetails)
+          {
+              DataTable dtApprovedRequest = null;
+              List<string> queryList = new List<string>();
+              
+              foreach (var obj in objDetails)
+              {
+                  string quryString = "INSERT INTO [SBP_Database].[dbo].[SBP_EFT_Issue]"
+                                       + "([File_No_ID]"
+                                       + ",[Req_ID]"
+                                       + ",[Cust_Code]"
+                                       + ",[Amount]"
+                                       + ",[Bank_ID]"
+                                       + ",[Bank_Name]"
+                                       + ",[Branch_ID]"
+                                       + ",[Branch_Name]"
+                                       + ",[Routing_No]"
+                                       + ",[Bank_Account_No]"
+                                       + ",[Account_Type]"
+                                       + ",[Received_Date])"
+                                       + "VALUES"
+                                       + "('" + obj.File_No_ID + "'"
+                                       + "," + obj.Req_ID + ""
+                                       + ",'" + obj.Cust_Code + "'"
+                                       + "," + obj.Amount 
+                                       + "," + obj.Bank_ID
+                                       + ",'" + obj.BankName + "'"
+                                       + "," + obj.Branch_ID
+                                       + ",'" + obj.BranchName + "'"
+                                       + ",'" + obj.RoutingNo + "'"
+                                       + ",'" + GetCustomerAccountNo(obj.Cust_Code) + "'"
+                                       + ",'" + obj.Account_Type + "'"
+                                       + ",'" + obj.Received_Date + "')";
+                  queryList.Add(quryString);
+              }
+
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  _dbConnection.StartTransaction();
+                  //_dbConnection.ActiveStoredProcedure();
+                  //_dbConnection.ExecuteNonQuery(queryMaster);
+                  foreach (var str in queryList)
+                  {
+                      _dbConnection.ExecuteNonQuery(str);
+                  }
+                  _dbConnection.Commit();
+              }
+              catch (Exception exception)
+              {
+                  _dbConnection.Rollback();
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+          }
+
+          public void InsertEFT_FileContents(List<EFT_FileContentsBO> objDetails)
+          {
+              DataTable dtApprovedRequest = null;
+              List<string> queryList = new List<string>();
+
+              foreach (var obj in objDetails)
+              {
+                  string quryString = "INSERT INTO [SBP_Database].[dbo].[SBP_EFT_FileContents]"
+                                       + "([EFTIssue_ID]"
+                                       + ",[File_No_ID]"
+                                       + ",[Req_ID]"
+                                       + ",[Cust_Code]"
+                                       + ",[Amount]"
+                                       + ",[Bank_ID]"
+                                       + ",[Bank_Name]"
+                                       + ",[Branch_ID]"
+                                       + ",[Branch_Name]"
+                                       + ",[Routing_No]"
+                                       + ",[Bank_Account_No]"
+                                       + ",[Account_Type]"
+                                       + ",[EFT_Reason]"
+                                       + ",[SenderAccNo]"
+                                       + ",[Received_Date])"
+
+                                       + "VALUES"
+                                       + "(" + obj.EftIssue_ID + ""
+                                       + "," + obj.File_No_ID + ""
+                                       + "," + obj.Req_ID + ""
+                                       + ",'" + obj.Cust_Code + "'"
+                                       + "," + obj.Amount 
+                                       + "," + obj.Bank_ID
+                                       + ",'" + obj.BankName + "'"
+                                       + "," + obj.Branch_ID
+                                       + ",'" + obj.BranchName + "'"
+                                       + ",'" + obj.RoutingNo + "'"
+                                       + ",'" + obj.Bank_Account_No + "'"
+                                       + ",'" + obj.Account_Type + "'"
+                                       + ",'" + obj.EFT_Reason + "'"
+                                       + ",'" + obj.SenderAccNo + "'"
+                                       + ",'" + obj.Received_Date + "')";
+                  queryList.Add(quryString);
+              }
+
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  _dbConnection.StartTransaction();
+                  //_dbConnection.ActiveStoredProcedure();
+                  //_dbConnection.ExecuteNonQuery(queryMaster);
+                  foreach (var str in queryList)
+                  {
+                      _dbConnection.ExecuteNonQuery(str);
+                  }
+                  _dbConnection.Commit();
+              }
+              catch (Exception exception)
+              {
+                  _dbConnection.Rollback();
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+          }            
+
+          public void InsertEFT(EFT_File_InfoBO objMaster, List<EFT_IssueBO> objDetails)
+          {
+              DataTable dtApprovedRequest = null;
+              List<string> queryList = new List<string>();
+              string queryMaster = "INSERT INTO [SBP_Database].[dbo].[SBP_EFT_File_Info]"
+                                   + "([File_No]"
+                                   + ",[File_Password]"
+                                   + ",[File_Path]"
+                                   + ",[File_Issue_Date]"
+                                   + ",[Issue_By])"
+                                   + "VALUES"
+                                   + "('" + objMaster.File_No + "'"
+                                   + ",'" + objMaster.File_Password + "'"
+                                   + ",'" + objMaster.File_Path + "'"
+                                   + ",'" + objMaster.File_Issue_Date + "'"
+                                   + ",'" + objMaster.Issue_By + "')";
+
+              foreach (var obj in objDetails)
+              {
+                  string quryString = "INSERT INTO [SBP_Database].[dbo].[SBP_EFT_Issue]"
+                                       + "([File_No_ID]"
+                                       + ",[Req_ID]"
+                                       + ",[Req_Type]"
+                                       + ",[Cust_Code]"
+                                       + ",[Amount]"
+                                       + ",[Bank_ID]"
+                                       + ",[Bank_Name]"
+                                       + ",[Branch_ID]"
+                                       + ",[Branch_Name]"
+                                       + ",[Routing_No]"
+                                       + ",[Bank_Account_No]"
+                                       + ",[Account_Type]"
+                                       + ",[Received_Date])"
+                                       + "VALUES"
+                                       + "('" + obj.File_No_ID + "'"
+                                       + "," + obj.Req_ID + ""
+                                       + ",'"+ obj.ReqType +"'"
+                                       + ",'" + obj.Cust_Code + "'"
+                                       + "," + obj.Amount + ""
+                                       + ",'" + obj.Bank_ID + "'"
+                                       + ",'" + obj.BankName + "'"
+                                       + ",'" + obj.Branch_ID + "'"
+                                       + ",'" + obj.BranchName + "'"
+                                       + ",'" + obj.RoutingNo + "'"
+                                       + ",'" + GetCustomerAccountNo(obj.Cust_Code) + "'"
+                                       + ",'" + obj.Account_Type + "'"
+                                       + ",'" + obj.Received_Date + "')";
+                  queryList.Add(quryString);
+              }
+
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  _dbConnection.StartTransaction();
+                  //_dbConnection.ActiveStoredProcedure();
+                  _dbConnection.ExecuteNonQuery(queryMaster);
+                  foreach (var str in queryList)
+                  {
+                      _dbConnection.ExecuteNonQuery(str);
+                  }
+                  _dbConnection.Commit();
+              }
+              catch (Exception exception)
+              {
+                  _dbConnection.Rollback();
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+          }
+
+          public void UpdateExportFlag_EFT_FileInfo(string fileNo)
+          {
+              DataTable dtApprovedRequest = null;
+              List<string> queryList = new List<string>();
+              string queryMaster = "UPDATE [SBP_Database].[dbo].[SBP_EFT_File_Info]"
+                                    + "SET "
+                                    + "[IsExported]=1"
+                                    + "WHERE File_No='" + fileNo + "'";
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  _dbConnection.StartTransaction();
+                  //_dbConnection.ActiveStoredProcedure();
+                  _dbConnection.ExecuteNonQuery(queryMaster);
+                  //foreach (var str in queryList)
+                  //{
+                  //    _dbConnection.ExecuteNonQuery(str);
+                  //}
+                  _dbConnection.Commit();
+              }
+              catch (Exception exception)
+              {
+                  _dbConnection.Rollback();
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }          
+
+          
+          }
+
+          public List<EFT_IssueBO> GetAllEFT_IssueBOList_ByFileNo(string fileNo)
+          {
+              DataTable dtApprovedRequest = null;
+              List<EFT_IssueBO> resultList=new List<EFT_IssueBO>();
+              string quryString = 
+	                          "SELECT "
+                              +"issue.[ID]"
+                              +",issue.[File_No_ID]"
+                              +",issue.[Req_ID]"
+                              +",issue.[Cust_Code]"
+                              +",issue.[Amount]"
+                              + ",issue.[Bank_ID]"
+                              +",issue.[Bank_Name]"
+                              + ",issue.[Branch_ID]"
+                              +",issue.[Branch_Name]"
+                              +",issue.[Routing_No]"
+                              +",issue.[Bank_Account_No]"
+                              +",issue.[Account_Type]"
+                              +",issue.[Received_Date]"
+                              +"FROM "
+                              +"[SBP_Database].[dbo].[SBP_EFT_Issue] AS issue"
+                              +" JOIN "
+                              +"[SBP_Database].[dbo].[SBP_EFT_File_Info] AS fileInfo"
+                              +" ON "
+                              +"issue.File_No_ID=fileInfo.File_No"
+                              +" WHERE "
+                              + "fileInfo.File_No='" + fileNo + "'";
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  _dbConnection.ActiveStoredProcedure();
+                  using (SqlDataReader dr = _dbConnection.ExecuteReader(quryString))
+                  {
+                      while (dr.Read())
+                      {
+                          EFT_IssueBO obj = new EFT_IssueBO();
+                          obj.Amount = Convert.ToDouble(dr["Amount"]);
+                          obj.Bank_ID = Convert.ToInt32(dr["Bank_ID"]);
+                          obj.BankName = Convert.ToString(dr["Bank_Name"]);
+                          obj.Branch_ID = Convert.ToInt32(dr["Branch_ID"]);
+                          obj.BranchName = Convert.ToString(dr["Branch_Name"]);
+                          obj.Cust_Code = Convert.ToString(dr["Cust_Code"]);
+                          obj.File_No_ID = Convert.ToString(dr["File_No_ID"]);
+                          obj.Received_Date = Convert.ToDateTime(dr["Received_Date"]);
+                          obj.Req_ID = Convert.ToInt32(dr["Req_ID"]);
+                          obj.RoutingNo = Convert.ToString(dr["Routing_No"]);
+                          obj.Bank_Account_No = Convert.ToString(dr["Bank_Account_No"]);
+                          obj.Account_Type = Convert.ToString(dr["Account_Type"]);
+
+                          resultList.Add(obj);
+                      }
+
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return resultList;
+          }
+
+          public List<Export_ExcelDocBo> GetExport_ExcelDocByFileNo_Export(string fileNo, string SenderAccNo)
+          {
+              //DataTable dtApprovedRequest = null;
+              List<Export_ExcelDocBo> resultList = new List<Export_ExcelDocBo>();
+              string quryString =
+                              " SELECT "
+                            +"issue.[ID] as [ID]"
+                            +", issue.[Req_ID] as [Req_ID]"
+                            +", issue.[Cust_Code] as [Cust_Code]"
+                            +", issue.[Amount] as [Amount]"
+                            + ", issue.[Bank_ID] as [Bank_ID]"
+                            +", issue.[Bank_Name] as [Bank_Name]"
+                            + ", issue.[Branch_ID] as [Branch_ID]"
+                            +", issue.[Branch_Name] as [Branch_Name]"
+                            +", issue.[Routing_No] as [Routing_No]"
+                            +", issue.[Bank_Account_No] as [Bank_Account_No]"
+                            +", issue.[Account_Type] as [Account_Type]"
+                            +", issue.[Received_Date] as [Received_Date]"
+                            +", [file].[File_No] as [File_No]"
+                            +", [file].[File_Password] as [File_Password]"
+                             + ", [file].[File_Issue_Date] as [File_Issue_Date]"
+                            +" FROM "
+                            +"[SBP_Database].[dbo].[SBP_EFT_Issue] as issue"
+                            +" JOIN "
+                            +"[SBP_Database].[dbo].[SBP_EFT_File_Info] as [file]"
+                            +" ON "
+                            +"issue.File_No_ID=[file].File_No"
+                            +" WHERE "
+                            +"[file].File_No='" + fileNo + "'";
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  EFT_IssueBAL balobj = new EFT_IssueBAL();
+                  using (SqlDataReader dr = _dbConnection.ExecuteReader(quryString))
+                  {
+                      while (dr.Read())
+                      {
+                          Export_ExcelDocBo obj = new Export_ExcelDocBo();                          
+                          obj.Amount = Convert.ToDouble(dr["Amount"]);
+                          obj.Bank_ID = Convert.ToInt32(dr["Bank_ID"]);
+                          obj.BankName = Convert.ToString(dr["Bank_Name"]);
+                          obj.Branch_ID = Convert.ToInt32(dr["Branch_ID"]);
+                          obj.BranchName = Convert.ToString(dr["Branch_Name"]);
+                          var Cust_Code_Temp = Convert.ToString(dr["Cust_Code"]);
+                          ReceiverID_BusinessRule(ref  Cust_Code_Temp);//Rules
+                          obj.Cust_Code = Cust_Code_Temp;                          
+                          obj.File_No_ID = Convert.ToString(dr["File_No"]);
+                          obj.Received_Date = Convert.ToDateTime(dr["Received_Date"]);
+                          obj.Req_ID = Convert.ToInt32(dr["Req_ID"]);
+                          obj.RoutingNo = Convert.ToString(dr["Routing_No"]);
+                          string BankAccNo_Temp = Convert.ToString(dr["Bank_Account_No"]);
+                          BankAccountNo_BusinessRule_FormattingCharacters(ref BankAccNo_Temp);//Rules
+                          BankAccountNo_BusinessRule_MakingUp17Digit(ref BankAccNo_Temp);//Rules
+                          obj.Bank_Account_No = BankAccNo_Temp; 
+                          string AccType_Temp=Convert.ToString(dr["Account_Type"]);
+                          AccType_BusinessRule(ref AccType_Temp);
+                          obj.Account_Type = AccType_Temp;
+                          var Reason_Temp = Reason;
+                          Reason_BusinessRule(ref Reason_Temp);//Rules
+                          obj.Reason = Reason_Temp;
+                          obj.SenderAccNumber = SenderAccNo;
+                          obj.File_Issue_Date = Convert.ToDateTime(dr["File_Issue_Date"]);
+                          obj.ID = Convert.ToInt32(dr["ID"]);
+                          var ReceiverName = Convert.ToString(balobj.GetCustomerName(obj.Cust_Code)).Trim();
+                          ReceiverName_BusinessRule(ref ReceiverName);//Rules
+                          obj.ReceiverName = ReceiverName;
+                          resultList.Add(obj);
+                      }
+
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return resultList;
+          }
+
+          public List<Export_ExcelDocBo> GetExport_ExcelDocByFileNo_Report(string fileNo,string SenderAccNo)
+          {
+              int intTryParse;
+              DateTime dateTimeTryParse;
+              double doubleTryParse;
+
+              //DataTable dtApprovedRequest = null;
+              List<Export_ExcelDocBo> resultList = new List<Export_ExcelDocBo>();
+              //string quryString =
+              //                " SELECT "
+              //              + "issue.[ID] as [ID]"
+              //              + ", issue.[Req_ID] as [Req_ID]"
+              //              + ", issue.[Cust_Code] as [Cust_Code]"
+              //              + ", issue.[Amount] as [Amount]"
+              //              + ", issue.[Bank_Name] as [Bank_Name]"
+              //              + ", issue.[Branch_Name] as [Branch_Name]"
+              //              + ", issue.[Routing_No] as [Routing_No]"
+              //              + ", issue.[Bank_Account_No] as [Bank_Account_No]"
+              //              + ", issue.[Account_Type] as [Account_Type]"
+              //              + ", issue.[Received_Date] as [Received_Date]"
+              //              + ", [file].[File_No] as [File_No]"
+              //              + ", [file].[File_Password] as [File_Password]"
+              //               + ", [file].[File_Issue_Date] as [File_Issue_Date]"
+              //              + " FROM "
+              //              + "[SBP_Database].[dbo].[SBP_EFT_Issue] as issue"
+              //              + " JOIN "
+              //              + "[SBP_Database].[dbo].[SBP_EFT_File_Info] as [file]"
+              //              + " ON "
+              //              + "issue.File_No_ID=[file].File_No"
+              //              + " WHERE "
+              //              + "[file].File_No='" + fileNo + "'";
+              string queryString = "Total_Per_Page";
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  _dbConnection.ActiveStoredProcedure();
+                  _dbConnection.AddParameter("@File_No", SqlDbType.VarChar, fileNo);                  
+                  EFT_IssueBAL balobj = new EFT_IssueBAL();
+                  using (SqlDataReader dr = _dbConnection.ExecuteProQueryDataReader(queryString))
+                  {
+                      while (dr.Read())
+                      {
+                          Export_ExcelDocBo obj = new Export_ExcelDocBo();
+                          obj.Amount = Convert.ToDouble(dr["Amount"]);
+                          obj.Bank_ID = Convert.ToInt32(dr["Bank_ID"]);
+                          obj.BankName = Convert.ToString(dr["Bank_Name"]);
+                          obj.Branch_ID = Convert.ToInt32(dr["Branch_ID"]);
+                          obj.BranchName = Convert.ToString(dr["Branch_Name"]);
+                          var Cust_Code_Temp = Convert.ToString(dr["Cust_Code"]);
+                          ReceiverID_BusinessRule(ref  Cust_Code_Temp);//Rules
+                          obj.Cust_Code = Cust_Code_Temp;
+                          obj.FileNo = Convert.ToString(dr["File_No"]);
+                          obj.File_No_ID = Convert.ToString(dr["ID"]);
+                          obj.Received_Date = Convert.ToDateTime(dr["Received_Date"]);
+                          obj.Req_ID = Convert.ToInt32(dr["Req_ID"]);
+                          obj.RoutingNo = Convert.ToString(dr["Routing_No"]);
+                          string BankAccNo_Temp = Convert.ToString(dr["Bank_Account_No"]);
+                          BankAccountNo_BusinessRule_FormattingCharacters(ref BankAccNo_Temp);//Rules
+                          BankAccountNo_BusinessRule_MakingUp17Digit(ref BankAccNo_Temp);//Rules
+                          obj.Bank_Account_No = BankAccNo_Temp;
+                          string AccType_Temp = Convert.ToString(dr["Account_Type"]);
+                          AccType_BusinessRule(ref AccType_Temp);
+                          obj.Account_Type = AccType_Temp;
+                          var Reason_Temp = Reason;
+                          Reason_BusinessRule(ref Reason_Temp);//Rules
+                          obj.Reason = Reason_Temp;
+                          obj.SenderAccNumber = SenderAccNo;
+                          obj.File_Issue_Date = Convert.ToDateTime(dr["File_Issue_Date"]);
+                          var ReceiverName = Convert.ToString(balobj.GetCustomerName(obj.Cust_Code)).Trim();
+                          ReceiverName_BusinessRule(ref ReceiverName);//Rules
+                          obj.ReceiverName = ReceiverName;
+                          if (int.TryParse(Convert.ToString(dr["PageNumber"]), out intTryParse))
+                              obj.PageNumber = intTryParse;
+                          
+                          resultList.Add(obj);
+                      }
+                      dr.Close();
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return resultList;
+          }
+        
+          public EFT_File_InfoBO GetAllEFT_File_Info_ByFileNo(string fileNo)
+          {
+              DataTable dtApprovedRequest = null;
+              EFT_File_InfoBO result = new EFT_File_InfoBO();
+              string quryString =
+                                "SELECT "
+                                +"[ID]"
+                                +", [File_No]"
+                                +", [File_Password]"
+                                +", [File_Path]"
+                                +", [File_Issue_Date]"
+                                +", [Issue_By] "
+                                +"FROM [SBP_Database].[dbo].[SBP_EFT_File_Info]"
+                                + "WHERE File_No='" + fileNo + "'";
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  _dbConnection.ActiveStoredProcedure();
+                  using (SqlDataReader dr = _dbConnection.ExecuteReader(quryString))
+                  {
+                      while (dr.Read())
+                      {
+                          //EFT_File_InfoBO obj = new EFT_File_InfoBO();
+                          result.ID = Convert.ToInt32(dr["ID"]);
+                          result.File_No = Convert.ToString(dr["File_No"]);
+                          result.File_Password = Convert.ToString(dr["File_Password"]);
+                          result.File_Path = Convert.ToString(dr["File_Path"]);
+                          result.File_Issue_Date = Convert.ToDateTime(dr["File_Issue_Date"]);
+                          result.Issue_By = Convert.ToString(dr["Issue_By"]);
+
+                          //resultList.Add(obj);
+                      }
+
+                  }
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return result;
+          }
+
+          public DataTable GetBEFTN_ReportData(string FileNo,string AccountNo)
+          {
+              DataTable dtBEFTN = null;
+              string quryString = @"RptGetBFTN";                                    
+              try
+              {
+                  _dbConnection.ConnectDatabase();
+                  _dbConnection.ActiveStoredProcedure();
+                  _dbConnection.AddParameter("@FileNo", SqlDbType.VarChar, FileNo);
+                  _dbConnection.AddParameter("@AccountNo", SqlDbType.VarChar, AccountNo);
+                  dtBEFTN = _dbConnection.ExecuteProQuery(quryString);
+              }
+              catch (Exception exception)
+              {
+                  throw exception;
+              }
+              finally
+              {
+                  _dbConnection.CloseDatabase();
+              }
+              return dtBEFTN;
+          }
+
+    }
+}

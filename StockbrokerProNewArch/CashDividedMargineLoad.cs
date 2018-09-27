@@ -1,0 +1,414 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BusinessAccessLayer.BAL;
+using BusinessAccessLayer.BO;
+using Reports;
+using CrystalDecisions.CrystalReports.Engine;
+using System.IO;
+using System.Net.Mail;
+
+namespace StockbrokerProNewArch
+{
+    public partial class CashDividedMargineLoad : Form
+    {
+        private CashDividedMarginLoanBAL cashDividedMarginLoanBAL = new CashDividedMarginLoanBAL();
+        private CashDividedMarginLoanBO cashDividedMarginLoanBO = new CashDividedMarginLoanBO();
+        private int EmailCounting = 0;
+        public CashDividedMargineLoad()
+        {
+            InitializeComponent();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ClearText()
+        {
+            txtAddress.Text = string.Empty;
+            txtFaceValue.Text = string.Empty;
+            txtMDName.Text = string.Empty;
+            txtPercentageCash.Text = string.Empty;
+            cashDividedMarginLoanBO.CashDividedMarginLoanId = 0;
+            btnSave.Text = "Save";
+            txtEmail1.Text = string.Empty;
+            txtEmail2.Text = string.Empty;
+            txtPhoneNo.Text = string.Empty;
+            btnSendEmail.Text = "Send Email";
+            if(EmailCounting > 0)
+                btnSendEmail.Text = "Re-Send Email";
+            else
+                btnSendEmail.Text = "Send Email";
+            txtFractionPercentage.Text = "0.0";
+            txtFunctionSharePrice.Text = "0.0";
+           
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ClearText();
+            btnSatellmentReport.Enabled = false;
+            LoadCompanyShortCode();
+        }
+
+        private void LoadCompanyShortCode()
+        {
+            LoadDDLBAL loadDDLBAL = new LoadDDLBAL();
+            DataTable dtData = loadDDLBAL.LoadDDL("SBP_Company");
+            ddlCompanyName.DataSource = dtData;
+            ddlCompanyName.DisplayMember = "Comp_Short_Code";
+            ddlCompanyName.ValueMember = "Comp_Short_Code";
+            if (ddlCompanyName.HasChildren)
+                ddlCompanyName.SelectedIndex = -1;
+        }
+
+        public void LoadData()
+        {
+            dtgBankData.DataSource = cashDividedMarginLoanBAL.LoadData();
+            dtgBankData.Columns[0].Visible = false;
+        }
+
+        private void CashDividedMargineLoad_Load(object sender, EventArgs e)
+        {
+            LoadCompanyShortCode();
+            LoadData();
+            btnSatellmentReport.Enabled = false;
+            btnresave.Enabled = false;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {         
+
+  
+            if (string.IsNullOrEmpty(txtPercentageCash.Text))
+            {
+                MessageBox.Show("Please Enter Percentage..");
+                txtPercentageCash.Focus();
+                return;
+            }
+            else if (string.IsNullOrEmpty(txtFaceValue.Text))
+            {
+                MessageBox.Show("Please Enter Face Value..");
+                txtFaceValue.Focus();
+                return;
+            }
+          
+            cashDividedMarginLoanBO.CompanyName = ddlCompanyName.SelectedValue.ToString();
+            cashDividedMarginLoanBO.Ref = "KSCL-"+ddlCompanyName.Text +"/DIVIDEND/"+ DateTime.Now.ToString("yyyy")+"/";
+            cashDividedMarginLoanBO.RecordDate = Convert.ToDateTime(dtRecordDate.Text);
+            cashDividedMarginLoanBO.PercentageCash = Convert.ToDecimal(txtPercentageCash.Text);
+            cashDividedMarginLoanBO.FaceValue  = Convert.ToDecimal(txtFaceValue.Text);
+            cashDividedMarginLoanBO.MDName = txtMDName.Text.Trim();
+            cashDividedMarginLoanBO.Address = txtAddress.Text.Trim();
+            cashDividedMarginLoanBO.Email1 = txtEmail1.Text.Trim();
+            cashDividedMarginLoanBO.Email2 = txtEmail2.Text.Trim();
+            cashDividedMarginLoanBO.PhoneNo = txtPhoneNo.Text.Trim();
+            cashDividedMarginLoanBO.FunctionPercentage = Convert.ToDecimal(txtFractionPercentage.Text);
+            cashDividedMarginLoanBO.FunctionSharePrice = Convert.ToDecimal(txtFunctionSharePrice.Text);
+            if (cashDividedMarginLoanBO.CashDividedMarginLoanId > 0)
+            {
+                cashDividedMarginLoanBAL.InsertCashDividedMarginLoan(cashDividedMarginLoanBO);
+                MessageBox.Show("Data Update Successfully.....");
+            }
+            else
+            {
+                string Company = cashDividedMarginLoanBAL.Company_Validation(ddlCompanyName.SelectedValue.ToString());
+                if (!string.IsNullOrEmpty(Company))
+                {
+                    MessageBox.Show("This Company already Insert it . Please Update this Company");
+                    return;
+                }
+                cashDividedMarginLoanBAL.InsertCashDividedMarginLoan(cashDividedMarginLoanBO);
+                MessageBox.Show("Data Save Successfully.....");
+            }            
+            btnRefresh_Click(sender,e);
+            LoadData();
+        }
+
+        private void ddlCompanyName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataFromDataTable();
+        }
+
+        private void LoadDataFromDataTable()
+        {
+            DataTable companyDataTable = new DataTable();
+            CompanyBAL companyBal = new CompanyBAL();
+            if (ddlCompanyName.SelectedIndex != -1)
+                companyDataTable = companyBal.GetAllData(ddlCompanyName.Text);
+            if (companyDataTable.Rows.Count > 0)
+            {              
+                txtFaceValue.Text = companyDataTable.Rows[0]["Face_Value"].ToString();            
+            }
+        }
+
+        
+
+        private void dtgBankData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var selectedRows = dtgBankData.SelectedRows;
+            if (selectedRows.Count > 0)
+            {
+                cashDividedMarginLoanBO.CashDividedMarginLoanId = Convert.ToInt16(selectedRows[0].Cells["CashDividedofMarginLoanId"].Value);
+                txtPercentageCash.Text = selectedRows[0].Cells["Percentage"].Value.ToString();
+                txtFaceValue.Text = selectedRows[0].Cells["FaceValue"].Value.ToString();
+                txtMDName.Text = selectedRows[0].Cells["MD_Name"].Value.ToString();
+                txtAddress.Text = selectedRows[0].Cells["Company_Address"].Value.ToString();
+                ddlCompanyName.Text = selectedRows[0].Cells["CompanyName"].Value.ToString();
+                dtRecordDate.Value = Convert.ToDateTime(selectedRows[0].Cells["RecordDate"].Value.ToString());
+                txtPhoneNo.Text = selectedRows[0].Cells["PhoneNo"].Value.ToString();
+                txtEmail1.Text = selectedRows[0].Cells["Email1"].Value.ToString();
+                txtEmail2.Text = selectedRows[0].Cells["Email2"].Value.ToString();
+                txtFractionPercentage.Text = selectedRows[0].Cells["SD_Fraction_Percentage"].Value.ToString();
+                txtFunctionSharePrice.Text = selectedRows[0].Cells["FunctionSharePrice"].Value.ToString();
+                EmailCounting = cashDividedMarginLoanBAL.EmailCounting(cashDividedMarginLoanBO);
+                if (EmailCounting > 0)
+                    btnSendEmail.Text = "Re-Send Email";
+                else
+                    btnSendEmail.Text = "Send Email";
+                btnSave.Text = "Update";
+                btnSatellmentReport.Enabled = true;
+                btnresave.Enabled = true;
+            }
+        }
+
+        private void btnCashDivided_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPercentageCash.Text))
+            {
+                string rDate = dtRecordDate.Value.ToString("dd/MMM/yy");                
+                DataTable dt = cashDividedMarginLoanBAL.GetCashDivided(dtRecordDate.Value, Convert.ToDecimal(txtFaceValue.Text), Convert.ToDecimal(txtPercentageCash.Text), ddlCompanyName.Text);
+                cr_CashDividedReport crCustShareBalance = new cr_CashDividedReport();
+                frmReportViewer view = new frmReportViewer();
+                crCustShareBalance.SetDataSource(dt);
+                ((TextObject)crCustShareBalance.ReportDefinition.Sections[1].ReportObjects["txtRecordDate"]).Text = rDate;
+                view.crvReportViewer.ReportSource = crCustShareBalance;
+                view.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please Select the Company");
+            }
+        }
+
+        private void btnCashDividedLatter_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtPercentageCash.Text))
+            {
+                DataTable dt = cashDividedMarginLoanBAL.GetCashDividedLetter(dtRecordDate.Value, Convert.ToDecimal(txtFaceValue.Text), Convert.ToDecimal(txtPercentageCash.Text), ddlCompanyName.Text);
+                crCashDividedLetter crCashDividedLatter = new crCashDividedLetter();
+                frmReportViewer view = new frmReportViewer();
+                crCashDividedLatter.SetDataSource(dt);
+                view.crvReportViewer.ReportSource = crCashDividedLatter;
+                view.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please Select the Company");
+            }
+        }
+
+        private void btnSendEmail_Click(object sender, EventArgs e)
+        {            
+            btnSendEmail.Enabled = false;
+            btnSendEmail.Text = "Sending....";
+            GenerateFile();
+        }
+
+        public void GenerateFile()
+        {
+            string path = @"D:\\Store_Pdf_File";
+            string ExcelFile = string.Empty;
+            string PdfFile = string.Empty;
+            string EmailBody = string.Empty;
+
+           
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            foreach (string file in Directory.GetFiles(path))
+            {
+                File.Delete(file);
+            }
+            if (!string.IsNullOrEmpty(txtPercentageCash.Text))
+            {
+                PdfFile = path + "\\" +  "Requested to Settle Cash Dividend of Margin Loan Holders at Bank Account via BEFTN." + ".pdf";
+                DataTable dt = cashDividedMarginLoanBAL.GetCashDividedLetter(dtRecordDate.Value, Convert.ToDecimal(txtFaceValue.Text), Convert.ToDecimal(txtPercentageCash.Text), ddlCompanyName.Text);
+                CashDividedEmail crCashDividedLatter = new CashDividedEmail();              
+                crCashDividedLatter.SetDataSource(dt);
+                crCashDividedLatter.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, PdfFile);
+               
+
+                string rDate = dtRecordDate.Value.ToString("dd/MMM/yy");
+                DataTable data = cashDividedMarginLoanBAL.GetCashDivided(dtRecordDate.Value, Convert.ToDecimal(txtFaceValue.Text), Convert.ToDecimal(txtPercentageCash.Text), ddlCompanyName.Text);
+                cr_CashDividedReport crCustShareBalance = new cr_CashDividedReport();               
+                crCustShareBalance.SetDataSource(data);
+                ExcelFile = path + "\\" + "Cash Dividend Reports of Margin Loan Holders" + ".xls";
+                crCustShareBalance.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.Excel, ExcelFile);
+
+                EmailBody = CreateEmailBody("Concern,");
+                Sending_Server_With_One_AttachMent(txtEmail1.Text, EmailBody, "Cash Divident document from K-Securities & Consultants Ltd..", PdfFile, ExcelFile);
+               // btnSendEmail.Text = "Your message has been sent"; 
+                MessageBox.Show("Your message has been sent");
+                btnSendEmail.Enabled = true;
+                if (EmailCounting > 0)
+                    btnSendEmail.Text = "Re-Send Email";
+                else
+                    btnSendEmail.Text = "Send Email";
+                if(cashDividedMarginLoanBO.CashDividedMarginLoanId > 0)
+                  cashDividedMarginLoanBAL.UpdateCashDividedMarginLoanCounting(cashDividedMarginLoanBO);
+            }
+            else
+            {
+                MessageBox.Show("Please Select the Company");
+            }
+        }
+
+        public string CreateEmailBody(string CustomerName)
+        {
+            #region IPO Information
+
+            string messreturn = string.Empty;
+            string FirstMessage = string.Empty;
+            string SecondMessage = string.Empty;
+
+            {
+
+                messreturn = @"<!DOCTYPE html PUBLIC ""-//W3C//DTD XHTML 1.0 Transitional//EN"" ""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"">
+                     <html xmlns=""http://www.w3.org/1999/xhtml"">
+                     <head>
+                     <meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"" />
+                     </head>                      
+                       <body>                                  
+                         <div style=""background-color:#660033; width:700px; height:339px;margin:auto"">
+	                           <div style=""background-color:#FFFFFF; width:600px; height:100%;margin:auto"">	
+                                  <div style=""padding-left:25px; padding-right:25px"">
+		                              <p>Dear " + CustomerName + @"  </p>
+			                          <p style=""color:#990066""> Please check the attached file to get cash dividend information from K-Securities & consultants Ltd. (DSE TREC # 122).</p><br /> 
+                                       <p style=""color:#6600FF; font-family:'Courier New', Courier, monospace"">Note : If you have any problem, Please contact with us without any hesitation.</p>	<br/>	
+			                           Best Regards<br /> 
+				                       K-Securities & Consultants Ltd (KSCL).<br /> 
+                                       Mobile # 01911171438<br />
+                                       DSE TREC # 122<br /> 
+                                       CDBL DP ID # 23500<br /> 
+			                           www.ksclbd.com <br /><br /><br />	 	
+                    				   
+				                        <p> This  information is based on our actual record. If any of the above details look incorrect,
+				                       please advise immediately. This is however possible but highly unlikely to find your record inaccurate or missing.
+				                       This may happened due to malfunction of any/some of web tools that we use to collect and display your data here 
+				                       such as internet connectivity, FTP software, web server malfunction, problem with web database and others.
+				                       We assure you that our master record of actual information is not affected by any of these. </p>	
+				                   </div> 	        
+		                      </div>		  
+	                     </div>                    	 
+	                     <div style=""background-color:#CCCCCC;width:700px;height:2px; margin:auto; margin-top:50px"">
+	                     </div>
+                       </body>
+                    </html>
+                    ";
+            }
+            #endregion
+
+            return messreturn;
+        }
+
+        public void Sending_Server_With_One_AttachMent(string EmailAddress, string Body, string Subject, string PdfFile, string ExcelFile)
+        {
+
+            string senderID = "info@ksclbd.com";
+            const string senderPassword = "@KSCL123";
+
+            try
+            {
+                SmtpClient smtp = new SmtpClient();
+                // smtp = new SmtpClient("mail.ksclbd.com", 25);
+                smtp = new SmtpClient("mail.ksclbd.com", 25);
+                smtp.Credentials = new System.Net.NetworkCredential(senderID, senderPassword);
+
+
+                MailAddress from = new MailAddress("info@ksclbd.com", "K-Securities");
+                MailAddress to = new MailAddress(EmailAddress);
+                MailAddress SendBCC = new MailAddress("rakimul@gmail.com");
+                MailMessage message = new MailMessage(from, to);
+
+
+                System.Net.Mail.Attachment attachment;
+                attachment = new System.Net.Mail.Attachment(PdfFile);
+                message.Attachments.Add(attachment);
+
+                System.Net.Mail.Attachment attachment1;
+                attachment1 = new System.Net.Mail.Attachment(ExcelFile);
+                message.Attachments.Add(attachment1);
+
+
+
+                message.Bcc.Add(SendBCC);
+                message.Subject = Subject;
+                message.Body = Body;
+                message.BodyEncoding = System.Text.Encoding.UTF8;
+                message.IsBodyHtml = true;
+                smtp.Send(message);               
+               
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
+        }
+
+        private void btnSatellmentReport_Click(object sender, EventArgs e)
+        {
+            DataTable dt = cashDividedMarginLoanBAL.GetCashDividedSatellmentReport(dtRecordDate.Value, Convert.ToDecimal(txtFaceValue.Text), Convert.ToDecimal(txtPercentageCash.Text), ddlCompanyName.Text);
+            cr_CashDividedSatellmentReport CashDividedSatellmentReport = new cr_CashDividedSatellmentReport();
+            frmReportViewer view = new frmReportViewer();
+            CashDividedSatellmentReport.SetDataSource(dt);
+            //((TextObject)crCustShareBalance.ReportDefinition.Sections[1].ReportObjects["txtRecordDate"]).Text = rDate;
+            view.crvReportViewer.ReportSource = CashDividedSatellmentReport;
+            view.Show();
+        }
+
+        private void btnresave_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPercentageCash.Text))
+            {
+                MessageBox.Show("Please Enter Percentage..");
+                txtPercentageCash.Focus();
+                return;
+            }
+            else if (string.IsNullOrEmpty(txtFaceValue.Text))
+            {
+                MessageBox.Show("Please Enter Face Value..");
+                txtFaceValue.Focus();
+                return;
+            }
+            cashDividedMarginLoanBO.CashDividedMarginLoanId = 0;
+            cashDividedMarginLoanBO.CompanyName = ddlCompanyName.SelectedValue.ToString();
+            cashDividedMarginLoanBO.Ref = "KSCL-" + ddlCompanyName.Text + "/DIVIDEND/" + DateTime.Now.ToString("yyyy") + "/";
+            cashDividedMarginLoanBO.RecordDate = Convert.ToDateTime(dtRecordDate.Text);
+            cashDividedMarginLoanBO.PercentageCash = Convert.ToDecimal(txtPercentageCash.Text);
+            cashDividedMarginLoanBO.FaceValue = Convert.ToDecimal(txtFaceValue.Text);
+            cashDividedMarginLoanBO.MDName = txtMDName.Text.Trim();
+            cashDividedMarginLoanBO.Address = txtAddress.Text.Trim();
+            cashDividedMarginLoanBO.Email1 = txtEmail1.Text.Trim();
+            cashDividedMarginLoanBO.Email2 = txtEmail2.Text.Trim();
+            cashDividedMarginLoanBO.PhoneNo = txtPhoneNo.Text.Trim();
+            cashDividedMarginLoanBO.FunctionPercentage = Convert.ToDecimal(txtFractionPercentage.Text);
+            cashDividedMarginLoanBO.FunctionSharePrice = Convert.ToDecimal(txtFunctionSharePrice.Text);
+            cashDividedMarginLoanBAL.InsertCashDividedMarginLoan(cashDividedMarginLoanBO);
+            MessageBox.Show("Data Save Successfully.....");
+            btnRefresh_Click(sender, e);
+            LoadData();
+        }
+
+        
+    }
+}

@@ -1,0 +1,246 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BusinessAccessLayer.BAL;
+using CrystalDecisions.CrystalReports.Engine;
+
+namespace Reports
+{
+    public partial class frmIPOSuccessfulUnsuccessful : Form
+    {
+        private string _CommpanyName;
+        private string _branchName;
+        private string _branchAddress;
+        private string _branchContactNumber;
+
+        public frmIPOSuccessfulUnsuccessful()
+        {
+            InitializeComponent();
+        }
+        IPOApplicationSuccessfulUnSuccessful objBAL = new IPOApplicationSuccessfulUnSuccessful();
+        private void loadStatusNmae()
+        {
+            IPOProcessBAL process = new IPOProcessBAL();
+            DataTable dt = new DataTable();
+            dt = objBAL.GetIpoStatusNmae();
+            cmbStatusName.DataSource = dt;
+            cmbStatusName.DisplayMember = dt.Columns[0].ToString();
+            cmbStatusName.ValueMember = dt.Columns[0].ToString();
+
+            DataTable dtallSession = new DataTable();
+            dtallSession = process.GetIPOSessionALL();
+            Cmbcompanyname.DataSource = dtallSession;
+            Cmbcompanyname.DisplayMember = dtallSession.Columns["Company_Name"].ToString();
+            Cmbcompanyname.ValueMember = dtallSession.Columns["ID"].ToString();
+
+            
+        }
+
+        private void FrmIPOSuccessfulUnsuccessful_Load(object sender, EventArgs e)
+        {
+            
+            loadStatusNmae();
+            if(cmbStatusName.Items.Count>0)
+            cmbStatusName.SelectedIndex = 0;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            dt = objBAL.IPOSuccessfulUnsuccessfulApplication(cmbStatusName.Text,Cmbcompanyname.Text,CmbCustomerCode.Text);
+            crIPOSuccessfulUnsuccessful objRPT = new crIPOSuccessfulUnsuccessful();
+            crIPOApproavedUniapproaved objRPTapp = new crIPOApproavedUniapproaved();
+            frmIPOReportViewer viewer = new frmIPOReportViewer();
+            if (cmbStatusName.Text == "Successfull" || cmbStatusName.Text == "Unsuccessfull")
+            {
+                objRPT.SetDataSource(dt);
+                 if (cmbStatusName.Text == "Successfull")
+                    {
+                        ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtreportName"]).Text =
+                               "IPO Successfull Status";
+                    }
+                else if (cmbStatusName.Text == "Unsuccessfull")
+                    {
+                        ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtreportName"]).Text =
+                               "IPO Unsuccessfull Status";
+                    }
+
+                 GetCommonInfo();
+                 ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtCompanyName"]).Text =
+                     _CommpanyName;
+                 ///// Load Branch Name
+                 ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtBranchName"]).Text =
+                     "Branch Name:" + _branchName + "," + _branchAddress + ". Phone:" + _branchContactNumber;
+                 viewer.crystalReportViewer1.ReportSource = objRPT;
+                 viewer.Show();
+            }
+            else if (cmbStatusName.Text == "All")
+            {
+                objRPT.SetDataSource(dt);
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtreportName"]).Text =
+                               "IPO All Kind of Status";
+                GetCommonInfo();
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtCompanyName"]).Text =
+                    _CommpanyName;
+                ///// Load Branch Name
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtBranchName"]).Text =
+                    "Branch Name:" + _branchName + "," + _branchAddress + ". Phone:" + _branchContactNumber;
+                viewer.crystalReportViewer1.ReportSource = objRPT;
+                viewer.Show();
+            }
+            else if (cmbStatusName.Text == "Approved")
+            {
+                objRPT.SetDataSource(dt);
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtreportName"]).Text =
+                           "IPO Approved Status";
+                GetCommonInfo();
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtCompanyName"]).Text =
+                    _CommpanyName;
+                ///// Load Branch Name
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtBranchName"]).Text =
+                    "Branch Name:" + _branchName + "," + _branchAddress + ". Phone:" + _branchContactNumber;
+                viewer.crystalReportViewer1.ReportSource = objRPT;
+                viewer.Show();
+            }
+            else if (cmbStatusName.Text == "Pending")
+            {
+                objRPT.SetDataSource(dt);
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtreportName"]).Text =
+                       "IPO Pending Status";
+                GetCommonInfo();
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtCompanyName"]).Text =
+                    _CommpanyName;
+                ///// Load Branch Name
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtBranchName"]).Text =
+                    "Branch Name:" + _branchName + "," + _branchAddress + ". Phone:" + _branchContactNumber;
+                viewer.crystalReportViewer1.ReportSource = objRPT;
+                viewer.Show();
+            }
+            else if (cmbStatusName.Text == "Rejected")
+            {
+                objRPT.SetDataSource(dt);
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtreportName"]).Text =
+                       "IPO Rejected Status";
+                GetCommonInfo();
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtCompanyName"]).Text =
+                    _CommpanyName;
+                ///// Load Branch Name
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtBranchName"]).Text =
+                    "Branch Name:" + _branchName + "," + _branchAddress + ". Phone:" + _branchContactNumber;
+                viewer.crystalReportViewer1.ReportSource = objRPT;
+                viewer.Show();
+            }
+            else if (cmbStatusName.Text == "Check")
+            {
+                objRPT.SetDataSource(dt);
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtreportName"]).Text =
+                       "IPO Rejected Status";
+                GetCommonInfo();
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtCompanyName"]).Text =
+                    _CommpanyName;
+                ///// Load Branch Name
+                ((TextObject)objRPT.ReportDefinition.Sections[2].ReportObjects["txtBranchName"]).Text =
+                    "Branch Name:" + _branchName + "," + _branchAddress + ". Phone:" + _branchContactNumber;
+                viewer.crystalReportViewer1.ReportSource = objRPT;
+                viewer.Show();
+            }
+            //else
+            //{
+            //    objRPTapp.SetDataSource(dt);
+            //    if (cmbStatusName.Text == "Approved")
+            //    {
+            //        ((TextObject)objRPTapp.ReportDefinition.Sections[2].ReportObjects["txtreportName"]).Text =
+            //               "IPO Approved Status";
+            //    }
+            //    if (cmbStatusName.Text == "Pending")
+            //    {
+            //        ((TextObject)objRPTapp.ReportDefinition.Sections[2].ReportObjects["txtreportName"]).Text =
+            //               "IPO Pending Status";
+            //    }
+            //    else if (cmbStatusName.Text == "Rejected")
+            //    {
+            //        ((TextObject)objRPTapp.ReportDefinition.Sections[2].ReportObjects["txtreportName"]).Text =
+            //               "IPO Rejected Status";
+            //    }
+
+            //    GetCommonInfo();
+            //    ((TextObject)objRPTapp.ReportDefinition.Sections[2].ReportObjects["txtCompanyName"]).Text =
+            //        _CommpanyName;
+            //    ///// Load Branch Name
+            //    ((TextObject)objRPTapp.ReportDefinition.Sections[2].ReportObjects["txtBranchName"]).Text =
+            //        "Branch Name:" + _branchName + "," + _branchAddress + ". Phone:" + _branchContactNumber;
+            //    viewer.crystalReportViewer1.ReportSource = objRPTapp;
+            //    viewer.Show();
+            //}
+            //GetCommonInfo();
+            //((TextObject)objRPTapp.ReportDefinition.Sections[2].ReportObjects["txtCompanyName"]).Text =
+            //    _CommpanyName;
+            /////// Load Branch Name
+            //((TextObject)objRPTapp.ReportDefinition.Sections[2].ReportObjects["txtBranchName"]).Text =
+            //    "Branch Name:" + _branchName + "," + _branchAddress + ". Phone:" + _branchContactNumber;
+            //viewer.crystalReportViewer1.ReportSource = objRPTapp;
+            //viewer.Show();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void GetCommonInfo()
+        {
+
+            try
+            {
+                CommonInfoBal objCommonInfoBal = new CommonInfoBal();
+                DataRow drCommonInfo = null;
+
+                drCommonInfo = objCommonInfoBal.GetCommpanyInfo();
+
+                if (drCommonInfo != null)
+                {
+                    _CommpanyName = drCommonInfo.Table.Rows[0][0].ToString();
+                    _branchName = drCommonInfo.Table.Rows[0][1].ToString();
+                    _branchAddress = drCommonInfo.Table.Rows[0][2].ToString();
+                    _branchContactNumber = drCommonInfo.Table.Rows[0][3].ToString();
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void ChkIndividualCustomer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkIndividualCustomer.Checked == true)
+            {
+                CmbCustomerCode.Enabled = true;
+                CustomerCode();
+                if (CmbCustomerCode.Items.Count>0)
+                {
+                    CmbCustomerCode.SelectedIndex = 0; 
+                }
+               
+            }
+            else
+            {
+                CmbCustomerCode.Enabled = false;
+                CmbCustomerCode.Text = "";
+            }
+        }
+        private void CustomerCode()
+        {
+            DataTable dtcustCode = new DataTable();
+            dtcustCode = objBAL.GetAllIpoCustomerCode();
+            CmbCustomerCode.DataSource = dtcustCode;
+            CmbCustomerCode.DisplayMember = dtcustCode.Columns[0].ToString();
+            CmbCustomerCode.ValueMember = dtcustCode.Columns[0].ToString();
+        }
+    }
+}

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ds_Dp29MissmatchReport" targetNamespace="http://tempuri.org/ds_Dp29MissmatchReport.xsd" xmlns:mstns="http://tempuri.org/ds_Dp29MissmatchReport.xsd" xmlns="http://tempuri.org/ds_Dp29MissmatchReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ds_Dp29MissmatchReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ds_Dp29MissmatchReport" msprop:Generator_DataSetName="ds_Dp29MissmatchReport" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SerialNo" msprop:Generator_UserColumnName="SerialNo" msprop:Generator_ColumnVarNameInTable="columnSerialNo" msprop:Generator_ColumnPropNameInRow="SerialNo" msprop:Generator_ColumnPropNameInTable="SerialNoColumn" type="xs:unsignedInt" minOccurs="0" />
+              <xs:element name="DP29_CustCode" msprop:Generator_UserColumnName="DP29_CustCode" msprop:Generator_ColumnVarNameInTable="columnDP29_CustCode" msprop:Generator_ColumnPropNameInRow="DP29_CustCode" msprop:Generator_ColumnPropNameInTable="DP29_CustCodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DP29_BOID" msprop:Generator_UserColumnName="DP29_BOID" msprop:Generator_ColumnVarNameInTable="columnDP29_BOID" msprop:Generator_ColumnPropNameInRow="DP29_BOID" msprop:Generator_ColumnPropNameInTable="DP29_BOIDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DP29_Status" msprop:Generator_UserColumnName="DP29_Status" msprop:Generator_ColumnVarNameInTable="columnDP29_Status" msprop:Generator_ColumnPropNameInRow="DP29_Status" msprop:Generator_ColumnPropNameInTable="DP29_StatusColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DP29_Closure_Date" msprop:Generator_UserColumnName="DP29_Closure_Date" msprop:Generator_ColumnVarNameInTable="columnDP29_Closure_Date" msprop:Generator_ColumnPropNameInRow="DP29_Closure_Date" msprop:Generator_ColumnPropNameInTable="DP29_Closure_DateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Cust_BOID" msprop:Generator_UserColumnName="Cust_BOID" msprop:Generator_ColumnVarNameInTable="columnCust_BOID" msprop:Generator_ColumnPropNameInRow="Cust_BOID" msprop:Generator_ColumnPropNameInTable="Cust_BOIDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Cust_CustCode" msprop:Generator_UserColumnName="Cust_CustCode" msprop:Generator_ColumnVarNameInTable="columnCust_CustCode" msprop:Generator_ColumnPropNameInRow="Cust_CustCode" msprop:Generator_ColumnPropNameInTable="Cust_CustCodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Cust_BOStatus" msprop:Generator_UserColumnName="Cust_BOStatus" msprop:Generator_ColumnVarNameInTable="columnCust_BOStatus" msprop:Generator_ColumnPropNameInRow="Cust_BOStatus" msprop:Generator_ColumnPropNameInTable="Cust_BOStatusColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Cust_BOCloseDate" msprop:Generator_UserColumnName="Cust_BOCloseDate" msprop:Generator_ColumnVarNameInTable="columnCust_BOCloseDate" msprop:Generator_ColumnPropNameInRow="Cust_BOCloseDate" msprop:Generator_ColumnPropNameInTable="Cust_BOCloseDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Cust_SBPCustStatus" msprop:Generator_UserColumnName="Cust_SBPCustStatus" msprop:Generator_ColumnVarNameInTable="columnCust_SBPCustStatus" msprop:Generator_ColumnPropNameInRow="Cust_SBPCustStatus" msprop:Generator_ColumnPropNameInTable="Cust_SBPCustStatusColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Cust_SBPCustClosureDate" msprop:Generator_UserColumnName="Cust_SBPCustClosureDate" msprop:Generator_ColumnVarNameInTable="columnCust_SBPCustClosureDate" msprop:Generator_ColumnPropNameInRow="Cust_SBPCustClosureDate" msprop:Generator_ColumnPropNameInTable="Cust_SBPCustClosureDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Cust_TableDesc" msprop:Generator_UserColumnName="Cust_TableDesc" msprop:Generator_ColumnVarNameInTable="columnCust_TableDesc" msprop:Generator_ColumnPropNameInRow="Cust_TableDesc" msprop:Generator_ColumnPropNameInTable="Cust_TableDescColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

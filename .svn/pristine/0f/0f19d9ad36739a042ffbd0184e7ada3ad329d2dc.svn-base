@@ -1,0 +1,143 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using BusinessAccessLayer.BO;
+using DataAccessLayer;
+
+namespace BusinessAccessLayer.BAL
+{
+    public class LatestTradePriceBAL
+    {
+        private DbConnection _dbConnection;
+        public LatestTradePriceBAL()
+        {
+            _dbConnection = new DbConnection();
+        }
+        public DataTable GetLatestTradePriceNew()
+        {
+            DataTable dataTable = new DataTable();
+            string queryString = "";
+            //NI
+            queryString = "SELECT SBP_Trade_Price.Instrument_Code,SBP_LTP.Price 'LastTrade',SBP_LTP.Price-Close_Price AS 'TodaysChange',SBP_LTP.Price-SBP_PLTP.Price AS 'CurrentChange' FROM SBP_Trade_Price,SBP_LTP,SBP_PLTP WHERE Trade_Date=(SELECT MAX(Trade_Date) FROM SBP_Trade_Price) AND SBP_Trade_Price.Instrument_Code=SBP_LTP.Instrument_Code AND SBP_LTP.Instrument_Code=SBP_PLTP.Instrument_Code AND SBP_Trade_Price.Instrument_Code NOT IN (SELECT Instrument_Code FROM SBP_Hide_Company_Price ) ORDER BY SBP_Trade_Price.Instrument_Code";
+
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+
+        public DataTable GetVisibleComapny()
+        {
+            DataTable dataTable;
+            string queryString = "";
+            queryString = "SELECT Instrument_Code FROM SBP_LTP WHERE Instrument_Code NOT IN(SELECT Instrument_Code FROM SBP_Hide_Company_Price) ORDER BY Instrument_Code";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return dataTable;
+
+        }
+
+        public DataTable GetHiddenCompany()
+        {
+            DataTable dataTable;
+            string queryString = "";
+            queryString = "SELECT Instrument_Code FROM SBP_LTP WHERE Instrument_Code IN(SELECT Instrument_Code FROM SBP_Hide_Company_Price) ORDER BY Instrument_Code";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return dataTable;
+        }
+
+        public void ConvertHiddenToVisible(object companyName)
+        {
+            string companyQueryString = "";
+            companyQueryString = "DELETE FROM SBP_Hide_Company_Price WHERE Instrument_Code='" + companyName + "'";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                _dbConnection.StartTransaction();
+                _dbConnection.ExecuteNonQuery(companyQueryString);
+                _dbConnection.Commit();
+            }
+            catch (Exception exception)
+            {
+                _dbConnection.Rollback();
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+        }
+
+        public void ConvertVisibleToHidden(object companyName)
+        {
+            string companyQueryString = "";
+            long slNo;
+            CommonBAL commonBal=new CommonBAL();
+            slNo=commonBal.GenerateID("SBP_Hide_Company_Price", "Sl_No");
+            companyQueryString = "INSERT INTO SBP_Hide_Company_Price(Sl_No,Instrument_Code) VALUES(" + slNo + ",'" + companyName + "')";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                _dbConnection.StartTransaction();
+                _dbConnection.ExecuteNonQuery(companyQueryString);
+                _dbConnection.Commit();
+            }
+            catch (Exception exception)
+            {
+                _dbConnection.Rollback();
+                throw exception;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            
+        }
+
+        public DataTable GetTimeInterval()
+        {
+            DataTable dataTable;
+            string queryString = "";
+            queryString = "SELECT Purpose_Value FROM SBP_Common_Info WHERE Purpose='Refreshment_Period'";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return dataTable;
+            
+        }
+    }
+}

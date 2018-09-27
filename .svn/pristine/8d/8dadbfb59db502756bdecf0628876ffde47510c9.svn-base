@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2ABEA5C5-2390-4588-A62E-F619434F083D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ElectronicCommunication</RootNamespace>
+    <AssemblyName>ElectronicCommunication</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GSMCommShared, Version=1.10.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Working Version Of Push Pull SMS App\SMSSender PushPull\SMSSender\bin\Release\GSMCommShared.dll</HintPath>
+    </Reference>
+    <Reference Include="GSMCommunication, Version=1.10.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Working Version Of Push Pull SMS App\SMSSender PushPull\SMSSender\bin\Release\GSMCommunication.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ExceptionMessageBox, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="PDUConverter, Version=1.10.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81" />
+    <Reference Include="RS232, Version=1.24.0.0, Culture=neutral, PublicKeyToken=515d87df384dcc81">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Working Version Of Push Pull SMS App\SMSSender PushPull\SMSSender\bin\Debug\RS232.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmailClient.cs" />
+    <Compile Include="Constant.cs" />
+    <Compile Include="Email\EmailMessageGenerate.cs" />
+    <Compile Include="Email\EmailSend.cs" />
+    <Compile Include="Email\Email_Constant.cs" />
+    <Compile Include="Email\MessaGenerateAndSend.cs" />
+    <Compile Include="Email\SqlDataQuery.cs" />
+    <Compile Include="ExceptionHelper.cs" />
+    <Compile Include="frmExportIPOInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExportIPOInformation.Designer.cs">
+      <DependentUpon>frmExportIPOInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShowMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmShowMessage.Designer.cs">
+      <DependentUpon>FrmShowMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSMSSendReceiveShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSMSSendReceiveShow.Designer.cs">
+      <DependentUpon>frmSMSSendReceiveShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IPOWebTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IPOWebTest.Designer.cs">
+      <DependentUpon>IPOWebTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frm_SMSSender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_SMSSender.Designer.cs">
+      <DependentUpon>frm_SMSSender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SMS\MessageGenerate.cs" />
+    <Compile Include="SMS\SMSCommadCode.cs" />
+    <Compile Include="SMS\ConnectionString_OffConfig.cs" />
+    <Compile Include="SMS\SMSSegregation.cs" />
+    <Compile Include="SMS\DataSqlQuery.cs" />
+    <Compile Include="SMS\EmailComm_Indications.cs" />
+    <Compile Include="SMS\ModemCommunication.cs" />
+    <Compile Include="SMS\ParsedSMS.cs" />
+    <Compile Include="SMS\ReceiveSMSParser.cs" />
+    <Compile Include="SMS\SMSReceiver.cs" />
+    <Compile Include="SMS\SMSSender.cs" />
+    <Compile Include="SMS\LevenshteinDistance.cs" />
+    <Compile Include="SMS\SMS_Constant.cs" />
+    <Compile Include="Smtp\SmtpClient.cs" />
+    <Compile Include="Smtp\SmtpMessage.cs" />
+    <Compile Include="WaitWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitWindow.Designer.cs">
+      <DependentUpon>WaitWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Web\WebSenderReceiver.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessAccessLayer\BusinessAccessLayer.csproj">
+      <Project>{A2071E23-5F9E-4F47-888D-25311566AD2B}</Project>
+      <Name>BusinessAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{E891C85D-2E55-4724-8FAD-C6F8E45714B4}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DseReports\DseReports.csproj">
+      <Project>{38394D33-708E-444E-8208-EAE7441F40C3}</Project>
+      <Name>DseReports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GridExtensions\GridViewExtensions.csproj">
+      <Project>{E5247765-0134-4714-A110-64D571FBF636}</Project>
+      <Name>GridViewExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmExportIPOInformation.resx">
+      <DependentUpon>frmExportIPOInformation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmShowMessage.resx">
+      <DependentUpon>FrmShowMessage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSMSSendReceiveShow.resx">
+      <DependentUpon>frmSMSSendReceiveShow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_SMSSender.resx">
+      <DependentUpon>frm_SMSSender.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IPOWebTest.resx">
+      <DependentUpon>IPOWebTest.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitWindow.resx">
+      <DependentUpon>WaitWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Imap\" />
+    <Folder Include="Pop3\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,243 @@
+D:\RumonWA\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\RumonWA\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\RumonWA\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\RumonWA\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\RumonWA\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\RumonWA\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\RumonWA\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\Source Code e2eTechnologies\Edited By Shahrior\RumonWA\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+E:\Source Code e2eTechnologies\Edited By Shahrior\RumonWA\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+E:\Source Code e2eTechnologies\Edited By Shahrior\RumonWA\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+E:\Source Code e2eTechnologies\Edited By Shahrior\RumonWA\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+E:\Source Code e2eTechnologies\Edited By Shahrior\RumonWA\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+E:\Source Code e2eTechnologies\Edited By Shahrior\RumonWA\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+E:\Source Code e2eTechnologies\Edited By Shahrior\RumonWA\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\Share File\RumonWA_04July2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+E:\Share File\RumonWA_04July2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+E:\Share File\RumonWA_04July2012\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+E:\Share File\RumonWA_04July2012\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+E:\Share File\RumonWA_04July2012\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+E:\Share File\RumonWA_04July2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+E:\Share File\RumonWA_04July2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+G:\Users\kscl\Desktop\New folder (2)\Shahrior_05_Sept_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+G:\Users\kscl\Desktop\New folder (2)\Shahrior_05_Sept_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+G:\Users\kscl\Desktop\New folder (2)\Shahrior_05_Sept_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+G:\Users\kscl\Desktop\New folder (2)\Shahrior_05_Sept_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+G:\Users\kscl\Desktop\New folder (2)\Shahrior_05_Sept_2012\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+G:\Users\kscl\Desktop\New folder (2)\Shahrior_05_Sept_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+G:\Users\kscl\Desktop\New folder (2)\Shahrior_05_Sept_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\Share File\EFT\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+E:\Share File\EFT\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+E:\Share File\EFT\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+E:\Share File\EFT\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+E:\Share File\EFT\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+E:\Share File\EFT\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+E:\Share File\EFT\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\Share File\EFT\New Folder\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+E:\Share File\EFT\New Folder\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+E:\Share File\EFT\New Folder\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+E:\Share File\EFT\New Folder\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+E:\Share File\EFT\New Folder\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+E:\Share File\EFT\New Folder\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+E:\Share File\EFT\New Folder\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\Share File\EFT\Updated 23102012\Updated 22102012\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+E:\Share File\EFT\Updated 23102012\Updated 22102012\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+E:\Share File\EFT\Updated 23102012\Updated 22102012\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+E:\Share File\EFT\Updated 23102012\Updated 22102012\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+E:\Share File\EFT\Updated 23102012\Updated 22102012\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+E:\Share File\EFT\Updated 23102012\Updated 22102012\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+E:\Share File\EFT\Updated 23102012\Updated 22102012\Updated_SBPPro_30_09_2012\Shahrior(asad)_06_Sept_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\Working Version Of SBP\Shahrior07_Nov_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+E:\Working Version Of SBP\Shahrior07_Nov_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+E:\Working Version Of SBP\Shahrior07_Nov_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+E:\Working Version Of SBP\Shahrior07_Nov_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+E:\Working Version Of SBP\Shahrior07_Nov_2012\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+E:\Working Version Of SBP\Shahrior07_Nov_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+E:\Working Version Of SBP\Shahrior07_Nov_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\Asad\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+E:\Asad\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+E:\Asad\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+E:\Asad\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+E:\Asad\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+E:\Asad\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+E:\Asad\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\WorkTemp\15Nov2012\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+E:\WorkTemp\15Nov2012\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+E:\WorkTemp\15Nov2012\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+E:\WorkTemp\15Nov2012\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+E:\WorkTemp\15Nov2012\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+E:\WorkTemp\15Nov2012\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+E:\WorkTemp\15Nov2012\Updated 13Nov2012\Shahrior13_Nov_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Backup Updated 09Dec2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Backup Updated 09Dec2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Backup Updated 09Dec2012\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Backup Updated 09Dec2012\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Backup Updated 09Dec2012\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Backup Updated 09Dec2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Backup Updated 09Dec2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\Working Version Of SBP\Asad_13_Dec_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+E:\Working Version Of SBP\Asad_13_Dec_2012\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+E:\Working Version Of SBP\Asad_13_Dec_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+E:\Working Version Of SBP\Asad_13_Dec_2012\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+E:\Working Version Of SBP\Asad_13_Dec_2012\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+E:\Working Version Of SBP\Asad_13_Dec_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+E:\Working Version Of SBP\Asad_13_Dec_2012\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\Working Version Of SBP\Working_Solution_After 18April2013\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+E:\Working Version Of SBP\Working_Solution_After 18April2013\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+E:\Working Version Of SBP\Working_Solution_After 18April2013\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+E:\Working Version Of SBP\Working_Solution_After 18April2013\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+E:\Working Version Of SBP\Working_Solution_After 18April2013\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+E:\Working Version Of SBP\Working_Solution_After 18April2013\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+E:\Working Version Of SBP\Working_Solution_After 18April2013\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+E:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+E:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+E:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+E:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+E:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+E:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+E:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\bin\Release\MySql.Data.dll
+G:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+G:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+G:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+G:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\bin\Release\MySql.Data.dll
+G:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+G:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+G:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+G:\Working Version Of SBP\Working_Solution_After 27Mayl2013\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\MySql.Data.dll
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\MySql.Data.dll
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\MySql.Data.dll
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\MySql.Data.dll
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\Shahrior_SBP_Pro\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\Shahrior_SBP_Pro\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\BusinessAccessLayer\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\Shahrior_SBP_Pro\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\Shahrior_SBP_Pro\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\BusinessAccessLayer\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\BusinessAccessLayer\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\19 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\19 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\19 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\19 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\20 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\20 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\20 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\20 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\21 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\21 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\21 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\21 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\MySql.Data.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\MySql.Data.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\MySql.Data.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\BusinessAccessLayer\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\BusinessAccessLayer\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\BusinessAccessLayer\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\BusinessAccessLayer\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\BusinessAccessLayer\obj\Release\BusinessAccessLayer.pdb

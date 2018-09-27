@@ -1,0 +1,23 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ReferencePath>C:\Program Files\Business Objects\Common\2.8\managed\</ReferencePath>
+    <PublishUrlHistory>\\150.1.122.29\sbp\|\\150.1.122.26\sbp\|\\150.1.122.30\sbp\|\\120.130.1.5\sbp\|\\150.1.122.27\test_sbp_pro\</PublishUrlHistory>
+    <InstallUrlHistory>
+    </InstallUrlHistory>
+    <SupportUrlHistory>
+    </SupportUrlHistory>
+    <UpdateUrlHistory>
+    </UpdateUrlHistory>
+    <BootstrapperUrlHistory>
+    </BootstrapperUrlHistory>
+    <ErrorReportUrlHistory>
+    </ErrorReportUrlHistory>
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+    <ProjectView>ShowAllFiles</ProjectView>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartAction>Project</StartAction>
+  </PropertyGroup>
+</Project>

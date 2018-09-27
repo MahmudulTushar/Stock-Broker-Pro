@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<configSections>
+		<sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+			<section name="StockbrokerProNewArch.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+		</sectionGroup>
+	</configSections>
+	<connectionStrings>
+		<clear />
+		<add name="sqlcon" providerName="System.Data.SqlClient" connectionString="Data Source=150.1.122.2;Initial Catalog=SBP_Database;User ID=ksclmst;Password=kscl@d" />
+		<add name="DefaultConnection" connectionString="Data Source = |SQL/CE|" />
+	</connectionStrings>
+	<userSettings>
+		<StockbrokerProNewArch.Properties.Settings>
+			<setting name="Setting" serializeAs="String">
+				<value />
+			</setting>
+		</StockbrokerProNewArch.Properties.Settings>
+	</userSettings>
+	<appSettings>
+		<add key="ClientSettingsProvider.ServiceUri" value="" />
+		<add key="ClientSettingsProvider.ConnectionStringName" value="DefaultConnection" />
+	</appSettings>
+	<system.web>
+		<membership defaultProvider="ClientAuthenticationMembershipProvider">
+			<providers>
+				<add name="ClientAuthenticationMembershipProvider" type="System.Web.ClientServices.Providers.ClientWindowsAuthenticationMembershipProvider, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" credentialsProvider="" connectionStringName="DefaultConnection" />
+			</providers>
+		</membership>
+		<roleManager defaultProvider="ClientRoleProvider" enabled="true">
+			<providers>
+				<add name="ClientRoleProvider" type="System.Web.ClientServices.Providers.ClientRoleProvider, System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" serviceUri="" cacheTimeout="86400" connectionStringName="DefaultConnection" />
+			</providers>
+		</roleManager>
+	</system.web>
+</configuration>

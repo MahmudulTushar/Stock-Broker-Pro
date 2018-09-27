@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsTaxStatement_Bonus_IPOShares" targetNamespace="http://tempuri.org/dsTaxStatement_Bonus_IPOShares.xsd" xmlns:mstns="http://tempuri.org/dsTaxStatement_Bonus_IPOShares.xsd" xmlns="http://tempuri.org/dsTaxStatement_Bonus_IPOShares.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsTaxStatement_Bonus_IPOShares" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsTaxStatement_Bonus_IPOShares" msprop:Generator_DataSetName="dsTaxStatement_Bonus_IPOShares" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Company" msprop:Generator_UserColumnName="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnPropNameInTable="CompanyColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Deposit_Qty" msprop:Generator_UserColumnName="Deposit_Qty" msprop:Generator_ColumnVarNameInTable="columnDeposit_Qty" msprop:Generator_ColumnPropNameInRow="Deposit_Qty" msprop:Generator_ColumnPropNameInTable="Deposit_QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Deposit_Amount" msprop:Generator_UserColumnName="Deposit_Amount" msprop:Generator_ColumnVarNameInTable="columnDeposit_Amount" msprop:Generator_ColumnPropNameInRow="Deposit_Amount" msprop:Generator_ColumnPropNameInTable="Deposit_AmountColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Withdraw_Qty" msprop:Generator_UserColumnName="Withdraw_Qty" msprop:Generator_ColumnVarNameInTable="columnWithdraw_Qty" msprop:Generator_ColumnPropNameInRow="Withdraw_Qty" msprop:Generator_ColumnPropNameInTable="Withdraw_QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Withdraw_Amount" msprop:Generator_UserColumnName="Withdraw_Amount" msprop:Generator_ColumnVarNameInTable="columnWithdraw_Amount" msprop:Generator_ColumnPropNameInRow="Withdraw_Amount" msprop:Generator_ColumnPropNameInTable="Withdraw_AmountColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Received_Date" msprop:Generator_UserColumnName="Received_Date" msprop:Generator_ColumnVarNameInTable="columnReceived_Date" msprop:Generator_ColumnPropNameInRow="Received_Date" msprop:Generator_ColumnPropNameInTable="Received_DateColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

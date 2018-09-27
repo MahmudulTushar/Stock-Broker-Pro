@@ -1,0 +1,246 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Drawing;
+
+namespace BusinessAccessLayer.BO
+{
+    public class Export_ExcelDocBo
+    {
+        // Fields...
+        private DateTime _receivedDate;
+        private double _amount;
+        private string _custCode;
+        private double _reqID;
+        private string _fileNoID;
+        private int _iD;
+        private int _bank_ID;
+        private string _bankName;
+        private int _branch_ID;
+        private string _branchName;
+        private string _routingNo;
+        private string _bank_Account_No;
+        private string _account_Type;
+        private string _reason;
+        private string _fileNo;
+        private int _pageNumber;
+
+        //For NRB Export
+        private string _trecCode;
+        private string _dpid;
+        private string _boid;
+        private string _applicantCategory;
+        private string _currency;
+        private string _draftno;
+        private string _securitycode;
+
+        public string TrecCode
+        {
+            get { return _trecCode; }
+            set { _trecCode = value; }
+        }
+        public string DPID
+        {
+            get { return _dpid; }
+            set { _dpid = value; }
+        }
+        public string BOID
+        {
+            get { return _boid; }
+            set { _boid = value; }
+        }
+        public string ApplicantCategory
+        {
+            get { return _applicantCategory; }
+            set { _applicantCategory = value; }
+        }
+        public string Currency
+        {
+            get { return _currency; }
+            set { _currency = value; }
+        }
+        public string DraftNO
+        {
+            get { return _draftno; }
+            set { _draftno = value; }
+        }
+        public string SecurityCode
+        {
+            get { return _securitycode; }
+            set { _securitycode = value; }
+        }
+        /*END*/
+
+        public int PageNumber
+        {
+            get { return _pageNumber; }
+            set { _pageNumber = value; }
+        }
+        private DateTime _file_Issue_Date;
+
+        public DateTime File_Issue_Date
+        {
+            get { return _file_Issue_Date; }
+            set { _file_Issue_Date = value; }
+        }
+        public string FileNo
+        {
+            get { return _fileNo; }
+            set { _fileNo = value; }
+        }
+
+        private string _password;
+
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value; }
+        }
+        
+
+        public string Reason
+        {
+          get { return _reason; }
+          set { _reason = value; }
+        }
+        private string _senderAccNumber;
+
+        public string SenderAccNumber
+        {
+          get { return _senderAccNumber; }
+          set { _senderAccNumber = value; }
+        }
+        private string _receiverName;
+
+        public string ReceiverName
+        {
+          get { return _receiverName; }
+          set { _receiverName = value; }
+        }
+
+        public string Bank_Account_No
+        {
+            get { return _bank_Account_No; }
+            set { _bank_Account_No = value; }
+        }
+       
+
+        public string Account_Type
+        {
+            get { return _account_Type; }
+            set { _account_Type = value; }
+        }
+        public Export_ExcelDocBo()
+        {
+            _receivedDate = DateTime.Today;
+            _amount = 0;
+            _custCode = string.Empty;
+            _reqID=0;
+            _fileNoID=string.Empty;
+            _iD=0;
+            _bank_ID = 0;
+            _bankName = string.Empty;
+            _branch_ID = 0;
+            _branchName = string.Empty;
+            _routingNo = string.Empty;
+            _bank_Account_No = string.Empty;
+            _account_Type = string.Empty;
+            _reason = string.Empty;
+            _senderAccNumber = string.Empty;
+            _receiverName = string.Empty;
+            _fileNo = string.Empty;
+            _password = string.Empty;
+        }
+        public DateTime Received_Date
+        {
+            get { return _receivedDate; }
+            set
+            {
+                _receivedDate = value;
+            }
+        }
+
+        public double Amount
+        {
+            get { return _amount; }
+            set
+            {
+                _amount = value;
+            }
+        }
+
+        public string Cust_Code
+        {
+            get { return _custCode; }
+            set
+            {
+                _custCode = value;
+            }
+        }
+
+        public double Req_ID
+        {
+            get { return _reqID; }
+            set
+            {
+                _reqID = value;
+            }
+        }
+
+        public string File_No_ID
+        {
+            get { return _fileNoID; }
+            set
+            {
+                _fileNoID = value;
+            }
+        }
+        
+        public int ID
+        {
+            get { return _iD; }
+            set
+            {
+                _iD = value;
+            }
+        }
+
+        public int Bank_ID
+        {
+            get { return _bank_ID; }
+            set { _bank_ID = value; }
+        }
+
+        public int Branch_ID
+        {
+            get { return _branch_ID; }
+            set { _branch_ID = value; }
+        }
+        public string BankName
+        {
+            get { return _bankName; }
+            set
+            {
+                _bankName = value;
+            }
+        }
+        public string BranchName
+        {
+            get { return _branchName; }
+            set
+            {
+                _branchName = value;
+            }
+        }
+        public string RoutingNo
+        {
+            get { return _routingNo; }
+            set
+            {
+                _routingNo = value;
+            }
+        }
+        
+    }
+}

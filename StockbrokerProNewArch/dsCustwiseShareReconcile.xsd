@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCustwiseShareReconcile" targetNamespace="http://tempuri.org/dsCustwiseShareReconcile.xsd" xmlns:mstns="http://tempuri.org/dsCustwiseShareReconcile.xsd" xmlns="http://tempuri.org/dsCustwiseShareReconcile.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCustwiseShareReconcile" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsCustwiseShareReconcile" msprop:Generator_UserDSName="dsCustwiseShareReconcile" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TablePropName="DataTable1" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cust_Code" msprop:Generator_UserColumnName="Cust_Code" msprop:Generator_ColumnPropNameInRow="Cust_Code" msprop:Generator_ColumnVarNameInTable="columnCust_Code" msprop:Generator_ColumnPropNameInTable="Cust_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Cust_Name" msprop:Generator_UserColumnName="Cust_Name" msprop:Generator_ColumnPropNameInRow="Cust_Name" msprop:Generator_ColumnVarNameInTable="columnCust_Name" msprop:Generator_ColumnPropNameInTable="Cust_NameColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Company" msprop:Generator_UserColumnName="Company" msprop:Generator_ColumnPropNameInRow="Company" msprop:Generator_ColumnVarNameInTable="columnCompany" msprop:Generator_ColumnPropNameInTable="CompanyColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="CDBL_Share" msprop:Generator_UserColumnName="CDBL_Share" msprop:Generator_ColumnPropNameInRow="CDBL_Share" msprop:Generator_ColumnVarNameInTable="columnCDBL_Share" msprop:Generator_ColumnPropNameInTable="CDBL_ShareColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="BackOffice_Share" msprop:Generator_UserColumnName="BackOffice_Share" msprop:Generator_ColumnPropNameInRow="BackOffice_Share" msprop:Generator_ColumnVarNameInTable="columnBackOffice_Share" msprop:Generator_ColumnPropNameInTable="BackOffice_ShareColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="BackOffice_MShare" msprop:Generator_UserColumnName="BackOffice_MShare" msprop:Generator_ColumnPropNameInRow="BackOffice_MShare" msprop:Generator_ColumnVarNameInTable="columnBackOffice_MShare" msprop:Generator_ColumnPropNameInTable="BackOffice_MShareColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

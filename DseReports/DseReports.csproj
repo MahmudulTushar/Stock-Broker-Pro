@@ -1,0 +1,790 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{38394D33-708E-444E-8208-EAE7441F40C3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DseReports</RootNamespace>
+    <AssemblyName>DseReports</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="crBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crBonus_Instrument_Confirmation_Report_DSE_21_2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crBonus_Instrument_Confirmation_Report_DSE_21_2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crBO_Closing_Report_DSE_21_6.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crBO_Closing_Report_DSE_21_6.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crBO_Modification_ Report_ DSE_ 21_5.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crBO_Modification_ Report_ DSE_ 21_5.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crClient_Account_Status_Report_DSE_24_12.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crClient_Account_Status_Report_DSE_24_12.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crClient_Ledger_Detail_Report_DSE_24_10.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crClient_Ledger_Detail_Report_DSE_24_10.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crIPO_Instrument_Receive_Report_DSE_21_21_2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crIPO_Instrument_Receive_Report_DSE_21_21_2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crList_Of_Landing_Clients_DSE_21_28_1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crList_Of_Landing_Clients_DSE_21_28_1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crList_Of_Pledge_Clients_DSE_21_26_1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crList_Of_Pledge_Clients_DSE_21_26_1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crPay_Out_Confirmation_Report_DSE_21_11.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crPay_Out_Confirmation_Report_DSE_21_11.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crPortfolio_Statement_Instrumnet_Wise_DSE_22_3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crPortfolio_Statement_Instrumnet_Wise_DSE_22_3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crPortfolio_Statement_Investor_Wise_DSE_22_1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crPortfolio_Statement_Investor_Wise_DSE_22_1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crRegistration_Confirmation_Report_DSE_21_4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crRegistration_Confirmation_Report_DSE_21_4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crRights_Instrumens_Confirmations_Reports_Dse_21_14.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crRights_Instrumens_Confirmations_Reports_Dse_21_14.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crRights_Instruments_Received_Reports_DSE_21_15.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crRights_Instruments_Received_Reports_DSE_21_15.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crrptBroker_Comission_Report_DSE_24_1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crrptBroker_Comission_Report_DSE_24_1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBonus_Instrument_Confirmation_Report_DSE_21_2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBonus_Instrument_Confirmation_Report_DSE_21_2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBO_Closing_Report_DSE_21_6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBO_Closing_Report_DSE_21_6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBO_Modification_ Report_ DSE_ 21_5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBO_Modification_ Report_ DSE_ 21_5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsBroker_Comission_Report_DSE_24_1.cs">
+      <DependentUpon>dsBroker_Comission_Report_DSE_24_1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsBroker_Comission_Report_DSE_24_1.Designer.cs">
+      <DependentUpon>dsBroker_Comission_Report_DSE_24_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsBroker_Comission_Report_DSE_24_11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBroker_Comission_Report_DSE_24_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsClient_Account_Status_Report_DSE_24_12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsClient_Account_Status_Report_DSE_24_12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsClient_Ledger_Detail_Report_DSE_24_10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsClient_Ledger_Detail_Report_DSE_24_10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsIPO_Instrument_Receive_Report_DSE_21_21_2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsIPO_Instrument_Receive_Report_DSE_21_21_2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsList_Of_Landing_Clients_DSE_21_28_1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsList_Of_Landing_Clients_DSE_21_28_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsList_Of_Pledge_Clients_DSE_21_26_1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsList_Of_Pledge_Clients_DSE_21_26_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsPay_Out_Confirmation_Report_DSE_21_11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPay_Out_Confirmation_Report_DSE_21_11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsPortfolio_Statement_Instrumnet_Wise_DSE_22_3.cs">
+      <DependentUpon>dsPortfolio_Statement_Instrumnet_Wise_DSE_22_3.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsPortfolio_Statement_Instrumnet_Wise_DSE_22_3.Designer.cs">
+      <DependentUpon>dsPortfolio_Statement_Instrumnet_Wise_DSE_22_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsPortfolio_Statement_Instrumnet_Wise_DSE_22_31.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPortfolio_Statement_Instrumnet_Wise_DSE_22_3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsPortfolio_Statement_Investor_Wise_DSE_22_1.cs">
+      <DependentUpon>dsPortfolio_Statement_Investor_Wise_DSE_22_1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsPortfolio_Statement_Investor_Wise_DSE_22_1.Designer.cs">
+      <DependentUpon>dsPortfolio_Statement_Investor_Wise_DSE_22_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsPortfolio_Statement_Investor_Wise_DSE_22_11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPortfolio_Statement_Investor_Wise_DSE_22_1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsRegistration_Confirmation_Report_DSE_21_4.cs">
+      <DependentUpon>dsRegistration_Confirmation_Report_DSE_21_4.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsRegistration_Confirmation_Report_DSE_21_4.Designer.cs">
+      <DependentUpon>dsRegistration_Confirmation_Report_DSE_21_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsRegistration_Confirmation_Report_DSE_21_41.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRegistration_Confirmation_Report_DSE_21_4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsRights_Instruments_Received_Reports_DSE_21_15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRights_Instruments_Received_Reports_DSE_21_15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsRights_Instrument_Confirmation_Reports_DSE_21_14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsRights_Instrument_Confirmation_Reports_DSE_21_14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MdiDseReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiDseReports.Designer.cs">
+      <DependentUpon>MdiDseReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBOClosing_Report_DSE_21_6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBOClosing_Report_DSE_21_6.Designer.cs">
+      <DependentUpon>frmBOClosing_Report_DSE_21_6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.Designer.cs">
+      <DependentUpon>frmBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBonus_Instrument_Confirmation_ReportDSE_21_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBonus_Instrument_Confirmation_ReportDSE_21_2.Designer.cs">
+      <DependentUpon>frmBonus_Instrument_Confirmation_ReportDSE_21_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBORegistration_Confirmation_ Report_ DSE_ 21_4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBORegistration_Confirmation_ Report_ DSE_ 21_4.Designer.cs">
+      <DependentUpon>frmBORegistration_Confirmation_ Report_ DSE_ 21_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBO_Modification_ Report_ DSE_ 21_5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBO_Modification_ Report_ DSE_ 21_5.Designer.cs">
+      <DependentUpon>frmBO_Modification_ Report_ DSE_ 21_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBroker_Comission_Report_DSE_24_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBroker_Comission_Report_DSE_24_1.Designer.cs">
+      <DependentUpon>frmBroker_Comission_Report_DSE_24_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClient_Account_Status_Report_DSE_24_12.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClient_Account_Status_Report_DSE_24_12.Designer.cs">
+      <DependentUpon>frmClient_Account_Status_Report_DSE_24_12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClient_Ledger_Detail_Report_DSE_24_10.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClient_Ledger_Detail_Report_DSE_24_10.Designer.cs">
+      <DependentUpon>frmClient_Ledger_Detail_Report_DSE_24_10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIPO_Instrument_Receive_Report_DSE_21_21_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIPO_Instrument_Receive_Report_DSE_21_21_2.Designer.cs">
+      <DependentUpon>frmIPO_Instrument_Receive_Report_DSE_21_21_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmList_Of_Landing_Clients_DSE_21_28_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmList_Of_Landing_Clients_DSE_21_28_1.Designer.cs">
+      <DependentUpon>frmList_Of_Landing_Clients_DSE_21_28_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmList_Of_Pledge_Clients_DSE_21_26_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmList_Of_Pledge_Clients_DSE_21_26_1.Designer.cs">
+      <DependentUpon>frmList_Of_Pledge_Clients_DSE_21_26_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPay_Out_Confirmation_Report_DSE_21_11.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPay_Out_Confirmation_Report_DSE_21_11.Designer.cs">
+      <DependentUpon>frmPay_Out_Confirmation_Report_DSE_21_11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPortfolio_Statement_Instrumnet_Wise_DSE_22_3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPortfolio_Statement_Instrumnet_Wise_DSE_22_3.Designer.cs">
+      <DependentUpon>frmPortfolio_Statement_Instrumnet_Wise_DSE_22_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPortfolio_Statement_Investor_Wise_DSE_22_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPortfolio_Statement_Investor_Wise_DSE_22_1.Designer.cs">
+      <DependentUpon>frmPortfolio_Statement_Investor_Wise_DSE_22_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportViewer.Designer.cs">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRights_Instrumens_Confirmations_Reports_Dse_21_14.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRights_Instrumens_Confirmations_Reports_Dse_21_14.Designer.cs">
+      <DependentUpon>frmRights_Instrumens_Confirmations_Reports_Dse_21_14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRights_Instruments_Received_Reports_DSE_21_15.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRights_Instruments_Received_Reports_DSE_21_15.Designer.cs">
+      <DependentUpon>frmRights_Instruments_Received_Reports_DSE_21_15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="crBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crBonus_Instrument_Confirmation_Report_DSE_21_2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crBonus_Instrument_Confirmation_Report_DSE_21_2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crBO_Closing_Report_DSE_21_6.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crBO_Closing_Report_DSE_21_6.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crBO_Modification_ Report_ DSE_ 21_5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crBO_Modification_ Report_ DSE_ 21_5.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crClient_Account_Status_Report_DSE_24_12.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crClient_Account_Status_Report_DSE_24_12.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crClient_Ledger_Detail_Report_DSE_24_10.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crClient_Ledger_Detail_Report_DSE_24_10.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crIPO_Instrument_Receive_Report_DSE_21_21_2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crIPO_Instrument_Receive_Report_DSE_21_21_2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crList_Of_Landing_Clients_DSE_21_28_1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crList_Of_Landing_Clients_DSE_21_28_1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crList_Of_Pledge_Clients_DSE_21_26_1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crList_Of_Pledge_Clients_DSE_21_26_1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crPay_Out_Confirmation_Report_DSE_21_11.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crPay_Out_Confirmation_Report_DSE_21_11.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crPortfolio_Statement_Instrumnet_Wise_DSE_22_3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crPortfolio_Statement_Instrumnet_Wise_DSE_22_3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crPortfolio_Statement_Investor_Wise_DSE_22_1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crPortfolio_Statement_Investor_Wise_DSE_22_1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crRegistration_Confirmation_Report_DSE_21_4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crRegistration_Confirmation_Report_DSE_21_4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crRights_Instrumens_Confirmations_Reports_Dse_21_14.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crRights_Instrumens_Confirmations_Reports_Dse_21_14.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crRights_Instruments_Received_Reports_DSE_21_15.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crRights_Instruments_Received_Reports_DSE_21_15.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crrptBroker_Comission_Report_DSE_24_1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crrptBroker_Comission_Report_DSE_24_1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiDseReports.resx">
+      <DependentUpon>MdiDseReports.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBOClosing_Report_DSE_21_6.resx">
+      <DependentUpon>frmBOClosing_Report_DSE_21_6.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.resx">
+      <DependentUpon>frmBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBonus_Instrument_Confirmation_ReportDSE_21_2.resx">
+      <DependentUpon>frmBonus_Instrument_Confirmation_ReportDSE_21_2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBORegistration_Confirmation_ Report_ DSE_ 21_4.resx">
+      <DependentUpon>frmBORegistration_Confirmation_ Report_ DSE_ 21_4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBO_Modification_ Report_ DSE_ 21_5.resx">
+      <DependentUpon>frmBO_Modification_ Report_ DSE_ 21_5.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBroker_Comission_Report_DSE_24_1.resx">
+      <DependentUpon>frmBroker_Comission_Report_DSE_24_1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClient_Account_Status_Report_DSE_24_12.resx">
+      <DependentUpon>frmClient_Account_Status_Report_DSE_24_12.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClient_Ledger_Detail_Report_DSE_24_10.resx">
+      <DependentUpon>frmClient_Ledger_Detail_Report_DSE_24_10.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIPO_Instrument_Receive_Report_DSE_21_21_2.resx">
+      <DependentUpon>frmIPO_Instrument_Receive_Report_DSE_21_21_2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmList_Of_Landing_Clients_DSE_21_28_1.resx">
+      <DependentUpon>frmList_Of_Landing_Clients_DSE_21_28_1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmList_Of_Pledge_Clients_DSE_21_26_1.resx">
+      <DependentUpon>frmList_Of_Pledge_Clients_DSE_21_26_1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPay_Out_Confirmation_Report_DSE_21_11.resx">
+      <DependentUpon>frmPay_Out_Confirmation_Report_DSE_21_11.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPortfolio_Statement_Instrumnet_Wise_DSE_22_3.resx">
+      <DependentUpon>frmPortfolio_Statement_Instrumnet_Wise_DSE_22_3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPortfolio_Statement_Investor_Wise_DSE_22_1.resx">
+      <DependentUpon>frmPortfolio_Statement_Investor_Wise_DSE_22_1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportViewer.resx">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRights_Instrumens_Confirmations_Reports_Dse_21_14.resx">
+      <DependentUpon>frmRights_Instrumens_Confirmations_Reports_Dse_21_14.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRights_Instruments_Received_Reports_DSE_21_15.resx">
+      <DependentUpon>frmRights_Instruments_Received_Reports_DSE_21_15.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="dsBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.xsc">
+      <DependentUpon>dsBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.xsd</DependentUpon>
+    </None>
+    <None Include="dsBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.xss">
+      <DependentUpon>dsBonus_ Instrument_ Receive_ Report_ DSE_ 21_3.xsd</DependentUpon>
+    </None>
+    <None Include="dsBonus_Instrument_Confirmation_Report_DSE_21_2.xsc">
+      <DependentUpon>dsBonus_Instrument_Confirmation_Report_DSE_21_2.xsd</DependentUpon>
+    </None>
+    <None Include="dsBonus_Instrument_Confirmation_Report_DSE_21_2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBonus_Instrument_Confirmation_Report_DSE_21_2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsBonus_Instrument_Confirmation_Report_DSE_21_2.xss">
+      <DependentUpon>dsBonus_Instrument_Confirmation_Report_DSE_21_2.xsd</DependentUpon>
+    </None>
+    <None Include="dsBO_Closing_Report_DSE_21_6.xsc">
+      <DependentUpon>dsBO_Closing_Report_DSE_21_6.xsd</DependentUpon>
+    </None>
+    <None Include="dsBO_Closing_Report_DSE_21_6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBO_Closing_Report_DSE_21_6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsBO_Closing_Report_DSE_21_6.xss">
+      <DependentUpon>dsBO_Closing_Report_DSE_21_6.xsd</DependentUpon>
+    </None>
+    <None Include="dsBO_Modification_ Report_ DSE_ 21_5.xsc">
+      <DependentUpon>dsBO_Modification_ Report_ DSE_ 21_5.xsd</DependentUpon>
+    </None>
+    <None Include="dsBO_Modification_ Report_ DSE_ 21_5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBO_Modification_ Report_ DSE_ 21_5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsBO_Modification_ Report_ DSE_ 21_5.xss">
+      <DependentUpon>dsBO_Modification_ Report_ DSE_ 21_5.xsd</DependentUpon>
+    </None>
+    <None Include="dsBroker_Comission_Report_DSE_24_1.xsc">
+      <DependentUpon>dsBroker_Comission_Report_DSE_24_1.xsd</DependentUpon>
+    </None>
+    <None Include="dsBroker_Comission_Report_DSE_24_1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBroker_Comission_Report_DSE_24_11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsBroker_Comission_Report_DSE_24_1.xss">
+      <DependentUpon>dsBroker_Comission_Report_DSE_24_1.xsd</DependentUpon>
+    </None>
+    <None Include="dsClient_Account_Status_Report_DSE_24_12.xsc">
+      <DependentUpon>dsClient_Account_Status_Report_DSE_24_12.xsd</DependentUpon>
+    </None>
+    <None Include="dsClient_Account_Status_Report_DSE_24_12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsClient_Account_Status_Report_DSE_24_12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsClient_Account_Status_Report_DSE_24_12.xss">
+      <DependentUpon>dsClient_Account_Status_Report_DSE_24_12.xsd</DependentUpon>
+    </None>
+    <None Include="dsClient_Ledger_Detail_Report_DSE_24_10.xsc">
+      <DependentUpon>dsClient_Ledger_Detail_Report_DSE_24_10.xsd</DependentUpon>
+    </None>
+    <None Include="dsClient_Ledger_Detail_Report_DSE_24_10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsClient_Ledger_Detail_Report_DSE_24_10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsClient_Ledger_Detail_Report_DSE_24_10.xss">
+      <DependentUpon>dsClient_Ledger_Detail_Report_DSE_24_10.xsd</DependentUpon>
+    </None>
+    <None Include="dsIPO_Instrument_Receive_Report_DSE_21_21_2.xsc">
+      <DependentUpon>dsIPO_Instrument_Receive_Report_DSE_21_21_2.xsd</DependentUpon>
+    </None>
+    <None Include="dsIPO_Instrument_Receive_Report_DSE_21_21_2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsIPO_Instrument_Receive_Report_DSE_21_21_2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsIPO_Instrument_Receive_Report_DSE_21_21_2.xss">
+      <DependentUpon>dsIPO_Instrument_Receive_Report_DSE_21_21_2.xsd</DependentUpon>
+    </None>
+    <None Include="dsList_Of_Landing_Clients_DSE_21_28_1.xsc">
+      <DependentUpon>dsList_Of_Landing_Clients_DSE_21_28_1.xsd</DependentUpon>
+    </None>
+    <None Include="dsList_Of_Landing_Clients_DSE_21_28_1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsList_Of_Landing_Clients_DSE_21_28_1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsList_Of_Landing_Clients_DSE_21_28_1.xss">
+      <DependentUpon>dsList_Of_Landing_Clients_DSE_21_28_1.xsd</DependentUpon>
+    </None>
+    <None Include="dsList_Of_Pledge_Clients_DSE_21_26_1.xsc">
+      <DependentUpon>dsList_Of_Pledge_Clients_DSE_21_26_1.xsd</DependentUpon>
+    </None>
+    <None Include="dsList_Of_Pledge_Clients_DSE_21_26_1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsList_Of_Pledge_Clients_DSE_21_26_1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsList_Of_Pledge_Clients_DSE_21_26_1.xss">
+      <DependentUpon>dsList_Of_Pledge_Clients_DSE_21_26_1.xsd</DependentUpon>
+    </None>
+    <None Include="dsPay_Out_Confirmation_Report_DSE_21_11.xsc">
+      <DependentUpon>dsPay_Out_Confirmation_Report_DSE_21_11.xsd</DependentUpon>
+    </None>
+    <None Include="dsPay_Out_Confirmation_Report_DSE_21_11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPay_Out_Confirmation_Report_DSE_21_11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsPay_Out_Confirmation_Report_DSE_21_11.xss">
+      <DependentUpon>dsPay_Out_Confirmation_Report_DSE_21_11.xsd</DependentUpon>
+    </None>
+    <None Include="dsPortfolio_Statement_Instrumnet_Wise_DSE_22_3.xsc">
+      <DependentUpon>dsPortfolio_Statement_Instrumnet_Wise_DSE_22_3.xsd</DependentUpon>
+    </None>
+    <None Include="dsPortfolio_Statement_Instrumnet_Wise_DSE_22_3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPortfolio_Statement_Instrumnet_Wise_DSE_22_31.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsPortfolio_Statement_Instrumnet_Wise_DSE_22_3.xss">
+      <DependentUpon>dsPortfolio_Statement_Instrumnet_Wise_DSE_22_3.xsd</DependentUpon>
+    </None>
+    <None Include="dsPortfolio_Statement_Investor_Wise_DSE_22_1.xsc">
+      <DependentUpon>dsPortfolio_Statement_Investor_Wise_DSE_22_1.xsd</DependentUpon>
+    </None>
+    <None Include="dsPortfolio_Statement_Investor_Wise_DSE_22_1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPortfolio_Statement_Investor_Wise_DSE_22_11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsPortfolio_Statement_Investor_Wise_DSE_22_1.xss">
+      <DependentUpon>dsPortfolio_Statement_Investor_Wise_DSE_22_1.xsd</DependentUpon>
+    </None>
+    <None Include="dsRegistration_Confirmation_Report_DSE_21_4.xsc">
+      <DependentUpon>dsRegistration_Confirmation_Report_DSE_21_4.xsd</DependentUpon>
+    </None>
+    <None Include="dsRegistration_Confirmation_Report_DSE_21_4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRegistration_Confirmation_Report_DSE_21_41.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsRegistration_Confirmation_Report_DSE_21_4.xss">
+      <DependentUpon>dsRegistration_Confirmation_Report_DSE_21_4.xsd</DependentUpon>
+    </None>
+    <None Include="dsRights_Instruments_Received_Reports_DSE_21_15.xsc">
+      <DependentUpon>dsRights_Instruments_Received_Reports_DSE_21_15.xsd</DependentUpon>
+    </None>
+    <None Include="dsRights_Instruments_Received_Reports_DSE_21_15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRights_Instruments_Received_Reports_DSE_21_15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsRights_Instruments_Received_Reports_DSE_21_15.xss">
+      <DependentUpon>dsRights_Instruments_Received_Reports_DSE_21_15.xsd</DependentUpon>
+    </None>
+    <None Include="dsRights_Instrument_Confirmation_Reports_DSE_21_14.xsc">
+      <DependentUpon>dsRights_Instrument_Confirmation_Reports_DSE_21_14.xsd</DependentUpon>
+    </None>
+    <None Include="dsRights_Instrument_Confirmation_Reports_DSE_21_14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsRights_Instrument_Confirmation_Reports_DSE_21_14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsRights_Instrument_Confirmation_Reports_DSE_21_14.xss">
+      <DependentUpon>dsRights_Instrument_Confirmation_Reports_DSE_21_14.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessAccessLayer\BusinessAccessLayer.csproj">
+      <Project>{A2071E23-5F9E-4F47-888D-25311566AD2B}</Project>
+      <Name>BusinessAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

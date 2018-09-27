@@ -1,0 +1,350 @@
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\EmailCommunication.dll
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\EmailCommunication.pdb
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DataAccessLayer.dll
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\MySql.Data.dll
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DataAccessLayer.pdb
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\EmailCommunication.dll
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\EmailCommunication.pdb
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DseReports.dll
+G:\27 June 2014 Source Code (IPO)\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DseReports.pdb
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\EmailCommunication.dll
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\EmailCommunication.pdb
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DataAccessLayer.dll
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DseReports.dll
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\MySql.Data.dll
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DataAccessLayer.pdb
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DseReports.pdb
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\EmailCommunication.dll
+G:\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\EmailCommunication.pdb
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\EmailCommunication.dll
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\EmailCommunication.pdb
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DataAccessLayer.dll
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DseReports.dll
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\MySql.Data.dll
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DataAccessLayer.pdb
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DseReports.pdb
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\EmailCommunication.dll
+G:\Project\sbp_\IPO Integreted 23 July 2014\IPO Integreted 23 July 2014\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\EmailCommunication.pdb
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\EmailCommunication.dll
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\EmailCommunication.pdb
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DataAccessLayer.dll
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DseReports.dll
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\MySql.Data.dll
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DataAccessLayer.pdb
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\bin\Release\DseReports.pdb
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\EmailCommunication.dll
+C:\Documents and Settings\Administrator\Desktop\27 June 2014 Source Code (IPO)\EmailCommunication\obj\Release\EmailCommunication.pdb
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\DseReports.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\DseReports.pdb
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\GSMCommShared.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\GSMCommunication.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\bin\Release\RS232.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\Shahrior_SBP_Pro\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\DseReports.dll
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\GSMCommShared.dll
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\GSMCommunication.dll
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\MySql.Data.dll
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\bin\Release\DseReports.pdb
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Rezaul Islam\WORKING AREA\Shahrior_SBP_Pro\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\DseReports.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\GridViewExtensions.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\RS232.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\GridViewExtensions.xml
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\bin\Release\DseReports.pdb
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\20 Jan 2015 Rashed Vi Work\17 Feb2015 Souce Code(IPOSMS)\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.xml
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.WaitWindow.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\GSMCommShared.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\GSMCommunication.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\RS232.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.xml
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.pdb
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.WaitWindow.resources
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\19 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmSMSSendReceiveShow.resources
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\GSMCommShared.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\GSMCommunication.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\RS232.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.xml
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.pdb
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmSMSSendReceiveShow.resources
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.WaitWindow.resources
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\20 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\GSMCommShared.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\GSMCommunication.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\RS232.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.xml
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.pdb
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmSMSSendReceiveShow.resources
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.WaitWindow.resources
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\21 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.dll
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.dll
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.xml
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.pdb
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmSMSSendReceiveShow.resources
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.WaitWindow.resources
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\SBP Pro\26 April 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.xml
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmSMSSendReceiveShow.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.WaitWindow.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.dll
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.dll
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\MySql.Data.dll
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.xml
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.pdb
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmSMSSendReceiveShow.resources
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.WaitWindow.resources
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\SBP Pro\12 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.dll
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.dll
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.xml
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.pdb
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.FrmShowMessage.resources
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmSMSSendReceiveShow.resources
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.IPOWebTest.resources
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.WaitWindow.resources
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\SBP Pro\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\MySql.Data.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.xml
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.FrmShowMessage.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmSMSSendReceiveShow.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.IPOWebTest.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.WaitWindow.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\MySql.Data.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.xml
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.pdb
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.FrmShowMessage.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmSMSSendReceiveShow.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.IPOWebTest.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.WaitWindow.resources
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.dll
+C:\Users\Administrator\Desktop\Old Project\25 May 2015 SBP Source Code_Edit 09 july 2015\25 May 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll.config
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\bin\Release\ElectronicCommunication.pdb
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.dll
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.dll
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\bin\Release\GridViewExtensions.xml
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\bin\Release\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\bin\Release\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\bin\Release\DseReports.pdb
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\obj\Release\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.ResolveComReference.cache
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmExportIPOInformation.resources
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.FrmShowMessage.resources
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.frmSMSSendReceiveShow.resources
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\obj\Release\EmailCommunication.frm_SMSSender.resources
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.IPOWebTest.resources
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.WaitWindow.resources
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.csproj.GenerateResource.Cache
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.dll
+D:\Shahrior Dev\SBP Pro\13 July 2015 SBP Source Code\EmailCommunication\obj\Release\ElectronicCommunication.pdb

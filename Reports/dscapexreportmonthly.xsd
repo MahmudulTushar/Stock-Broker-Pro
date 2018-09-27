@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dscapexreportmonthly" targetNamespace="http://tempuri.org/dscapexreportmonthly.xsd" xmlns:mstns="http://tempuri.org/dscapexreportmonthly.xsd" xmlns="http://tempuri.org/dscapexreportmonthly.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dscapexreportmonthly" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dscapexreportmonthly" msprop:Generator_DataSetName="dscapexreportmonthly" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Head" msprop:Generator_UserColumnName="Head" msprop:Generator_ColumnVarNameInTable="columnHead" msprop:Generator_ColumnPropNameInRow="Head" msprop:Generator_ColumnPropNameInTable="HeadColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Dhanmondi" msprop:Generator_UserColumnName="Dhanmondi" msprop:Generator_ColumnVarNameInTable="columnDhanmondi" msprop:Generator_ColumnPropNameInRow="Dhanmondi" msprop:Generator_ColumnPropNameInTable="DhanmondiColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Banani" msprop:Generator_UserColumnName="Banani" msprop:Generator_ColumnVarNameInTable="columnBanani" msprop:Generator_ColumnPropNameInRow="Banani" msprop:Generator_ColumnPropNameInTable="BananiColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GrndTotal" msprop:Generator_UserColumnName="GrndTotal" msprop:Generator_ColumnVarNameInTable="columnGrndTotal" msprop:Generator_ColumnPropNameInRow="GrndTotal" msprop:Generator_ColumnPropNameInTable="GrndTotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Expense_Description" msprop:Generator_UserColumnName="Expense_Description" msprop:Generator_ColumnVarNameInTable="columnExpense_Description" msprop:Generator_ColumnPropNameInRow="Expense_Description" msprop:Generator_ColumnPropNameInTable="Expense_DescriptionColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="_x005B_Month_x0020_Name_x005D_" msprop:Generator_UserColumnName="[Month Name]" msprop:Generator_ColumnVarNameInTable="_column_Month_Name_" msprop:Generator_ColumnPropNameInRow="__Month_Name_" msprop:Generator_ColumnPropNameInTable="__Month_Name_Column" type="xs:string" minOccurs="0" />
+              <xs:element name="Group_x0020_Name" msprop:Generator_UserColumnName="Group Name" msprop:Generator_ColumnPropNameInRow="Group_Name" msprop:Generator_ColumnVarNameInTable="columnGroup_Name" msprop:Generator_ColumnPropNameInTable="Group_NameColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,233 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using BusinessAccessLayer.BO;
+using DataAccessLayer;
+using System.Data;
+
+namespace BusinessAccessLayer.BAL
+{
+    public class Bank_Branch_ComboBAL
+    {
+        private DbConnection _dbConnection;
+        public Bank_Branch_ComboBAL()
+        {
+            _dbConnection = new DbConnection();
+        }
+        public DataTable GetBankNameInfo()
+        {
+            DataTable dataTable = new DataTable();
+            string queryString = "";
+            queryString = @"SELECT 
+                                  [ID] as ID
+                                 ,[Bank_Name] AS Bank_Name
+                            FROM SBP_Bank_Info ORDER BY [Bank_Name]";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public DataTable GetBranchNameInfo()
+        {
+            DataTable dataTable = new DataTable();
+            string queryString = "";
+            queryString = @"SELECT 
+                             bi.[ID] AS ID
+                            ,bi.Branch_Name +'('+bbri.Routing_No +')' AS Branch_Name
+                            FROM dbo.SBP_Branch_Info AS  bi
+                            INNER JOIN dbo.SBP_Bank_Branch_Routing_Info AS bbri
+                            ON bi.[ID]=bbri.Branch_ID
+                            ORDER BY bi.Branch_Name";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public DataTable GetRoutingInfo()
+        {
+            DataTable dataTable = new DataTable();
+            string queryString = "";
+            queryString = @"SELECT 
+                                  [Routing_No] as Routing_No
+                            FROM SBP_Bank_Branch_Routing_Info ORDER BY [Routing_No]";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+        public string GetRoutingNoByBranchID(int branchId)
+        {
+            DataTable dataTable = new DataTable();
+            string routingNo = string.Empty;
+            string queryString = "";
+            queryString = @"SELECT 
+                                  [Routing_No] 
+                            FROM SBP_Bank_Branch_Routing_Info WHERE Branch_ID=" + branchId;
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+                if (dataTable.Rows.Count > 0)
+                {
+                    routingNo = dataTable.Rows[0][0].ToString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return routingNo;
+        }
+
+        public DataTable GetBank_BranchIDByRoutingNo(string routingNo)
+        {
+            DataTable dataTable = new DataTable();
+            string queryString = "";
+            queryString = @"SELECT 
+                            Bank_ID
+                            ,Branch_ID 
+                            FROM dbo.SBP_Bank_Branch_Routing_Info
+                            WHERE Routing_No='" + routingNo + "'";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+
+
+        public DataTable GetBranchInfoByBankID(string bankID)
+        {
+            DataTable dataTable = new DataTable();
+            string queryString = "";
+            queryString = @"SELECT 
+                             bi.[ID] AS ID
+                            ,bi.Branch_Name +' ' +'('+ bbri.Routing_No +')' AS Branch_Name
+                            FROM dbo.SBP_Branch_Info AS  bi
+                            INNER JOIN dbo.SBP_Bank_Branch_Routing_Info AS bbri
+                            ON bi.[ID]=bbri.Branch_ID
+                            WHERE bbri.Bank_ID=" + bankID + " ORDER BY bi.Branch_Name";
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return dataTable;
+        }
+
+        public string GetBankNameByBankID(int bankId)
+        {
+            DataTable dataTable = new DataTable();
+            string bankName = "";
+            string queryString = "";
+            queryString = @"SELECT 
+                            Bank_Name 
+                            FROM dbo.SBP_Bank_Info 
+                            WHERE ID=" + bankId;
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+                if (dataTable.Rows.Count > 0)
+                {
+                    bankName = dataTable.Rows[0][0].ToString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return bankName;
+        }
+
+
+        public string GetBranchNameByBranchID(int branchId)
+        {
+            DataTable dataTable = new DataTable();
+            string branchName = "";
+            string queryString = "";
+            queryString = @"SELECT 
+                            Branch_Name 
+                            FROM dbo.SBP_Branch_Info 
+                            WHERE ID=" + branchId;
+            try
+            {
+                _dbConnection.ConnectDatabase();
+                dataTable = _dbConnection.ExecuteQuery(queryString);
+                if (dataTable.Rows.Count > 0)
+                {
+                    branchName = dataTable.Rows[0][0].ToString();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                _dbConnection.CloseDatabase();
+            }
+            return branchName;
+        }
+
+    }
+}

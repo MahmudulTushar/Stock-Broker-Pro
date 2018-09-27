@@ -1,0 +1,430 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using DataAccessLayer;
+using System.Data;
+using BusinessAccessLayer.BO;
+using BusinessAccessLayer.Constants;
+
+namespace BusinessAccessLayer.BAL
+{
+   public class IPOSMSMoneyTransactionForwardBAL
+    {
+       
+         private DbConnection _DBConnection;
+         public IPOSMSMoneyTransactionForwardBAL()
+         {
+             _DBConnection = new DbConnection();
+         }
+
+         public DataTable GetDataLoad_Deposit()
+         {
+             DataTable Data;
+             string Query = @"
+                            
+                            SELECT T.*
+                            FROM (    
+
+                                            Select 
+                                            *                            
+                                            ,(  
+			                                            CASE 
+			                                            WHEN ISNULL(TransferCode,'')<>'' THEN TransferCode+'_'+Convert(varchar(10),IPOSessionID)
+			                                            ELSE Cust_Code+'_'+Convert(varchar(10),IPOSessionID) 
+                                            END  ) AS SelectionID
+                                            From SMS_Sync_Import_IPORequest 
+                                            Where ApplicationType='ApplyTogether' 
+                                            AND Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_SMS + @"'
+                                            And SMSReqID NOT IN (
+				                                            Select ChannelID 
+				                                            From SBP_IPO_Customer_Broker_MoneyTransaction 
+				                                            Where ChannelID Is Not Null AND Channel='" + Indication_IPOPaymentTransaction.ChannelType_SMS + @"'                                            
+                                                            UNION ALL
+                                                            SELECT [SMSReqID]
+                                                            FROM [SBP_Database].[dbo].[SMS_Sync_Import_IPORequest_DeleteLog]Where Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_SMS + @"'
+                                            )
+                                           UNION ALL
+                                          Select 
+                                            *                            
+                                            ,(  
+			                                            CASE 
+			                                            WHEN ISNULL(TransferCode,'')<>'' THEN TransferCode+'_'+Convert(varchar(10),IPOSessionID)
+			                                            ELSE Cust_Code+'_'+Convert(varchar(10),IPOSessionID) 
+                                            END  ) AS SelectionID
+                                            From SMS_Sync_Import_IPORequest 
+                                            Where ApplicationType='ApplyTogether' 
+                                            AND Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_Email + @"'
+                                            And SMSReqID NOT IN (
+				                                            Select ChannelID 
+				                                            From SBP_IPO_Customer_Broker_MoneyTransaction 
+				                                            Where ChannelID Is Not Null AND Channel='" + Indication_IPOPaymentTransaction.ChannelType_Email + @"'                                            
+                                                            UNION ALL
+                                                            SELECT [SMSReqID]
+                                                            FROM [SBP_Database].[dbo].[SMS_Sync_Import_IPORequest_DeleteLog]Where Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_Email + @"'
+                                            )
+                                            UNION ALL
+                                            Select 
+                                            *                            
+                                            ,(  
+			                                            CASE 
+			                                                    WHEN ApplicationType='"+Indication_IPOPaymentTransaction.SmsRequestType_Apply_Together+ @"' AND ISNULL(TransferCode,'')<>'' THEN TransferCode+'_'+Convert(varchar(10),IPOSessionID)
+			                                                    WHEN ApplicationType='" + Indication_IPOPaymentTransaction.SmsRequestType_Apply_Together + @"' AND ISNULL(TransferCode,'')=''  THEN Cust_Code+'_'+Convert(varchar(10),IPOSessionID) 
+                                                                WHEN ApplicationType='" + Indication_IPOPaymentTransaction.WebRequestType_Free_Transaction + @"' THEN Cust_Code+'_'+CONVERT(VARCHAR(10),SMSReqID)
+                                                        END  
+                                            ) AS SelectionID
+                                            From SMS_Sync_Import_IPORequest 
+                                            Where ApplicationType IN ('" + Indication_IPOPaymentTransaction.SmsRequestType_Apply_Together+@"','"+Indication_IPOPaymentTransaction.WebRequestType_Free_Transaction+@"')
+                                            AND Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_Web + @"'
+                                            And SMSReqID NOT IN (
+				                                            Select ChannelID 
+				                                            From SBP_IPO_Customer_Broker_MoneyTransaction 
+				                                            Where ChannelID Is Not Null AND Channel='" + Indication_IPOPaymentTransaction.ChannelType_Web + @"'                                            
+                                                            UNION ALL
+                                                            SELECT [SMSReqID]
+                                                            FROM [SBP_Database].[dbo].[SMS_Sync_Import_IPORequest_DeleteLog]Where Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_Web + @"'
+                                            )
+                             )AS T
+                             WHERE T.Deposit_Withdraw='"+Indication_PaymentMode.Deposit+@"'
+                             ";
+             try
+             {
+                 _DBConnection.ConnectDatabase();
+                 Data = _DBConnection.ExecuteQuery(Query);
+             }
+             catch (Exception)
+             {
+                 throw;
+             }
+             finally
+             {
+                 _DBConnection.CloseDatabase();
+             }
+             return Data;
+         }
+
+         public DataTable GetDataLoad_Withdraw()
+         {
+             DataTable Data;
+             string Query = @"
+                            
+                            SELECT T.*
+                            FROM (    
+
+                                            Select 
+                                            *                            
+                                            ,(  
+			                                            CASE 
+			                                            WHEN ISNULL(TransferCode,'')<>'' THEN TransferCode+'_'+Convert(varchar(10),IPOSessionID)
+			                                            ELSE Cust_Code+'_'+Convert(varchar(10),IPOSessionID) 
+                                            END  ) AS SelectionID
+                                            From SMS_Sync_Import_IPORequest 
+                                            Where ApplicationType='ApplyTogether' 
+                                            AND Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_SMS + @"'
+                                            And SMSReqID NOT IN (
+				                                            Select ChannelID 
+				                                            From SBP_IPO_Customer_Broker_MoneyTransaction 
+				                                            Where ChannelID Is Not Null AND Channel='" + Indication_IPOPaymentTransaction.ChannelType_SMS + @"'                                            
+                                                            UNION ALL
+                                                            SELECT [SMSReqID]
+                                                            FROM [SBP_Database].[dbo].[SMS_Sync_Import_IPORequest_DeleteLog]Where Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_SMS + @"'
+                                            )
+                                           UNION ALL
+                                          Select 
+                                            *                            
+                                            ,(  
+			                                            CASE 
+			                                            WHEN ISNULL(TransferCode,'')<>'' THEN TransferCode+'_'+Convert(varchar(10),IPOSessionID)
+			                                            ELSE Cust_Code+'_'+Convert(varchar(10),IPOSessionID) 
+                                            END  ) AS SelectionID
+                                            From SMS_Sync_Import_IPORequest 
+                                            Where ApplicationType='ApplyTogether' 
+                                            AND Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_Email + @"'
+                                            And SMSReqID NOT IN (
+				                                            Select ChannelID 
+				                                            From SBP_IPO_Customer_Broker_MoneyTransaction 
+				                                            Where ChannelID Is Not Null AND Channel='" + Indication_IPOPaymentTransaction.ChannelType_Email + @"'                                            
+                                                            UNION ALL
+                                                            SELECT [SMSReqID]
+                                                            FROM [SBP_Database].[dbo].[SMS_Sync_Import_IPORequest_DeleteLog]Where Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_Email + @"'
+                                            )
+                                            UNION ALL
+                                            Select 
+                                            *                            
+                                            ,(  
+			                                            CASE 
+			                                                    WHEN ApplicationType='" + Indication_IPOPaymentTransaction.SmsRequestType_Apply_Together + @"' AND ISNULL(TransferCode,'')<>'' THEN TransferCode+'_'+Convert(varchar(10),IPOSessionID)
+			                                                    WHEN ApplicationType='" + Indication_IPOPaymentTransaction.SmsRequestType_Apply_Together + @"' AND ISNULL(TransferCode,'')=''  THEN Cust_Code+'_'+Convert(varchar(10),IPOSessionID) 
+                                                                WHEN ApplicationType='" + Indication_IPOPaymentTransaction.WebRequestType_Free_Transaction + @"' THEN Cust_Code+'_'+CONVERT(VARCHAR(10),SMSReqID)
+                                                        END  
+                                            ) AS SelectionID
+                                            From SMS_Sync_Import_IPORequest 
+                                            Where ApplicationType IN ('" + Indication_IPOPaymentTransaction.SmsRequestType_Apply_Together + @"','" + Indication_IPOPaymentTransaction.WebRequestType_Free_Transaction + @"')
+                                            AND Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_Web + @"'
+                                            And SMSReqID NOT IN (
+				                                            Select ChannelID 
+				                                            From SBP_IPO_Customer_Broker_MoneyTransaction 
+				                                            Where ChannelID Is Not Null AND Channel='" + Indication_IPOPaymentTransaction.ChannelType_Web + @"'                                            
+                                                            UNION ALL
+                                                            SELECT [SMSReqID]
+                                                            FROM [SBP_Database].[dbo].[SMS_Sync_Import_IPORequest_DeleteLog]Where Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_Web + @"'
+                                            )
+                             )AS T
+                             WHERE T.Deposit_Withdraw='" + Indication_PaymentMode.Withdraw + @"'
+                             ";
+             try
+             {
+                 _DBConnection.ConnectDatabase();
+                 Data = _DBConnection.ExecuteQuery(Query);
+             }
+             catch (Exception)
+             {
+                 throw;
+             }
+             finally
+             {
+                 _DBConnection.CloseDatabase();
+             }
+             return Data;
+         }
+
+
+//         public DataTable GetDataLoad()
+//         {
+//             DataTable Data;
+//             string Query = @"
+//                            Select 
+//                            *
+//                            ,(  
+//			                            CASE 
+//			                            WHEN ISNULL(TransferCode,'')<>'' THEN TransferCode+'_'+Convert(varchar(10),IPOSessionID)
+//			                            ELSE Cust_Code+'_'+Convert(varchar(10),IPOSessionID) 
+//                            END  ) AS SelectionID
+//                            From SMS_Sync_Import_IPORequest 
+//                            Where ApplicationType='ApplyTogether' 
+//                            And SMSReqID NOT IN (
+//				                            Select ChannelID 
+//				                            From SBP_IPO_Customer_Broker_MoneyTransaction 
+//				                            Where ChannelID Is Not Null AND Channel='" + Indication_IPOPaymentTransaction.ChannelType_SMS+ @"'
+//                                            UNION ALL
+//                                            SELECT [SMSReqID]
+//                                            FROM [SBP_Database].[dbo].[SMS_Sync_Import_IPORequest_DeleteLog]
+//                            )";
+//             try
+//             {
+//                 _DBConnection.ConnectDatabase();
+//                 Data = _DBConnection.ExecuteQuery(Query);
+//             }
+//             catch (Exception)
+//             {
+//                 throw;
+//             }
+//             finally
+//             {
+//                 _DBConnection.CloseDatabase();
+//             }
+//             return Data;
+//         }
+
+//         public DataTable GetDataLoad_SingleApplication()
+//         {
+//             DataTable Data;
+//             string Query = @"Select 
+//                            *
+//                            ,(  
+//			                            CASE 
+//			                            WHEN ISNULL(TransferCode,'')<>'' THEN TransferCode+'_'+Convert(varchar(10),IPOSessionID)
+//			                            ELSE Cust_Code+'_'+Convert(varchar(10),IPOSessionID) 
+//                            END  ) AS SelectionID
+//                            From SMS_Sync_Import_IPORequest 
+//                            Where ApplicationType='SingleApplication' 
+//                            And SMSReqID NOT IN (
+//				                            Select bs.ChannelID
+//                                            From SBP_IPO_Application_BasicInfo as bs
+//                                            JOIN SBP_IPO_Application_ExtendedInfo as ext
+//                                            ON bs.ID=ext.BasicInfo_ID
+//                                            WHERE ISNULL(bs.ChannelID,0)<>0 AND bs.ChannelType='" + Indication_IPOPaymentTransaction.ChannelType_SMS+@"'
+//                                            UNION ALL
+//                                            SELECT [SMSReqID] 
+//                                            FROM [SBP_Database].[dbo].[SMS_Sync_Import_IPORequest_DeleteLog]
+//                            )";
+//             try
+//             {
+//                 _DBConnection.ConnectDatabase();
+//                 Data = _DBConnection.ExecuteQuery(Query);
+//             }
+//             catch (Exception)
+//             {
+//                 throw;
+//             }
+//             finally
+//             {
+//                 _DBConnection.CloseDatabase();
+//             }
+//             return Data;
+//         }
+
+
+         public DataTable GetDataLoad_SingleApplication()
+         {
+             DataTable Data;
+             string Query = @"Select 
+                            *
+                            ,(  
+			                            CASE 
+			                            WHEN ISNULL(TransferCode,'')<>'' THEN TransferCode+'_'+Convert(varchar(10),IPOSessionID)
+			                            ELSE Cust_Code+'_'+Convert(varchar(10),IPOSessionID) 
+                            END  ) AS SelectionID
+                            From SMS_Sync_Import_IPORequest 
+                            Where ApplicationType='SingleApplication' 
+                            AND  Media_Type='" + Indication_IPOPaymentTransaction.ChannelType_SMS + @"'   
+                            And SMSReqID NOT IN (
+				                            Select bs.ChannelID
+                                            From SBP_IPO_Application_BasicInfo as bs
+                                            JOIN SBP_IPO_Application_ExtendedInfo as ext
+                                            ON bs.ID=ext.BasicInfo_ID
+                                            WHERE ISNULL(bs.ChannelID,0)<>0 AND bs.ChannelType='" + Indication_IPOPaymentTransaction.ChannelType_SMS + @"'
+                                            UNION ALL
+                                            SELECT [SMSReqID] 
+                                            FROM [SBP_Database].[dbo].[SMS_Sync_Import_IPORequest_DeleteLog]Where Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_SMS + @"'
+                            )
+                          UNION ALL
+                          Select 
+                            *
+                            ,(  
+			                            CASE 
+			                            WHEN ISNULL(TransferCode,'')<>'' THEN TransferCode+'_'+Convert(varchar(10),IPOSessionID)
+			                            ELSE Cust_Code+'_'+Convert(varchar(10),IPOSessionID) 
+                            END  ) AS SelectionID
+                            From SMS_Sync_Import_IPORequest 
+                            Where ApplicationType='SingleApplication' 
+                            AND  Media_Type='" + Indication_IPOPaymentTransaction.ChannelType_Email + @"'   
+                            And SMSReqID NOT IN (
+				                            Select bs.ChannelID
+                                            From SBP_IPO_Application_BasicInfo as bs
+                                            JOIN SBP_IPO_Application_ExtendedInfo as ext
+                                            ON bs.ID=ext.BasicInfo_ID
+                                            WHERE ISNULL(bs.ChannelID,0)<>0 AND bs.ChannelType='" + Indication_IPOPaymentTransaction.ChannelType_Email + @"'
+                                            UNION ALL
+                                            SELECT [SMSReqID] 
+                                            FROM [SBP_Database].[dbo].[SMS_Sync_Import_IPORequest_DeleteLog] Where Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_Email + @"'
+                            )
+                            UNION ALL
+                            Select 
+                            *
+                            ,(  
+			                            CASE 
+			                            WHEN ISNULL(TransferCode,'')<>'' THEN TransferCode+'_'+Convert(varchar(10),IPOSessionID)
+			                            ELSE Cust_Code+'_'+Convert(varchar(10),IPOSessionID) 
+                            END  ) AS SelectionID
+                            From SMS_Sync_Import_IPORequest 
+                            Where ApplicationType='SingleApplication' 
+                            AND  Media_Type='" + Indication_IPOPaymentTransaction.ChannelType_Web + @"'   
+                            And SMSReqID NOT IN (
+				                            Select bs.ChannelID
+                                            From SBP_IPO_Application_BasicInfo as bs
+                                            JOIN SBP_IPO_Application_ExtendedInfo as ext
+                                            ON bs.ID=ext.BasicInfo_ID
+                                            WHERE ISNULL(bs.ChannelID,0)<>0 AND bs.ChannelType='" + Indication_IPOPaymentTransaction.ChannelType_Web + @"'
+                                            UNION ALL
+                                            SELECT [SMSReqID] 
+                                            FROM [SBP_Database].[dbo].[SMS_Sync_Import_IPORequest_DeleteLog]Where Media_Type ='" + Indication_IPOPaymentTransaction.ChannelType_Web + @"'
+                            )
+                            ";
+             try
+             {
+                 _DBConnection.ConnectDatabase();
+                 Data = _DBConnection.ExecuteQuery(Query);
+             }
+             catch (Exception)
+             {
+                 throw;
+             }
+             finally
+             {
+                 _DBConnection.CloseDatabase();
+             }
+             return Data;
+         }
+
+         public DataTable GetSelectdataLoad(string ID)
+         {
+             DataTable Data;
+             string Query = "Select * from dbo.SBP_IPO_SMS_Customer_Broker_MoneyTransactionRequest_Temp Where ID ='" + ID + "' ";
+             try
+             {
+                 _DBConnection.ConnectDatabase();
+                 Data = _DBConnection.ExecuteQuery(Query);
+             }
+             catch (Exception)
+             {
+                 throw;
+             }
+             finally
+             {
+                 _DBConnection.CloseDatabase();
+             }
+             return Data;
+         }
+
+         public void Reject_IPO_Sms_Data(int SmsID, string cust_code, DateTime R_date, string Money_TransactionType_ID, string Money_TransactionType_Name,string Deposit,double amount,string rmark,string session_Id)
+         {
+              
+             string Query = @"INSERT INTO [SBP_Database].[dbo].[SBP_IPO_Customer_Broker_MoneyTransaction]
+                           ([Cust_Code]
+                           ,[Received_Date]
+                           ,[Money_TransactionType_ID]
+                           ,[Money_TransactionType_Name]
+                           ,[Deposit_Withdraw]
+                           ,[Amount]
+                           ,[Remarks]
+                           ,[Intended_IPOSession_ID]
+                           ,[Approval_Date]
+                           ,[Approval_By]
+                           ,[Rejected_Reason]           
+                           ,[Channel]
+                           ,[ChannelID]
+                           ,[Entry_Branch_ID]
+                           ,[Entry_Date]
+                           ,[Entry_By]
+                           ,[Updated_Date]
+                           ,[Update_By])
+                           Values(
+                             
+                      '"+cust_code+@"'
+                      ,'"+R_date+@"'      
+                      ,'"+Money_TransactionType_ID+@"'
+                      ,'"+Money_TransactionType_Name+@"'
+                      ,'"+Deposit+@"'
+                      ,'"+amount+@"'
+                      ,'"+rmark+@"'
+                      ," + session_Id + @"
+                      ,'" + GlobalVariableBO._currentServerDate+ @"'
+                      ,'"+GlobalVariableBO._userName+@"'
+                     ,'SMS Rejected'     
+                      ,'"+Indication_IPOPaymentTransaction.ChannelType_SMS+@"'
+                       ,'"+SmsID+@"'
+                       ,'"+GlobalVariableBO._branchId+@"'
+                       ,'" + GlobalVariableBO._currentServerDate + @"'
+                      ,'" + GlobalVariableBO._userName + @"'
+                      ,'" + GlobalVariableBO._currentServerDate + @"'
+                      ,'" + GlobalVariableBO._userName + @"'
+                       
+                  )";
+             try
+             {
+                 _DBConnection.ConnectDatabase();
+                 _DBConnection.ExecuteNonQuery(Query);
+             }
+             catch (Exception ex)
+             {
+                 throw ex;
+             }
+             finally
+             {
+                 _DBConnection.CloseDatabase();
+             }
+         }
+   
+    }
+}

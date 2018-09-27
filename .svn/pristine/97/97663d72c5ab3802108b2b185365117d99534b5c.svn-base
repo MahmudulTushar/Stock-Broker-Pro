@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsDepWith" targetNamespace="http://tempuri.org/dsDepWith.xsd" xmlns:mstns="http://tempuri.org/dsDepWith.xsd" xmlns="http://tempuri.org/dsDepWith.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsDepWith" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsDepWith" msprop:Generator_UserDSName="dsDepWith" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SBP_Share_DW" msprop:Generator_UserTableName="SBP_Share_DW" msprop:Generator_RowDeletedName="SBP_Share_DWRowDeleted" msprop:Generator_TableClassName="SBP_Share_DWDataTable" msprop:Generator_RowChangedName="SBP_Share_DWRowChanged" msprop:Generator_RowClassName="SBP_Share_DWRow" msprop:Generator_RowChangingName="SBP_Share_DWRowChanging" msprop:Generator_RowEvArgName="SBP_Share_DWRowChangeEvent" msprop:Generator_RowEvHandlerName="SBP_Share_DWRowChangeEventHandler" msprop:Generator_TablePropName="SBP_Share_DW" msprop:Generator_TableVarName="tableSBP_Share_DW" msprop:Generator_RowDeletingName="SBP_Share_DWRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Received_Date" msprop:Generator_UserColumnName="Received_Date" msprop:Generator_ColumnPropNameInRow="Received_Date" msprop:Generator_ColumnVarNameInTable="columnReceived_Date" msprop:Generator_ColumnPropNameInTable="Received_DateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Cust_Code" msprop:Generator_UserColumnName="Cust_Code" msprop:Generator_ColumnPropNameInRow="Cust_Code" msprop:Generator_ColumnVarNameInTable="columnCust_Code" msprop:Generator_ColumnPropNameInTable="Cust_CodeColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Comp_Short_Code" msprop:Generator_UserColumnName="Comp_Short_Code" msprop:Generator_ColumnPropNameInRow="Comp_Short_Code" msprop:Generator_ColumnVarNameInTable="columnComp_Short_Code" msprop:Generator_ColumnPropNameInTable="Comp_Short_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Dep_Quantity" msprop:Generator_UserColumnName="Dep_Quantity" msprop:Generator_ColumnPropNameInRow="Dep_Quantity" msprop:Generator_ColumnVarNameInTable="columnDep_Quantity" msprop:Generator_ColumnPropNameInTable="Dep_QuantityColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Wed_Quantity" msprop:Generator_UserColumnName="Wed_Quantity" msprop:Generator_ColumnPropNameInRow="Wed_Quantity" msprop:Generator_ColumnVarNameInTable="columnWed_Quantity" msprop:Generator_ColumnPropNameInTable="Wed_QuantityColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="No_Script" msprop:Generator_UserColumnName="No_Script" msprop:Generator_ColumnPropNameInRow="No_Script" msprop:Generator_ColumnVarNameInTable="columnNo_Script" msprop:Generator_ColumnPropNameInTable="No_ScriptColumn" type="xs:short" minOccurs="0" />
+              <xs:element name="Vouchar_No" msprop:Generator_UserColumnName="Vouchar_No" msprop:Generator_ColumnPropNameInRow="Vouchar_No" msprop:Generator_ColumnVarNameInTable="columnVouchar_No" msprop:Generator_ColumnPropNameInTable="Vouchar_NoColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

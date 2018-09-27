@@ -1,0 +1,447 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Data;
+using DataAccessLayer;
+using System.Data.SqlClient;
+using System.Net;
+using BusinessAccessLayer.BO;
+using BusinessAccessLayer.Constants;
+
+namespace BusinessAccessLayer.BAL
+{
+   public class All_ReportBAL
+    {
+       private DbConnection _dbConnection;
+       string WorkStation_Name = string.Empty;
+       public All_ReportBAL()
+        {
+            _dbConnection = new DbConnection();
+        }
+
+       public DataTable Cust_Information(string Cust_Code)
+       {
+           DataTable dt = new DataTable();
+           string Query = string.Empty;
+           try
+           {
+                   Query = @"Select Cust.Cust_Code
+                             ,Cust_Add.Cust_Name
+                             ,( SELECT dbo.GetCurrentMoneyBalance(Cust.Cust_Code)) AS 'Balance'
+                             from dbo.SBP_Customers AS Cust
+                             JOIN SBP_Cust_Personal_Info AS Cust_Add
+                             ON Cust.Cust_Code=Cust_Add.Cust_Code
+                             Where Cust.Cust_Code='" + Cust_Code + "'";
+                   _dbConnection.ConnectDatabase();
+                   dt = _dbConnection.ExecuteQuery(Query);
+           }
+           catch (Exception)
+           {               
+               throw;
+           }          
+           return dt;
+       }
+
+       public string All_Email_Address(string ID, string Cust_Code)
+       {
+           DataTable dt = new DataTable();
+           string Query = string.Empty;
+           string Email_ID = string.Empty;
+           try
+           {
+               if (ID == "1")
+               {
+                   Query = @"
+                               Select Handeler_Email_3 AS 'Email' 
+                               from SBP_Parent_Child_Owner_Details Where Parent_Id='"+Cust_Code+@"'
+                        UNION ALL
+                               Select Handeler_Email_2 AS 'Email' 
+                               from SBP_Parent_Child_Owner_Details Where Parent_Id='"+Cust_Code+@"'
+                        UNION ALL
+                               Select Handeler_Email_1 AS 'Email' 
+                               from SBP_Parent_Child_Owner_Details Where Parent_Id='"+Cust_Code+"'";
+               }
+               else if (ID == "2")
+               {
+                   Query = @" Select Email from SBP_Service_Registration Where Cust_Code='"+Cust_Code+"'";
+               }
+               else if (ID == "3")
+               {
+                   Query = @"Select Email from SBP_Cust_Contact_Info  Where Cust_Code='"+Cust_Code+"'";
+               }
+               _dbConnection.ConnectDatabase();
+               dt = _dbConnection.ExecuteQuery(Query);
+               foreach(DataRow dr in dt.Rows)
+               {
+                   Email_ID = dr[0].ToString();
+               }
+           }
+           catch (Exception)
+           {               
+               throw;
+           }
+           return Email_ID;
+       }
+
+       public string Parent_Child_Cheaking(string Cust_Code)
+       {
+           string result = string.Empty;
+           DataTable dt = new DataTable();
+           try
+           {
+               string Query = @"Select Parent_Code from SBP_Parent_Child_Details Where Child_Code='" + Cust_Code + "'";
+               _dbConnection.ConnectDatabase();
+               dt = _dbConnection.ExecuteQuery(Query);
+               _dbConnection.CloseDatabase();
+               foreach (DataRow dr in dt.Rows)
+               {
+                   result = dr[0].ToString();
+               }
+           }
+           catch (Exception ex)
+           {
+               throw ex; 
+           }          
+
+           return result;
+       }
+
+
+       private string LocalIPAddressaa()
+       {
+           IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+           WorkStation_Name = Convert.ToString(host.HostName);
+           return WorkStation_Name;
+       }
+
+
+       public void Tax_Certificate(string RegCustCode, string CustCode, string CustomerName, string EmailID, string Year, string Text, string ReceiveID)
+       {
+           try
+           {
+               string SystemName = LocalIPAddressaa();
+               string sSQL=string.Empty;
+               sSQL = @"INSERT INTO [tbl_Report_Sending_Email_SMS]
+                                               ([RegCustCode]
+                                               ,[Customer_Name]
+                                               ,[Cust_Code]
+                                               ,[Receive_PhoneNumber_EmailID]
+                                               ,[Sending_EmailAddress]
+                                               ,[Year]
+                                               ,[Text]
+                                               ,[Remark]
+                                               ,[ReceiveID]
+                                               ,[ReceiveDate]
+                                               ,[SendingDate]
+                                               ,[Media]
+                                               ,[BranchID]
+                                               ,[SMSType]
+                                               ,[WorkStation_Name]          
+                                               ,[Status])
+                                         VALUES
+                                               ('" + RegCustCode + @"'                                              
+                                               ,'" + CustomerName + @"'
+                                               ,'" + CustCode + @"'
+                                               ,'" + EmailID + @"'
+                                               ,'" + EmailID + @"'
+                                               ,'" + Year + @"'
+                                               ,'" + Text + @"'
+                                               ,''
+                                               ,'" + ReceiveID + @"'
+                                               ,'" + System.DateTime.Now + @"'
+                                               ,null
+                                               ,'User Module'
+                                               ,1
+                                               ,'Tax Certificate'
+                                               ,'" + SystemName + @"'
+                                               ,2)";
+               _dbConnection.ConnectDatabase_SMSSender();
+               _dbConnection.ExecuteNonQuery_SMSSender(sSQL);
+               _dbConnection.CloseDatabase_SMSSender();
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+       }
+
+
+
+       public void InsertToTRInfo(PaymentOOCBO paymentOCCBO)
+       {
+           string queryStringPaymentPostingDeposit = string.Empty;
+           string queryString_Payment_Deposit99 = string.Empty;
+           string queryString_Payment_withdraw = string.Empty;
+           CommonBAL commonBAL = new CommonBAL();
+           long PaymentIdDeposit = commonBAL.GenerateID("SBP_Payment_Posting_Request", "Payment_ID");
+
+           queryStringPaymentPostingDeposit = @"INSERT INTO SBP_Payment_Posting_Request(
+                                                 --Payment_ID
+                                                --,
+                                                Cust_code
+                                                ,Amount
+                                                ,Received_Date
+                                                ,Payment_Media
+                                                ,Maturity_Days
+                                                ,Payment_Media_No
+                                                ,Payment_Media_Date
+                                                ,Bank_ID
+                                                ,Bank_Name
+                                                ,Branch_ID
+                                                ,Bank_Branch 
+                                                ,RoutingNo 
+                                                ,BankAccNo 
+                                                ,Received_By
+                                                ,Deposit_Withdraw         
+                                                ,Payment_Approved_By           
+                                                ,Payment_Approved_Date         
+                                                ,Remarks                    
+                                                ,Entry_Date          
+                                                ,Entry_By                                         
+                                                ,Deposit_Bank_Name
+                                                ,Deposit_Branch_Name
+                                                ,Approval_Status
+                                                ,Vouchar_SN
+                                                ,Trans_Reason
+                                                ,Media_Type
+                                                ,OnlineOrderNo
+                                                ,Entry_Branch_ID
+                                                )"
+                                            +
+                                            " VALUES("
+               //+ PaymentIdDeposit
+               //+ "," 
+                                            + "'" + paymentOCCBO.Cust_Code
+                                            + "'," + paymentOCCBO.OCC_Amount
+                                            + ",'" + paymentOCCBO.OCC_PaymentDate.ToString("MM-dd-yyyy")
+                                            + "','Cash" //+ paymentOCCBO.PaymentMedia
+                                            + "',NULL"
+                                            + ",'" + ""  //Payment_Media_No
+                                            + "','" + paymentOCCBO.OCC_PaymentDate.ToString("MM-dd-yyyy") // PaymentMediaDate.ToString("MM-dd-yyyy")
+                                             + "',NULL"  // paymentOCCBO.Bank_ID
+                                             + ",'" + string.Empty //paymentOCCBO.BankName
+                                             + "',NULL" //paymentOCCBO.Branch_ID
+                                             + ",'" + string.Empty //paymentOCCBO.BranchName
+                                             + "','" + string.Empty //paymentOCCBO.RoutingNo
+                                             + "','" + string.Empty //paymentOCCBO.BankAccNo
+                                             + "','" + string.Empty //paymentOCCBO.RecievedBy
+                                             + "','" + "Withdraw" // Indication_Fixed_VoucherNo_TransReason.BORenewal_DepositWithdraw  //paymentOCCBO.DepositWithdraw
+                                             + "','" + string.Empty // paymentOCCBO.PaymentApprovedBy
+                                             + "'," + "NULL" //((Convert.ToString(paymentOCCBO.PaymentApprovedDate) == string.Empty) ? "null" : "'" + paymentOCCBO.PaymentApprovedDate.Value.ToString("MM-dd-yyyy") + "'")
+                                             + ",'" + paymentOCCBO.Remarks
+                                             + "',CAST(FLOOR(CAST(GETDATE() AS FLOAT)) AS DATETIME)"
+                                             + ",'" + GlobalVariableBO._userName
+                                             + "','" + ""
+                                             + "','" + ""
+                                             + "',1,'"
+                                             + Indication_Fixed_VoucherNo_TransReason.GetOCC_VoucherNo()//  paymentOCCBO.VoucherNo //.VoucherSlNo
+                                             + "','" + paymentOCCBO.PaymentOCCPurpose//Trans_Reason
+                                             + "','" + paymentOCCBO.MediaType//Trans_Reason
+                                             + "','" + paymentOCCBO.TAX_ID//Trans_Reason
+                                             + "'," + GlobalVariableBO._branchId
+                                          + ")";
+
+
+
+           queryString_Payment_withdraw = @"INSERT INTO SBP_Payment
+                                                    (
+                                                    Cust_code
+                                                    ,Amount
+                                                    ,Received_Date
+                                                    ,Payment_Media
+                                                    ,Received_By
+                                                    ,Deposit_Withdraw
+                                                    ,Voucher_Sl_No
+                                                    ,Trans_Reason
+                                                    ,Payment_Approved_By
+                                                    ,Payment_Approved_Date
+                                                    ,Remarks
+                                                    ,Entry_Date
+                                                    ,Entry_By
+                                                    ,Requisition_ID
+                                                     )
+                                         VALUES     (
+                                                     '" + paymentOCCBO.Cust_Code + @"'
+                                                    ,'" + paymentOCCBO.OCC_Amount + @"'
+                                                    ,CONVERT(varchar(10),GETDATE(),120)
+                                                    ,'Cash'
+                                                    ,'" + GlobalVariableBO._userName + @"'
+                                                    ,'Withdraw'
+                                                    ,'OCC-C'
+                                                    ,'Tex Certificate'
+                                                    ,'" + GlobalVariableBO._userName + @"'
+                                                    ,CONVERT(varchar(10),GETDATE(),120)
+                                                    ,'" + paymentOCCBO.Remarks + @"'
+                                                    ,GETDATE()
+                                                    ,'" + GlobalVariableBO._userName + @"'
+                                                    ,( Select MAX(Payment_ID) from SBP_Payment_Posting_Request)
+                                                    )";
+
+           queryString_Payment_Deposit99 = @"INSERT INTO SBP_Payment
+                                                (
+                                                Cust_code
+                                                ,Amount
+                                                ,Received_Date
+                                                ,Payment_Media
+                                                ,Received_By
+                                                ,Deposit_Withdraw
+                                                ,Voucher_Sl_No
+                                                ,Trans_Reason
+                                                ,Payment_Approved_By
+                                                ,Payment_Approved_Date
+                                                ,Remarks
+                                                ,Entry_Date
+                                                ,Entry_By
+                                                ,Requisition_ID
+                                                )
+                                         VALUES (
+                                                 '99'
+                                                ,'" + paymentOCCBO.OCC_Amount + @"'
+                                                ,'" + paymentOCCBO.OCC_PaymentDate.ToString("MM-dd-yyyy") + @"'
+                                                ,'Cash'
+                                                ,'" + GlobalVariableBO._userName + @"'
+                                                ,'Deposit'
+                                                ,'" + Indication_Fixed_VoucherNo_TransReason.GetOCC_VoucherNo() + @"'
+                                                ,'" + paymentOCCBO.Cust_Code + @"'
+                                                ,'" + GlobalVariableBO._userName + @"'
+                                                ,CONVERT(varchar(10),GETDATE(),120)
+                                                ,'" + paymentOCCBO.Remarks + @"'
+                                                ,GETDATE()
+                                                ,'" + GlobalVariableBO._userName + @"'
+                                                ,NULL
+                                                )";
+
+           try
+           {
+               _dbConnection.ConnectDatabase();
+               _dbConnection.ExecuteNonQuery(queryStringPaymentPostingDeposit);
+               _dbConnection.ExecuteNonQuery(queryString_Payment_withdraw);
+               _dbConnection.ExecuteNonQuery(queryString_Payment_Deposit99);
+
+           }
+           catch (Exception ex)
+           {
+               throw ex;
+           }
+           finally
+           {
+               _dbConnection.CloseDatabase();
+           }
+
+       }
+
+
+     
+       public void Insert_All_Report_Sender(string RegCustCode, string Customer_Name, string CustCode, string Receive_PhoneNumber_EmailID
+           , string Sending_EmailAddress, string CurrentDate, string FromDate, string ToDate, string Year
+           , string SmsType, string Text, string Remark, string ReceiveID, string Media)
+       {
+           try
+           {
+               string SystemName = LocalIPAddressaa();
+               string Query = string.Empty;
+               if (CurrentDate != "" && FromDate == "" && ToDate == "")
+               {
+                   Query = @"INSERT INTO [tbl_Report_Sending_Email_SMS]
+                                               ([RegCustCode]
+                                               ,[Customer_Name]
+                                               ,[Cust_Code]
+                                               ,[Receive_PhoneNumber_EmailID]
+                                               ,[Sending_EmailAddress]
+                                               ,[CurrentDate]
+                                               ,[FromDate]
+                                               ,[ToDate]
+                                               ,[Year]
+                                               ,[BranchID]
+                                               ,[SMSType]
+                                               ,[WorkStation_Name]
+                                               ,[Text]
+                                               ,[Remark]
+                                               ,[ReceiveID]
+                                               ,[ReceiveDate]
+                                               ,[SendingDate]
+                                               ,[Media]
+                                               ,[FailureReason]
+                                               ,[Status])
+                                         VALUES
+                                               ('" + RegCustCode + @"'
+                                                ,'" + Customer_Name + @"'
+                                                ,'" + CustCode + @"'
+                                                ,'" + Receive_PhoneNumber_EmailID + @"'
+                                                ,'" + Sending_EmailAddress + @"'
+                                                ,'" + Convert.ToDateTime(CurrentDate) + @"'
+                                                ,null
+                                                ,null
+                                                ,'" + Year + @"'
+                                                ,'1'
+                                                ,'" + SmsType + @"'                                               
+                                                ,'" + SystemName + @"'
+                                                ,'" + Text + @"'
+                                                ,'" + Remark + @"'
+                                                ,'" + ReceiveID + @"'
+                                                ,'" + System.DateTime.Now + @"'
+                                                ,null
+                                                ,'" + Media + @"'
+                                                ,''
+                                                ,'0')";
+               }
+               else if (CurrentDate == "" && FromDate != "" && ToDate != "")
+               {
+                   Query = @"INSERT INTO [tbl_Report_Sending_Email_SMS]
+                                               ([RegCustCode]
+                                               ,[Customer_Name]
+                                               ,[Cust_Code]
+                                               ,[Receive_PhoneNumber_EmailID]
+                                               ,[Sending_EmailAddress]
+                                               ,[CurrentDate]
+                                               ,[FromDate]
+                                               ,[ToDate]
+                                               ,[Year]
+                                               ,[BranchID]
+                                               ,[SMSType]
+                                               ,[WorkStation_Name]
+                                               ,[Text]
+                                               ,[Remark]
+                                               ,[ReceiveID]
+                                               ,[ReceiveDate]
+                                               ,[SendingDate]
+                                               ,[Media]
+                                               ,[FailureReason]
+                                               ,[Status])
+                                         VALUES
+                                               ('" + RegCustCode + @"'
+                                                ,'" + Customer_Name + @"'
+                                                ,'" + CustCode + @"'
+                                                ,'" + Receive_PhoneNumber_EmailID + @"'
+                                                ,'" + Sending_EmailAddress + @"'
+                                                ,null
+                                                ,'" + Convert.ToDateTime(FromDate) + @"'
+                                                ,'" + Convert.ToDateTime(ToDate) + @"'
+                                                ,'" + Year + @"'
+                                                ,'1'
+                                                ,'" + SmsType + @"'                                                
+                                                ,'" + SystemName + @"'
+                                                ,'" + Text + @"'
+                                                ,'" + Remark + @"'
+                                                ,'" + ReceiveID + @"'
+                                                ,'" + System.DateTime.Now + @"'
+                                                ,null
+                                                ,'" + Media + @"'
+                                                ,''
+                                                ,'0')";
+               }
+               _dbConnection.ConnectDatabase_SMSSender();
+               _dbConnection.ExecuteNonQuery_SMSSender(Query);
+               _dbConnection.CloseDatabase_SMSSender();
+           }
+           catch (Exception)
+           {
+               throw;
+           }
+
+       }
+
+    }
+}

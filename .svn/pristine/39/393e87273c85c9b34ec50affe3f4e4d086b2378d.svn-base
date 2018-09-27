@@ -1,0 +1,1096 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BusinessAccessLayer.BO;
+using BusinessAccessLayer.BAL;
+using System.IO;
+using System.Runtime.InteropServices;
+
+namespace StockbrokerProNewArch
+{
+    public partial class FrmParentAndChildInfo : Form
+    {
+        public FrmParentAndChildInfo()
+        {
+            InitializeComponent();
+            cmbOwnerparent.SelectedIndex = 0;
+        }
+
+        ParentAndChildBAL objBal = new ParentAndChildBAL();
+
+        #region Parent Info
+
+        #region Private Field and method
+
+        private string ParentCode = "";
+        private string ChildCode = "";
+
+        private void Add()
+        {
+            string Parent_Code = cmb_ParentCode_ParentChild.Text;
+            string Child_Code = txtChildCode.Text;
+            string Chil_BoId = txtchildBoId.Text;
+            string Parent_Name = txtParentName.Text;
+            string Owner_Name = txtHandelerName.Text;
+            string Parent_Gender = txtParentgender.Text;
+            string Parent_Profession = txtParentProfession.Text;
+            string parent_Email = txtParentEmail.Text;
+            string Parent_Cell = txtparentCell.Text;
+            string parent_land = txtParentLand.Text;
+            string Parent_Present_addr = txtparentPresentAddress.Text;
+            string parent_Permanent_add = txtparentPermanetaddr.Text;
+            dgvParentInfo.Rows.Add(new object[] { Parent_Code, Child_Code, Chil_BoId, Parent_Name, Owner_Name, Parent_Gender, Parent_Profession, parent_Email, Parent_Cell, parent_land, Parent_Present_addr, parent_Permanent_add });
+
+        }
+        private void Clear()
+        {
+            txtChildCode.Text = "";
+            txtchildBoId.Text = "";
+            txtParentName.Text = "";
+            txtHandelerName.Text = "";
+            txtParentgender.Text = "";
+            txtParentProfession.Text = "";
+            txtParentEmail.Text = "";
+            txtparentCell.Text = "";
+            txtParentLand.Text = "";
+            txtparentPresentAddress.Text = "";
+            txtparentPermanetaddr.Text = "";
+        }
+
+        private ParentAndChildBO InitializeBO()
+        {
+            ParentAndChildBO bo = new ParentAndChildBO();
+            foreach (DataGridViewRow row in dgvParentInfo.Rows)
+            {
+                if (row.IsNewRow)
+                    continue;
+                bo.Parent_Code = (string)row.Cells["Parent_Code"].Value ?? string.Empty;
+                bo.Child_Code = (string)row.Cells["Child_Code"].Value ?? string.Empty;
+                bo.Chil_BoId = (string)row.Cells["Chil_BoId"].Value ?? string.Empty;
+                bo.Parent_Name = (string)row.Cells["Parent_Name"].Value ?? string.Empty;
+                bo.Handeler_Name = (string)row.Cells["Owner_Name"].Value ?? string.Empty;
+                bo.Parent_Gender = (string)row.Cells["Parent_Gender"].Value ?? string.Empty;
+                bo.Parent_Profession = (string)row.Cells["Parent_Profession"].Value ?? string.Empty;
+                bo.parent_Email = (string)row.Cells["parent_Email"].Value ?? string.Empty;
+                bo.parent_land = (string)row.Cells["parent_land"].Value ?? string.Empty;
+                bo.Parent_Cell = (string)row.Cells["Parent_Cell"].Value ?? string.Empty;
+                bo.Parent_Present_addr = (string)row.Cells["Parent_Present_addr"].Value ?? string.Empty;
+                bo.parent_Permanent_add = (string)row.Cells["parent_Permanent_add"].Value ?? string.Empty;
+                objBal.SaveParentInfo(bo);
+            }
+            return bo;
+        }
+        private void LoadParentandChildData(string id)
+        {
+            DataTable dt = new DataTable();
+            dt = objBal.GetparentChildInfo(id);
+            txtChildCode.Text = dt.Rows[0]["CODE"].ToString();
+            txtchildBoId.Text = dt.Rows[0]["BO ID"].ToString();
+            txtParentName.Text = dt.Rows[0]["NAME"].ToString();
+            txtParentgender.Text = dt.Rows[0]["GENDER"].ToString();
+            txtParentProfession.Text = dt.Rows[0]["PROFESSION"].ToString();
+            txtParentEmail.Text = dt.Rows[0]["MAIL"].ToString();
+            txtparentPresentAddress.Text = dt.Rows[0]["ADDRESS"].ToString();
+            txtParentLand.Text = dt.Rows[0]["PHONE"].ToString();
+            txtparentCell.Text = dt.Rows[0]["CELL"].ToString();
+        }
+
+        private void ParentInfo(string id)
+        {
+            ParentAndChildBO bo = new ParentAndChildBO();
+            DataTable dt = new DataTable();
+            dt = objBal.GetparentChildInfo(id);
+            bo.Parent_Code = dt.Rows[0]["CODE"].ToString();
+            bo.Child_Code = dt.Rows[0]["CODE"].ToString();
+            bo.Chil_BoId = dt.Rows[0]["BO ID"].ToString();
+            bo.Parent_Name = dt.Rows[0]["NAME"].ToString();
+            bo.Parent_Gender = dt.Rows[0]["GENDER"].ToString();
+            bo.Parent_Profession = dt.Rows[0]["PROFESSION"].ToString();
+            bo.parent_Email = dt.Rows[0]["MAIL"].ToString();
+            bo.Parent_Present_addr = dt.Rows[0]["ADDRESS"].ToString();
+            bo.parent_land = dt.Rows[0]["PHONE"].ToString();
+            bo.Parent_Cell = dt.Rows[0]["CELL"].ToString();
+            objBal.SaveParentInfo(bo);
+        }
+
+        #endregion
+
+        #region Button Click and Event handler
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            //dgvParentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            Add();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DialogResult.Yes == (MessageBox.Show("Is your Registration is complete Against This Parent Code? ", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)))
+                {
+                    ParentAndChildBAL bal = new ParentAndChildBAL();
+
+                    //objBal.SaveParentInfo(InitializeBO());
+                    InitializeBO();
+                    MessageBox.Show("Data save successfully");
+                    dgvParentInfo.Rows.Clear();
+                    string[] Child = bal.GetallChildCode(cmb_ParentCode_ParentChild.Text);
+                    bal.UpdateRegistraionChildCode(Child, cmb_ParentCode_ParentChild.Text);
+                    LoadparentChildDetails();
+                    LbalParentChildAdd.Text = "";
+                    //groupBox1.Visible = false;
+                    //groupBox2.Visible = true;
+                    //groupBox2.Location = new Point(12, 6);
+                }
+                    
+                 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+         }
+
+        private void FrmParentAndChildInfo_Load(object sender, EventArgs e)
+        {
+            LoadParentCode();
+        }
+
+        private void LoadParentCode()
+        {
+            if (!(String.IsNullOrEmpty(txtCustCode.Text)))
+            {
+                _parent_Code = txtCustCode.Text;
+            }
+            else if (!(String.IsNullOrEmpty(cmb_ParentCode_Owner.Text)))
+            {
+                _parent_Code = cmb_ParentCode_Owner.Text;
+            }
+            else if (!(String.IsNullOrEmpty(cmb_ParentCode_ParentChild.Text)))
+            {
+                _parent_Code = cmb_ParentCode_ParentChild.Text;
+            }
+        }
+        
+        
+        private void txtparentCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (Char)Keys.Enter)
+            {
+                ParentCode = cmb_ParentCode_ParentChild.Text;
+                if (ParentCode != objBal.checkCustCode(ParentCode))
+                {
+                    MessageBox.Show("Please provide valid customer code");
+                }
+                else
+                {
+                    if (ParentCode == objBal.CheckParentandchildCode(ParentCode,"",""))
+                    {
+                        MessageBox.Show("Parent Code is already exist in Parent Code so able to add child code for this parent code","Parent Code",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    }
+                    else if (ParentCode == objBal.CheckParentandchildCode("",ParentCode, ""))
+                    {
+                        MessageBox.Show("Child Code is already exist in child Code so provide your Valid child code","Child code",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    }   
+                    else
+                    {
+                        LoadParentandChildData(ParentCode);
+                        Add();
+                        Clear();
+                        txtChildCode.Focus();
+                        groupBox2.Visible = true;
+                        btnOwnerInfo.Visible = true;
+                        dgvParentInfo.Visible = true;
+                        dgvparentChildShow.Visible = true;
+                        //txtparentChildDetailsRegistrationID.Text = objBal.CheckParentCodeFromReistration(ParentCode);
+                        LbalParentChildAdd.Text = "Count : " + dgvParentInfo.Rows.Count;
+                    }
+                }
+            }
+        }
+
+        private void btnParentsearch_Click(object sender, EventArgs e)
+        {
+            ParentCode = cmb_ParentCode_ParentChild.Text;
+            if (ParentCode != objBal.checkCustCode(ParentCode))
+            {
+                MessageBox.Show("Please provide valid customer code");
+            }
+            else
+            {
+                if (ParentCode == objBal.CheckParentandchildCode(ParentCode, "", ""))
+                {
+                    MessageBox.Show("Parent Code is already exist in Parent Code so able to add child code for this parent code", "Parent Code", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (ParentCode == objBal.CheckParentandchildCode("", ParentCode, ""))
+                {
+                    MessageBox.Show("Child Code is already exist in child Code so provide your Valid child code", "Child code", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    LoadParentandChildData(ParentCode);
+                    Add();
+                    Clear();
+                    txtChildCode.Focus();
+                    groupBox2.Visible = true;
+                    btnOwnerInfo.Visible = true;
+                    dgvParentInfo.Visible = true;
+                    dgvparentChildShow.Visible = true;
+                    LbalParentChildAdd.Text = "Count : " + dgvParentInfo.Rows.Count;
+                }
+            }
+        }
+         
+        private void txtChildCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (Char)Keys.Enter)
+            {
+                ChildCode = txtChildCode.Text;
+                if (ChildCode != objBal.checkCustCode(ChildCode))
+                {
+                    MessageBox.Show("Please provide valid customer code");
+                }
+                else
+                {
+                    if (ChildCode == objBal.CheckParentandchildCode("", ChildCode, ""))
+                    {
+                        MessageBox.Show("Child Code is already exist");
+                    }
+                    else
+                    {
+                        if (dgvParentInfo.Rows.Cast<DataGridViewRow>().Where(t=>Convert.ToString(t.Cells["Child_Code"].Value) == ChildCode).Count()==0)
+                        {
+                            LoadParentandChildData(ChildCode);
+                            Add();
+                            Clear();
+                            groupBox2.Visible = true;
+                            btnOwnerInfo.Visible = true;
+                            dgvParentInfo.Visible = true;
+                            dgvparentChildShow.Visible = true;
+                            LbalParentChildAdd.Text = "Count : " + dgvParentInfo.Rows.Count;
+                            dgvParentInfo.FirstDisplayedScrollingRowIndex = dgvParentInfo.Rows.IndexOf(dgvParentInfo.Rows.Cast<DataGridViewRow>().Last());
+                        }
+                        else
+                        {
+                            MessageBox.Show("Child Code is already exist grid so try another child code",""+MessageBoxIcon.Error);
+                        }
+                    }
+                    
+                }
+                
+            }
+        }
+
+        private void btnchildsearch_Click(object sender, EventArgs e)
+        {
+            ChildCode = txtChildCode.Text;
+            if (ChildCode != objBal.checkCustCode(ChildCode))
+            {
+                MessageBox.Show("Please provide valid customer code");
+            }
+            else
+            {
+                if (ChildCode == objBal.CheckParentandchildCode("", ChildCode, ""))
+                {
+                    MessageBox.Show("Child Code is already exist");
+                }
+                else
+                {
+                    LoadParentandChildData(ChildCode);
+                    Add();
+                    Clear();
+                    groupBox2.Visible = true;
+                    btnOwnerInfo.Visible = true;
+                    dgvParentInfo.Visible = true;
+                    dgvparentChildShow.Visible = true;
+                    LbalParentChildAdd.Text = "Count : " + dgvParentInfo.Rows.Count;
+                }
+
+            }
+        }
+
+
+         
+        private void btnGridRowDelete_Click(object sender, EventArgs e)
+        {
+
+            //if (dgvParentInfo.SelectedRows.Count>0)
+            //{
+            //    if (DialogResult.Yes == MessageBox.Show("Which Code you want to delete Parent code , Child code or owner code \n If Select First from combox", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+            //    {
+            //        if (this.dgvParentInfo.SelectedRows.Count > 0)
+            //        {
+            //            dgvParentInfo.Rows.RemoveAt(this.dgvParentInfo.SelectedRows[0].Index);
+            //        }
+            //    }
+            //}
+            if (dgvparentChildShow.SelectedRows.Count>0)
+            {
+                DataTable dt = new DataTable();
+
+
+                 
+                    string selectedChild = dgvparentChildShow.CurrentRow.Cells["Child_Code"].Value.ToString();
+                    if (DialogResult.Yes == MessageBox.Show("Are you sure to Delete This Data", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                    {
+                        objBal.DeleteClient(selectedChild);
+                        LoadparentChildDetails();
+                        //dgvparentChildShow.DataSource = dt;
+                    }
+                 
+
+                //.GetCellCount(DataGridViewElementStates.Selected);
+                 
+
+            }
+             
+        }
+
+
+         
+        private void btnsearch_Click(object sender, EventArgs e)
+        {
+            DataTable dtParent = new DataTable();
+            DataTable dtowner = new DataTable();
+            ParentAndChildBAL bal = new ParentAndChildBAL();
+            dtParent = bal.GetAllParentChildOwnerInfo(txtsearch.Text);
+
+            dgvparentChildShow.DataSource = dtParent;
+            if (dtParent.Rows.Count > 0)
+            {
+                _parent_Code = dgvparentChildShow.Rows[0].Cells["Parent_Code"].Value.ToString();
+                //txtparentCode.Text = dgvparentChildShow.Rows[0].Cells["Parent_Code"].Value.ToString();
+                //txtOwnerParentCode.Text = dgvparentChildShow.Rows[0].Cells["Parent_Code"].Value.ToString();
+                //txtRegistrationParent.Text = dgvparentChildShow.Rows[0].Cells["Parent_Code"].Value.ToString();
+                //txtparentChildDetailsRegistrationID.Text = objBal.CheckParentCodeFromReistration(txtparentCode.Text);
+                //txtRegistrationId.Text = objBal.CheckParentCodeFromReistration(txtparentCode.Text);
+                txtCustCode.Text = _parent_Code;
+                LoadPaentInfo(_parent_Code);
+                #region Block Code
+                //if (cmbOwnerparent.SelectedItem.Equals("Parent"))
+                //{
+                //    dgvParentInfo.Rows.Clear();
+                //    //dgvparentChildShow.Rows.Clear();
+                //    if (txtsearch.Text != objBal.CheckParentandchildCode(txtsearch.Text,"", ""))
+                //    {
+                //        MessageBox.Show("Please provide valid Parent Code");
+                //    }
+                //    else
+                //    {
+                //        dtParent = objBal.GetAllParentInfo(txtsearch.Text,"","");
+                //        dgvparentChildShow.DataSource = dtParent;
+                //    }
+                //}
+                //else if (cmbOwnerparent.SelectedItem.Equals("Child"))
+                //{
+                //    dgvParentInfo.Rows.Clear();
+                //    //dgvparentChildShow.Rows.Clear();
+                //    if (txtsearch.Text != objBal.CheckParentandchildCode("",txtsearch.Text, ""))
+                //    {
+                //        MessageBox.Show("Please provide valid child Code");
+                //    }
+                //    else
+                //    {
+                //        dtParent = objBal.GetAllParentInfo("",txtsearch.Text,"");
+                //        dgvparentChildShow.DataSource = dtParent;
+                //    }
+                //}
+                //else
+                //{
+
+                //    if (txtsearch.Text != objBal.CheckParentandchildCode("","", txtsearch.Text))
+                //    {
+                //        MessageBox.Show("Please provide valid owner code");
+                //    }
+                //    else
+                //    {
+                //        dtowner = objBal.GetownerInfo(txtsearch.Text);
+                //        dgvparentChildShow.DataSource = dtowner;
+                //    }
+                //}
+                //dgvparentChildShow.Visible = true;
+                //dgvparentChildShow.Size = new Size(894, 212);
+                #endregion
+                dgvparentChildShow.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            }
+
+        }
+        #endregion
+        #endregion
+
+        #region Owner info
+        private ParentAndChildBO InitialiseOwnerInfo()
+        {
+            ParentAndChildBO bo = new ParentAndChildBO();
+            //bo.Owner_code = txtOwnerCode.Text;
+            //bo.Owner_boid = txtownerBoid.Text;
+            //bo.Owner_parent_name = txtOwnerparentname.Text;
+            bo.Parent_Code = cmb_ParentCode_Owner.Text;
+            bo.Owner_name = txtownername.Text;
+            bo.Owner_gender = cmbOwnerGender.Text;
+            bo.Owner_profession = txtownerprofession.Text;
+            bo.Owner_email = txtownerEmail1.Text + ',' + txtownerEmail2.Text + ',' + txtownerEmail3.Text;
+            bo.Owner_cell = txtownercontactcell.Text;
+            bo.Owner_land = txtownercontactland.Text;
+            bo.Owner_present_addr = txtownerpresentaddr.Text;
+            bo.Owner_permanent_add = txtownerpermanentaddr.Text;
+            return bo;
+        }
+        private void ClearOwner()
+        {
+            //txtOwnerCode.Text="";
+            //txtownerBoid.Text="";
+            //txtOwnerparentname.Text="";
+            txtownername.Text="";
+            cmbOwnerGender.Text = "";
+            txtownerprofession.Text="";
+            txtParentEmail.Text="";
+            txtownercontactcell.Text="";
+            txtownercontactland.Text="";
+            txtownerpresentaddr.Text="";
+            txtownerpermanentaddr.Text="";
+            txtownerEmail1.Text = "";
+            txtownerEmail2.Text = "";
+            txtownerEmail3.Text = "";
+        }
+        private void btnOwnerInfo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtownercontactcell.Text == "")
+                {
+                    MessageBox.Show("Contact cell 1 is Mandatory", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    objBal.SaveOwnerInfo(InitialiseOwnerInfo(),(int)cmb_ParentCode_Owner.SelectedValue);
+                    ClearOwner();
+                    MessageBox.Show("Save Successfully");
+                    dgwnerInfo.DataSource = objBal.GetAllownerInformation();
+                    dgwnerInfo.Columns["Registration_id"].Visible = false;
+                    dgwnerInfo.Columns["Handeler_Name"].Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+             
+        }
+        #endregion
+
+        
+
+        private void txtownercontactcell_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '+')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtownercontactland_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '+')
+            {
+                e.Handled = true;
+            }
+             
+        }
+
+        private void txtownerEmail_Leave(object sender, EventArgs e)
+        {
+            if (txtownerEmail1.Text != string.Empty)
+            {
+                if (!(txtownerEmail1.Text.Contains("@") && txtownerEmail1.Text.Contains(".")))
+                {
+                    MessageBox.Show("Invalid email address", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtownerEmail1.Focus();
+                }
+            }
+        }
+
+        //private void btnsaveRegImage_Click(object sender, EventArgs e)
+        //{
+        //    frmParentChildImage image = new frmParentChildImage(txtparentCode.Text);
+        //    image.StartPosition = FormStartPosition.CenterScreen;
+        //    image.Show();
+        //}
+
+        //private void txtsearch_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+
+        //}
+
+        //private void btnsearch_Click(object sender, EventArgs e)
+        //{
+
+        //}
+        private void btnImgBrowse_Click(object sender, EventArgs e)
+        {
+            if (ofdImagebrowse.ShowDialog() == DialogResult.OK)
+            {
+                txtImgLocation.Text = ofdImagebrowse.FileName;
+                RegPic.Image = Image.FromFile(txtImgLocation.Text);
+                btnStartUpload.Enabled = true;
+            }
+        }
+
+        
+
+        //string _parent_Code = txtRegistrationParent.Text;
+         
+        
+        private void frmParentChildImage_Load(object sender, EventArgs e)
+        {
+            //txtparentCode.Text = _parent_Code;
+            LoadParentChildInfo();
+        }
+
+        private MemoryStream Photo(string Code)
+        {
+            MemoryStream Ms = null;
+            byte[] imageByte = new byte[0];
+            imageByte = objBal.GetParetnIamge(Code);
+            if (imageByte != null)
+            {
+                Ms = new MemoryStream(imageByte);
+            }
+            return Ms;
+        }
+
+        private MemoryStream LoadRegistrationImage(string code)
+        {
+            MemoryStream ms = null;
+            byte[] imagebute = new byte[0];
+            imagebute = objBal.GetAllRegistrationImage(code);
+            if (imagebute != null)
+            {
+                ms = new MemoryStream(imagebute);
+            }
+            return ms;
+        }
+        private MemoryStream LoadRegisterOwnerImage(string parent)
+        {
+            MemoryStream ms = null;
+            byte[] iamgeByte = new byte[0];
+            iamgeByte = objBal.GetRegisterOwnerImage(parent);
+            if (iamgeByte != null)
+            {
+                ms = new MemoryStream(iamgeByte);
+            }
+            return ms;
+        }
+        private void LoadParentChildInfo()
+        {
+            //MemoryStream ParentImage = Photo(_parent_Code);
+            //if (ParentImage != null)
+            //{
+            //    ParentPic.Image = Image.FromStream(ParentImage);
+            //}
+            //else
+            //{
+            //    ParentPic.Image = null;
+            //}
+            DataTable dt = new DataTable();
+            dt = objBal.GetParentChildImgeAccountInfo(_parent_Code);
+            if (dt.Rows.Count > 0)
+            {
+                txtCustCode.Text = dt.Rows[0]["Cust_Code"].ToString();
+                txtAccountHolderName.Text = dt.Rows[0]["Customer"].ToString();
+                txtAccountHolderBOId.Text = dt.Rows[0]["Bo Id"].ToString();
+            }
+        }
+
+        private byte[] GetImageByte(string fileName)
+        {
+            MemoryStream ms = new MemoryStream();
+            try
+            {
+                Bitmap image = new Bitmap(fileName);
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                image.Dispose();
+                return ms.ToArray();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Image byte conversion failed. Error:" + ex.Message);
+            }
+            return null;
+
+        }
+
+        private void btnStartUpload_Click(object sender, EventArgs e)
+        {
+            if (RegPic.Image != null)
+            {
+                if (txtRegistrationParent.Text == txtCustCode.Text)
+                {
+                    ParentChildRegistrationBO bo = new ParentChildRegistrationBO();
+                    bo.Parent_Code = txtRegistrationParent.Text;
+                    // bo.Reg_Owner_Image = GetImageByte(ofownerImage.FileName);
+                    bo.Registration_Image = GetImageByte(ofdImagebrowse.FileName);
+                    bo.UserName = GlobalVariableBO._userName;
+                    bo.Child_Code = objBal.GetallChildCode("");
+                    objBal.InsertParentChildRegistrationInfo(bo);
+                    ParentInfo(txtCustCode.Text);
+                    MessageBox.Show("Save Successfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //OwnerPic.Image = null;
+                    //RegPic.Image = null;
+                    //txtCustCode.Text = "";
+                    //txtAccountHolderName.Text = "";
+                    //txtAccountHolderBOId.Text = "";
+                    //txtImgLocation.Text = "";
+                    //txtOwnerIamgeLaocation.Text = "";
+                }
+                else
+                {
+                    throw new Exception("Parent code and Account information code is not match"+ MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Upload Registration image");
+            }
+
+        }
+        string _parent_Code = "";
+        private void tabParentChild_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            try
+            {
+                //DataTable dt = new DataTable();
+                //dt = objBal.GetRegistrationIdAndParentCode(); 
+                if (tabParentChild.SelectedTab == tabParentChild.TabPages[0])
+                {
+                    _parent_Code = txtCustCode.Text;
+                    LoadPaentInfo(_parent_Code);
+                    LoadRegistrationImage();
+                    LoadOwnerImage();
+                }
+                else if (tabParentChild.SelectedTab == tabParentChild.TabPages[1])
+                {
+                    DataTable dtowner = new DataTable();
+                    dtowner = objBal.GetRegistrationIdAndParentCode_ForOwner();
+                    cmb_ParentCode_Owner.DataSource = dtowner;
+                    cmb_ParentCode_Owner.DisplayMember = dtowner.Columns["Parent_Code"].ToString();
+                    cmb_ParentCode_Owner.ValueMember = dtowner.Columns["Registration_ID"].ToString();
+                    cmbOwnerGender.SelectedIndex = 0;
+                    if (cmb_ParentCode_Owner.Text == "")
+                    {
+                        //txtRegistrationId.Text = "";
+                        dgwnerInfo.DataSource = objBal.GetAllownerInformation();
+                        dgwnerInfo.Columns["Owner_Id"].Visible = false;
+                        dgwnerInfo.Columns["Registration_id"].Visible = false;
+
+                    }
+                    else
+                    {
+                        //txtRegistrationId.Text = objBal.CheckParentCodeFromReistration(txtCustCode.Text);
+                        dgwnerInfo.DataSource = objBal.GetAllownerInformation();
+                        dgwnerInfo.Columns["Owner_Id"].Visible = false;
+                        //dgwnerInfo.Columns["Registration_id"].Visible = false;
+                        string parent_code = cmb_ParentCode_Owner.Text;
+                        string[] CheckGridCode=dgwnerInfo.Rows.OfType<DataGridViewRow>().Select(c=>Convert.ToString(c.Cells["Parent_Id"].Value)).ToArray();
+                            if (CheckGridCode.Contains(parent_code))
+                            {
+                                MessageBox.Show("This code is Already owner = " + parent_code + " Unable to Owner this code again ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                cmb_ParentCode_Owner.Focus();
+                            }
+                    }
+                }
+                else if (tabParentChild.SelectedTab == tabParentChild.TabPages[2])
+                {
+                    DataTable dtParent = new DataTable();
+                    dtParent = objBal.GetRegistrationIdAndParentCode_ForParenChildDetails();
+                    cmb_ParentCode_ParentChild.DataSource = dtParent;
+                     
+                    //dt = objBal.GetRegistrationIdAndParentCode();
+                    cmb_ParentCode_ParentChild.DisplayMember = dtParent.Columns["Parent_Code"].ToString();
+                    cmb_ParentCode_ParentChild.ValueMember = dtParent.Columns["Registration_ID"].ToString();
+                    if (cmb_ParentCode_ParentChild.Text == "")
+                    {
+                         
+                        LoadparentChildDetails();
+                    }
+                    else
+                    {
+                        //txtparentChildDetailsRegistrationID.Text = objBal.CheckParentCodeFromReistration(txtCustCode.Text);
+                        LoadparentChildDetails();
+                        
+                    }
+                    //if (txtparentCode.Text != "")
+                    //{
+                    //    if (!(dgvparentChildShow.Rows.OfType<DataGridViewRow>().Select(x => Convert.ToString(x.Cells["Child_Code"])).Contains(objBal.CheckParentandchildCode("", txtparentCode.Text, ""))))
+                    //    {
+                    //        LoadParentandChildData(txtparentCode.Text);
+
+                    //        Add();
+                    //    }
+                    //}
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+
+        private void LoadparentChildDetails()
+        {
+            dgvparentChildShow.DataSource = objBal.GetAllParentChildDetails();
+           // dgvparentChildShow.Columns["Parent_Child_Id"].Visible = false;
+            //dgvparentChildShow.Columns["Registration_ID"].Visible = false;
+           dgvparentChildShow.Columns["Handeler_Name"].Visible = false;
+           dgvparentChildShow.Columns["Handler_Name"].Visible = false;
+        }
+
+        private void LoadPaentInfo(string code)
+        {
+            DataTable dt = new DataTable();
+            dt = objBal.LoadparentInfo(code);
+            if (dt.Rows.Count > 0)
+            {
+                txtCustCode.Text = dt.Rows[0]["Cust_Code"].ToString();
+                txtAccountHolderBOId.Text = dt.Rows[0]["Bo_Id"].ToString();
+                txtAccountHolderName.Text = dt.Rows[0]["Cust_Name"].ToString();
+            }
+        }
+
+        private void LoadRegistrationImage()
+        {
+            MemoryStream ms = LoadRegistrationImage(_parent_Code);
+            if (ms != null)
+            {
+                RegPic.Image = Image.FromStream(ms);
+            }
+            else
+            {
+                RegPic.Image = null;
+            }
+            //MemoryStream owMs = LoadRegisterOwnerImage(_parent_Code);
+            //if (owMs != null)
+            //{
+            //    OwnerPic.Image = Image.FromStream(owMs);
+            //}
+            //else
+            //{
+            //    OwnerPic.Image = null;
+            //}
+        }
+        private void LoadOwnerImage()
+        {
+            MemoryStream ms = LoadRegistrationImage(_parent_Code);
+            if (ms != null)
+            {
+                RegPic.Image = Image.FromStream(ms);
+            }
+            else
+            {
+                RegPic.Image = null;
+            }
+            //MemoryStream owMs = LoadRegisterOwnerImage(_parent_Code);
+            //if (owMs != null)
+            //{
+            //    OwnerPic.Image = Image.FromStream(owMs);
+            //}
+            //else
+            //{
+            //    OwnerPic.Image = null;
+            //}
+        }
+
+        private void txtRegistrationParent_KeyDown(object sender, KeyEventArgs e)
+        {
+            DataTable dt = new DataTable();
+            _parent_Code = txtRegistrationParent.Text;
+            string[] arr = objBal.GetallChildCode(_parent_Code);
+            string CheckRegistratinParentCode = "";
+            string RegistrationId = objBal.CheckParentCodeFromReistration(_parent_Code);
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (arr != null)
+                {
+                    CheckRegistratinParentCode = objBal.CheckParentCodeFromRegistration(arr);
+                }
+                if (_parent_Code == objBal.CheckParentCodeIsExist(_parent_Code))
+                {
+
+                    //MessageBox.Show("Registration is Complete For this = " + _parent_Code + "Do you Want to add anot");
+                    LoadRegistrationImage();
+                    //LoadPaentInfo(_parent_Code);
+                    //btnImgBrowse.Enabled = false;
+                    LoadParentChildInfo();
+                }
+                else if (_parent_Code == objBal.CheckPaentCodeForParentcodesearchFromRegistration(_parent_Code))
+                {
+                    LoadRegistrationImage();
+                    LoadParentChildInfo();
+                    MessageBox.Show("Owner Information and parent child details information not update\n For this code = " + _parent_Code);
+                }
+                else if (arr != null)
+                {
+                    if (arr.Contains(_parent_Code))
+                    {
+                        MessageBox.Show("Registration is Complete For this = " + _parent_Code + "", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        _parent_Code = objBal.CheckParentCodeFromRegistration(arr);
+                        LoadOwnerImage();
+                        LoadPaentInfo(_parent_Code);
+                        btnImgBrowse.Enabled = false;
+                        LoadParentChildInfo();
+                    }
+                }
+                else if (CheckRegistratinParentCode != "" || RegistrationId != "")
+                {
+                    MessageBox.Show("Registration is Complete For this = " + _parent_Code + "", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoadRegistrationImage();
+                    LoadOwnerImage();
+                    //LoadPaentInfo(_parent_Code);
+                    LoadParentChildInfo();
+                }
+                else
+                {
+                    LoadParentChildInfo();
+                    btnImgBrowse.Enabled = true;
+                }
+            }
+        }
+
+        //private void txtOwnerParentCode_Leave(object sender, EventArgs e)
+        //{
+        //    string parent_code = txtCustCode.Text;
+        //    string[] CheckGridCode=dgwnerInfo.Rows.OfType<DataGridViewRow>().Select(c=>Convert.ToString(c.Cells["Parent_Id"].Value)).ToArray();
+        //    if (txtOwnerParentCode.Text == "")
+        //    {
+        //        MessageBox.Show("Please select Your Parent code", "Parent Code", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+        //    }
+        //    else if (CheckGridCode.Contains(parent_code))
+        //    {
+        //        MessageBox.Show("This code is Already owner = " + parent_code + " Unable to Owner this code again ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        txtOwnerParentCode.Focus();
+        //    }
+        //    else
+        //    {
+        //        txtRegistrationId.Text = objBal.CheckParentCodeFromReistration(txtCustCode.Text);
+                 
+        //    }
+        //}
+
+        private void txtsearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DataTable dtParent = new DataTable();
+                DataTable dtowner = new DataTable();
+                ParentAndChildBAL bal = new ParentAndChildBAL();
+                DataTable dt = bal.GetAllParentChildOwnerInfo(txtsearch.Text);
+                dgvparentChildShow.DataSource = dt;
+                if (dt.Rows.Count > 0)
+                {
+                    dgvparentChildShow.DataSource = dt;
+                    //_parent_Code = dgvparentChildShow.Rows[0].Cells["Parent_Code"].Value.ToString();
+                    //txtCustCode.Text = _parent_Code;
+                    //txtparentCode.Text = dgvparentChildShow.Rows[0].Cells["Parent_Code"].Value.ToString();
+                    //txtOwnerParentCode.Text = dgvparentChildShow.Rows[0].Cells["Parent_Code"].Value.ToString();
+                    //txtRegistrationParent.Text = dgvparentChildShow.Rows[0].Cells["Parent_Code"].Value.ToString();
+                    //txtparentChildDetailsRegistrationID.Text = objBal.CheckParentCodeFromReistration(_parent_Code);
+                    //txtRegistrationId.Text = objBal.CheckParentCodeFromReistration(_parent_Code);
+                    //dgvparentChildShow.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                }
+                
+                #region Block Code
+                //if (e.KeyChar == (Char)Keys.Enter)
+                //{
+                //    if (cmbOwnerparent.SelectedItem.Equals("Child"))
+                //    {
+                //        dgvParentInfo.Rows.Clear();
+                //        //dgvparentChildShow.Rows.Clear();
+                //        if (txtsearch.Text != objBal.CheckParentandchildCode("",txtsearch.Text, ""))
+                //        {
+                //            MessageBox.Show("Please provide valid child Code");
+                //        }
+                //        else
+                //        {
+                //            dtParent = objBal.GetAllParentInfo("",txtsearch.Text,"");
+                //            dgvparentChildShow.DataSource = dtParent;
+                //        }
+                //    }
+                //    else if (cmbOwnerparent.SelectedItem.Equals("Parent"))
+                //    {
+                //        dgvParentInfo.Rows.Clear();
+                //        //dgvparentChildShow.Rows.Clear();
+                //        if (txtsearch.Text != objBal.CheckParentandchildCode(txtsearch.Text,"", ""))
+                //        {
+                //            MessageBox.Show("Please provide valid Parent Code");
+                //        }
+                //        else
+                //        {
+                //            dtParent = objBal.GetAllParentInfo(txtsearch.Text,"","");
+                //            dgvparentChildShow.DataSource = dtParent;
+                //        }
+                //    }
+                //    else
+                //    {
+
+                //        if (txtsearch.Text != objBal.CheckParentandchildCode("","", txtsearch.Text))
+                //        {
+                //            MessageBox.Show("Please provide valid owner code");
+                //        }
+                //        else
+                //        {
+                //            dtowner = objBal.GetownerInfo(txtsearch.Text);
+                //            dgvparentChildShow.DataSource = dtowner;
+                //        }
+                //    }
+                //    dgvparentChildShow.Visible = true;
+                //    dgvparentChildShow.Size = new Size(894, 212);
+                //    dgvparentChildShow.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                //}
+                #endregion
+            }
+        }
+
+
+        private void txtownerEmail2_Leave(object sender, EventArgs e)
+        {
+            if (txtownerEmail2.Text != string.Empty)
+            {
+                if (!(txtownerEmail2.Text.Contains("@") && txtownerEmail2.Text.Contains(".")))
+                {
+                    MessageBox.Show("Invalid email address", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtownerEmail2.Focus();
+                }
+            }
+        }
+
+        private void txtownerEmail3_Leave(object sender, EventArgs e)
+        {
+            if (txtownerEmail3.Text != string.Empty)
+            {
+                if (!(txtownerEmail3.Text.Contains("@") && txtownerEmail3.Text.Contains(".")))
+                {
+                    MessageBox.Show("Invalid email address", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtownerEmail2.Focus();
+                }
+            }
+        }
+
+         
+
+        private void txtownercontactcell_Leave(object sender, EventArgs e)
+        {
+            if (txtownercontactcell.Text == string.Empty)
+            {
+                MessageBox.Show("Contact Cell  1 Is Madatory", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RegPic_Click(object sender, EventArgs e)
+        {
+            MemoryStream ms = LoadRegistrationImage(_parent_Code);
+            if (ms != null)
+            {
+                FrmRegistratinImageViewer imageViewer = new FrmRegistratinImageViewer(Image.FromStream(ms));
+                imageViewer.Show();
+            }
+            else
+            {
+            }
+
+        }
+
+        private void dgwnerInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //ClearOwner();
+            //int RowIndex = dgwnerInfo.Rows[e.RowIndex].Index;
+            //// string[] emil = dgwnerInfo.Rows.Cast<DataGridViewRow>().Where(c => c.Index == RowIndex).Select(c => Convert.ToString(c["Handeler_Email"]).Split(","));
+            //string mail = dgwnerInfo.Rows[RowIndex].Cells["Handeler_Email"].Value.ToString();
+            //if (mail.Contains(','))
+            //{
+            //    string[] splitEmail = mail.Split(',');
+            //    txtownerEmail1.Text = splitEmail[0].ToString(); ;
+            //    txtownerEmail2.Text = splitEmail[1].ToString();
+            //    txtownerEmail3.Text = splitEmail[2].ToString();
+            //}
+            //txtOwnerParentCode.Text = dgwnerInfo.Rows[RowIndex].Cells["Parent_Id"].Value.ToString();
+            //txtownername.Text = dgwnerInfo.Rows[RowIndex].Cells["Handeler_Parent_Name"].Value.ToString(); ;
+            //cmbOwnerGender.Text = dgwnerInfo.Rows[RowIndex].Cells["Hadeler_Gender"].Value.ToString(); ;
+            //txtownerprofession.Text = dgwnerInfo.Rows[RowIndex].Cells["Handelr_Occupation"].Value.ToString(); ;
+
+            //txtownercontactcell.Text = dgwnerInfo.Rows[RowIndex].Cells["Hadeler_Contact_Mobile"].Value.ToString(); ;
+            //txtownercontactland.Text = dgwnerInfo.Rows[RowIndex].Cells["Handeler_Contact_Land"].Value.ToString(); ;
+            //txtownerpresentaddr.Text = dgwnerInfo.Rows[RowIndex].Cells["Handeler_Present_Address"].Value.ToString(); ;
+            //txtownerpermanentaddr.Text = dgwnerInfo.Rows[RowIndex].Cells["Handeler_Permanent_Address"].Value.ToString(); ;
+        }
+
+        private void btnUpdateOwner_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtownercontactland.Text == "")
+                {
+                    MessageBox.Show("Contact cell 1 is Mandatory", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    objBal.UpdateParentChildOwnerDetails(InitialiseOwnerInfo());
+                    ClearOwner();
+                    MessageBox.Show("Update Successfully");
+                    dgwnerInfo.DataSource = objBal.GetAllownerInformation();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvparentChildShow_DataSourceChanged(object sender, EventArgs e)
+        {
+            LbldetailsCount.Text = "Count : " + dgvparentChildShow.Rows.Count;
+        }
+
+        private void dgwnerInfo_DataSourceChanged(object sender, EventArgs e)
+        {
+            LblownerInfo.Text = "Count : " + dgwnerInfo.Rows.Count;
+        }
+
+        private void dgvParentInfo_DataSourceChanged(object sender, EventArgs e)
+        {
+            LbalParentChildAdd.Text = "Count : " + dgvParentInfo.Rows.Count;
+        }
+
+        private void BtnRegistrationDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objBal.DeleteRegistrationId(_parent_Code);
+                MessageBox.Show("Data Deleted Successfully");
+                txtRegistrationParent.Text = "";
+                txtCustCode.Text = "";
+                txtAccountHolderName.Text = "";
+                txtAccountHolderBOId.Text = "";
+                RegPic.Image = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+             
+        }
+
+        private void BtnChildInfoDelete_Click(object sender, EventArgs e)
+        {
+            if (this.dgvParentInfo.SelectedRows.Count > 0)
+            {
+                dgvParentInfo.Rows.RemoveAt(this.dgvParentInfo.SelectedRows[0].Index);
+            }
+        }
+       
+    }
+}

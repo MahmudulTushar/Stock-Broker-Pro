@@ -1,0 +1,26 @@
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\SBPXMLSchema.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\SBPXMLSchema.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\BusinessAccessLayer.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\MySql.Data.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\DataAccessLayer.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\BusinessAccessLayer.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\DataAccessLayer.pdb
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\SBPXMLSchema.g.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\SBPXMLSchema.Properties.Resources.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\SBPXMLSchema.csproj.GenerateResource.Cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\SBPXMLSchema.dll
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\SBPXMLSchema.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\SBPXMLSchema.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\SBPXMLSchema.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\BusinessAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\MySql.Data.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\DataAccessLayer.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\BusinessAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\bin\x86\Debug\DataAccessLayer.pdb
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\SBPXMLSchema.g.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\SBPXMLSchema.Properties.Resources.resources
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\SBPXMLSchema.csproj.GenerateResource.Cache
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\SBPXMLSchema.dll
+D:\Shahrior Dev\SBP Pro\04 May 2015 SBP Source Code\SBPXMLSchema\obj\x86\Debug\SBPXMLSchema.pdb

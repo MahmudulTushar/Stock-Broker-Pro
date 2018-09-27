@@ -1,0 +1,2409 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BusinessAccessLayer.Constants;
+using BusinessAccessLayer.BAL;
+using BusinessAccessLayer.BO;
+using DataAccessLayer;
+using System.Data.SqlClient;
+
+
+namespace StockbrokerProNewArch
+{
+    public partial class frm_IPOApproval : Form
+    {
+        private string MenuName;
+        private string Selected_VoucherNo;
+        private int Selected_Single_ID_IPOAcc;
+        private int[] Selected_Multi_ID_IPOAcc;
+        private int Selected_Single_ID_PaymentPosting;
+
+        public frm_IPOApproval(string P_MenuName)
+        {
+            InitializeComponent();
+            MenuName = P_MenuName;
+            this.Text = MenuName;
+        }
+
+        private void LoadGrid()
+        {
+            if (MenuName == Indication_Forms_Title.IPODepositApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt=ipoBal.GetNonTransferDeposit_MoneyTransaction_Pending_List();
+                dg_IpoApproval.DataSource = dt;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+
+            }
+            else if (MenuName == Indication_Forms_Title.Ipo_single_Deposit_approval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.Get_NonTransfer_money_depositSingle();
+                dg_IpoApproval.DataSource = dt;
+            }
+            else if (MenuName == Indication_Forms_Title.IPOCheck_Clearence)
+              {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.GetChecqueApprovedData();
+                dg_IpoApproval.DataSource = dt;
+                
+                dg_IpoApproval.Columns["Session_Id"].Visible = false;
+                dg_IpoApproval.Columns["Transaction_Ref_Id"].Visible = false;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+                
+ 
+            }
+            else if (MenuName == Indication_Forms_Title.IPOWithdrawApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.GetNonTransferWithdraw_MoneyTransaction_Pending_List();
+                dg_IpoApproval.DataSource = dt;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+            }
+            else if (MenuName == Indication_Forms_Title.IPOSingleTransferApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.GetSingleTransfer_MoneyTransaction_Pending_List();
+                dg_IpoApproval.DataSource = dt;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMultiTransferApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.GetMultiTransfer_MoneyTransaction_Pending_List();
+                dg_IpoApproval.DataSource = dt;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+            }
+            else if (MenuName == Indication_Forms_Title.IPOAppApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.GetIPOApplication_Pending_List();
+                dg_IpoApproval.DataSource = dt;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                dg_IpoApproval.Columns["IPOSession_ID"].Visible = false;
+
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+            }
+            else if (MenuName == Indication_Forms_Title.IPOSingleTransferBackApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.GetSingleTransferBack_MoneyTransaction_Pending_List();
+                dg_IpoApproval.DataSource = dt;               
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMultiTransferBackApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.GetMultiTransferBack_MoneyTransaction_Pending_List();
+                dg_IpoApproval.DataSource = dt;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+            }
+            else if (MenuName == Indication_Forms_Title.IPOWithdrawalSingleApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.GetSingleTransferWithdraw_MoneyTransaction_Pending_List();
+                dg_IpoApproval.DataSource = dt;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+            }
+            else if (MenuName == Indication_Forms_Title.IPOWithdrawalMultiApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.GetMultiTransferWithdraw_MoneyTransaction_Pending_List();
+                dg_IpoApproval.DataSource = dt;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+                
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+               
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMoneyDeposit_ApplyTogther)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.GetDeposit_Apply_Together();
+                dg_IpoApproval.DataSource = dt;
+                //dg_IpoApproval.Columns["Customer"].Visible = false;
+                dg_IpoApproval.Columns["Session_Id"].Visible = false;
+                dg_IpoApproval.Columns["Transaction_Ref_Id"].Visible = false;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                //dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                //dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                //dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+            }
+            else if (MenuName == Indication_Forms_Title.IPODepositSingleTransfer_ApplyTogther)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                DataTable dt = ipoBal.GetSingleTransfer_ApplyTogether_MoneyTransaction_Pending_List();
+                dg_IpoApproval.DataSource = dt;
+                //dg_IpoApproval.Columns["Customer"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+                dg_IpoApproval.Columns["Application Id"].Visible = false;
+                dg_IpoApproval.Columns["IPO Premium"].Visible = false;
+                dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+            }
+            else if (MenuName == Indication_Forms_Title.IPODepositMultiTransfer_ApplyTogther)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                //DataTable dt = ipoBal.GetDeposit_Apply_Together();
+                DataTable dt = ipoBal.GetMultiTransfer_ApplyTogether_MoneyTransaction_Pending_List();
+                dg_IpoApproval.DataSource = dt;
+                //dg_IpoApproval.Columns["Customer"].Visible = false;
+                //dg_IpoApproval.Columns[""].Visible = false;
+                dg_IpoApproval.Columns["PaymentPosting_ID"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_ID"].Visible = false;
+                dg_IpoApproval.Columns["Money_TransactionType_ID"].Visible = false;
+                dg_IpoApproval.Columns["ID"].Visible = false;
+                dg_IpoApproval.Columns["Voucher_No_Selection"].Visible = false;
+                dg_IpoApproval.Columns["IPO Premium"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+                dg_IpoApproval.Columns["Intended_IPOSession_Name"].Visible = false;
+                dg_IpoApproval.Columns["SelectionID"].Visible = false;
+                //dg_IpoApproval.ClearSelection();
+                if (dg_IpoApproval.Rows.Count > 0)
+                    dg_IpoApproval.Rows[0].Selected = true;
+            }
+
+        }
+        private void LoadGridMode()
+        {
+            if (MenuName == Indication_Forms_Title.IPODepositApproval)
+            {
+                dg_IpoApproval.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dg_IpoApproval.MultiSelect = false;
+                btnAccept.Text = "Approved";
+                btnReject.Text = "Reject";
+                btnAcceptAll.Text = "Approval ALl";
+                btnRejectAll.Text = "Reject ALL";
+            }
+            else if (MenuName == Indication_Forms_Title.IPOWithdrawApproval)
+            {
+                dg_IpoApproval.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dg_IpoApproval.MultiSelect = false;
+                btnAccept.Text = "Approved";
+                btnReject.Text = "Reject";
+                btnAcceptAll.Text = "Approval ALl";
+                btnRejectAll.Text = "Reject ALL";
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMoneyDeposit_ApplyTogther)
+            {
+                dg_IpoApproval.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dg_IpoApproval.MultiSelect = true;
+                btnAccept.Text = "Approved";
+                btnReject.Text = "Reject";
+                btnAcceptAll.Text = "Approval ALl";
+                btnRejectAll.Text = "Reject ALL";
+            }
+            else if (MenuName == Indication_Forms_Title.IPOCheck_Clearence)
+            {
+                dg_IpoApproval.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dg_IpoApproval.MultiSelect = true;
+                btnAccept.Text = "Clear";
+                btnReject.Text = "UnClear";
+                btnAcceptAll.Text = "Clear ALl";
+                btnRejectAll.Text = "UnClear ALL";
+            }
+            else if (MenuName == Indication_Forms_Title.IPODepositSingleTransfer_ApplyTogther)
+            {
+                dg_IpoApproval.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dg_IpoApproval.MultiSelect = true;
+            }
+            else if (MenuName == Indication_Forms_Title.IPODepositMultiTransfer_ApplyTogther)
+            {
+                dg_IpoApproval.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dg_IpoApproval.MultiSelect = true;
+            }
+            else
+            {
+                dg_IpoApproval.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dg_IpoApproval.MultiSelect = true;
+                btnAccept.Text = "Approved";
+                btnReject.Text = "Reject";
+            }
+            
+        }
+
+        private void frm_IPOApproval_Load(object sender, EventArgs e)
+        {
+            LoadGrid();
+            LoadGridMode();
+        }
+
+        private void Business_Validation_Execution(DataGridViewRow[] P_dr)
+        {
+            if (MenuName == Indication_Forms_Title.IPODepositApproval)
+            {
+                
+            }
+            else if (MenuName == Indication_Forms_Title.IPOCheck_Clearence)
+            {
+                //PaymentInfoBAL infoBal = new PaymentInfoBAL();
+                //IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                //double IpoApplicationAmount = P_dr.Cast<DataGridViewRow>().Where(T => Convert.ToString(T.Cells["AccountName"].Value) == "APPLICATION")
+                //    .Select(T => Convert.ToDouble(T.Cells["Total_Amount"].Value)).FirstOrDefault();
+                //string custCodeTemp = P_dr.Cast<DataGridViewRow>().Select(T => Convert.ToString(T.Cells["Customer"].Value)).FirstOrDefault();
+                //double TransactionAmount = P_dr.Cast<DataGridViewRow>().Where(T => Convert.ToString(T.Cells["AccountName"].Value) == "TRANSACTION").Select(T => Convert.ToDouble(T.Cells["Amount"].Value)).FirstOrDefault();
+
+                //string payment_Media = P_dr.Cast<DataGridViewRow>().Where(T => Convert.ToString(T.Cells["AccountName"].Value) == "TRANSACTION")
+                //    .Select(T => Convert.ToString(T.Cells["Transaction_type"].Value)).FirstOrDefault();
+                ////double withDrawAmount = Convert.ToDouble(dr.Cells["Amount"].Value);
+                ////double balanceTradeAccount = infoBal.GetCurrentBalane(custCodeTemp);
+
+                //if (!(payment_Media == Indication_IPOPaymentTransaction.Cheque))
+                //{
+                //    double balanceIPOAccount = ipoBal.GetIPOCustomerBalance_ForApplication(custCodeTemp);
+                //    if (!(IpoApplicationAmount <= balanceIPOAccount + TransactionAmount))
+                //        throw new Exception("Insufficient Balance");
+                //}
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMoneyDeposit_ApplyTogther)
+            {
+                //PaymentInfoBAL infoBal = new PaymentInfoBAL();
+                //IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                //double IpoApplicationAmount = P_dr.Cast<DataGridViewRow>().Where(T => Convert.ToString(T.Cells["AccountName"].Value) == "APPLICATION")
+                //    .Select(T => Convert.ToDouble(T.Cells["Total_Amount"].Value)).FirstOrDefault();
+                //string custCodeTemp = P_dr.Cast<DataGridViewRow>().Select(T => Convert.ToString(T.Cells["Customer"].Value)).FirstOrDefault();
+                //double TransactionAmount = P_dr.Cast<DataGridViewRow>().Where(T => Convert.ToString(T.Cells["AccountName"].Value) == "TRANSACTION").Select(T => Convert.ToDouble(T.Cells["Amount"].Value)).FirstOrDefault();
+
+                //string payment_Media = P_dr.Cast<DataGridViewRow>().Where(T => Convert.ToString(T.Cells["AccountName"].Value) == "TRANSACTION")
+                //    .Select(T => Convert.ToString(T.Cells["Transaction_type"].Value)).FirstOrDefault();
+                ////double withDrawAmount = Convert.ToDouble(dr.Cells["Amount"].Value);
+                ////double balanceTradeAccount = infoBal.GetCurrentBalane(custCodeTemp);
+
+                //if (!(payment_Media == Indication_IPOPaymentTransaction.Cheque))
+                //{
+                //    double balanceIPOAccount = ipoBal.GetIPOCustomerBalance(custCodeTemp);
+                //    if (!(IpoApplicationAmount <= balanceIPOAccount + TransactionAmount))
+                //        throw new Exception("Insufficient Balance");
+                //}
+            }
+            else if (MenuName == Indication_Forms_Title.IPOWithdrawApproval)
+            {
+                //Any Payment Method
+                string DepositWithdraw = Convert.ToString(P_dr[0].Cells["Deposit/Withdraw"].Value);
+                string PaymentMethod = Convert.ToString(P_dr[0].Cells["Payment Method"].Value);
+
+                if (DepositWithdraw == Indication_PaymentMode.Withdraw)
+                {
+                    foreach (DataGridViewRow dr in P_dr)
+                    {
+                        PaymentInfoBAL infoBal = new PaymentInfoBAL();
+                        IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                        double amountTemp = Convert.ToDouble(dr.Cells["Amount"].Value);
+                        string custCodeTemp = Convert.ToString(dr.Cells["Customer"].Value);
+
+                        //double balanceTradeAccount = infoBal.GetCurrentBalane(custCodeTemp);
+                        double balanceIPOAccount = ipoBal.GetIPOCustomerBalance(custCodeTemp);
+
+                        if (!(amountTemp <= balanceIPOAccount))
+                            throw new Exception("Insufficient Balance");
+                    }
+
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPOSingleTransferApproval)
+            {
+                //Any Payment Method
+                string DepositWithdraw = Convert.ToString(P_dr[0].Cells["Deposit/Withdraw"].Value);
+                string PaymentMethod = Convert.ToString(P_dr[0].Cells["Payment Method"].Value);
+                if (DepositWithdraw == Indication_PaymentMode.Withdraw)
+                {
+                    foreach (DataGridViewRow dr in P_dr)
+                    {
+                        if (Convert.ToString(dr.Cells["AccountName"]) == "TRADEACC")
+                        {
+                            PaymentInfoBAL infoBal = new PaymentInfoBAL();                            
+                            double amountTemp = Convert.ToDouble(dr.Cells["Amount"].Value);
+                            string custCodeTemp = Convert.ToString(dr.Cells["Customer"].Value);
+
+                            double balanceTradeAccount = infoBal.GetCurrentBalane(custCodeTemp);
+
+                            if (!(amountTemp <= balanceTradeAccount))
+                                throw new Exception("Insufficient Balance");
+                        }
+                    }
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMultiTransferApproval)
+            {
+                //Any Payment Method
+                string DepositWithdraw = Convert.ToString(P_dr[0].Cells["Deposit/Withdraw"].Value);
+                string PaymentMethod = Convert.ToString(P_dr[0].Cells["Payment Method"].Value);
+                if (DepositWithdraw == Indication_PaymentMode.Withdraw)
+                {
+                    foreach (DataGridViewRow dr in P_dr)
+                    {
+                        if (Convert.ToString(dr.Cells["AccountName"]) == "TRADEACC")
+                        {
+                            PaymentInfoBAL infoBal = new PaymentInfoBAL();
+                            
+                            double amountTemp = Convert.ToDouble(dr.Cells["Amount"].Value);
+                            string custCodeTemp = Convert.ToString(dr.Cells["Customer"].Value);
+                            double balanceTradeAccount = infoBal.GetCurrentBalane(custCodeTemp);                           
+                            if (!(amountTemp <= balanceTradeAccount))
+                                throw new Exception("Insufficient Balance");
+                        }
+                    }
+
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPOAppApproval)
+            {
+                //Any Payment Method
+
+                foreach (DataGridViewRow dr in P_dr)
+                {
+
+                    PaymentInfoBAL infoBal = new PaymentInfoBAL();
+                    IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                    double amountTemp = Convert.ToDouble(dr.Cells["TotalAmount"].Value);
+                    string custCodeTemp = Convert.ToString(dr.Cells["Cust_Code"].Value);
+
+                    //double balanceTradeAccount = infoBal.GetCurrentBalane(custCodeTemp);
+                    double balanceIPOAccount = ipoBal.GetIPOCustomerBalance_ForApplication(custCodeTemp);
+                    if (!(amountTemp <= balanceIPOAccount))
+                        throw new Exception("Insufficient Balance");
+
+                }
+
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOSingleTransferBackApproval)
+            {
+                //Any Payment Method
+                string DepositWithdraw = Convert.ToString(P_dr[0].Cells["Deposit/Withdraw"].Value);
+                string PaymentMethod = Convert.ToString(P_dr[0].Cells["Payment Method"].Value);
+                if (DepositWithdraw == Indication_PaymentMode.Withdraw)
+                {
+                    foreach (DataGridViewRow dr in P_dr)
+                    {
+                        if (Convert.ToString(dr.Cells["AccountName"]) == "IPOACC")
+                        {
+                            PaymentInfoBAL infoBal = new PaymentInfoBAL();
+                            IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                            double amountTemp = Convert.ToDouble(dr.Cells["Amount"].Value);
+                            string custCodeTemp = Convert.ToString(dr.Cells["Customer"].Value);
+
+                            //double balanceTradeAccount = infoBal.GetCurrentBalane(custCodeTemp);
+                            double balanceIPOAccount = ipoBal.GetIPOCustomerBalance(custCodeTemp);
+                            if (!(amountTemp <= balanceIPOAccount))
+                                throw new Exception("Insufficient Balance");
+                        }
+                    }
+
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMultiTransferBackApproval)
+            {
+                //Any Payment Method
+                string DepositWithdraw = Convert.ToString(P_dr[0].Cells["Deposit/Withdraw"].Value);
+                string PaymentMethod = Convert.ToString(P_dr[0].Cells["Payment Method"].Value);
+                if (DepositWithdraw == Indication_PaymentMode.Withdraw)
+                {
+                    foreach (DataGridViewRow dr in P_dr)
+                    {
+                        if (Convert.ToString(dr.Cells["AccountName"]) == "IPOACC")
+                        {
+                            PaymentInfoBAL infoBal = new PaymentInfoBAL();
+                            IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                            double amountTemp = Convert.ToDouble(dr.Cells["Amount"].Value);
+                            string custCodeTemp = Convert.ToString(dr.Cells["Customer"].Value);
+
+                            //double balanceTradeAccount = infoBal.GetCurrentBalane(custCodeTemp);
+                            double balanceIPOAccount = ipoBal.GetIPOCustomerBalance(custCodeTemp);
+                            if (!(amountTemp <= balanceIPOAccount))
+                                throw new Exception("Insufficient Balance");
+                        }
+                    }
+                }
+            }
+        }
+
+        
+
+        private void SelectedSameVoucher(string VoucherNo)
+        {
+            for (int i = 0; i < dg_IpoApproval.Rows.Count; i++)
+            {
+                if (MenuName == Indication_Forms_Title.IPOWithdrawalSingleApproval)
+                {
+                    if (Convert.ToString(dg_IpoApproval.Rows[i].Cells["SelectionID"].Value) == VoucherNo)
+                    {
+                        dg_IpoApproval.Rows[i].Selected = true;
+                    }
+                }
+                else
+                {
+                    if (Convert.ToString(dg_IpoApproval.Rows[i].Cells["Voucher No"].Value) == VoucherNo)
+                        dg_IpoApproval.Rows[i].Selected = true;
+                }
+
+            }
+            //dg_IpoApproval.MultiSelect = false;
+        }
+        private void SelectedSameVoucher(string VoucherNo, string selectionID)
+        {
+            for (int i = 0; i < dg_IpoApproval.Rows.Count; i++)
+            {
+                if (MenuName == Indication_Forms_Title.IPOWithdrawalMultiApproval)
+                {
+                    if (Convert.ToString(dg_IpoApproval.Rows[i].Cells["SelectionID"].Value) == selectionID
+                        && Convert.ToString(dg_IpoApproval.Rows[i].Cells["Voucher No"].Value) == VoucherNo)
+                    {
+                        dg_IpoApproval.Rows[i].Selected = true;
+                    }
+                }
+
+            }
+        }
+        private void SelectSameBankRoutingCheque(string bank, string routing, string cheque)
+        {
+            for (int i = 0; i < dg_IpoApproval.Rows.Count; i++)
+            {
+                //Convert.ToString(dg_IpoApproval.Rows[i].Cells["Customer"].Value) == cust_Code && 
+                if (Convert.ToString(dg_IpoApproval.Rows[i].Cells["Bank_Name"].Value) == bank
+                    && Convert.ToString(dg_IpoApproval.Rows[i].Cells["Cheque_No"].Value) == cheque && Convert.ToString(dg_IpoApproval.Rows[i].Cells["Routing_No"].Value) == routing)
+                {
+                    dg_IpoApproval.Rows[i].Selected = true;
+                }
+            }
+        }
+        
+        //private void SelectedSameVoucher(string VoucherNo)
+        //{
+        //    for(int i=0; i<dg_IpoApproval.Rows.Count;i++)
+        //    {
+        //        if(Convert.ToString(dg_IpoApproval.Rows[i].Cells["Voucher No"].Value)==VoucherNo)
+        //          dg_IpoApproval.Rows[i].Selected=true;
+        //    }
+        //    //dg_IpoApproval.MultiSelect = false;
+        //}
+
+        private void SelectSameMoneyTransId(string cust_Code)
+        {
+            for (int i = 0; i < dg_IpoApproval.Rows.Count; i++)
+            {
+                if (Convert.ToString(dg_IpoApproval.Rows[i].Cells["Transaction_Ref_Id"].Value) == cust_Code)
+                    dg_IpoApproval.Rows[i].Selected = true;
+            }
+        }
+
+        private void SelectSameCustCodeandAmount(string Cust_Code, string appid)
+        {
+            for (int i = 0; i < dg_IpoApproval.Rows.Count; i++)
+            {
+                if(
+                    Convert.ToString(dg_IpoApproval.Rows[i].Cells["Customer"].Value)==Cust_Code
+                    //&&(Convert.ToString(dg_IpoApproval.Rows[i].Cells["Amount"].Value)==Amount)
+                    &&Convert.ToString(dg_IpoApproval.Rows[i].Cells["Application Id"].Value)==appid)
+                {
+                    dg_IpoApproval.Rows[i].Selected = true;
+                }
+            }
+        }
+        private void SelectSameCustCodeandAmount(string voucher)
+        {
+            for (int i = 0; i < dg_IpoApproval.Rows.Count; i++)
+            {
+                if (Convert.ToString(dg_IpoApproval.Rows[i].Cells["Voucher No"].Value) == voucher)                     
+                {
+                    dg_IpoApproval.Rows[i].Selected = true;
+                }
+            }
+        }
+
+        private void SelectSamepaymentIDAndVoucherNoForMultitransfer(string paymentId, string voucher,string select)
+        {
+            for (int i = 0; i < dg_IpoApproval.Rows.Count; i++)
+            {
+                if (Convert.ToString(dg_IpoApproval.Rows[i].Cells["PaymentPosting_ID"].Value) == paymentId
+                    &&Convert.ToString(dg_IpoApproval.Rows[i].Cells["SelectionID"].Value)==select
+                    && Convert.ToString(dg_IpoApproval.Rows[i].Cells["Voucher_No_Selection"].Value) == voucher)
+                {
+                    dg_IpoApproval.Rows[i].Selected = true;
+                }
+            }
+        }
+        private void SelectSamepaymentIDAndVoucherNoForMultitransfer(string voucher)
+        {
+            for (int i = 0; i < dg_IpoApproval.Rows.Count; i++)
+            {
+                if (Convert.ToString(dg_IpoApproval.Rows[i].Cells["Voucher_No_Selection"].Value) == voucher)
+                {
+                    dg_IpoApproval.Rows[i].Selected = true;
+                }
+            }
+        }
+
+
+        private void ApplyReject()
+        {
+            if (MenuName == Indication_Forms_Title.IPOSingleTransferApproval)
+            {
+                int transID_IPOACC = 0;
+                int transID_TRADEACC = 0;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+                }
+
+                ipoBal.Rejected_Single_Transfer_MoneyTransaction(transID_TRADEACC, transID_IPOACC, string.Empty);
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOCheck_Clearence)
+            {
+                int transID_AppID = 0;
+                int transID_TransID = 0;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                string[] transRefIdList = null;
+                string Payment_Media = string.Empty;
+
+                if (dg_IpoApproval.Rows.Count > 0)
+                {
+                    transRefIdList = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Select(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value))
+                        .Distinct().ToArray();
+                }
+                foreach (string refIDTemp in transRefIdList)
+                {
+                    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+
+                    transID_AppID = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp && Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION")
+                        .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                    transID_TransID = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp && Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                       .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                    Payment_Media = dg_IpoApproval.Rows.Cast<DataGridViewRow>().ToList()
+                    .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp && Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                    .Select(t => Convert.ToString(t.Cells["Transaction_type"].Value)).FirstOrDefault();
+                    try
+                    {
+                        ipoBal.ConnectDatabase();
+                        
+                        ipoBal.ChequeUnClear_MoneyTransaction_UITransApplied(transID_TransID, GlobalVariableBO._userName);
+                        //var cust_Code = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                        //                    .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                        //                    .Select(t => Convert.ToString(t.Cells["Customer"].Value)).FirstOrDefault();
+                        //var AppAmount = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                        //                    .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION")
+                        //                    .Select(t => Convert.ToString(t.Cells["Total_Amount"].Value)).FirstOrDefault();
+                        //var IpoBalance = ipoBal.GetIPOCustomerBalance_FroAppApproval_UITransApplied(cust_Code);
+
+                        //if (Convert.ToDouble(AppAmount) > Convert.ToDouble(IpoBalance))
+                        //    throw new Exception("Insufficient Balance");
+                        //var rows = dg_IpoApproval.Rows.Cast<DataGridViewRow>().ToList()
+                        //        .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp).ToArray();
+
+                        //Business_Validation_Execution(rows);
+                        ipoBal.Rejected_IPOApplication_UITransApplied(transID_AppID, GlobalVariableBO._userName, "Cheque Uncleared");
+                        ipoBal.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        ipoBal.RollBack();
+                        throw ex;
+                    }
+                    finally
+                    {
+                        ipoBal.CloseDatabase();
+                    }
+                }
+            }
+            //else if (MenuName == Indication_Forms_Title.Ipo_Cheque_Clear_UnClear)
+            //{
+            //    //string transid = "";
+            //    //IPOProcessBAL bal = new IPOProcessBAL();
+            //    //if (dg_IpoApproval.SelectedRows.Count > 0)
+            //    //{
+            //    //    transid = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+            //    //        .Where(T => Convert.ToString(T.Cells["Money_TransactionType_Name"].Value) == "Cheque")
+            //    //        .Select(c => Convert.ToString(c.Cells["ID"].Value)).FirstOrDefault();
+            //    //    bal.IpoAppliccationAndchequeReject(transid);
+            //    //}
+            //}
+            else if (MenuName == Indication_Forms_Title.IPOMultiTransferApproval)
+            {
+                string[] transID_IPOACC = null;
+                string[] transID_TRADEACC = null;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+                }
+
+                ipoBal.Rejected_Mulit_Transfer_MoneyTransaction(transID_TRADEACC, transID_IPOACC, string.Empty);
+            }
+            else if (MenuName == Indication_Forms_Title.IPODepositApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                int transID = 0;
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    transID = Convert.ToInt32(dg_IpoApproval.SelectedRows[0].Cells["ID"].Value);
+                }
+                string ApprovedBy = GlobalVariableBO._userName;
+
+                ipoBal.Rejected_Single_NonTransfer_MoneyTransaction(transID, ApprovedBy, string.Empty);
+            }
+            else if (MenuName == Indication_Forms_Title.IPOWithdrawApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                int appID = 0;
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    appID = Convert.ToInt32(dg_IpoApproval.SelectedRows[0].Cells["ID"].Value);
+                }
+                string ApprovedBy = GlobalVariableBO._userName;
+
+                ipoBal.Rejected_Single_NonTransfer_MoneyTransaction(appID, ApprovedBy, string.Empty);
+            }
+            else if (MenuName == Indication_Forms_Title.IPOAppApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                int appID = 0;
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    appID = Convert.ToInt32(dg_IpoApproval.SelectedRows[0].Cells["ID"].Value);
+                }
+                string ApprovedBy = GlobalVariableBO._userName;
+
+                ipoBal.Rejected_IPOApplication(appID, ApprovedBy,string.Empty);
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOSingleTransferBackApproval)
+            {
+                int transID_IPOACC = 0;
+                int transID_TRADEACC = 0;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+                }
+
+                ipoBal.Rejected_Single_TransferBack_MoneyTransaction(transID_TRADEACC, transID_IPOACC, string.Empty);
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMultiTransferBackApproval)
+            {
+                string[] transID_IPOACC = null;
+                string[] transID_TRADEACC = null;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+                }
+
+                ipoBal.Rejected_Multi_TransferBack_MoneyTransaction(transID_TRADEACC, transID_IPOACC, string.Empty);
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMoneyDeposit_ApplyTogther)
+            {
+                int transID_APP = 0;
+                int transID_TRANS = 0;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                string Payment_Media = string.Empty;
+
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    Payment_Media = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                    .Where(t => Convert.ToString(t.Cells["Transaction_type"].Value) != "")
+                    .Select(t => Convert.ToString(t.Cells["Transaction_type"].Value)).FirstOrDefault();
+
+                    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+                    transID_APP = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION")
+                        .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                    transID_TRANS = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                       .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                    
+                        try
+                        {
+                            ipoBal.ConnectDatabase();
+                            
+                            ipoBal.Rejected_Single_NonTransfer_MoneyTransaction(transID_TRANS, GlobalVariableBO._userName, string.Empty);
+                            //var cust_Code = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                            //                    .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                            //                    .Select(t => Convert.ToString(t.Cells["Customer"].Value)).FirstOrDefault();
+                            //var AppAmount = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                            //                    .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION")
+                            //                    .Select(t => Convert.ToString(t.Cells["Total_Amount"].Value)).FirstOrDefault();
+                            //var IpoBalance = ipoBal.GetIPOCustomerBalance_FroAppApproval_UITransApplied(cust_Code);
+
+                            //if (Convert.ToDouble(AppAmount) > Convert.ToDouble(IpoBalance))
+                            //    throw new Exception("Insufficient Balance");
+                            Business_Validation_Execution(dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToArray());
+
+                            ipoBal.Rejected_IPOApplication(transID_APP, GlobalVariableBO._userName,"Money Transaction Rejected");
+                            //ipoBal.Insert_Into_93Account_Deposit_UITrans(transID_TRANS);
+                            ipoBal.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            ipoBal.RollBack();
+                            throw ex;
+                        }
+                        finally
+                        {
+                            ipoBal.CloseDatabase();
+                        }
+                   
+                }
+            }
+        }
+
+        private void ApplyApprove()
+        {
+            if (MenuName == Indication_Forms_Title.IPOSingleTransferApproval)
+            {
+                int transID_IPOACC = 0;
+                int transID_TRADEACC = 0;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+                    
+                }
+                try
+                {
+                    ipoBal.ConnectDatabase();
+                    ipoBal.Approved_Single_Transfer_MoneyTransaction_UITransApplied(transID_TRADEACC, transID_IPOACC);
+                    ipoBal.Insert_Into_71Account_Deposit_UITransApplied(new string[] { Convert.ToString(transID_IPOACC) });
+                    ipoBal.Commit();
+                }
+                catch (Exception ex)
+                {
+                    ipoBal.RollBack();
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();
+                }
+
+            }            
+            else if (MenuName == Indication_Forms_Title.Ipo_single_Deposit_approval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                int transID = 0;
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    transID = Convert.ToInt32(dg_IpoApproval.SelectedRows[0].Cells["ID"].Value);
+                }
+                string ApprovedBy = GlobalVariableBO._userName;
+
+                try
+                {
+                    ipoBal.ConnectDatabase();                    
+                    ipoBal.Approved_Single_NonTransfer_MoneyTransaction_UITransApplied(transID, ApprovedBy);
+                    ipoBal.Insert_Into_71Account_Deposit_UITransApplied(new string[] { Convert.ToString(transID) });
+                }
+                catch (Exception ex)
+                {
+                    ipoBal.RollBack();
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPOCheck_Clearence)
+            {
+                int transID_APP = 0;
+                int transID_TRANS = 0;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                string Payment_Media = string.Empty;
+                var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+
+                if (temp.Count > 0)
+                {
+                    Payment_Media = temp.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                       .Select(c => Convert.ToString(c.Cells["Transaction_type"].Value)).Distinct().SingleOrDefault();                  
+                    if (Payment_Media == Indication_IPOPaymentTransaction.Cheque)
+                    {
+                        try
+                        {
+                            string[] Cust_Codes = temp.Cast<DataGridViewRow>()
+                                .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                                .Select(c => Convert.ToString(c.Cells["Customer"].Value)).ToArray();
+
+                            var ChargedAccount_Cust_Code = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                                                .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION"
+                                                    && Convert.ToString(t.Cells["Trans_Reason"].Value) == Indication_TransactioBasedCharge.GroupEntry_ChargedAccount_TransReason)
+                                                 .Select(t => Convert.ToString(t.Cells["Customer"].Value)).FirstOrDefault();
+
+                            var Deposit_Parent_ID = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                                                .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION"
+                                                    && Convert.ToString(t.Cells["Trans_Reason"].Value) == Indication_TransactioBasedCharge.GroupEntry_ChargedAccount_TransReason)
+                                                .Select(t => Convert.ToInt32(t.Cells["ID"].Value)).FirstOrDefault();
+
+                            Double DepositAmount = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                                                   .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                                                   .Select(t => Convert.ToDouble(t.Cells["Amount"].Value)).Sum();
+
+                            PaymentInfoBAL paybal = new PaymentInfoBAL();
+                            double ChargedAmount = paybal.GetTransactionBasedCharges_ChargeAmount(Indication_TransactioBasedCharge.BankClearing, DepositAmount);
+
+                            ipoBal.ConnectDatabase();
+
+                            foreach (var cust_CodeTemp in Cust_Codes)
+                            {
+                                transID_APP = temp.Cast<DataGridViewRow>()
+                                   .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION"
+                                        && Convert.ToString(t.Cells["Customer"].Value) == cust_CodeTemp)
+                                   .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                                transID_TRANS = temp.Cast<DataGridViewRow>()
+                                   .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION"
+                                        && Convert.ToString(t.Cells["Customer"].Value) == cust_CodeTemp)
+                                   .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                                ipoBal.ChequeClear_MoneyTransaction_UITransApplied(transID_TRANS, GlobalVariableBO._userName);
+                                ipoBal.Insert_Into_71Account_Deposit_UITransApplied(new string[] { Convert.ToString(transID_TRANS) });
+
+                                var AppAmount = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                                                   .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION"
+                                                        && Convert.ToString(t.Cells["Customer"].Value) == cust_CodeTemp)
+                                                   .Select(t => Convert.ToString(t.Cells["Total_Amount"].Value)).FirstOrDefault();
+
+                                var IpoBalance = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(cust_CodeTemp);
+
+                                if (Convert.ToDouble(AppAmount) > Convert.ToDouble(IpoBalance))
+                                    throw new Exception("Insufficient Balance");
+                                //Business_Validation_Execution(dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToArray());
+
+                                ipoBal.Approved_IPOApplication_UITransApplied(transID_APP, GlobalVariableBO._userName);
+                                //ipoBal.Insert_Into_93Account_Deposit_UITrans(new string[] { Convert.ToString(transID_TRANS) });
+                            }
+                            var IpoBalance_ChargedAccount = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(ChargedAccount_Cust_Code);
+
+
+                            if (Convert.ToDouble(ChargedAmount) > Convert.ToDouble(IpoBalance_ChargedAccount))
+                                throw new Exception("Insufficient Balance For Charge Withdraw");
+                            //Business_Validation_Execution(dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToArray());
+                            CommonBAL objBal = new CommonBAL();
+                            int InsertIdentity = ipoBal.Inesert_TransactionBasedCharge_Withdraw_UITransApplied(
+                                    Indication_TransactioBasedCharge.BankClearing
+                                    , ChargedAccount_Cust_Code
+                                    , ChargedAmount
+                                    , objBal.GetCurrentServerDate()
+                                    , Deposit_Parent_ID);
+                            ipoBal.Insert_Into_71Account_Deposit_UITransApplied(new string[] { Convert.ToString(InsertIdentity) });
+
+                            ipoBal.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            ipoBal.RollBack();
+                            throw ex;
+                        }
+                        finally
+                        {
+                            ipoBal.CloseDatabase();
+                        }
+                    }
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMultiTransferApproval)
+            {
+                string[] transID_IPOACC = null;
+                string[] transID_TRADEACC = null;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+                }
+                try
+                {
+                    ipoBal.ConnectDatabase();
+                    ipoBal.Approved_Multi_Transfer_MoneyTransaction_UITransApplied(transID_TRADEACC, transID_IPOACC);
+                    ipoBal.Insert_Into_71Account_Deposit_UITransApplied(transID_IPOACC.Select(t => Convert.ToString(t)).ToArray());
+                    ipoBal.Commit();
+                }
+                catch (Exception ex)
+                {
+                    ipoBal.RollBack();
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();               
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPODepositApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                int transID = 0;
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    transID = Convert.ToInt32(dg_IpoApproval.SelectedRows[0].Cells["ID"].Value);
+                }
+                string ApprovedBy = GlobalVariableBO._userName;
+                try
+                {
+                    ipoBal.ConnectDatabase();
+                    ipoBal.Approved_Single_NonTransfer_MoneyTransaction_UITransApplied(transID, ApprovedBy);
+                    ipoBal.Insert_Into_71Account_Deposit_UITransApplied(new string[] { Convert.ToString(transID) });
+                    ipoBal.Commit();
+                }
+                catch (Exception ex)
+                {
+                    ipoBal.RollBack();
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();
+                }
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOWithdrawApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                int transID = 0;
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    transID = Convert.ToInt32(dg_IpoApproval.SelectedRows[0].Cells["ID"].Value);
+                }
+                string ApprovedBy = GlobalVariableBO._userName;
+                try
+                {
+                    ipoBal.ConnectDatabase();
+                    ipoBal.Approved_Single_NonTransfer_MoneyTransaction_UITransApplied(transID, ApprovedBy);
+                    ipoBal.Insert_Into_71Account_Withdraw_UITransApplied(new string[] { Convert.ToString(transID) });
+                    ipoBal.Commit();
+                }
+                catch (Exception ex)
+                {
+                    ipoBal.RollBack();
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();
+                }
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOAppApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                int appID = 0;
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    appID = Convert.ToInt32(dg_IpoApproval.SelectedRows[0].Cells["ID"].Value);
+                }
+                string ApprovedBy = GlobalVariableBO._userName;
+
+                ipoBal.Approved_IPOApplication(appID, ApprovedBy);
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOSingleTransferBackApproval)
+            {
+                int transID_IPOACC = 0;
+                int transID_TRADEACC = 0;
+                string Payment_Media = string.Empty;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+                    
+                    Payment_Media = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                   .Where(t => Convert.ToString(t.Cells["Payment Method"].Value) != "")
+                   .Select(t => Convert.ToString(t.Cells["Payment Method"].Value)).FirstOrDefault();
+                    
+                }
+                try
+                {
+                    ipoBal.ConnectDatabase();
+                    ipoBal.Approved_Single_TransferBack_MoneyTransaction_UITransApplied(transID_TRADEACC, transID_IPOACC);
+                    ipoBal.Insert_Into_71Account_Withdraw_UITransApplied(new string[] { Convert.ToString(transID_IPOACC) });
+                    ipoBal.Commit();
+                }
+                catch (Exception ex)
+                {
+                    ipoBal.RollBack();
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();
+                }
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMultiTransferBackApproval)
+            {
+                string[] transID_IPOACC = null;
+                string[] transID_TRADEACC = null;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+                }
+                try
+                {
+                    ipoBal.ConnectDatabase();
+                    ipoBal.Approved_Multi_TransferBack_MoneyTransaction(transID_TRADEACC, transID_IPOACC);
+                    ipoBal.Insert_Into_71Account_Withdraw_UITransApplied(transID_IPOACC.Select(t => Convert.ToString(t)).ToArray());
+                    ipoBal.Commit();
+                }
+                catch (Exception ex)
+                {
+                    ipoBal.RollBack();
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();
+                }
+            }
+
+            else if (MenuName == Indication_Forms_Title.IPOWithdrawalSingleApproval)
+            {
+                int transID_IPOACC = 0;
+                int transID_TRADEACC = 0;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+                }
+                try
+                {
+                    ipoBal.ConnectDatabase();
+                    ipoBal.Approved_Single_TransferWithdraw_MoneyTransaction_UITransApplied(transID_TRADEACC, transID_IPOACC);
+                    ipoBal.Insert_Into_71Account_Withdraw_UITransApplied(new string[] { Convert.ToString(transID_IPOACC) });
+                    ipoBal.Commit();
+                }
+                catch (Exception ex)
+                {
+                    ipoBal.RollBack();
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();
+                }
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOWithdrawalMultiApproval)
+            {
+                string[] transID_IPOACC = null;
+                string[] transID_TRADEACC = null;
+                string[] trnasID_Deposit = null;
+                string[] transID_Withdraw = null;
+                string WithdrawpaymentMedia = "";
+                string DepositPaymentMedia = "";
+
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    WithdrawpaymentMedia = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                  .Where(p => Convert.ToString(p.Cells["AccountName"].Value) == "IPOTOIPOWITHDRAW")
+                  .Select(c => Convert.ToString(c.Cells["Payment Method"].Value)).First();
+
+                    DepositPaymentMedia = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                      .Where(P => Convert.ToString(P.Cells["AccountName"].Value) == "IPOTOIPODEPOSIT")
+                      .Select(c => Convert.ToString(c.Cells["Payment Method"].Value)).First();
+
+                    if (WithdrawpaymentMedia == DepositPaymentMedia)
+                    {
+                        trnasID_Deposit = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                           .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOTOIPODEPOSIT")
+                           .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+                        transID_Withdraw = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                            .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOTOIPOWITHDRAW")
+                            .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+
+                    }
+                    else
+                    {
+                        var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+                        transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                            .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                            .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+
+                        transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                           .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                           .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+                    }
+                }
+                try
+                {
+                    ipoBal.ConnectDatabase();
+                    if (DepositPaymentMedia == WithdrawpaymentMedia)
+                    {
+                        string DepositId_JointText = string.Join(",", trnasID_Deposit);
+                        string WithdrawID_JoinText = string.Join(",", transID_Withdraw);
+                        string JoinID = DepositId_JointText + "," + WithdrawID_JoinText;
+                        ipoBal.Approved_Multi_Transfer_MoneyTransaction(JoinID);
+                        ipoBal.Insert_Into_71Account_Withdraw_UITransApplied( JoinID.Split(',').ToArray());
+                    }
+                    else
+                    {
+                        ipoBal.Approved_Multi_TransferWithdraw_MoneyTransaction(transID_TRADEACC, transID_IPOACC);
+                        ipoBal.Insert_Into_71Account_Withdraw_UITransApplied(transID_IPOACC.Select(t => Convert.ToString(t)).ToArray());
+
+                    }
+                    ipoBal.Commit();
+                }
+                catch (Exception ex)
+                {
+                    ipoBal.RollBack();
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMoneyDeposit_ApplyTogther)
+            {
+                int transID_APP ;
+                int transID_TRANS ;
+                int transID_TRADEACC;
+                int transID_CHARGE;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                string[] Payment_Media ;
+                var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+
+                if (temp.Count > 0)
+                {
+                    Payment_Media = temp.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                       .Select(c => Convert.ToString(c.Cells["Transaction_type"].Value)).ToArray();
+
+                    if (Payment_Media.Distinct().Count()==1 && Payment_Media.Distinct().FirstOrDefault() == Indication_IPOPaymentTransaction.Cheque)
+                    {
+                        try
+                        {
+                            string[] Cust_Codes = temp.Cast<DataGridViewRow>()
+                                .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                                .Select(c => Convert.ToString(c.Cells["Customer"].Value)).ToArray();
+
+                            ipoBal.ConnectDatabase();
+
+                            foreach (var cust_CodeTemp in Cust_Codes)
+                            {
+                                transID_APP = temp.Cast<DataGridViewRow>()
+                                   .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION"
+                                        && Convert.ToString(t.Cells["Customer"].Value) == cust_CodeTemp)
+                                   .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                                transID_TRANS = temp.Cast<DataGridViewRow>()
+                                   .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION"
+                                        && Convert.ToString(t.Cells["Customer"].Value) == cust_CodeTemp)
+                                   .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                                transID_CHARGE = temp.Cast<DataGridViewRow>()
+                                    .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "CHARGE"
+                                         && Convert.ToString(t.Cells["Customer"].Value) == cust_CodeTemp)
+                                    .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                                ipoBal.Approved_Single_NonTransfer_MoneyTransaction_UITransApplied(transID_TRANS, GlobalVariableBO._userName);
+                                ipoBal.Insert_Into_71Account_Deposit_UITransApplied(new string[] { Convert.ToString(transID_TRANS) });
+
+                                if (transID_CHARGE != 0)
+                                {
+                                    ipoBal.Approved_Single_NonTransfer_MoneyTransaction_UITransApplied(transID_CHARGE, GlobalVariableBO._userName);
+                                    ipoBal.Insert_Into_71Account_Deposit_UITransApplied(new string[] { Convert.ToString(transID_CHARGE) });
+                                }
+
+                                //Commented By Shahrior on 07 Jan 2015
+
+                                //var AppAmount = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                                //                   .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION"
+                                //                        && Convert.ToString(t.Cells["Customer"].Value) == cust_CodeTemp)
+                                //                   .Select(t => Convert.ToString(t.Cells["Total_Amount"].Value)).FirstOrDefault();
+
+                                //var IpoBalance = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(cust_CodeTemp);
+
+                                //if (Convert.ToDouble(AppAmount) > Convert.ToDouble(IpoBalance))
+                                //    throw new Exception("Insufficient Balance");                        
+
+                                //ipoBal.Approved_IPOApplication_UITransApplied(transID_APP, GlobalVariableBO._userName);
+
+                                //-------------------------------------
+
+                            }
+                            ipoBal.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            ipoBal.RollBack();
+                            throw ex;
+                        }
+                        finally
+                        {
+                            ipoBal.CloseDatabase();
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+
+                            string[] Cust_Codes = temp.Cast<DataGridViewRow>()
+                                .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                                .Select(c => Convert.ToString(c.Cells["Customer"].Value)).ToArray();
+
+                            ipoBal.ConnectDatabase();
+
+                            foreach (var cust_CodeTemp in Cust_Codes)
+                            {
+                                transID_APP = temp.Cast<DataGridViewRow>()
+                                    .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION"
+                                        && Convert.ToString(t.Cells["Customer"].Value) == cust_CodeTemp)
+                                    .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                                transID_TRANS = temp.Cast<DataGridViewRow>()
+                                   .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION"
+                                        && Convert.ToString(t.Cells["Customer"].Value) == cust_CodeTemp)
+                                   .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                                ipoBal.Approved_Single_NonTransfer_MoneyTransaction_UITransApplied(transID_TRANS, GlobalVariableBO._userName);
+                                
+                                ipoBal.Insert_Into_71Account_Deposit_UITransApplied(new string[] { Convert.ToString(transID_TRANS) });
+
+                                var AppAmount = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                                                   .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION"
+                                                        && Convert.ToString(t.Cells["Customer"].Value) == cust_CodeTemp)
+                                                   .Select(t => Convert.ToString(t.Cells["Total_Amount"].Value)).FirstOrDefault();
+
+                                var IpoBalance = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(cust_CodeTemp);
+
+                                if (Convert.ToDouble(AppAmount) > Convert.ToDouble(IpoBalance))
+                                    throw new Exception("Insufficient Balance");
+                                //Business_Validation_Execution(dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToArray());
+
+                                ipoBal.Approved_IPOApplication_UITransApplied(transID_APP, GlobalVariableBO._userName);
+                                
+                            }
+                            ipoBal.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            ipoBal.RollBack();
+                            throw ex;
+                        }
+                        finally
+                        {
+                            ipoBal.CloseDatabase();
+                        }
+                    }
+                    
+                }
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPODepositSingleTransfer_ApplyTogther)
+            {
+#region  Block By Sharior For New Ariival              
+                //var selectRows=dg_IpoApproval.SelectedRows;
+                //int transID_IPOACC = 0;
+                //int transID_TRADEACC = 0;
+                //int App_ID = 0;
+                //string[] TrnsId_To_TransId_IPoAcc = null;
+                //IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                //if (dg_IpoApproval.SelectedRows.Count > 0)
+                //{
+                //    //if ((dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "IPOACC")
+                //    //    || (dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "TRADEACC"))
+                //    //{
+                //        transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                //            .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                //            .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+
+                //        transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                //           .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                //           .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+                //        App_ID = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                //           .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                //           .Select(c => Convert.ToInt32(c.Cells["Application Id"].Value)).SingleOrDefault();
+                //    //}
+                //    //else
+                //    //{
+                //    //    TrnsId_To_TransId_IPoAcc = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                //    //        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOtoIPO")
+                //    //        .Select(c => Convert.ToString(c.Cells["Application Id"].Value)).ToArray();
+                //    //    App_ID = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                //    //      .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATIONTrtoIPO")
+                //    //      .Select(c => Convert.ToInt32(c.Cells["Application Id"].Value)).SingleOrDefault();
+                //    //}
+                //}
+                //try
+                //{
+                //    ipoBal.ConnectDatabase();
+
+                //    ipoBal.Approved_Single_Transfer_MoneyTransaction_UITransApplied(transID_TRADEACC, transID_IPOACC);
+                //    //if (transID_IPOACC != 0 && transID_TRADEACC != 0 && App_ID != 0)
+                //    //{
+                //    //    //ipoBal.Rejected_Single_Transfer_MoneyTransaction(transID_TRADEACC, transID_IPOACC, string.Empty);
+                //    //    ipoBal.Approved_Single_Transfer_MoneyTransaction_UITransApplied(transID_TRADEACC, transID_IPOACC);
+                //    //}
+                //    //else
+                //    //{
+                //    //    ipoBal.Approved_Single_Transfer_MoneyTransaction_UITransApplied(TrnsId_To_TransId_IPoAcc);
+                //    //}
+                //    double amountTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                //                    .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOACC")
+                //                .Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).First(); ;
+                //    string custCodeTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                //        .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOACC")
+                //     .Select(c => Convert.ToString(c.Cells["Customer"].Value)).First();
+                
+                //    double balanceIPOAccount = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(custCodeTemp);
+                //    if (!(amountTemp <= balanceIPOAccount))
+                //    {
+                //        throw new Exception("Insufficient Balance");
+                //    }
+                //    ipoBal.Approved_IPOApplication_UITransApplied(App_ID, GlobalVariableBO._userName);
+                //    ipoBal.Commit();
+                //}
+                //catch (Exception ex)
+                //{
+                //    ipoBal.RollBack();
+                //    throw new Exception(ex.Message);
+                //}
+                //finally
+                //{
+                //    ipoBal.CloseDatabase();
+                //}
+#endregion
+
+                var selectRows = dg_IpoApproval.SelectedRows;
+                int transID_IPOACC = 0;
+                int transID_TRADEACC = 0;
+                int App_ID = 0;
+
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+                    App_ID = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToInt32(c.Cells["Application Id"].Value)).SingleOrDefault();
+
+                }
+                try
+                {
+                    ipoBal.ConnectDatabase();
+
+                    double Trade_amountTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                                   .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "TRADEACC")
+                               .Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).First();
+                    string Trade_custCodeTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                        .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "TRADEACC")
+                     .Select(c => Convert.ToString(c.Cells["Customer"].Value)).First();
+
+                    double IPO_amountTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                                    .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOACC")
+                                .Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).First();
+                    string IPO_custCodeTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                        .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOACC")
+                     .Select(c => Convert.ToString(c.Cells["Customer"].Value)).First();
+
+                    PaymentInfoBAL P_Bal = new PaymentInfoBAL();
+                    /*************Added By Sharior Vai ON 27-Jan-2015*************/
+                    P_Bal.SetConnection(ipoBal.GetConnection());
+                    /***********************************************/
+                    /*************Added By Md.Rashedul Hasan ON 27-Jan-2015*********************/
+                    foreach (DataRow dr in P_Bal.GetCurrentBalanceInfo_Uitrans(Trade_custCodeTemp).Rows)
+                    {
+                        double Current_Balance = Convert.ToDouble(dr["Current_Balance"]);
+                        double Deduct500CurrentBalance = Convert.ToDouble(dr["CurrentMoneyDeduct500"]);
+                        double Approve_Pending_Balance = Convert.ToDouble(dr["Approve_And_Pending_Balance"]);
+                        double Pending_Deposit = Convert.ToDouble(dr["Pending_Deposit"]);
+                        double Pending_Withdraw = Convert.ToDouble(dr["Pending_Withdraw"]);
+                        if (!(Trade_amountTemp <= Deduct500CurrentBalance))
+                        {
+                            throw new Exception("Insufficient Balance For this Customer : " + Trade_custCodeTemp + "\nCurrent Balance is : " + Current_Balance + "\n Available Withdraw Balance is : " + Deduct500CurrentBalance + "\n Present Blance is : " + Approve_Pending_Balance + "\n Deposit Pending Balance is : " + Pending_Deposit + "\n Withdraw Pending Blance is : " + Pending_Withdraw);
+                        }
+                    }
+
+                    ipoBal.Approved_Single_Transfer_MoneyTransaction_UITransApplied(transID_TRADEACC, transID_IPOACC);
+                    ipoBal.Insert_Into_71Account_Deposit_UITransApplied(new string[] { Convert.ToString(transID_IPOACC) });
+
+                    double balanceIPOAccount = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(IPO_custCodeTemp);
+                    if (!(IPO_amountTemp <= balanceIPOAccount))
+                    {
+                        throw new Exception("Insufficient Balance");
+                    }
+                    ipoBal.Approved_IPOApplication_UITransApplied(App_ID, GlobalVariableBO._userName);
+                    ipoBal.Commit();
+                }
+                catch (Exception ex)
+                {
+                    ipoBal.RollBack();
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPODepositMultiTransfer_ApplyTogther)
+            {
+                #region Updated By shahrior For New Arriving
+                ///Updated By shahrior For New Arriving
+                ///*Added by Rashedul on 06 jan 2015*/
+                //string[] transID_IPOACC = null;
+                //string[] transID_TRADEACC = null;
+                //string[] app_Id = null;
+                //string[] TrnsId_To_TransId_IPoAcc = null;
+                //double amountTemp = 0.00;
+                //double[] ParentAmount=null;
+                //string[] custCodeTemp = null;
+                //string[] ParentWithDrawchek=null;
+                //string[] childWithdrawCheck = null;
+                //string IPOACC = dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString();
+                //string TRADEACC = dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString();
+                //string Application = dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString();
+                //IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                //if (dg_IpoApproval.SelectedRows.Count > 0)
+                //{
+                //    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+                //    if ((dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "IPOACC")
+                //        || (dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "TRADEACC")
+                //        || (dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "APPLICATION"))
+                //    {
+                //        transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                //            .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                //            .Select(c => Convert.ToString(c.Cells["ID"].Value)).Distinct().ToArray();
+
+                //        transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                //           .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                //           .Select(c => Convert.ToString(c.Cells["PaymentPosting_ID"].Value)).Distinct().ToArray();
+
+                //        /*Added by Rashedul on 06 jan 2015*/
+
+                //        app_Id = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                //            .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION")
+                //            .Select(c => Convert.ToString(c.Cells["ID"].Value)).Distinct().ToArray();
+                //        amountTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                //                   .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOACC")
+                //               .Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).First(); ;
+                //        custCodeTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                //           .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOACC")
+                //        .Select(c => Convert.ToString(c.Cells["Customer"].Value)).ToArray();
+                //    }
+                //    else if ((dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "IPOtoIPO")
+                //        || (dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "IPOtoIPO")
+                //        || (dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "TRIPOAPPLICATION"))
+                //    {
+                //        TrnsId_To_TransId_IPoAcc = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                //            .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOtoIPO")
+                //            .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+                //        app_Id = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                //          .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRIPOAPPLICATION")
+                //          .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+
+                //        /*Added by Rashedul on 06 jan 2015*/
+
+                //         ParentAmount = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                //           .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOtoIPO" && Convert.ToString(c.Cells["Deposit/Withdraw"].Value) == "Withdraw")
+                //           .OrderBy(t=> Convert.ToString(t.Cells["Customer"].Value))
+                //           .Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).ToArray();
+                //        amountTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                //                   .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOtoIPO")
+                //               .Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).First(); ;
+                //        ParentWithDrawchek = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                //           .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOtoIPO" && Convert.ToString(c.Cells["Deposit/Withdraw"].Value) == "Withdraw")
+                //           .OrderBy(t => Convert.ToString(t.Cells["Customer"].Value))
+                //           .Select(c => Convert.ToString(c.Cells["Customer"].Value)).ToArray();
+                //        childWithdrawCheck = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                //          .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOtoIPO" && Convert.ToString(c.Cells["Deposit/Withdraw"].Value) == "Deposit")
+                //       .Select(c => Convert.ToString(c.Cells["Customer"].Value)).ToArray();
+                //    }
+                //}
+                //try
+                //{
+                //    ipoBal.ConnectDatabase();
+                //    if (transID_IPOACC != null && transID_TRADEACC != null)
+                //    {
+                //        //Need To Update Check Trade Account Balance
+                //        ipoBal.Approved_Multi_Transfer_MoneyTransaction_UITransApplied(transID_TRADEACC, transID_IPOACC);
+                //        foreach (string s in custCodeTemp)
+                //        {
+                //            double balanceIPOAccount = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(s);
+                //            if (!(amountTemp <= balanceIPOAccount))
+                //            {
+                //                throw new Exception("Insufficient Balance");
+                //            }                           
+                //        }
+
+                //    }
+                //    //ipoBal.Insert_Into_93Account_Deposit_UITrans(transID_IPOACC);
+                //    else
+                //    {
+                        
+                //        for(int i=0; i<ParentAmount.Length; i++)
+                //        {
+                //            double balanceIPOAccount = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(ParentWithDrawchek[i]);
+                            
+                //            if (!(ParentAmount[i] <= balanceIPOAccount))
+                //            {
+                //                throw new Exception("Insufficient Balance");
+                //            }
+                //        }
+                    
+                //        ipoBal.Approved_Single_Transfer_MoneyTransaction_UITransApplied(TrnsId_To_TransId_IPoAcc);
+                       
+                //        foreach (string s in childWithdrawCheck)
+                //        {
+                //            double balanceIPOAccount = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(s);
+                //            if (!(amountTemp <= balanceIPOAccount))
+                //            {
+                //                throw new Exception("Insufficient Balance");
+                //            }
+                //        }
+                //    }                    
+
+                //    foreach (string id in app_Id)
+                //    {
+                //        ipoBal.Approved_IPOApplication_UITransApplied(Convert.ToInt32(id), GlobalVariableBO._userName);
+                //    }
+                    
+                //    ipoBal.Commit();
+                //}
+                //catch (Exception ex)
+                //{
+                //    ipoBal.RollBack();
+                //    throw new Exception(ex.Message);
+                //}
+                //finally
+                //{
+                //    ipoBal.CloseDatabase();
+                //}
+                //-----------------------------------------------------------
+                #endregion
+                /*Added by Rashedul on 06 jan 2015*/
+                string[] transID_IPOACC = null;
+                string[] transID_TRADEACC = null;
+                string[] app_Id = null;
+                string[] TrnsId_To_TransId_IPoAcc = null;
+                string Trade_Cust_Code = "";
+                double Trade_Amount = 0.00;
+                double amountTemp = 0.00;
+                double[] ParentAmount = null;
+                string[] custCodeTemp = null;
+                string[] ParentWithDrawchek = null;
+                string[] childWithdrawCheck = null;
+                string IPOACC = dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString();
+                string TRADEACC = dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString();
+                string Application = dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString();
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                if (dg_IpoApproval.SelectedRows.Count > 0)
+                {
+                    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+                    if ((dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "IPOACC")
+                        || (dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "TRADEACC")
+                        || (dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "APPLICATION"))
+                    {
+                        transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                            .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                            .Select(c => Convert.ToString(c.Cells["ID"].Value)).Distinct().ToArray();
+
+                        transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                           .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                           .Select(c => Convert.ToString(c.Cells["PaymentPosting_ID"].Value)).Distinct().ToArray();
+
+                        /*Added by Rashedul on 06 jan 2015*/
+
+                        app_Id = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                            .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION")
+                            .Select(c => Convert.ToString(c.Cells["ID"].Value)).Distinct().ToArray();
+                        amountTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                                   .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOACC")
+                               .Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).First();
+                        custCodeTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                           .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToString(c.Cells["Customer"].Value)).ToArray();
+
+                        Trade_Cust_Code = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                           .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                           .Select(c => Convert.ToString(c.Cells["Customer"].Value)).FirstOrDefault();
+                        Trade_Amount = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                           .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                           .Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).First();
+
+                    }
+                    else if ((dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "IPOtoIPO")
+                        || (dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "IPOtoIPO")
+                        || (dg_IpoApproval.CurrentRow.Cells["AccountName"].Value.ToString() == "TRIPOAPPLICATION"))
+                    {
+                        TrnsId_To_TransId_IPoAcc = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                            .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "IPOtoIPO")
+                            .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+                        app_Id = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                          .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRIPOAPPLICATION")
+                          .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+
+                        /*Added by Rashedul on 06 jan 2015*/
+
+                        ParentAmount = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                          .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOtoIPO" && Convert.ToString(c.Cells["Deposit/Withdraw"].Value) == "Withdraw")
+                          .OrderBy(t => Convert.ToString(t.Cells["Customer"].Value))
+                          .Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).ToArray();
+                        amountTemp = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                                   .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOtoIPO")
+                               .Select(c => Convert.ToDouble(c.Cells["Amount"].Value)).First(); ;
+                        ParentWithDrawchek = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                           .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOtoIPO" && Convert.ToString(c.Cells["Deposit/Withdraw"].Value) == "Withdraw")
+                           .OrderBy(t => Convert.ToString(t.Cells["Customer"].Value))
+                           .Select(c => Convert.ToString(c.Cells["Customer"].Value)).ToArray();
+                        childWithdrawCheck = dg_IpoApproval.SelectedRows.OfType<DataGridViewRow>()
+                          .Where(c => Convert.ToString(c.Cells["AccountName"].Value) == "IPOtoIPO" && Convert.ToString(c.Cells["Deposit/Withdraw"].Value) == "Deposit")
+                       .Select(c => Convert.ToString(c.Cells["Customer"].Value)).ToArray();
+                    }
+                }
+                try
+                {
+                    ipoBal.ConnectDatabase();
+                    if (transID_IPOACC != null && transID_TRADEACC != null)
+                    {
+                        //Need To Update Check Trade Account Balance
+                        PaymentInfoBAL P_Bal = new PaymentInfoBAL();
+                        /*************Added By Sharior Vai ON 27-Jan-2015*************/
+                        P_Bal.SetConnection(ipoBal.GetConnection());
+                        /***********************************************/
+                        /*************Added By Md.Rashedul Hasan ON 27-Jan-2015*********************/
+                        foreach (DataRow dr in P_Bal.GetCurrentBalanceInfo_Uitrans(Trade_Cust_Code).Rows)
+                        {
+                            double Current_Balance = Convert.ToDouble(dr["Current_Balance"]);
+                            double Deduct500CurrentBalance = Convert.ToDouble(dr["CurrentMoneyDeduct500"]);
+                            double Approve_Pending_Balance = Convert.ToDouble(dr["Approve_And_Pending_Balance"]);
+                            double Pending_Deposit = Convert.ToDouble(dr["Pending_Deposit"]);
+                            double Pending_Withdraw = Convert.ToDouble(dr["Pending_Withdraw"]);
+                            if (!(Trade_Amount <= Deduct500CurrentBalance))
+                            {
+                                throw new Exception("Insufficient Balance For this Customer : " + Trade_Amount + "\nCurrent Balance is : " + Current_Balance + "\n Available Withdraw Balance is : " + Deduct500CurrentBalance + "\n Present Blance is : " + Approve_Pending_Balance + "\n Deposit Pending Balance is : " + Pending_Deposit + "\n Withdraw Pending Blance is : " + Pending_Withdraw);
+                            }
+                        }
+
+                        ipoBal.Approved_Multi_Transfer_MoneyTransaction_UITransApplied(transID_TRADEACC, transID_IPOACC);
+                        ipoBal.Insert_Into_71Account_Deposit_UITransApplied(transID_IPOACC.Select(t=> Convert.ToString(t)).ToArray());
+                        
+                        foreach (string s in custCodeTemp)
+                        {
+                            double balanceIPOAccount = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(s);
+                            if (!(amountTemp <= balanceIPOAccount))
+                            {
+                                throw new Exception("Insufficient Balance");
+                            }
+                        }
+
+                    }
+                    //ipoBal.Insert_Into_93Account_Deposit_UITrans(transID_IPOACC);
+                    else
+                    {
+
+                        for (int i = 0; i < ParentAmount.Length; i++)
+                        {
+                            double balanceIPOAccount = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(ParentWithDrawchek[i]);
+
+                            if (!(ParentAmount[i] <= balanceIPOAccount))
+                            {
+                                throw new Exception("Insufficient Balance");
+                            }
+                        }
+
+                        ipoBal.Approved_Single_Transfer_MoneyTransaction_UITransApplied(TrnsId_To_TransId_IPoAcc);
+                        ipoBal.Insert_Into_71Account_Deposit_UITransApplied(TrnsId_To_TransId_IPoAcc.Select(t => Convert.ToString(t)).ToArray());
+
+                        foreach (string s in childWithdrawCheck)
+                        {
+                            double balanceIPOAccount = ipoBal.GetIPOCustomerBalance_ForApplication_UITransApply(s);
+                            if (!(amountTemp <= balanceIPOAccount))
+                            {
+                                throw new Exception("Insufficient Balance");
+                            }
+                        }
+                    }
+
+                    foreach (string id in app_Id)
+                    {
+                        ipoBal.Approved_IPOApplication_UITransApplied(Convert.ToInt32(id), GlobalVariableBO._userName);
+                    }
+
+                    ipoBal.Commit();
+                }
+                catch (Exception ex)
+                {
+                    ipoBal.RollBack();
+                    throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    ipoBal.CloseDatabase();
+                }
+            }
+           
+        }
+       
+        private double GetTransactionChargeAmount(string ChangeName,double Amount)
+        {
+            double result=0.00;
+            PaymentInfoBAL bal=new PaymentInfoBAL();
+            result=bal.GetTransactionBasedCharges_ChargeAmount(ChangeName,Amount);
+            return result;
+        }
+
+        //private void ChargeApply()
+        //{
+        //    #region Check Charge Apply
+        //    double doubleTryParse = 0;
+        //    double Charge_Rate = 0;
+        //    double Charge_Amount = 0;
+        //    bool isChargeApplied = true; ;
+
+        //    double selected_Requisition_Amount = 0;
+        //    PaymentInfoBAL bal = new PaymentInfoBAL();
+        //    PaymentInfoBO payInfoBo = new PaymentInfoBO();
+        //    DataTable dt = new DataTable();
+
+        //    IPOApprovalBAL ChargeBal = new IPOApprovalBAL();
+        //    dt = ChargeBal.GetCharegeList();
+        //    if (double.TryParse(dg_IpoApproval.Rows[0].Cells["Amount"].Value.ToString(), out doubleTryParse))
+        //    {
+        //        selected_Requisition_Amount = doubleTryParse;
+        //    }
+        //    int ChargeId = dt.Rows.Cast<DataRow>()
+        //        .Where(t => Convert.ToInt32(t["Minimum_Effective_Amount"]) >= doubleTryParse)
+        //        .Select(c => Convert.ToInt32(c["Charge_ID"])).FirstOrDefault();
+        //    string ChargeName = dt.Rows.Cast<DataRow>()
+        //        .Where(t => Convert.ToInt32(t["Minimum_Effective_Amount"]) >= doubleTryParse)
+        //        .Select(c => Convert.ToString(c["Charge_Name"])).FirstOrDefault();
+
+
+        //    selected_Requisition_Amount = doubleTryParse;
+        //    dt = ChargeBal.GetIPOTransactionBasedCharges(ChargeId, Indication_TransactioBasedCharge.BankClearing, selected_Requisition_Amount);
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        string ChargeType = Indication_TransactioBasedCharge.ChargeTypeList.Where(t => t.Key == ChargeName).Select(t => t.Value).SingleOrDefault();
+        //        string TransReason = Indication_TransactioBasedCharge.TransReasonList.Where(t => t.Key == ChargeName).Select(t => t.Value).SingleOrDefault();
+
+        //        if (ChargeType == Indication_TransactioBasedCharge.Charge_Rate)
+        //        {
+        //            if (double.TryParse(dt.Rows[0]["Charge_Rate"].ToString(), out doubleTryParse))
+        //                Charge_Rate = doubleTryParse;
+        //        }
+        //        else if (ChargeType == Indication_TransactioBasedCharge.Charge_Amount)
+        //        {
+        //            if (double.TryParse(dt.Rows[0]["Charge_Amount"].ToString(), out doubleTryParse))
+        //                Charge_Amount = doubleTryParse;
+        //        }
+
+        //        if ((ChargeType == Indication_TransactioBasedCharge.Charge_Amount && Charge_Amount == 0) || (ChargeType == Indication_TransactioBasedCharge.Charge_Rate && Charge_Rate == 0))
+        //            isChargeApplied = false;
+
+        //        if (Indication_TransactioBasedCharge.ExceptionString.GetValues(Indication_TransactioBasedCharge.BankClearing).ToList().Contains(payInfoBo.BankName))
+        //            isChargeApplied = false;
+        //    }
+        //    if (isChargeApplied == true)
+        //    {
+        //        string code=dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+        //            .Where(t=>Convert.ToString(t.Cells["Transaction_type"].Value)=="Cheque")
+        //            .Select(c=>Convert.ToString(c.Cells["Customer"].Value)).FirstOrDefault();
+        //        string voucher=dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+        //            .Where(t=>Convert.ToString(t.Cells["Voucher"].Value)=="Cheque")
+        //            .Select(c=>Convert.ToString(c.Cells["Customer"].Value)).FirstOrDefault();
+        //        ChargeBal.Insert_Cheque_Charge("88", "Deposit", voucher, code);
+        //    }
+        //    #endregion
+        //}
+
+        private void ApplyApproveAll()
+        {
+            if (MenuName == Indication_Forms_Title.IPOSingleTransferApproval)
+            {
+                int transID_IPOACC = 0;
+                int transID_TRADEACC = 0;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                string[] voucherList = null;
+                if (dg_IpoApproval.Rows.Count > 0)
+                {
+                    voucherList = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                        .Select(t => Convert.ToString(t.Cells["Voucher No"].Value))
+                        .Distinct().ToArray();
+                }
+                foreach (string voucherTemp in voucherList)
+                {
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                            .Where(t => Convert.ToString(t.Cells["Voucher No"].Value) == voucherTemp && Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                            .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                         .Where(t => Convert.ToString(t.Cells["Voucher No"].Value) == voucherTemp && Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                            .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+
+                    ipoBal.Approved_Single_Transfer_MoneyTransaction(transID_TRADEACC, transID_IPOACC);
+                }
+
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMultiTransferApproval)
+            {
+                string[] transID_IPOACC = null;
+                string[] transID_TRADEACC = null;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                string[] voucherList = null;
+                if (dg_IpoApproval.Rows.Count > 0)
+                {
+                    voucherList = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                        .Select(t => Convert.ToString(t.Cells["Voucher No"].Value))
+                        .Distinct().ToArray();
+                }
+                foreach (string voucherTemp in voucherList)
+                {
+                    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["Voucher No"].Value) == voucherTemp && Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["Voucher No"].Value) == voucherTemp && Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+                    ipoBal.Approved_Multi_Transfer_MoneyTransaction(transID_TRADEACC, transID_IPOACC);
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPODepositApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                int transID = 0;
+                foreach (DataGridViewRow dr in dg_IpoApproval.Rows)
+                {
+                    transID = Convert.ToInt32(dr.Cells["ID"].Value);
+
+                    string ApprovedBy = GlobalVariableBO._userName;
+
+                    ipoBal.Approved_Single_NonTransfer_MoneyTransaction(transID, ApprovedBy);
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPOWithdrawApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                int transID = 0;
+                foreach (DataGridViewRow dr in dg_IpoApproval.Rows)
+                {
+                    transID = Convert.ToInt32(dr.Cells["ID"].Value);
+
+                    string ApprovedBy = GlobalVariableBO._userName;
+
+                    ipoBal.Approved_Single_NonTransfer_MoneyTransaction(transID, ApprovedBy);
+                }
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOAppApproval)
+            {
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                int appID = 0;
+                foreach (DataGridViewRow dr in dg_IpoApproval.Rows)
+                {
+                    appID = Convert.ToInt32(dr.Cells["ID"].Value);
+
+                    string ApprovedBy = GlobalVariableBO._userName;
+
+                    ipoBal.Approved_IPOApplication(appID, ApprovedBy);
+                }
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOSingleTransferBackApproval)
+            {
+                int transID_IPOACC = 0;
+                int transID_TRADEACC = 0;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                string[] voucherList = null;
+                if (dg_IpoApproval.Rows.Count > 0)
+                {
+                    voucherList = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                        .Select(t => Convert.ToString(t.Cells["Voucher No"].Value))
+                        .Distinct().ToArray();
+                }
+                foreach (string voucherTemp in voucherList)
+                {
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                            .Where(t => Convert.ToString(t.Cells["Voucher No"].Value) == voucherTemp && Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                            .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                         .Where(t => Convert.ToString(t.Cells["Voucher No"].Value) == voucherTemp && Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                            .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).SingleOrDefault();
+
+                    ipoBal.Approved_Single_TransferBack_MoneyTransaction(transID_TRADEACC, transID_IPOACC);
+                }
+
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMultiTransferBackApproval)
+            {
+                string[] transID_IPOACC = null;
+                string[] transID_TRADEACC = null;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                string[] voucherList = null;
+                if (dg_IpoApproval.Rows.Count > 0)
+                {
+                    voucherList = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                        .Select(t => Convert.ToString(t.Cells["Voucher No"].Value))
+                        .Distinct().ToArray();
+                }
+                foreach (string voucherTemp in voucherList)
+                {
+                    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+                    transID_IPOACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["Voucher No"].Value) == voucherTemp && Convert.ToString(t.Cells["AccountName"].Value) == "IPOACC")
+                        .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+
+                    transID_TRADEACC = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["Voucher No"].Value) == voucherTemp && Convert.ToString(t.Cells["AccountName"].Value) == "TRADEACC")
+                       .Select(c => Convert.ToString(c.Cells["ID"].Value)).ToArray();
+                    ipoBal.Approved_Multi_TransferBack_MoneyTransaction(transID_TRADEACC, transID_IPOACC);
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPOMoneyDeposit_ApplyTogther)
+            {
+                int transID_AppID = 0;
+                int transID_TransID = 0;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                string[] transRefIdList = null;
+                string Payment_Media = string.Empty;
+                if (dg_IpoApproval.Rows.Count > 0)
+                {
+                    transRefIdList = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                        .Select(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value))
+                        .Distinct().ToArray();
+                }
+                foreach (string refIDTemp in transRefIdList)
+                {
+                    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+
+                    transID_AppID = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp && Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION")
+                        .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                    transID_TransID = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp && Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                       .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                    Payment_Media = dg_IpoApproval.Rows.Cast<DataGridViewRow>().ToList()
+                    .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp && Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                    .Select(t => Convert.ToString(t.Cells["Transaction_type"].Value)).FirstOrDefault();
+
+
+                    if (!(Payment_Media == Indication_IPOPaymentTransaction.Cheque))
+                    {
+                        try
+                        {
+                            ipoBal.ConnectDatabase();
+                            
+                            ipoBal.Approved_Single_NonTransfer_MoneyTransaction_UITransApplied(transID_TransID, GlobalVariableBO._userName);
+                            //var cust_Code = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                            //                    .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                            //                    .Select(t => Convert.ToString(t.Cells["Customer"].Value)).FirstOrDefault();
+                            //var AppAmount = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                            //                    .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION")
+                            //                    .Select(t => Convert.ToString(t.Cells["Total_Amount"].Value)).FirstOrDefault();
+                            //var IpoBalance = ipoBal.GetIPOCustomerBalance_FroAppApproval_UITransApplied(cust_Code);
+
+                            //if (Convert.ToDouble(AppAmount) > Convert.ToDouble(IpoBalance))
+                            //    throw new Exception("Insufficient Balance");
+                            var rows = dg_IpoApproval.Rows.Cast<DataGridViewRow>().ToList()
+                                .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp).ToArray();
+
+                            Business_Validation_Execution(rows);
+
+                            ipoBal.Approved_IPOApplication_UITransApplied(transID_AppID, GlobalVariableBO._userName);
+                            ipoBal.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            ipoBal.RollBack();
+                            throw ex;
+                        }
+                        finally
+                        {
+                            ipoBal.CloseDatabase();
+                        }
+                    }
+                    else if (Payment_Media == Indication_IPOPaymentTransaction.Cheque)
+                    {
+                        try
+                        {
+                            ipoBal.ConnectDatabase();
+                            
+                            ipoBal.Approved_Single_NonTransfer_MoneyTransaction_UITransApplied(transID_TransID, GlobalVariableBO._userName);
+                            ipoBal.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            ipoBal.RollBack();
+                            throw ex;
+                        }
+                        finally
+                        {
+                            ipoBal.CloseDatabase();
+                        }
+                    }
+                }
+            }
+            else if (MenuName == Indication_Forms_Title.IPOCheck_Clearence)
+            {
+                int transID_AppID = 0;
+                int transID_TransID = 0;
+                IPOApprovalBAL ipoBal = new IPOApprovalBAL();
+                string[] transRefIdList = null;
+                string Payment_Media = string.Empty;
+
+                if (dg_IpoApproval.Rows.Count > 0)
+                {
+                    transRefIdList = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                        .Select(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value))
+                        .Distinct().ToArray();
+                }
+                foreach (string refIDTemp in transRefIdList)
+                {
+                    var temp = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList();
+
+                    transID_AppID = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                        .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp && Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION")
+                        .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                    transID_TransID = dg_IpoApproval.Rows.Cast<DataGridViewRow>()
+                       .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp && Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                       .Select(c => Convert.ToInt32(c.Cells["ID"].Value)).FirstOrDefault();
+
+                    Payment_Media = dg_IpoApproval.Rows.Cast<DataGridViewRow>().ToList()
+                    .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp && Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                    .Select(t => Convert.ToString(t.Cells["Transaction_type"].Value)).FirstOrDefault();
+                    try
+                    {
+                        ipoBal.ConnectDatabase();
+                        
+                        ipoBal.ChequeClear_MoneyTransaction_UITransApplied(transID_TransID, GlobalVariableBO._userName);
+                        //var cust_Code = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                        //                    .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "TRANSACTION")
+                        //                    .Select(t => Convert.ToString(t.Cells["Customer"].Value)).FirstOrDefault();
+                        //var AppAmount = dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToList()
+                        //                    .Where(t => Convert.ToString(t.Cells["AccountName"].Value) == "APPLICATION")
+                        //                    .Select(t => Convert.ToString(t.Cells["Total_Amount"].Value)).FirstOrDefault();
+                        //var IpoBalance = ipoBal.GetIPOCustomerBalance_FroAppApproval_UITransApplied(cust_Code);
+
+                        //if (Convert.ToDouble(AppAmount) > Convert.ToDouble(IpoBalance))
+                        //    throw new Exception("Insufficient Balance");
+                        var rows = dg_IpoApproval.Rows.Cast<DataGridViewRow>().ToList()
+                                .Where(t => Convert.ToString(t.Cells["Transaction_Ref_Id"].Value) == refIDTemp).ToArray();
+
+                        Business_Validation_Execution(rows);
+                        ipoBal.Approved_IPOApplication_UITransApplied(transID_AppID, GlobalVariableBO._userName);
+                        ipoBal.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        ipoBal.RollBack();
+                        throw ex;
+                    }
+                    finally
+                    {
+                        ipoBal.CloseDatabase();
+                    }
+                }
+            }
+        }
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dg_IpoApproval.Rows.Count > 0)
+                {
+                    Business_Validation_Execution(dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToArray());
+                }
+                ApplyApprove();
+                MessageBox.Show("Succesfully Approved!!");
+                LoadGrid();
+                LoadGridMode();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void btnFetch_Click(object sender, EventArgs e)
+        {
+            LoadGrid();
+            LoadGridMode();
+        }
+
+        private void btnReject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ApplyReject();
+                MessageBox.Show("Succesfully Rejected!!");
+                LoadGrid();
+                LoadGridMode();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAcceptAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dg_IpoApproval.Rows.Count > 0)
+                {
+                    dg_IpoApproval.SelectAll();
+                    Business_Validation_Execution(dg_IpoApproval.SelectedRows.Cast<DataGridViewRow>().ToArray());
+                }
+                ApplyApproveAll();
+                MessageBox.Show("Succesfully Approved!!");
+                LoadGrid();
+                LoadGridMode();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void dg_IpoApproval_SelectionChanged(object sender, EventArgs e)
+        {
+            var selectedRows = dg_IpoApproval.SelectedRows;
+
+            if (selectedRows.Count > 0)
+            {
+
+                if (MenuName == Indication_Forms_Title.IPOMultiTransferApproval || MenuName == Indication_Forms_Title.IPOMultiTransferBackApproval || MenuName == Indication_Forms_Title.IPOWithdrawalMultiApproval)
+                {
+                    string SelectionID = "";
+                    string voucher_Temp = Convert.ToString(selectedRows[0].Cells["Voucher No"].Value);
+                    if (MenuName == Indication_Forms_Title.IPOWithdrawalMultiApproval)
+                    {
+                        SelectionID = Convert.ToString(selectedRows[0].Cells["SelectionID"].Value);
+                        SelectedSameVoucher(voucher_Temp, SelectionID);
+                    }
+                    else
+                    {
+                        SelectedSameVoucher(voucher_Temp);
+                    }
+                    //string voucher_Temp = Convert.ToString(selectedRows[0].Cells["Voucher No"].Value);
+                    //SelectedSameVoucher(voucher_Temp);
+                }
+                else if (MenuName == Indication_Forms_Title.IPOSingleTransferApproval || MenuName == Indication_Forms_Title.IPOSingleTransferBackApproval || MenuName == Indication_Forms_Title.IPOWithdrawalSingleApproval)
+                {
+                    if (MenuName == Indication_Forms_Title.IPOWithdrawalSingleApproval)
+                    {
+                        string PostingId = Convert.ToString(selectedRows[0].Cells["SelectionID"].Value);
+                        SelectedSameVoucher(PostingId);
+                    }
+                    else
+                    {
+                        string voucher_Temp = Convert.ToString(selectedRows[0].Cells["Voucher No"].Value);
+                        SelectedSameVoucher(voucher_Temp);
+                    }
+                    //string voucher_Temp = Convert.ToString(selectedRows[0].Cells["Voucher No"].Value);
+                    //SelectedSameVoucher(voucher_Temp);
+                }
+                else if (MenuName == Indication_Forms_Title.IPOMoneyDeposit_ApplyTogther || MenuName == Indication_Forms_Title.IPOCheck_Clearence)
+                {
+                    string bankName = selectedRows[0].Cells["Bank_Name"].Value.ToString();
+                    string RoutingNo = selectedRows[0].Cells["Routing_No"].Value.ToString();
+                    string ChequeNo = selectedRows[0].Cells["Cheque_No"].Value.ToString();
+                    if (ChequeNo != "" && RoutingNo != "" && bankName != "")
+                    {
+                        SelectSameBankRoutingCheque(bankName, RoutingNo, ChequeNo);
+                    }
+                    else
+                    {
+                        string montransId = Convert.ToString(selectedRows[0].Cells["Transaction_Ref_Id"].Value);
+                        SelectSameMoneyTransId(montransId);
+                    }
+                }
+                else if (MenuName == Indication_Forms_Title.IPODepositSingleTransfer_ApplyTogther)
+                {
+                    string Cust_Code = selectedRows[0].Cells["Customer"].Value.ToString();
+                    //string Amount = selectedRows[0].Cells["Amount"].Value.ToString();
+                    string AppId = selectedRows[0].Cells["Application Id"].Value.ToString();
+                    string voucher = selectedRows[0].Cells["Voucher No"].Value.ToString();
+                    
+                    if (String.IsNullOrEmpty(voucher))
+                    {
+                        
+                        SelectSameCustCodeandAmount(Cust_Code, AppId);
+                    }
+                    else
+                    {
+                        SelectSameCustCodeandAmount(voucher);
+                    }
+                }
+                else if (MenuName == Indication_Forms_Title.IPODepositMultiTransfer_ApplyTogther)
+                {
+                    string PaymentId = "";
+                    string voucher = "";
+                    string SelectionID = "";
+                    string AccountName = selectedRows[0].Cells["AccountName"].Value.ToString();
+                    //if (AccountName == "TRADEACC" || AccountName == "APPLICATION" || AccountName == "IPOACC")
+                    //{
+                    //    PaymentId = selectedRows[0].Cells["PaymentPosting_ID"].Value.ToString();
+                    //    voucher = selectedRows[0].Cells["Voucher_No_Selection"].Value.ToString();
+                        SelectionID = selectedRows[0].Cells["SelectionID"].Value.ToString();
+                    //    SelectSamepaymentIDAndVoucherNoForMultitransfer(PaymentId, voucher, SelectionID);
+                    //}
+                    // if (AccountName == "TRIPOAPPLICATION" || AccountName == "IPOtoIPO")
+                    //{
+                        voucher = selectedRows[0].Cells["Voucher_No_Selection"].Value.ToString();
+                        SelectSamepaymentIDAndVoucherNoForMultitransfer(voucher);
+                    //}
+
+
+                }
+            }
+        }
+
+        private void dg_IpoApproval_DataSourceChanged(object sender, EventArgs e)
+        {
+            lbl_dgIpoApp.Text ="Count: "+dg_IpoApproval.Rows.Count;
+        }        
+    }
+}

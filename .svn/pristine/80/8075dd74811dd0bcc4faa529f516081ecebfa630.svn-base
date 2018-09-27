@@ -1,0 +1,140 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using DataAccessLayer;
+using System.Data;
+
+namespace BusinessAccessLayer.BAL
+{
+   public class IPOApplicationSuccessfulUnSuccessful
+    {
+        private DbConnection _dbconnection;
+        public IPOApplicationSuccessfulUnSuccessful()
+        {
+            this._dbconnection = new DbConnection();
+        }
+
+        public DataTable IPOSingleApplicationReport(DateTime FromDate, DateTime ToDate, string Status, string Company,int BranchId)
+        {
+            DataTable dt = new DataTable();
+            string query = @"Rpt_IPOSingleApplication_Process";
+            //string query = @"exec Rpt_IPOSingleApplication_Process " + Convert.ToInt32(Company) + ",'" + FromDate.ToShortDateString() + "','" + ToDate.ToShortDateString() + "','" + Status + "'," + BranchId + "";
+            try
+            {
+                _dbconnection.ConnectDatabase();
+                _dbconnection.ActiveStoredProcedure();
+                _dbconnection.AddParameter("@Session_ID", SqlDbType.Int, Company);
+                _dbconnection.AddParameter("@Start_Date", SqlDbType.Date, FromDate.ToShortDateString());
+                _dbconnection.AddParameter("@End_Date", SqlDbType.Date, ToDate.ToShortDateString());
+                _dbconnection.AddParameter("@Application_Status", SqlDbType.VarChar, Status);
+                _dbconnection.AddParameter("@Branch_Id", SqlDbType.Int, BranchId);
+                dt = _dbconnection.ExecuteProQuery(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _dbconnection.CloseDatabase();
+            }
+            return dt;
+        }
+
+        public DataTable IPOSuccessfulUnsuccessfulApplication(string _Status,string applied,string code)
+        {
+             
+             string query = @"RptIPOSuccessfulApplication";
+             
+            DataTable dt = new DataTable();
+            
+            try
+            {
+                this._dbconnection.ConnectDatabase();
+                this._dbconnection.ActiveStoredProcedure();
+                this._dbconnection.AddParameter("@Application_Status", SqlDbType.VarChar, _Status);
+                this._dbconnection.AddParameter("@Applied_Company", SqlDbType.VarChar, applied);
+                this._dbconnection.AddParameter("@Csut_Code", SqlDbType.VarChar, code);
+                if (code != null)
+                {
+                    dt = this._dbconnection.ExecuteProQuery(query);
+                }
+                else
+                {
+                    dt = this._dbconnection.ExecuteProQuery(query);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this._dbconnection.CloseDatabase();
+            }
+            return dt;
+        }
+        public DataTable GetIpoStatusNmae()
+        {
+            DataTable dt = new DataTable();
+            string query = @"Select 'All' As [Status_Name]
+                            Union all
+                            select Status_Name from dbo.SBP_IPO_Approval_Status order by Status_Name asc";
+            try
+            {
+                this._dbconnection.ConnectDatabase();
+                dt = this._dbconnection.ExecuteQuery(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this._dbconnection.CloseDatabase();
+
+            }
+            return dt;
+        }
+
+        public DataTable GetPublicApplicationIssue(string _code, string Company)
+        {
+            DataTable dt = new DataTable();
+            string query = @"IpoApplicationForPublicIssue";
+            try
+            {
+                this._dbconnection.ConnectDatabase();
+                this._dbconnection.ActiveStoredProcedure();
+                this._dbconnection.AddParameter("@Cust_Code",SqlDbType.VarChar, _code);
+                this._dbconnection.AddParameter("@Company_Name", SqlDbType.VarChar, Company);
+                dt = this._dbconnection.ExecuteProQuery(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this._dbconnection.CloseDatabase();
+            }
+            return dt;
+        }
+        public DataTable GetAllIpoCustomerCode()
+        {
+            DataTable dt = new DataTable();
+            string query = @"SELECT distinct [Cust_Code] FROM [SBP_IPO_Application_BasicInfo] ORDER BY [Cust_Code] ASC";
+            try
+            {
+                _dbconnection.ConnectDatabase();
+                dt = _dbconnection.ExecuteQuery(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return dt;
+        }
+    }
+    
+}

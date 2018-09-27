@@ -1,0 +1,361 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BusinessAccessLayer.BAL;
+using BusinessAccessLayer.Constants;
+
+namespace StockbrokerProNewArch
+{
+    public partial class frmApprovedPaymentOCC : Form
+    {
+        public frmApprovedPaymentOCC()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmApprovedPaymentOCC_Load(object sender, EventArgs e)
+        {
+            GetBranchLIst();
+            ShowDatagridViewInfo();
+        }
+
+        private void GetBranchLIst()
+        {
+            try
+            {
+                CommonInfoBal objComm = new CommonInfoBal();
+                DataTable data = new DataTable();
+
+                data = objComm.GetBranchList();
+
+
+                DataRow dr = data.NewRow();
+                dr["Branch_ID"] = "0";
+                dr["Branch_Name"] = "All";
+                data.Rows.InsertAt(dr, 0);
+           
+                ddlBranchList.DataSource = data;
+                ddlBranchList.DisplayMember = "Branch_Name";
+                ddlBranchList.ValueMember = "Branch_ID";
+                
+               
+                
+                
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void rbtPaymentDate_CheckedChanged(object sender, EventArgs e)
+        {
+            ShowDatagridViewInfo();
+        }
+
+        private void ShowDatagridViewInfo()
+        {
+            try
+            {
+                PaymentOOC objPaymentOCCBAL = new PaymentOOC();
+                DataTable data = new DataTable();
+
+                int branchId = GetValidationID();
+                data = objPaymentOCCBAL.GetApprovedableInfoBybranch(branchId);
+
+                dgvPaymentOOcInfo.DataSource = data;
+                dgvPaymentOOcInfo.Columns[0].Visible = false;
+                dgvPaymentOOcInfo.Columns["Period"].DefaultCellStyle.Format = "yyyy";
+                dgvPaymentOOcInfo.Columns["Period"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                dgvPaymentOOcInfo.Columns["Date"].DefaultCellStyle.Format = "dd-MMM-yyyy";
+                dgvPaymentOOcInfo.Columns["Date"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+
+                dgvPaymentOOcInfo.Columns["Amount Tk."].DefaultCellStyle.Format = "N";
+                dgvPaymentOOcInfo.Columns["Amount Tk."].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+
+
+                lblTotalRecord.Text = "Total Record : " + dgvPaymentOOcInfo.Rows.Count.ToString();
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+       
+        private void btnApproved_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(dgvPaymentOOcInfo.Rows.Count>0)
+                {
+                    if(MessageBox.Show("Do you want to Approved this Information.","",MessageBoxButtons.YesNo,MessageBoxIcon.Information)==DialogResult.Yes)
+                    {
+                        PaymentOOC occ = new PaymentOOC();
+                        string custCode = string.Empty;
+                        string voucherNo = string.Empty;
+                        string Mediatype = string.Empty;
+                        string OnlineID = string.Empty;
+
+                        custCode = Convert.ToString(dgvPaymentOOcInfo.SelectedRows[0].Cells[2].Value.ToString());
+                        string PaymentOCCId = dgvPaymentOOcInfo.SelectedRows[0].Cells[0].Value.ToString();
+                        voucherNo = dgvPaymentOOcInfo.SelectedRows[0].Cells["Voucher"].Value.ToString();
+                        Mediatype = dgvPaymentOOcInfo.SelectedRows[0].Cells["Media_Type"].Value.ToString();
+                        OnlineID = dgvPaymentOOcInfo.SelectedRows[0].Cells["OnlineOrderNo"].Value.ToString();
+
+                        if (occ.IsReceivedBoOpen(PaymentOCCId, voucherNo))
+                        {
+                            MessageBox.Show("Already Payment Received");
+                            return;
+                        }
+                        if (Mediatype.ToUpper() == ("Email").ToUpper())
+                        {
+                            EmailSyncBAL objEmailSyncBAL = new EmailSyncBAL();
+                            objEmailSyncBAL.UPDATE_TAXCertification(Convert.ToInt32(OnlineID), "2");
+                        }
+                        if (voucherNo != Indication_Fixed_VoucherNo_TransReason.OCC_VoucherNo)
+                        {
+                            ApprovedPaymentOcc(PaymentOCCId, voucherNo);
+                            MessageBox.Show("Secessfully Approved this Information.", "", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                        }
+                        else if (voucherNo == Indication_Fixed_VoucherNo_TransReason.OCC_VoucherNo)
+                        {
+                            ApprovedPaymentOcc(PaymentOCCId, voucherNo);
+                            MessageBox.Show("Secessfully Approved this Information.", "", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                        }
+                       
+                        ShowDatagridViewInfo();
+
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("No Information is Exists.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ApprovedPaymentOcc(string PaymentOccId,string voucherNo)
+        {
+            try
+            {
+                PaymentOOC objPaymentOccBAL=new PaymentOOC();
+                //if (objPaymentOccBAL.IsTRPaymentOOC(PaymentOccId) == true)
+                if (voucherNo==Indication_Fixed_VoucherNo_TransReason.OCC_VoucherNo)
+                {
+                    objPaymentOccBAL.ApprovedPaymentOCCTRInformationByVoucherNo(PaymentOccId);
+                }
+                else
+                {
+                    objPaymentOccBAL.ApprovedPaymentOCCByID(PaymentOccId);
+                }
+                
+               
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        
+
+        private void RejectedReasonOCC(int PaymentOCCId,string Reason,string voucherNo)
+        {
+            try
+            {
+                PaymentOOC objPaymentOccBAL = new PaymentOOC();
+                objPaymentOccBAL.RejectedPaymentOccByID(PaymentOCCId, Reason, voucherNo);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnApprovedAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvPaymentOOcInfo.Rows.Count > 0)
+                {
+                    if (MessageBox.Show("Do you want to Approved All the Information.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        for(int i=0; i<dgvPaymentOOcInfo.Rows.Count;++i)
+                        {
+                            string voucherNo = string.Empty;
+                            string PaymentOCCId =dgvPaymentOOcInfo.Rows[i].Cells[0].Value.ToString();
+                            voucherNo = dgvPaymentOOcInfo.Rows[i].Cells["Voucher"].Value.ToString();
+                            ApprovedPaymentOcc(PaymentOCCId, voucherNo);
+                        }
+                        
+                        MessageBox.Show("Secessfully Approved All the Information.", "", MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+                        ShowDatagridViewInfo();
+
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("No Information is Exists.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnRejected_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(dgvPaymentOOcInfo.Rows.Count>0)
+                {
+                    if (MessageBox.Show("Do you want to Rejected this Information.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        frmRejectedReasonPaymentOCC objReajed = new frmRejectedReasonPaymentOCC();
+                        objReajed.VoucherNo = dgvPaymentOOcInfo.SelectedRows[0].Cells["Voucher"].Value.ToString();
+                        objReajed.ShowDialog();
+
+                        if (objReajed.RejectedReault == DialogResult.Yes)
+
+                        {
+                            int paymentOOCId = Int32.Parse(dgvPaymentOOcInfo.SelectedRows[0].Cells[0].Value.ToString());
+                            string Reason = objReajed.RejectedReason;
+                            RejectedReasonOCC(paymentOOCId, Reason, objReajed.VoucherNo);
+                            MessageBox.Show("Secessfully Rejected this Information.", "", MessageBoxButtons.OK,
+                                            MessageBoxIcon.Information);
+                            ShowDatagridViewInfo();
+
+
+                        }
+
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("No information is Exist.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+              
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnRejectedAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvPaymentOOcInfo.Rows.Count > 0)
+                {
+                    if (MessageBox.Show("Do you want to Rejected All the Information.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    {
+                        frmRejectedReasonPaymentOCC objReajed = new frmRejectedReasonPaymentOCC();
+                        objReajed.VoucherNo = dgvPaymentOOcInfo.SelectedRows[0].Cells["Voucher"].Value.ToString();
+                        objReajed.ShowDialog();
+
+                        if (objReajed.RejectedReault == DialogResult.Yes)
+                        {
+                           
+                            string Reason = objReajed.RejectedReason;
+
+                            for (int i = 0; i < dgvPaymentOOcInfo.Rows.Count;++i )
+                            {
+                                int paymentOOCId = Int32.Parse(dgvPaymentOOcInfo.Rows[i].Cells[0].Value.ToString());
+                                RejectedReasonOCC(paymentOOCId, Reason, objReajed.VoucherNo);
+                            }
+
+                           
+                            MessageBox.Show("Secessfully Rejected this Information.", "", MessageBoxButtons.OK,
+                                            MessageBoxIcon.Information);
+                            ShowDatagridViewInfo();
+
+
+                        }
+
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("No information is Exist.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+       
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            ShowDatagridViewInfo();
+        }
+
+        private void ddlBranchList_ValueMemberChanged(object sender, EventArgs e)
+        {
+            ShowDatagridViewInfo();
+        }
+
+        private int GetValidationID()
+        {
+            int ValidationId = 0;
+
+            if (Int32.TryParse(ddlBranchList.SelectedValue.ToString(), out ValidationId) == false)
+                ValidationId = 0;
+
+            else
+                ValidationId = Int32.Parse(ddlBranchList.SelectedValue.ToString());
+
+            return ValidationId;
+        }
+
+        private void ddlBranchList_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ShowDatagridViewInfo();
+        }
+    }
+}

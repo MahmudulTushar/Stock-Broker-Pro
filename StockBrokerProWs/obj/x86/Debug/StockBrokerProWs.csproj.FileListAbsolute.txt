@@ -1,0 +1,4 @@
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\StockBrokerProWs\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\StockBrokerProWs\obj\x86\Debug\StockBrokerProWs.ProjectInstaller.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\StockBrokerProWs\obj\x86\Debug\StockBrokerProWs.StockBrokerProWs.resources
+D:\Shahrior Dev\22 March2015 SBP Source Code\21 March2015 SBP Source Code\17 March2015 SBP Source Code\StockBrokerProWs\obj\x86\Debug\StockBrokerProWs.csproj.GenerateResource.Cache

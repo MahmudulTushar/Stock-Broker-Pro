@@ -1,0 +1,374 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BusinessAccessLayer.BAL;
+using BusinessAccessLayer.BO;
+
+
+namespace StockbrokerProNewArch
+{
+    public partial class frm_TransactionBasedCharge : Form
+    {
+        private GlobalVariableBO.ModeSelection currentMode = GlobalVariableBO.ModeSelection.NewMode;
+        int chargeId = 0;
+        int chargeDetailsId = 0;
+        public frm_TransactionBasedCharge()
+        {
+            InitializeComponent();
+        }
+        private void ClearChargeAll()
+        {
+            txtChargeName.Text = "";
+            txtchargeDescription.Text = "";
+        }
+        
+        #region Charge Master
+        private void btnChargeNew_Click(object sender, EventArgs e)
+        {
+            currentMode = GlobalVariableBO.ModeSelection.NewMode;
+            btnChargeNew.Enabled = false;
+            btnChargeNew.BackColor = Color.Gray;
+            btnChargeUpdate.Enabled = true;
+            btnChargeUpdate.ResetBackColor();
+            ClearChargeAll();
+
+        }
+
+        private void btnChargeUpdate_Click(object sender, EventArgs e)
+        {
+            currentMode = GlobalVariableBO.ModeSelection.UpdateMode;
+            btnChargeUpdate.Enabled = false;
+            btnChargeUpdate.BackColor = Color.Gray;
+            btnChargeNew.Enabled = true;
+            btnChargeNew.ResetBackColor();
+            ClearChargeAll();
+            LoadDataForChargeInfoUpdate();
+        }
+        private void LoadDataForChargeInfoUpdate()
+        {
+            foreach (DataGridViewRow row in this.dgvChargeInfo.SelectedRows)
+            {
+                chargeId = Convert.ToInt32(dgvChargeInfo[0, row.Index].Value.ToString());
+                txtChargeName.Text = dgvChargeInfo[1, row.Index].Value.ToString();
+                txtchargeDescription.Text = dgvChargeInfo[2, row.Index].Value.ToString();
+            }
+        }
+
+        private void GetChargeInfoGridData()
+        {
+            ChargeInfoBAL objBAL = new ChargeInfoBAL();
+            DataTable datatable = objBAL.GetChargeInfoGridData();
+            dgvChargeInfo.DataSource = datatable;
+        }
+        private void btnChargeSave_Click(object sender, EventArgs e)
+        {
+            SaveChargeInfo();
+        }
+        private void ValidateInputData()
+        {
+            if (txtChargeName.Text.Trim() == string.Empty)
+            {
+                throw new Exception("Charge Name Required");
+            }
+        }
+        private void SaveChargeInfo()
+        {
+            try
+            {
+                ChargeInfoBO objBO = new ChargeInfoBO();
+                objBO.Charge_Name = txtChargeName.Text.Trim();
+                objBO.Charge_Desc = txtchargeDescription.Text.Trim();
+                ChargeInfoBAL objBAL = new ChargeInfoBAL();
+                switch (currentMode)
+                {
+                    case GlobalVariableBO.ModeSelection.NewMode:
+                        try
+                        {
+                            ValidateInputData();
+                            objBAL.SaveChargeInfo(objBO);
+                            GetChargeInfoGridData();
+                            ClearChargeAll();
+                            MessageBox.Show(" Charge Name has successfully saved.");
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("New  Charge Name save unsuccessful because of the error :" + ex.Message);
+                        }
+                        break;
+                    case GlobalVariableBO.ModeSelection.UpdateMode:
+                        try
+                        {
+                            objBAL.UpdateChargeInfo(objBO,chargeId);
+                            GetChargeInfoGridData();
+                            ClearChargeAll();
+                            MessageBox.Show(" Charge Name has successfully updated.");
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Update unsuccessful because of the error :" + ex.Message);
+                        }
+                        break;
+                    case GlobalVariableBO.ModeSelection.NoneMode:
+                        MessageBox.Show("You have select none mode.Please select a mode.");
+                        break;
+                }
+            }
+            catch (Exception exc)
+            {
+
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void btnChargeInfoDelete_Click(object sender, EventArgs e)
+        {
+            ChargeInfoBAL objBAL = new ChargeInfoBAL();
+
+            try
+            {
+                LoadDataForChargeInfoUpdate();
+                objBAL.DeleteChargeInfo(chargeId);
+                GetChargeInfoGridData();
+                ClearChargeAll();
+                chargeId = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void dgvChargeInfo_SelectionChanged(object sender, EventArgs e)
+        {
+            if (currentMode == GlobalVariableBO.ModeSelection.UpdateMode)
+            {
+                LoadDataForChargeInfoUpdate();
+            }
+        }
+        #endregion charge Master
+
+        
+        
+        private void frm_TransactionBasedCharge_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                GetChargeInfoGridData();
+                GetChargeDetailsInfoGridData();
+            }
+            catch
+            {
+            }
+        }
+        #region Charge Details
+        private void ClearChargeDetailsAll()
+        {
+            ddlChargeName.SelectedIndex = -1;
+            txtMinEffectiveAmount.Text = "";
+            txtChargeRate.Text = "";
+            txtChargeAmount.Text = "";
+        }
+        private void LoadChargeName()
+        {
+            ChargeInfoBAL objBAL = new ChargeInfoBAL();
+            DataTable datatable = objBAL.GetChargeName();
+            ddlChargeName.DataSource = datatable;
+            ddlChargeName.ValueMember = datatable.Columns[0].ToString();
+            ddlChargeName.DisplayMember = datatable.Columns[1].ToString();
+        }
+        private void ValidateChargeDetailsInputData()
+        {
+            if (ddlChargeName.Text.Trim() == string.Empty)
+            {
+                throw new Exception("Charge Name Required");
+            }
+            else if (txtMinEffectiveAmount.Text == string.Empty)
+            {
+                throw new Exception("Minimum Effective amount Required");
+            }
+            else if (txtChargeRate.Text == string.Empty)
+            {
+                throw new Exception("Charge Rate Required");
+            }
+            else if (txtMinEffectiveAmount.Text == string.Empty)
+            {
+                throw new Exception("Charge amount Required");
+            }
+        }
+        private void LoadDataForChargeDetailsInfoUpdate()
+        {
+            ChargeInfoBAL objBAL = new ChargeInfoBAL();
+            foreach (DataGridViewRow row in this.dgvChargeDetailsInfo.SelectedRows)
+            {
+                chargeDetailsId =Convert.ToInt32(dgvChargeDetailsInfo[0, row.Index].Value.ToString());
+
+                ddlChargeName.SelectedValue = txtChargeName.Text = dgvChargeDetailsInfo[1, row.Index].Value.ToString();
+               
+                txtMinEffectiveAmount.Text = dgvChargeDetailsInfo[3, row.Index].Value.ToString();
+                txtChargeRate.Text = dgvChargeDetailsInfo[4, row.Index].Value.ToString();
+                txtChargeAmount.Text = dgvChargeDetailsInfo[5, row.Index].Value.ToString();
+            }
+        }
+        private void GetChargeDetailsInfoGridData()
+        {
+            ChargeInfoBAL objBAL = new ChargeInfoBAL();
+            DataTable datatable = objBAL.GetChargeDetailsInfoGridData();
+            dgvChargeDetailsInfo.DataSource = datatable;
+        }
+        private void btnChargeDetailsNew_Click(object sender, EventArgs e)
+        {
+            currentMode = GlobalVariableBO.ModeSelection.NewMode;
+            btnChargeDetailsNew.Enabled = false;
+            btnChargeDetailsNew.BackColor = Color.Gray;
+            btnChargeDetailsUpdate.Enabled = true;
+            btnChargeDetailsUpdate.ResetBackColor();
+            ClearChargeDetailsAll();
+
+        }
+
+        private void btnChargeDetailsUpdate_Click(object sender, EventArgs e)
+        {
+            currentMode = GlobalVariableBO.ModeSelection.UpdateMode;
+            btnChargeDetailsUpdate.Enabled = false;
+            btnChargeDetailsUpdate.BackColor = Color.Gray;
+            btnChargeDetailsNew.Enabled = true;
+            btnChargeDetailsNew.ResetBackColor();
+            ClearChargeDetailsAll();
+            LoadDataForChargeDetailsInfoUpdate();
+        }
+
+        private void btnChargeDetailsSave_Click(object sender, EventArgs e)
+        {
+            SaveChargeDetailsInfo();
+        }
+        private void SaveChargeDetailsInfo()
+        {
+            try
+            {
+                ChargeInfoBO objBO = new ChargeInfoBO();
+                objBO.Charge_Name = ddlChargeName.Text.Trim();
+                objBO.ChargeId = Convert.ToInt32(ddlChargeName.SelectedValue);
+                objBO.Min_Effective_Amount = Convert.ToDouble(txtMinEffectiveAmount.Text.Trim());
+                objBO.Charge_Rate = Convert.ToDouble(txtChargeRate.Text.Trim());
+                objBO.Charge_Amount = Convert.ToDouble(txtChargeAmount.Text.Trim());
+                ChargeInfoBAL objBAL = new ChargeInfoBAL();
+                switch (currentMode)
+                {
+                    case GlobalVariableBO.ModeSelection.NewMode:
+                        try
+                        {
+                            ValidateChargeDetailsInputData();
+                            objBAL.SaveChargeDetailsInfo(objBO);
+                            GetChargeDetailsInfoGridData();
+                            ClearChargeDetailsAll();
+                            MessageBox.Show("Data successfully saved.");
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Save unsuccessful because of the error :" + ex.Message);
+                        }
+                        break;
+                    case GlobalVariableBO.ModeSelection.UpdateMode:
+                        try
+                        {
+                            objBAL.UpdateChargeDetailsInfo(objBO, chargeDetailsId);
+                            GetChargeDetailsInfoGridData();
+                            ClearChargeDetailsAll();
+                            MessageBox.Show(" Data successfully updated.");
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Update unsuccessful because of the error :" + ex.Message);
+                        }
+                        break;
+                    case GlobalVariableBO.ModeSelection.NoneMode:
+                        MessageBox.Show("You have select none mode.Please select a mode.");
+                        break;
+                }
+            }
+            catch (Exception exc)
+            {
+
+                MessageBox.Show(exc.Message);
+            }
+        }
+        private void btnBankBranchRoutingDelete_Click(object sender, EventArgs e)
+        {
+            ChargeInfoBAL objBAL = new ChargeInfoBAL();
+
+            try
+            {
+                LoadDataForChargeDetailsInfoUpdate();
+                objBAL.DeleteChargeDetailsInfo(chargeDetailsId);
+                GetChargeDetailsInfoGridData();
+                ClearChargeDetailsAll();
+                MessageBox.Show("Data Delete Successfull");
+                chargeDetailsId = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dgvChargeDetailsInfo_SelectionChanged(object sender, EventArgs e)
+        {
+            if (currentMode == GlobalVariableBO.ModeSelection.UpdateMode)
+            {
+                LoadDataForChargeDetailsInfoUpdate();
+            }
+        }
+        #endregion Charge Details
+
+        private void tabChargeInfo_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            try
+            {
+                if (tabChargeInfo.SelectedTab == tabChargeInfo.TabPages[0])
+                {
+                    currentMode = GlobalVariableBO.ModeSelection.NewMode;
+                }
+                if (tabChargeInfo.SelectedTab == tabChargeInfo.TabPages[1])
+                {
+                    currentMode = GlobalVariableBO.ModeSelection.NewMode;
+                    LoadChargeName();
+                }
+                
+            }
+            catch
+            {
+
+            }
+        }
+        private void ValidateNumber(object sender, KeyPressEventArgs e)
+        {
+            CommonBAL commonBal = new CommonBAL();
+            TextBox validateToTextBox = (TextBox)sender;
+            commonBal.NumberValidate(validateToTextBox.Text, e);
+        }
+        private void txtMinEffectiveAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateNumber(sender, e);
+        }
+
+        private void txtChargeRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateNumber(sender, e);
+        }
+
+        private void txtChargeAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ValidateNumber(sender, e);
+        }
+    }
+}

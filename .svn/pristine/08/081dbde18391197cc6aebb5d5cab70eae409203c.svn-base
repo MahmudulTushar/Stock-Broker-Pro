@@ -1,0 +1,197 @@
+﻿using System;
+using System.Data;
+using System.IO;
+using System.Windows.Forms;
+using BusinessAccessLayer.BAL;
+using System.Reflection;
+using System.Xml;
+using System.Linq;
+
+namespace StockbrokerProNewArch
+{
+    public partial class TradePriceUpload_FlexTrade : Form
+    {
+        public static DateTime tradeDate;
+        public string FileName;
+        public string FileLocation;
+        public DataTable PriceData;
+        
+        public TradePriceUpload_FlexTrade()
+        {
+            InitializeComponent();
+            PriceData = new DataTable();
+        }
+        private void UploadProcess()
+        {
+            DataTable tradepriceDataTable;
+            tradepriceDataTable = PriceData;// ProcessTradeFile(txtFileLocation.Text);
+            TradePriceBAL tradePriceBal = new TradePriceBAL();
+            tradePriceBal.TruncateTradePriceInfo();
+            tradePriceBal.SaveProcessedPriceTemp_ByInsertQuery(tradepriceDataTable);
+            tradePriceBal.Insert_Dealer_Trade_Price_Temp();
+        }
+        
+        private DataTable ProcessTradeFile(string filePath)
+        {
+            string lineText;
+            string[] tempValue;
+            char proChar = ',';
+            StreamReader streamReader = new StreamReader(filePath);
+            DataTable dataTable = new DataTable();
+            DataRow dataRow;
+            lineText = streamReader.ReadLine();
+            tempValue = lineText.Split(proChar);
+            for (int i = 0; i < tempValue.Length; ++i)
+            {
+                dataTable.Columns.Add(new DataColumn());
+            }
+
+            do
+            {
+                string[] values = lineText.Split(proChar);
+                dataRow = dataTable.NewRow();
+                dataRow.ItemArray = values;
+                dataTable.Rows.Add(dataRow);
+                lineText = streamReader.ReadLine();
+            } while (lineText != null);
+            return dataTable;
+        }
+
+
+        private void btnStartImport_Click(object sender, EventArgs e)
+        {
+            if (ValidateFeild())
+            {
+                try
+                {
+                    SetTradeFiles_FlexTrade();
+                    tradeDate = GetTradeDateFromFile_FlexTrade();
+                    CommonBAL commonBal = new CommonBAL();                     
+                    if (commonBal.IsUpload(tradeDate, "tradePrice"))
+                    {
+                        MessageBox.Show("These Data File has allready imported.");
+                        return;
+                    }
+                    else
+                    {
+                        UploadProcess();
+                        TradePriceProcess_FlexTrade tradePriceProcess = new TradePriceProcess_FlexTrade();
+                        //tradeFileProcess.MdiParent = this.Parent;
+                        tradePriceProcess.Show();
+                        this.Hide();
+                    }
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Error Occured." + exc.Message);
+                }
+                  
+            }
+        }
+     private bool ValidateFeild()
+        {
+            if (txtFileLocation.Text.Length.Equals(0))
+            {
+                MessageBox.Show("Trading Price File location is a required field.");
+                return false;
+            }
+            return true;
+        }
+
+     private void btnFileLocationBrowser_Click(object sender, EventArgs e)
+     {
+         if (ofdFileOpen.ShowDialog() == DialogResult.OK)
+         {
+             txtFileLocation.Text = ofdFileOpen.FileName;
+             FileName = ofdFileOpen.SafeFileName;
+             FileLocation = ofdFileOpen.FileName;
+         }
+         
+     }
+     private DateTime GetTradeDateFromFile_FlexTrade()
+     {
+         try
+         {
+             DateTime resultDate = new DateTime();
+
+             string dateString = FileName.Substring(0, 8);
+             DateTime FileNameDate = Convert.ToDateTime(dateString.Substring(0, 4)
+                                 + "-" + dateString.Substring(4, 2)
+                                 + "-" + dateString.Substring(6, 2));
+             //DateTime[] FileDate = PriceData.Rows.Cast<DataRow>()
+             //    .ToList().Select(t => Convert.ToDateTime(Convert.ToString(t["TradeDate"]))).Distinct().ToArray();
+
+             //if (FileDate.Length > 1)
+             //    throw new Exception("File Contain Two Date");
+             //if (FileNameDate == FileDate[0])
+                 resultDate = FileNameDate;
+
+             return resultDate;
+         }
+         catch (Exception ex)
+         {
+             throw new Exception(ex.Message);
+         }
+
+     }
+     private void SetTradeFiles_FlexTrade()
+     {
+
+         try
+         {
+             Assembly asm = Assembly.GetExecutingAssembly();
+             //string currentLocation = "C:\\e2eTechnology\\Stock Broker Pro\\Source Code\\Shahrior_SBP_Pro_22_Oct_2014\\Shahrior_SBP_Pro\\SBPXMLSchema";//asm.Location;
+             //string currentLocation = "D:\\Shahrior Dev\\Shahrior_SBP_Pro\\SBPXMLSchema";//asm.Location;
+             lbl_Test.Text = asm.Location;
+             //string currentLocation = Directory.GetCurrentDirectory();//asm.Location.Replace("Stock Broker Pro.exe","");
+             string currentLocation = "\\\\150.1.122.31\\Release For SBP\\SBPXsdFiles";
+             //string currentLocation = "C:\\SBPXMLFiles";
+             string fileLocation = FileLocation;
+
+             XmlDocument xDoc = new XmlDocument();
+             xDoc.Schemas.Add(null, currentLocation + "\\Flextrade-BOS-EODTickers.xsd");
+             //xDoc.Schemas.Add(null, "C:\\e2eTechnology\\Flex Trade\\Flex Trade\\140919 Flex XML schema 0.7.4\\Flextrade-BOS-Trades.xsd");
+             xDoc.Load(fileLocation);
+             xDoc.Validate(new System.Xml.Schema.ValidationEventHandler(SchemaValidation));
+
+             DataSet ds = new DataSet();
+             ds.ReadXml(new XmlNodeReader(xDoc));
+             TradeBAL bal = new TradeBAL();
+             DataTable tempDetails = ds.Tables["Ticker"];
+             DataTable Details = ds.Tables["Ticker"];
+             for (int i = 0; i < tempDetails.Rows.Count; i++)
+             {
+                 try
+                 {
+                     Details.Rows[i]["TradeDate"] = Convert.ToString(tempDetails.Rows[i]["TradeDate"]).Substring(0, 4)
+                         + "-" + Convert.ToString(tempDetails.Rows[i]["TradeDate"]).Substring(4, 2)
+                         + "-" + Convert.ToString(tempDetails.Rows[i]["TradeDate"]).Substring(6, 2);
+
+                     Details.Rows[i]["TradeTime"] = Convert.ToString(tempDetails.Rows[i]["TradeTime"]) == "-" ? "" : Convert.ToString(tempDetails.Rows[i]["TradeTime"]);
+                 }
+                 catch (Exception ex)
+                 {
+                     string tt = "kamal";
+                 }
+             }
+
+             PriceData = Details;
+         }
+         catch (Exception ex)
+         {
+             throw new Exception(ex.Message);
+         }
+
+     }
+
+     private void SchemaValidation(object obj, System.Xml.Schema.ValidationEventArgs erg)
+     {
+         if (erg.Exception != null)
+         {
+             throw new Exception("Schema Voilation: " + erg.Exception.Message);
+         }
+     }
+
+
+    }
+}

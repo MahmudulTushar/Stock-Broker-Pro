@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsZ_groupBuySellReport" targetNamespace="http://tempuri.org/dsZ_groupBuySellReport.xsd" xmlns:mstns="http://tempuri.org/dsZ_groupBuySellReport.xsd" xmlns="http://tempuri.org/dsZ_groupBuySellReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsZ_groupBuySellReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsZ_groupBuySellReport" msprop:Generator_DataSetName="dsZ_groupBuySellReport" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cust_Code" msprop:Generator_UserColumnName="Cust_Code" msprop:Generator_ColumnPropNameInRow="Cust_Code" msprop:Generator_ColumnVarNameInTable="columnCust_Code" msprop:Generator_ColumnPropNameInTable="Cust_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Comp_Short_Code" msprop:Generator_UserColumnName="Comp_Short_Code" msprop:Generator_ColumnPropNameInRow="Comp_Short_Code" msprop:Generator_ColumnVarNameInTable="columnComp_Short_Code" msprop:Generator_ColumnPropNameInTable="Comp_Short_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Buy" msprop:Generator_UserColumnName="Buy" msprop:Generator_ColumnVarNameInTable="columnBuy" msprop:Generator_ColumnPropNameInRow="Buy" msprop:Generator_ColumnPropNameInTable="BuyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Sell" msprop:Generator_UserColumnName="Sell" msprop:Generator_ColumnVarNameInTable="columnSell" msprop:Generator_ColumnPropNameInRow="Sell" msprop:Generator_ColumnPropNameInTable="SellColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalBuy" msprop:Generator_UserColumnName="TotalBuy" msprop:Generator_ColumnVarNameInTable="columnTotalBuy" msprop:Generator_ColumnPropNameInRow="TotalBuy" msprop:Generator_ColumnPropNameInTable="TotalBuyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalSell" msprop:Generator_UserColumnName="TotalSell" msprop:Generator_ColumnVarNameInTable="columnTotalSell" msprop:Generator_ColumnPropNameInRow="TotalSell" msprop:Generator_ColumnPropNameInTable="TotalSellColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Matured_Balance" msprop:Generator_UserColumnName="Matured_Balance" msprop:Generator_ColumnPropNameInRow="Matured_Balance" msprop:Generator_ColumnVarNameInTable="columnMatured_Balance" msprop:Generator_ColumnPropNameInTable="Matured_BalanceColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Balance" msprop:Generator_UserColumnName="Balance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Trade_Date" msprop:Generator_UserColumnName="Trade_Date" msprop:Generator_ColumnPropNameInRow="Trade_Date" msprop:Generator_ColumnVarNameInTable="columnTrade_Date" msprop:Generator_ColumnPropNameInTable="Trade_DateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="WorkStation" msprop:Generator_UserColumnName="WorkStation" msprop:Generator_ColumnPropNameInRow="WorkStation" msprop:Generator_ColumnVarNameInTable="columnWorkStation" msprop:Generator_ColumnPropNameInTable="WorkStationColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

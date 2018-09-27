@@ -1,0 +1,557 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using BusinessAccessLayer.BAL;
+using BusinessAccessLayer.BO;
+using System.Reflection;
+using System.Threading;
+using Reports;
+
+namespace StockbrokerProNewArch
+{
+    public partial class CashDividedMarginLoanAmountSettle : Form
+    {
+
+        #region Collection
+        private string CacheKey_Bank_Branch_Routing_Info_For_EFTCheckPayorderPaypal_Return = "CacheKey_Bank_Branch_Routing_Info_For_EFTCheckPayorderPaypal_Return";
+        private struct PaymentMethods
+        {
+            public string Cash;
+            public string Cash_Return;
+            public string Ecash;
+            public string Cheque;
+            public string Cheque_Return;
+            public string EFT;
+            public string EFT_Return;
+            public string PayOrder;
+            public string PayOrder_Return;
+            public string PayPal;
+            public string PayPal_Return;
+            public string TR;
+            // public string TR_Return;
+        };
+        private struct EnterIndexType
+        {
+            public string DipsitWithdraw;
+            public string PaymentMedia;
+            public string ControlName;
+            public Type T;
+            public int Index;
+        };
+        private struct TransactionType
+        {
+            public string Deposit;
+            public string Withdraw;
+        };
+
+        private readonly TransactionType depositWithdraw = new TransactionType { Deposit = "Deposit", Withdraw = "Withdraw" };
+        private readonly PaymentMethods payMethodsObj = new PaymentMethods { Cash = "Cash", Cash_Return = "Cash Return", Ecash = "Ecash", Cheque = "Cheque", Cheque_Return = "Cheque Return", EFT = "EFT", EFT_Return = "EFT Return", PayOrder = "Pay Order", PayOrder_Return = "Pay Order Return", PayPal = "Paypal", PayPal_Return = "Paypal Return", TR = "Transfer" };
+        private enum PaymentMedia { Cash, Cash_Return, Ecash, Cheque, Cheque_Return, EFT, EFT_Return, Pay_Order, Pay_Order_Return, Paypal, Paypal_Return, Transfer };
+
+        private Dictionary<string, object> PaymentForm_Cache = new Dictionary<string, object>();
+        #endregion Collection
+        private CashDividedMarginLoanBAL cashDividedMarginLoanBAL = new CashDividedMarginLoanBAL();
+        private CashDividedMarginLoanBO cashDividedMarginLoanBO = new CashDividedMarginLoanBO();
+        private List<string> PrevilizePaymentMedia = new List<string>();
+        public static bool IsProgressed;
+
+
+        public CashDividedMarginLoanAmountSettle()
+        {
+            InitializeComponent();
+        }
+
+        private void CashDividedMarginLoanAmountSettle_Load(object sender, EventArgs e)
+        {
+            btnReport.Visible = false;
+            CommonBAL cBAL = new CommonBAL();
+            LoadData();
+            //Resize();
+            //LoadDefaultPrevillize();
+            //Init();        
+            //GetPaymentEntryInfo();           
+         
+            LoadDefaultPrevillize();
+            LoadBank_Branch_Routing_Info();
+            ddlPaymentMedia.Text = payMethodsObj.Cash;
+            LoadPanel();
+
+            ddlDepositBankName.Text = "1";
+          
+        }
+
+        private void LoadBank_Branch_Routing_Info()
+        {
+            DataTable dtBankNameForEFT = new DataTable();
+            DataTable dtBankNameForPayOrderPaypalCheck = new DataTable();
+
+            DataTable dtBranchNameForEFT = new DataTable();
+            DataTable dtBranchNameForPayOrderPaypalCheck = new DataTable();
+
+            DataTable dtRoutingForEFT = new DataTable();
+            DataTable dtRoutingForPayOrderPaypalCheck = new DataTable();
+            Bank_Branch_ComboBAL paymentBAL = new Bank_Branch_ComboBAL();
+
+            dtRoutingForEFT = paymentBAL.GetRoutingInfo();
+
+            PaymentForm_Cache.Add(CacheKey_Bank_Branch_Routing_Info_For_EFTCheckPayorderPaypal_Return, dtRoutingForEFT);
+
+            ////----------------------For EFT Info--------------------//
+            //var EftBankDs = (PaymentForm_Cache.Where(t => t.Key == CacheKey_Bank_Branch_Routing_Info_For_EFTCheckPayorderPaypal_Return)
+            //    .Select(t => t.Value).SingleOrDefault() as DataTable).AsEnumerable()
+            //    .Select(t => new { Key_Dtl = t["Bank_ID"], Value_Dtl = t["Bank_Name"] }).GroupBy(t => t.Key_Dtl)
+            //    .Select(g => new { Key = g.Key, Value = Convert.ToString(g.Max(t => t.Value_Dtl)) }).ToList();
+
+            //var MaxLenBank = EftBankDs.Select(t => t.Value.Length).Max();
+
+
+            //ddlEftDepositBankName.ValueMember = "Key";
+            //ddlEftDepositBankName.DisplayMember = "Value";
+            //ddlEftDepositBankName.DataSource = EftBankDs;
+            //ddlEftDepositBankName.DropDownWidth = MaxLenBank * 7;
+
+            //var EftRoutingDs = (PaymentForm_Cache.Where(t => t.Key == CacheKey_Bank_Branch_Routing_Info_For_EFTCheckPayorderPaypal_Return)
+            //   .Select(t => t.Value).SingleOrDefault() as DataTable).AsEnumerable()
+            //   .Select(t => new { Key = Convert.ToString(t["Routing_No"]), Value = Convert.ToString(t["Routing_No"]) }).ToList();
+
+            //ddlEftDepositRoutingNo.ValueMember = "Key";
+            //ddlEftDepositRoutingNo.DisplayMember = "Value";
+            //ddlEftDepositRoutingNo.DataSource = EftRoutingDs;
+            //ddlEftDepositRoutingNo.SelectedIndex = -1;
+
+            //----------------------For Check Info--------------------//
+
+            var NonEftBankDs = (PaymentForm_Cache.Where(t => t.Key == CacheKey_Bank_Branch_Routing_Info_For_EFTCheckPayorderPaypal_Return)
+               .Select(t => t.Value).SingleOrDefault() as DataTable).AsEnumerable()
+               .Select(t => new { Key_Dtl = t["Bank_ID"], Value_Dtl = t["Bank_Name"] }).GroupBy(t => t.Key_Dtl)
+               .Select(g => new { Key = g.Key, Value = g.Max(t => t.Value_Dtl) }).ToList();
+
+
+            ddlDepositBankName.ValueMember = "Key";
+            ddlDepositBankName.DisplayMember = "Value";
+            ddlDepositBankName.DataSource = NonEftBankDs;
+
+            var NonEftRoutingDs = (PaymentForm_Cache.Where(t => t.Key == CacheKey_Bank_Branch_Routing_Info_For_EFTCheckPayorderPaypal_Return)
+                .Select(t => t.Value).SingleOrDefault() as DataTable).AsEnumerable()
+                .Select(t => new { Key = t["Routing_No"], Value = t["Routing_No"] }).ToList();
+
+            ddlDepositRoutingNo.ValueMember = "Key";
+            ddlDepositRoutingNo.DisplayMember = "Value";
+            ddlDepositRoutingNo.DataSource = NonEftRoutingDs;
+
+        }
+        public void LoadData()
+        {
+            dtgBankData.DataSource = cashDividedMarginLoanBAL.LoadDataforDeposit();
+            dtgBankData.Columns[0].Visible = false;
+        }
+        private void LoadDefaultPrevillize()
+        {
+            FieldInfo[] paymentMediaFields = payMethodsObj.GetType().GetFields(BindingFlags.Instance | BindingFlags.Public);
+            foreach (FieldInfo field in paymentMediaFields)
+            {
+                PrevilizePaymentMedia.Add(field.GetValue(payMethodsObj).ToString());
+            }
+            LoadDepositCombo();
+        }
+        public void LoadDepositCombo()
+        {
+            ddlPaymentMedia.Items.Clear();
+            if (PrevilizePaymentMedia.Count > 0)
+            {
+                foreach (string pMedia in PrevilizePaymentMedia)
+                {
+                    if ((pMedia == payMethodsObj.Cheque) || (pMedia == payMethodsObj.Cash) || (pMedia== payMethodsObj.EFT))
+                       ddlPaymentMedia.Items.Add(pMedia);
+                }
+            }
+           
+        }
+    
+       
+
+      
+       
+
+        private void ddlPaymentMedia_SelectedIndexChanged(object sender, EventArgs e)
+        {           
+            LoadPanel();
+        }
+
+        public void Clear()
+        {
+            ddlDepositBankName.Text = string.Empty;
+            ddlDepositBranchName.Text = string.Empty;
+            ddlDepositRoutingNo.Text = string.Empty;
+            txtDepositPaymentMedia.Text = string.Empty;
+            dtDepositPaymentMediaDate.Value = DateTime.Now;
+        }
+        public void LoadPanel()
+        {
+            if ((ddlPaymentMedia.Text == payMethodsObj.Cheque))
+            {
+                Clear();
+                gbPaymentInfo.Text = "Cheque Info";
+                ddlDepositBankName.Enabled = true;
+                ddlDepositBranchName.Enabled = true;
+                ddlDepositRoutingNo.Enabled = true;
+                txtDepositPaymentMedia.Enabled = true;
+                dtDepositPaymentMediaDate.Enabled = true;
+            }
+            else if ((ddlPaymentMedia.Text == payMethodsObj.Cash))
+            {
+                Clear();
+                gbPaymentInfo.Text = "Cash Info";
+                ddlDepositBankName.Enabled = false;
+                ddlDepositBranchName.Enabled = false;
+                ddlDepositRoutingNo.Enabled = false;
+                txtDepositPaymentMedia.Enabled = false;
+                dtDepositPaymentMediaDate.Enabled = false;
+            }
+            else if ((ddlPaymentMedia.Text == payMethodsObj.EFT))
+            {
+                Clear();
+                gbPaymentInfo.Text = "EFT Info";
+                ddlDepositBankName.Enabled = false;
+                ddlDepositBranchName.Enabled = false;
+                ddlDepositRoutingNo.Enabled = false;
+                txtDepositPaymentMedia.Enabled = false;
+                dtDepositPaymentMediaDate.Enabled = false;
+            }
+
+           
+        }
+        
+
+        private void dtgBankData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Thread thrd = new Thread(WaitWindow_Thread);
+            IsProgressed = true;
+            thrd.Start();
+            var selectedRows = dtgBankData.SelectedRows;
+            if (selectedRows.Count > 0)
+            {
+                cashDividedMarginLoanBO.CashDividedMarginLoanId = Convert.ToInt16(selectedRows[0].Cells["CashDividedofMarginLoanId"].Value);
+                cashDividedMarginLoanBO.PercentageCash = Convert.ToDecimal(selectedRows[0].Cells["Percentage"].Value.ToString());
+                cashDividedMarginLoanBO.FaceValue = Convert.ToDecimal(selectedRows[0].Cells["FaceValue"].Value.ToString());
+                cashDividedMarginLoanBO.MDName = selectedRows[0].Cells["MD_Name"].Value.ToString();
+                cashDividedMarginLoanBO.Address = selectedRows[0].Cells["Company_Address"].Value.ToString();
+                cashDividedMarginLoanBO.CompanyName = selectedRows[0].Cells["CompanyName"].Value.ToString();
+                cashDividedMarginLoanBO.RecordDate = Convert.ToDateTime(selectedRows[0].Cells["RecordDate"].Value.ToString());
+                cashDividedMarginLoanBO.PhoneNo = selectedRows[0].Cells["PhoneNo"].Value.ToString();
+                cashDividedMarginLoanBO.Email1 = selectedRows[0].Cells["Email1"].Value.ToString();
+                cashDividedMarginLoanBO.Email2 = selectedRows[0].Cells["Email2"].Value.ToString();
+                DataTable dt = cashDividedMarginLoanBAL.GetCashDividedData(cashDividedMarginLoanBO.RecordDate, Convert.ToDecimal(cashDividedMarginLoanBO.FaceValue), Convert.ToDecimal(cashDividedMarginLoanBO.PercentageCash), cashDividedMarginLoanBO.CompanyName);
+                dtAllCustCode.DataSource = dt;
+                dtAllCustCode.Columns[1].HeaderText = "CD Amt.";
+                dtAllCustCode.Columns[2].HeaderText = "Tax Amt.";
+                dtAllCustCode.Columns[3].HeaderText = "Aft Tax Amt.";
+                dtAllCustCode.Columns[4].HeaderText = "Frac Amt.";
+                dtAllCustCode.Columns[5].HeaderText = "Total Amt.";
+                dtAllCustCode.Columns[8].HeaderText = "Share Qty.";
+                
+                label3.Text = dt.Rows.Count.ToString();
+                decimal Amount = 0;
+                decimal TotalAmount = 0;
+                decimal TotalTaxAmount = 0;
+                decimal FractionAmount = 0;
+
+
+
+                int rowscount = dtAllCustCode.Rows.Count;
+
+                for (int i = 0; i < rowscount; i++)
+                {
+                    dtAllCustCode.Rows[i].Cells[5].Style.BackColor = Color.LightGray;      
+                    
+                }
+               
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Amount = Amount + Convert.ToDecimal(dr["Actual Balance"].ToString());
+                    TotalAmount = TotalAmount + Convert.ToDecimal(dr["Cash Dividend (Amount)"].ToString());
+                    TotalTaxAmount = TotalTaxAmount + Convert.ToDecimal(dr["Tax Balance"].ToString());
+                    if (!string.IsNullOrEmpty(dr["FractionAmount"].ToString()))
+                       FractionAmount = FractionAmount + Convert.ToDecimal(dr["FractionAmount"].ToString());
+                }
+                label4.Text = Amount.ToString();
+                label9.Text = TotalAmount.ToString();
+                label6.Text = TotalTaxAmount.ToString();
+                label12.Text = FractionAmount.ToString();
+                txtDepositVoucherNo.Text = "CD|" + cashDividedMarginLoanBO.CompanyName;
+            }
+            dtAllCustCode_SelectionChanged(sender, e);
+            IsProgressed = false;
+        }
+        private void WaitWindow_Thread()
+        {
+            WaitWindow waitWindow = new WaitWindow();
+            waitWindow.Show();
+            while (IsProgressed)
+            {
+                waitWindow.Refresh();
+            }
+            waitWindow.Close();
+        }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void LoadBankBranchByRoutingNo(string routingNo)
+        {
+            try
+            {
+                var BankID = (PaymentForm_Cache.Where(t => t.Key == CacheKey_Bank_Branch_Routing_Info_For_EFTCheckPayorderPaypal_Return)
+                .Select(t => t.Value).SingleOrDefault() as DataTable).AsEnumerable()
+                .Where(t => t["Routing_No"].ToString() == routingNo)
+                .Select(t => t["Bank_ID"]).SingleOrDefault();
+
+                var BranchID = (PaymentForm_Cache.Where(t => t.Key == CacheKey_Bank_Branch_Routing_Info_For_EFTCheckPayorderPaypal_Return)
+                            .Select(t => t.Value).SingleOrDefault() as DataTable).AsEnumerable()
+                            .Where(t => t["Routing_No"].ToString() == routingNo)
+                            .Select(t => t["Branch_ID"]).SingleOrDefault();
+
+                ddlDepositBankName.SelectedValue = BankID;
+                ddlDepositBranchName.SelectedValue = BranchID;
+            }
+            catch (Exception ex) { throw new Exception(ex.Message); }
+        }
+        private void ddlDepositBankName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int bankId = Convert.ToInt32(ddlDepositBankName.SelectedValue.ToString());
+                LoadNonEFTBranchInfoByBankId(bankId);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        private void LoadNonEFTBranchInfoByBankId(int bankId)
+        {
+            var dtbranch = (PaymentForm_Cache.Where(t => t.Key == CacheKey_Bank_Branch_Routing_Info_For_EFTCheckPayorderPaypal_Return)
+                           .Select(t => t.Value).SingleOrDefault() as DataTable).AsEnumerable().Where(t => Convert.ToInt32(t["Bank_ID"]) == bankId)
+                           .Select(t => new { Value = t["Branch_Name"] + "(" + t["Routing_No"] + ")", Key = Convert.ToInt32(t["Branch_ID"]) }).ToList();
+
+
+
+            var MaxLen = dtbranch.Select(t => t.Value.Length).Max();
+
+            ddlDepositBranchName.DataSource = dtbranch;
+            ddlDepositBranchName.ValueMember = "Key";
+            ddlDepositBranchName.DisplayMember = "Value";
+            ddlDepositBranchName.DropDownWidth = MaxLen * 7;
+
+        }
+        private void LoadBranchNameByBranchID(int branchId)
+        {
+            var routingNo = (PaymentForm_Cache.Where(t => t.Key == CacheKey_Bank_Branch_Routing_Info_For_EFTCheckPayorderPaypal_Return)
+                .Select(t => t.Value).SingleOrDefault() as DataTable).AsEnumerable()
+                .Where(t => Convert.ToInt32(t["Branch_ID"]) == branchId)
+                .Select(t => t["Routing_No"]).SingleOrDefault();
+            ddlDepositRoutingNo.SelectedValue = routingNo;
+        }
+       
+        private void ddlDepositBankName_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ddlDepositBankName.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+        }
+
+        private void ddlDepositRoutingNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string routingNo = string.Empty;
+            try
+            {
+                routingNo = ddlDepositRoutingNo.SelectedValue.ToString();
+                LoadBankBranchByRoutingNo(routingNo);
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void ddlDepositBranchName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int branchId = Convert.ToInt32(ddlDepositBranchName.SelectedValue.ToString());
+                LoadBranchNameByBranchID(branchId);
+            }
+            catch
+            {
+            }
+        }
+
+        private void ddlDepositBranchName_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                int branchId = Convert.ToInt32(ddlDepositBranchName.SelectedValue.ToString());
+                LoadBranchNameByBranchID(branchId);
+            }
+            catch
+            {
+            }
+        }
+
+       
+        private void dtAllCustCode_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //decimal balance = 0;
+            
+            //if (.Count > 0)
+            //{
+            //    balance = Convert.ToDecimal(selectedRows[0].Cells["Actual Balance"].Value.ToString());
+            //    balance = balance + balance;
+            //    label4.Text = balance.ToString();
+
+            //} 
+            //double a =0,b=0;
+            //foreach (DataGridViewRow r in dtAllCustCode.Rows)
+            //{
+            //    a = Convert.ToDouble(r.Cells[3].Value);
+            //    b = b + a;
+            //    label4.Text = b.ToString();
+            //}
+        }
+
+        private void dtAllCustCode_EditModeChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void dtAllCustCode_MultiSelectChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dtAllCustCode_SelectionChanged(object sender, EventArgs e)
+        {
+            double a = 0, b = 0;
+            foreach (DataGridViewRow r in dtAllCustCode.Rows)
+            {
+                a = Convert.ToDouble(r.Cells[5].Value);
+                b = b + a;
+                label4.Text = b.ToString();
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow r in dtAllCustCode.Rows)
+            {
+                PaymentInfoBO paymentInfoBo = new PaymentInfoBO();
+                Payment_PostingBO postBo = new Payment_PostingBO();
+                float floatTryParse;
+                paymentInfoBo.RecievedDate = dtvPaymentDate.Value;
+                paymentInfoBo.RecievedBy = GlobalVariableBO._userName;
+                paymentInfoBo.PaymentApprovedBy = GlobalVariableBO._userName;
+                paymentInfoBo.PaymentApprovedDate = dtvPaymentDate.Value;
+                paymentInfoBo.Remarks = "";
+                paymentInfoBo.CustCode = r.Cells[6].Value.ToString();
+                paymentInfoBo.PaymentMediaNo = txtDepositPaymentMedia.Text.Trim();
+                paymentInfoBo.PaymentMedia = ddlPaymentMedia.Text;
+                paymentInfoBo.Amount = Convert.ToDouble(r.Cells[5].Value.ToString());
+                paymentInfoBo.DepositWithdraw = "Deposit";
+               
+
+                if ((ddlPaymentMedia.Text == payMethodsObj.Cash) || (ddlPaymentMedia.Text == payMethodsObj.EFT))
+                {
+                    paymentInfoBo.VoucherSlNo = txtDepositVoucherNo.Text.Trim();
+                }
+                else if ((ddlPaymentMedia.Text == payMethodsObj.Cheque))
+                {
+                    //paymentInfoBo.IsMatureToday = Convert.ToInt32(chkMatureToday.Checked);
+                    paymentInfoBo.PaymentMediaNo = txtDepositPaymentMedia.Text.Trim();// txtPaymentMedia.Text;
+                    paymentInfoBo.PaymentMediaDate = dtDepositPaymentMediaDate.Value;// dtPaymentMediaDate.Value;
+                    paymentInfoBo.Bank_ID = Convert.ToInt32(ddlDepositBankName.SelectedValue.ToString());
+                    paymentInfoBo.BankName = ddlDepositBankName.Text;//txtBankName.Text;
+                    paymentInfoBo.Branch_ID = Convert.ToInt32(ddlDepositBranchName.SelectedValue.ToString());
+                    paymentInfoBo.BranchName = ddlDepositBranchName.Text;//txtBranchName.Text;
+                    paymentInfoBo.RoutingNo = ddlDepositRoutingNo.SelectedValue.ToString();
+                    paymentInfoBo.VoucherSlNo = txtDepositVoucherNo.Text.Trim();
+                }
+               
+                PaymentInfoBAL paymentInfoBal = new PaymentInfoBAL();
+                cashDividedMarginLoanBAL.InsertintoPaymentPosting(paymentInfoBo, postBo);
+                // Charge 
+                if (ddlPaymentMedia.Text == payMethodsObj.EFT && paymentInfoBo.Amount >= 50)
+                {
+                    paymentInfoBo.PaymentMedia = "Cash";
+                    paymentInfoBo.DepositWithdraw = "Withdraw";
+                    paymentInfoBo.Amount = 10;
+                    paymentInfoBo.VoucherSlNo = "CD|CHG|" + cashDividedMarginLoanBO.CompanyName;
+                    cashDividedMarginLoanBAL.InsertintoPaymentPosting(paymentInfoBo, postBo);
+                    cashDividedMarginLoanBAL.GetQueryString_InsertPayment_Charge("CD|CHG|" + cashDividedMarginLoanBO.CompanyName, 0, dtvPaymentDate.Value, r.Cells[6].Value.ToString());
+                    cashDividedMarginLoanBAL.GetQueryString_Deposit_InsertMoneyBalance("CD|CHG|" + cashDividedMarginLoanBO.CompanyName, dtvPaymentDate.Value);
+                    cashDividedMarginLoanBAL.GetQueryString_Insert_InterestPayment("CD|CHG|" + cashDividedMarginLoanBO.CompanyName, 0, dtvPaymentDate.Value, "Deposit", paymentInfoBo.CustCode + " To 99", r.Cells[6].Value.ToString());
+                    //cashDividedMarginLoanBAL.UpdateCashDividedMarginLoanDeposit(cashDividedMarginLoanBO);
+                }
+               
+            }
+            cashDividedMarginLoanBO.ReturnDate = dtvPaymentDate.Value;
+            cashDividedMarginLoanBAL.GetQueryString_InsertPayment(txtDepositVoucherNo.Text.Trim(), 0,dtvPaymentDate.Value);
+            cashDividedMarginLoanBAL.GetQueryString_Deposit_InsertMoneyBalance(txtDepositVoucherNo.Text.Trim(), dtvPaymentDate.Value);
+            cashDividedMarginLoanBAL.UpdateCashDividedMarginLoanDeposit(cashDividedMarginLoanBO);
+            MessageBox.Show("Payment Information Saved Successfully.", "Save Confirmation",  MessageBoxButtons.OK,MessageBoxIcon.Information);          
+            LoadData();
+            DataTable date = new DataTable();
+            dtAllCustCode.DataSource = date;
+            Clear();
+            BtnRefresh_Click(sender, e);
+
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {           
+            LoadPanel();
+            Clear();
+            LoadData();
+            label4.Text = "0";
+            label9.Text = "0";
+            label6.Text = "0";
+            label3.Text = "0";
+            label12.Text = "0";
+            txtDepositVoucherNo.Text = string.Empty;
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            DataTable dt = cashDividedMarginLoanBAL.GetCashDividedData(cashDividedMarginLoanBO.RecordDate, Convert.ToDecimal(cashDividedMarginLoanBO.FaceValue), Convert.ToDecimal(cashDividedMarginLoanBO.PercentageCash), cashDividedMarginLoanBO.CompanyName);
+            cr_CashDividedSatellmentReport CashDividedSatellmentReport = new cr_CashDividedSatellmentReport();
+            frmReportViewer view = new frmReportViewer();
+            CashDividedSatellmentReport.SetDataSource(dt);
+            //((TextObject)crCustShareBalance.ReportDefinition.Sections[1].ReportObjects["txtRecordDate"]).Text = rDate;
+            view.crvReportViewer.ReportSource = CashDividedSatellmentReport;
+            view.Show();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult myResult;
+            myResult = MessageBox.Show("Are you really delete the item?", "Delete Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (myResult == DialogResult.OK)
+            {
+                cashDividedMarginLoanBAL.UpdateCashDividedMarginLoanDeposit11(cashDividedMarginLoanBO);
+                MessageBox.Show("Data Delete Successfully.", "Delete Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
+                DataTable date = new DataTable();
+                dtAllCustCode.DataSource = date;
+                Clear();
+                BtnRefresh_Click(sender, e);
+            }
+        }
+
+
+
+    }
+}

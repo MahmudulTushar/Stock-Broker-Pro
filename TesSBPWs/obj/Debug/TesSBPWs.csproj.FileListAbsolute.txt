@@ -1,0 +1,7 @@
+D:\Shahrior Dev\Shahrior_SBP_Pro\TesSBPWs\bin\Debug\TesSBPWs.exe
+D:\Shahrior Dev\Shahrior_SBP_Pro\TesSBPWs\bin\Debug\TesSBPWs.pdb
+D:\Shahrior Dev\Shahrior_SBP_Pro\TesSBPWs\obj\Debug\ResolveAssemblyReference.cache
+D:\Shahrior Dev\Shahrior_SBP_Pro\TesSBPWs\obj\Debug\TesSBPWs.ProjectInstaller.resources
+D:\Shahrior Dev\Shahrior_SBP_Pro\TesSBPWs\obj\Debug\TesSBPWs.csproj.GenerateResource.Cache
+D:\Shahrior Dev\Shahrior_SBP_Pro\TesSBPWs\obj\Debug\TesSBPWs.exe
+D:\Shahrior Dev\Shahrior_SBP_Pro\TesSBPWs\obj\Debug\TesSBPWs.pdb

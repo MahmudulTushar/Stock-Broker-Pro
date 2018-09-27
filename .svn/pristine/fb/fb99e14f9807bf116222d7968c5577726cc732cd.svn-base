@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace BusinessAccessLayer.BO
+{
+    public class CustomerCommisionBO
+    {
+         private long _comID;
+        private int _groupId;
+        private float _groupCommRate;
+        private float _minComm;
+        private string _category;
+        private DateTime _effectiveFrom;
+
+        public CustomerCommisionBO()
+        {
+            _comID = 0;
+            _groupId = 0;
+            _groupCommRate = 0;
+            _category = "";
+            _minComm = 0;
+
+        }
+        public int GroupId
+        {
+            get { return _groupId; }
+            set { _groupId = value; }
+        }
+
+        public float GroupCommRate
+        {
+            get { return _groupCommRate; }
+            set { _groupCommRate = value; }
+        }
+
+        public DateTime EffectiveFrom
+        {
+            get { return _effectiveFrom; }
+            set { _effectiveFrom = value; }
+        }
+
+        public long CommID
+        {
+            get { return _comID; }
+            set { _comID = value; }
+        }
+
+        public float MinComm
+        {
+            get { return _minComm; }
+            set { _minComm = value; }
+        }
+
+        public string Category
+        {
+            get { return _category; }
+            set { _category = value; }
+        }
+    }
+}

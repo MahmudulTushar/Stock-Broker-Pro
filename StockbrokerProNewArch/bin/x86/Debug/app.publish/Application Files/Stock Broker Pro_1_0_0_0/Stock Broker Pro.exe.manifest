@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly manifestVersion="1.0" xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">
+  <asmv1:assemblyIdentity version="1.0.0.0" name="Stock Broker Pro.exe" publicKeyToken="119092d9d3ce312d" language="neutral" processorArchitecture="x86" type="win32" />
+  <description asmv2:iconFile="Stocks.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Stock Broker Pro" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="Stock Broker Pro.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet class="System.Security.PermissionSet" version="1" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- UAC Manifest Options
+            If you want to change the Windows User Account Control level replace the 
+            requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            If you want to utilize File and Registry Virtualization for backward 
+            compatibility then delete the requestedExecutionLevel node.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="2.0.50727.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Vbe.Interop" version="12.0.0.0" publicKeyToken="71E9BCE111E9429C" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="office" version="12.0.0.0" publicKeyToken="71E9BCE111E9429C" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="stdole" version="7.0.3300.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="System.Core" version="3.5.0.0" publicKeyToken="b77a5c561934e089" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="WindowsBase" version="3.0.0.0" publicKeyToken="31bf3856ad364e35" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BusinessAccessLayer.dll" size="2199040">
+      <assemblyIdentity name="BusinessAccessLayer" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>D3MTmAdOugrQG7fdxuHRegHZJDQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DataAccessLayer.dll" size="14336">
+      <assemblyIdentity name="DataAccessLayer" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>U6zwTjtPK40tO4oHzbVgdurKFbY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DseReports.dll" size="608256">
+      <assemblyIdentity name="DseReports" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>NfJBMpE92qVhlQipjmCokl9S1Ew=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ElectronicCommunication.dll" size="263680">
+      <assemblyIdentity name="ElectronicCommunication" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>f3FyB39tx6E84STYiKqGfPHOcM4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GridViewExtensions.dll" size="102400">
+      <assemblyIdentity name="GridViewExtensions" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>GkUDfPjHOyHnWpFahQVexanJKr0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GSMCommShared.dll" size="16384">
+      <assemblyIdentity name="GSMCommShared" version="1.10.0.0" publicKeyToken="515D87DF384DCC81" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>6fNi4k4fOaTU8f7s9XyUAXUIM2g=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GSMCommunication.dll" size="94208">
+      <assemblyIdentity name="GSMCommunication" version="1.10.0.0" publicKeyToken="515D87DF384DCC81" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>7Zz2+yRu0MXSupD7TYOR65Nfa6U=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="itextsharp.dll" size="3518464">
+      <assemblyIdentity name="itextsharp" version="5.0.6.0" publicKeyToken="8354AE6D2174DDCA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>0KTddpn/bU15ZGVsnystVkJf+do=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Office.Interop.Excel.dll" size="1100392">
+      <assemblyIdentity name="Microsoft.Office.Interop.Excel" version="11.0.0.0" publicKeyToken="71E9BCE111E9429C" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>F9KcWGdatx3NMdBih72kWn9Kyzk=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Vbe.Interop.dll" size="64088">
+      <assemblyIdentity name="Microsoft.Vbe.Interop" version="11.0.0.0" publicKeyToken="71E9BCE111E9429C" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>TYuB9hyuoYvM3Fgsjd+TSTdMLbY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MySql.Data.dll" size="217088">
+      <assemblyIdentity name="MySql.Data" version="1.0.10.1" publicKeyToken="C5687FC88969C44D" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>H3wN5lNFzqkoqeFqyCI93KNT8as=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="office.dll" size="223800">
+      <assemblyIdentity name="office" version="11.0.0.0" publicKeyToken="71E9BCE111E9429C" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>qLZAFskrUjHV/TFbvevZR7hSGP4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PDUConverter.dll" size="61440">
+      <assemblyIdentity name="PDUConverter" version="1.10.0.0" publicKeyToken="515D87DF384DCC81" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>mvullg2JyulhA4CRahCHWI0ua2g=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Reports.dll" size="11846144">
+      <assemblyIdentity name="Reports" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>NJBMIN6oI1QO3iMEDOZg3vXYtws=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RS232.dll" size="28672">
+      <assemblyIdentity name="RS232" version="1.24.0.0" publicKeyToken="515D87DF384DCC81" language="neutral" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>PNy5q9mPJJbhrwDDtCgmo5RMJis=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SBPXMLSchema.dll" size="63488">
+      <assemblyIdentity name="SBPXMLSchema" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>bsQTVAgip41xmQbzG2wkvw2if1I=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Stock Broker Pro.exe" size="5696000">
+      <assemblyIdentity name="Stock Broker Pro" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>LQv/+KV0S2CmsDvmvNS623lyEt0=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ZedGraph.dll" size="303104">
+      <assemblyIdentity name="ZedGraph" version="5.0.9.41461" publicKeyToken="02A83CBD123FCD60" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>lKLtz6CBmh5m4cMu/IjILYapIco=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Stock Broker Pro.exe.config" size="2172">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>+S/b1MIjCKhB1FMB7ZBUStx22Uo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Stocks.ico" size="97566">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>FM//axDlL/MNYCMW5T1OspySi/Q=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=KSCL03-PC\KSCL03" issuerKeyHash="fde879bdad5d751b340f6ddb87ec317a61326ba0" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>HwRUZGifHm2QHPMC3SsZu4EaAu0=</DigestValue></Reference></SignedInfo><SignatureValue>jG7ejBuFej1FZfBYw+ZVGsjVMiQ9T8IOV0MCDxIBiMuC42rC/xawwiYyrWwdUEgnJGK4hivlrb8nScdkNMg4kKk8/1yXGCN2Zc6WJToT4k9i2ySzLdFIf0hwY5367g0GcsxueKPDxrIdiXVPF7BDTFytevzjRVUgv08krcb+j1U=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>wuHmFXsaNT++IhNetYJS0nd27DDP1HfpBXyFHDjvEgsLQxo+Uen/jo7YyKvTSBavMGy5yRLcnIo3XnAmNGH9EV4zwYEwpRanU1P7Rl5A0TAax0/l9b44bU6q7LVwplh+5BCdzUNYvwFftL+VflZvKoQZpq1MAS9uA2GvlHtAdbM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="ed021a81bb192bdd02f31c906d1e9f686454041f" Description="" Url=""><as:assemblyIdentity version="1.0.0.0" name="Stock Broker Pro.exe" publicKeyToken="119092d9d3ce312d" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=KSCL03-PC\KSCL03</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>P4Kgqw1M+ae7LRSLVljH7MX/Vms=</DigestValue></Reference></SignedInfo><SignatureValue>MNg1O+mkyoH9G0LJNi+vNcnprn0wSFZ5XOLM+D2OP+DHn3ZgjAzR/v+nhnbbj4hsPLxtlaPwHhi/CgWYE389ZM2nyTQpT9RR/RP66zFDE+rk/LfbWyjc/HILx+MT32gDrbTDsC19ipd6gQIWJ5PBoBB9ESd8B5N0PrZjiAMgPIY=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>wuHmFXsaNT++IhNetYJS0nd27DDP1HfpBXyFHDjvEgsLQxo+Uen/jo7YyKvTSBavMGy5yRLcnIo3XnAmNGH9EV4zwYEwpRanU1P7Rl5A0TAax0/l9b44bU6q7LVwplh+5BCdzUNYvwFftL+VflZvKoQZpq1MAS9uA2GvlHtAdbM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUKgAwIBAgIQe0SQkoU3qrtBM8movx1EwDANBgkqhkiG9w0BAQUFADArMSkwJwYDVQQDHiAASwBTAEMATAAwADMALQBQAEMAXABLAFMAQwBMADAAMzAeFw0xNTA1MTIwNDM3MjZaFw0xNjA1MTExMDM3MjZaMCsxKTAnBgNVBAMeIABLAFMAQwBMADAAMwAtAFAAQwBcAEsAUwBDAEwAMAAzMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDC4eYVexo1P74iE161glLSd3bsMM/Ud+kFfIUcOO8SCwtDGj5R6f+OjtjIq9NIFq8wbLnJEtycijdecCY0Yf0RXjPBgTClFqdTU/tGXkDRMBrHT+X1vjhtTqrstXCmWH7kEJ3NQ1i/AV+0v5V+Vm8qhBmmrUwBL24DYa+Ue0B1swIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAEVgCVjhmWyYrRmIW9kcUDCL97DCuxbFXPwiiqfisP6sbF8ysPikTybXOpl+RGmA3F7eEQm5cxosg0SZAfjJFRyRVU6/uU/e0QoTahNXXaVNvifM/GWYP1WNfPyHnZ7IPPjF0Rb5CCw+Vh8QxypKrkE9XYym86Lp8gyto28IEKeh</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
