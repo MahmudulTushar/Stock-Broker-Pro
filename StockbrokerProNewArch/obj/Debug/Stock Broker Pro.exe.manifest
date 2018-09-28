@@ -81,7 +81,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>p7v7/2jl3S/Afjkb/LtBL7k26L0=</dsig:DigestValue>
+        <dsig:DigestValue>T3JAJjpUTD4YKW1L+d3kNBHHXV0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -93,7 +93,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>3hRccw41hh5KgdiOKgyNKZkayAg=</dsig:DigestValue>
+        <dsig:DigestValue>FFHXmqesghYi5vvvg5FOnKSXTX0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -105,7 +105,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yx45h9bovnoWIHi/+JnDVYi0tHY=</dsig:DigestValue>
+        <dsig:DigestValue>1z4663nTUgJCbKCdna3AUly7jiU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -117,7 +117,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>10++cGrUs4bdqy9tuCZ2oILoa5A=</dsig:DigestValue>
+        <dsig:DigestValue>O/EuJ9L3aJka2wKhdRFVkKXB27k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -129,7 +129,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>3J7ixcsXv88aR59w4istVVR9Hdg=</dsig:DigestValue>
+        <dsig:DigestValue>H8rXNfdDoWHlt8Xek0Eqj1W69Uc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -290,14 +290,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Reports.dll" size="28578304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Reports.dll" size="28577792">
       <assemblyIdentity name="Reports" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>v8cfVamaRyLkbF9Zl5lw1vI2Fjc=</dsig:DigestValue>
+        <dsig:DigestValue>qjx8vg+Z3nhUFlIHZR7chREL7Vw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -314,14 +314,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SBPXMLSchema.dll" size="63488">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SBPXMLSchema.dll" size="64000">
       <assemblyIdentity name="SBPXMLSchema" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>+aNaOBnAYxW+qpdlreF4qp/5g/I=</dsig:DigestValue>
+        <dsig:DigestValue>80hEkajCtdRj6h2ZUgDuuAv/Pmo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -338,14 +338,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Stock Broker Pro.exe" size="9405952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Stock Broker Pro.exe" size="9406464">
       <assemblyIdentity name="Stock Broker Pro" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>JuNYT5woSlRaoxbVpKBsuV34JaI=</dsig:DigestValue>
+        <dsig:DigestValue>JcteThuh1TlVjrG+YMZvZN8utis=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

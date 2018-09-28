@@ -1417,3 +1417,16 @@ D:\KSecurities\Rezaul_SVN\SBPXMLSchema\obj\Debug\SBPXMLSchema.Properties.Resourc
 D:\KSecurities\Rezaul_SVN\SBPXMLSchema\obj\Debug\SBPXMLSchema.csproj.GenerateResource.Cache
 D:\KSecurities\Rezaul_SVN\SBPXMLSchema\obj\Debug\SBPXMLSchema.dll
 D:\KSecurities\Rezaul_SVN\SBPXMLSchema\obj\Debug\SBPXMLSchema.pdb
+D:\Project\Stock-Broker\SBPXMLSchema\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\Stock-Broker\SBPXMLSchema\obj\Debug\SBPXMLSchema.g.resources
+D:\Project\Stock-Broker\SBPXMLSchema\obj\Debug\SBPXMLSchema.Properties.Resources.resources
+D:\Project\Stock-Broker\SBPXMLSchema\obj\Debug\SBPXMLSchema.csproj.GenerateResource.Cache
+D:\Project\Stock-Broker\SBPXMLSchema\bin\Debug\SBPXMLSchema.dll
+D:\Project\Stock-Broker\SBPXMLSchema\bin\Debug\SBPXMLSchema.pdb
+D:\Project\Stock-Broker\SBPXMLSchema\bin\Debug\BusinessAccessLayer.dll
+D:\Project\Stock-Broker\SBPXMLSchema\bin\Debug\MySql.Data.dll
+D:\Project\Stock-Broker\SBPXMLSchema\bin\Debug\DataAccessLayer.dll
+D:\Project\Stock-Broker\SBPXMLSchema\bin\Debug\BusinessAccessLayer.pdb
+D:\Project\Stock-Broker\SBPXMLSchema\bin\Debug\DataAccessLayer.pdb
+D:\Project\Stock-Broker\SBPXMLSchema\obj\Debug\SBPXMLSchema.dll
+D:\Project\Stock-Broker\SBPXMLSchema\obj\Debug\SBPXMLSchema.pdb

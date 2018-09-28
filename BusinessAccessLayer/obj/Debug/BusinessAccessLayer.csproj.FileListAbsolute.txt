@@ -1118,3 +1118,10 @@ D:\KSecurities\Rezaul_SVN\BusinessAccessLayer\bin\Debug\DataAccessLayer.pdb
 D:\KSecurities\Rezaul_SVN\BusinessAccessLayer\obj\Debug\ResolveAssemblyReference.cache
 D:\KSecurities\Rezaul_SVN\BusinessAccessLayer\obj\Debug\BusinessAccessLayer.dll
 D:\KSecurities\Rezaul_SVN\BusinessAccessLayer\obj\Debug\BusinessAccessLayer.pdb
+D:\Project\Stock-Broker\BusinessAccessLayer\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\Stock-Broker\BusinessAccessLayer\bin\Debug\BusinessAccessLayer.dll
+D:\Project\Stock-Broker\BusinessAccessLayer\bin\Debug\BusinessAccessLayer.pdb
+D:\Project\Stock-Broker\BusinessAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Project\Stock-Broker\BusinessAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Project\Stock-Broker\BusinessAccessLayer\obj\Debug\BusinessAccessLayer.dll
+D:\Project\Stock-Broker\BusinessAccessLayer\obj\Debug\BusinessAccessLayer.pdb

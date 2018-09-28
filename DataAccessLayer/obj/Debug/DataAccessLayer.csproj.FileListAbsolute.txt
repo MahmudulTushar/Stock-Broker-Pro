@@ -704,3 +704,8 @@ D:\KSecurities\Rezaul_SVN\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
 D:\KSecurities\Rezaul_SVN\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
 D:\KSecurities\Rezaul_SVN\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\KSecurities\Rezaul_SVN\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\Project\Stock-Broker\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Project\Stock-Broker\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Project\Stock-Broker\DataAccessLayer\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\Stock-Broker\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Project\Stock-Broker\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
